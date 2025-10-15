@@ -87,6 +87,7 @@ h1, h2, h3, h4, h5, h6, strong, b {
 </head>
 
 <body>
+  
     {{-- ===== Header Section ===== --}}
     @include('includes.header')
         {{-- ===== Main Content ===== --}}

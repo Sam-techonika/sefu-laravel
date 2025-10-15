@@ -1,11 +1,4 @@
 <div>
-    <div id="preloader">
-        <div class="preloader">
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-
     <div class="body-overlay"></div>
     <!-- slide-bar end -->
     <main>

@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-xl-4 col-lg-3 col-md-6 col-sm-6">
                          <div class="logo">
-                            <a class="logo-img" href="index.html">
+                            <a class="logo-img"  wire:navigate href="index.html">
                             <img
                             class="logo-1"
                             src="assets/img/logo/logo2.png"
@@ -46,16 +46,16 @@
                                 <div class="main-menu main-menu-3 mr-80 mr-lg-0 mr-md-0 mr-xs-0 d-none d-lg-block">
                                     <nav>
                                         <ul>
-                                            <li><a class="active" href="{{ route('home') }}">Home</i></a>  
+                                            <li><a class="active"  wire:navigate href="{{ route('home') }}">Home</i></a>  
                                             </li>
-                                             <li><a href="{{ route('about') }}">About Us</a></li>
-                                            <li><a href="{{ route('service') }}">Our Services</a></li>
-                                            <li><a href="{{ route('contact') }}">Contacts Us</a></li>
+                                             <li><a  wire:navigate href="{{ route('about') }}">About Us</a></li>
+                                            <li><a  wire:navigate href="{{ route('service') }}">Our Services</a></li>
+                                            <li><a  wire:navigate href="{{ route('contact') }}">Contacts Us</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                                 <div class="hamburger-menu d-md-block d-lg-none text-right">
-                                    <a href="javascript:void(0);">
+                                    <a  wire:navigate href="javascript:void(0);">
                                         <i class="far fa-bars"></i>
                                     </a>
                                 </div>
@@ -69,17 +69,17 @@
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
                                         <ul class="ct-language_dropdown">
-                                            <li><a href="#">Arabic</a></li>
-                                            <li><a href="#">German</a></li>
-                                            <li><a href="#">Spanish</a></li>
-                                            <li><a href="#">China</a></li>
-                                            <li><a href="#">Italy</a></li>
-                                            <li><a href="#">USA</a></li>
+                                            <li><a  wire:navigate href="#">Arabic</a></li>
+                                            <li><a  wire:navigate href="#">German</a></li>
+                                            <li><a  wire:navigate href="#">Spanish</a></li>
+                                            <li><a  wire:navigate href="#">China</a></li>
+                                            <li><a  wire:navigate href="#">Italy</a></li>
+                                            <li><a  wire:navigate href="#">USA</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="quote-btn d-none d-md-block ml-20">
-                                    <a href="contact.html" class="theme_btn theme_btn3">Get a quote <i class="far fa-chevron-right"></i></a>
+                                    <a  wire:navigate href="contact.html" class="theme_btn theme_btn3">Get a quote <i class="far fa-chevron-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -93,13 +93,13 @@
     <!-- slide-bar start -->
     <aside class="slide-bar">
         <div class="close-mobile-menu">
-            <a href="javascript:void(0);"><i class="fas fa-times"></i></a>
+            <a  wire:navigate href="javascript:void(0);"><i class="fas fa-times"></i></a>
         </div>
 
         <!-- offset-sidebar start -->
         <div class="offset-sidebar">
             <div class="offset-widget offset-logo mb-30">
-                <a href="index.html">
+                <a  wire:navigate href="index.html">
                     <img src="assets/img/logo/header_logo_one.png" alt="logo">
                 </a>
             </div>
@@ -111,7 +111,7 @@
                         was born and will give you a complete account of the system and expound the actual teachings of
                         the great explore
                     </p>
-                    <a class="theme_btn theme_btn_bg" href="contact.html">Contact Us</a>
+                    <a class="theme_btn theme_btn_bg"  wire:navigate href="contact.html">Contact Us</a>
                 </div>
             </div>
             <div class="offset-widget mb-30 pr-10">
@@ -129,11 +129,11 @@
          <nav class="side-mobile-menu">
             <ul id="mobile-menu-active">
                 <li>
-                    <a href="{{ route('home') }}">Home</a>
+                    <a  wire:navigate href="{{ route('home') }}">Home</a>
                 </li>
-                <li><a href="{{ route('about') }}">About Us</a></li>
-                <li><a href="{{ route('service') }}">Our Services</a></li>
-                <li><a href="{{ route('contact') }}">Contacts Us</a></li>
+                <li><a  wire:navigate href="{{ route('about') }}">About Us</a></li>
+                <li><a  wire:navigate href="{{ route('service') }}">Our Services</a></li>
+                <li><a  wire:navigate href="{{ route('contact') }}">Contacts Us</a></li>
             </ul>
         </nav>
         <!-- side-mobile-menu end -->
