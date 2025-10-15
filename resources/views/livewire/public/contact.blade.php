@@ -80,5 +80,6 @@
                     </div>
                 </div>
             </div>
-        </section></div>
-@endcomponent
+        </section>
+    </div>
+
