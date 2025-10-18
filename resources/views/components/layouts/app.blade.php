@@ -43,7 +43,7 @@
   src: url('{{ asset("assets/fonts/CircularStd-Medium.woff2") }}') format("woff2"),
        url('{{ asset("assets/fonts/CircularStd-Medium.woff") }}') format("woff"),
        url('{{ asset("assets/fonts/CircularStd-Medium.ttf") }}') format("truetype");
-  font-weight: 500;
+  font-weight: 900;
   font-style: normal;
 }
 

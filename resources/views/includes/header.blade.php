@@ -11,8 +11,7 @@
                                     class="logo-1 mt-1"
                                     src="{{ asset('assets/img/logo/logo2.png') }}"
                                     alt="Logo"
-                                    style="height: 40px; width: auto;"
-                                >
+                                    style="height: 40px; width: auto;">
                             </a>
                         </div>
                     </div>
@@ -50,38 +49,44 @@
                                     <nav>
                                         <ul>
                                             <li>
-                                                <a 
-                                                    wire:navigate 
-                                                    href="{{ route('home') }}" 
-                                                    class="{{ request()->routeIs('home') ? 'active' : '' }}"
-                                                >
+                                                <a
+                                                    wire:navigate
+                                                    href="{{ route('home') }}"
+                                                    class="{{ request()->routeIs('home') ? 'active' : '' }}">
                                                     Home
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a 
-                                                    wire:navigate 
-                                                    href="{{ route('about') }}" 
-                                                    class="{{ request()->routeIs('about') ? 'active' : '' }}"
-                                                >
-                                                    About Us
+
+                                            <!-- Dropdown Menu Example -->
+                                            <li class="has-dropdown">
+                                                <a href="javascript:void(0);">
+                                                    Pages <i class="far fa-chevron-down"></i>
                                                 </a>
+                                                <ul class="submenu">
+                                                    <li><a wire:navigate href="{{ route('about') }}">About Us</a></li>
+                                                    <li><a wire:navigate href="{{ route('service') }}">Our Services</a></li>
+                                                    <li><a wire:navigate href="{{ route('contact') }}">Contact Us</a></li>
+                                                    <li><a wire:navigate href="#">FAQ</a></li>
+                                                    <li><a wire:navigate href="#">Team</a></li>
+                                                </ul>
                                             </li>
-                                            <li>
-                                                <a 
-                                                    wire:navigate 
-                                                    href="{{ route('service') }}" 
-                                                    class="{{ request()->routeIs('service') ? 'active' : '' }}"
-                                                >
-                                                    Our Services
+
+                                              <li class="has-dropdown">
+                                                <a href="javascript:void(0);">
+                                                    Package <i class="far fa-chevron-down"></i>
                                                 </a>
+                                                <ul class="submenu" style="min-width: 220px;">
+                                                    <li><a wire:navigate href="{{ route('registration.local') }}">Company Registration For Locals</a></li>
+                                                    <li><a wire:navigate href="{{ route('registration.foriegn') }}">Compare Plan Foreign National</a></li>
+                                                    <li><a wire:navigate href="#">Trademark Registration</a></li>
+                                                </ul>
                                             </li>
+
                                             <li>
-                                                <a 
-                                                    wire:navigate 
-                                                    href="{{ route('contact') }}" 
-                                                    class="{{ request()->routeIs('contact') ? 'active' : '' }}"
-                                                >
+                                                <a
+                                                    wire:navigate
+                                                    href="{{ route('contact') }}"
+                                                    class="{{ request()->routeIs('contact') ? 'active' : '' }}">
                                                     Contact Us
                                                 </a>
                                             </li>
@@ -91,7 +96,7 @@
 
                                 <!-- Mobile Menu Toggle -->
                                 <div class="hamburger-menu d-md-block d-lg-none text-right">
-                                    <a wire:navigate href="javascript:void(0);">
+                                    <a href="javascript:void(0);">
                                         <i class="far fa-bars"></i>
                                     </a>
                                 </div>
@@ -135,10 +140,9 @@
     <!-- Slide-bar / Mobile Menu -->
     <aside class="slide-bar">
         <div class="close-mobile-menu">
-            <a wire:navigate href="javascript:void(0);"><i class="fas fa-times"></i></a>
+            <a href="javascript:void(0);"><i class="fas fa-times"></i></a>
         </div>
 
-        <!-- Offset Sidebar -->
         <div class="offset-sidebar">
             <div class="offset-widget offset-logo mb-30">
                 <a wire:navigate href="{{ route('home') }}">
@@ -169,45 +173,24 @@
         <!-- Mobile Menu -->
         <nav class="side-mobile-menu">
             <ul id="mobile-menu-active">
-                <li>
-                    <a 
-                        wire:navigate 
-                        href="{{ route('home') }}" 
-                        class="{{ request()->routeIs('home') ? 'active' : '' }}"
-                    >
-                        Home
-                    </a>
+                <li><a wire:navigate href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="javascript:void(0);">Pages</a>
+                    <ul class="submenu">
+                        <li><a wire:navigate href="{{ route('about') }}">About Us</a></li>
+                        <li><a wire:navigate href="{{ route('service') }}">Our Services</a></li>
+                        <li><a wire:navigate href="{{ route('contact') }}">Contact Us</a></li>
+                    </ul>
                 </li>
-                <li>
-                    <a 
-                        wire:navigate 
-                        href="{{ route('about') }}" 
-                        class="{{ request()->routeIs('about') ? 'active' : '' }}"
-                    >
-                        About Us
-                    </a>
-                </li>
-                <li>
-                    <a 
-                        wire:navigate 
-                        href="{{ route('service') }}" 
-                        class="{{ request()->routeIs('service') ? 'active' : '' }}"
-                    >
-                        Our Services
-                    </a>
-                </li>
-                <li>
-                    <a 
-                        wire:navigate 
-                        href="{{ route('contact') }}" 
-                        class="{{ request()->routeIs('contact') ? 'active' : '' }}"
-                    >
-                        Contact Us
-                    </a>
+                <li class="has-dropdown">
+                    <a href="javascript:void(0);">Blog</a>
+                    <ul class="submenu">
+                        <li><a wire:navigate href="#">Blog Grid</a></li>
+                        <li><a wire:navigate href="#">Blog Standard</a></li>
+                        <li><a wire:navigate href="#">Blog Details</a></li>
+                    </ul>
                 </li>
             </ul>
         </nav>
     </aside>
 </div>
-
-
