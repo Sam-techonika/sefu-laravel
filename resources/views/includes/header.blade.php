@@ -60,7 +60,7 @@
                                             <!-- Dropdown Menu Example -->
                                             <li class="has-dropdown">
                                                 <a href="javascript:void(0);">
-                                                    Pages <i class="far fa-chevron-down"></i>
+                                                    Explore <i class="far fa-chevron-down"></i>
                                                 </a>
                                                 <ul class="submenu">
                                                     <li><a wire:navigate href="{{ route('about') }}">About Us</a></li>
@@ -71,14 +71,14 @@
                                                 </ul>
                                             </li>
 
-                                              <li class="has-dropdown">
+                                            <li class="has-dropdown">
                                                 <a href="javascript:void(0);">
                                                     Package <i class="far fa-chevron-down"></i>
                                                 </a>
                                                 <ul class="submenu" style="min-width: 220px;">
                                                     <li><a wire:navigate href="{{ route('registration.local') }}">Company Registration For Locals</a></li>
                                                     <li><a wire:navigate href="{{ route('registration.foriegn') }}">Compare Plan Foreign National</a></li>
-                                                    <li><a wire:navigate href="#">Trademark Registration</a></li>
+                                                    <li><a wire:navigate href="{{ route('registration.trade-registration')}}">Trademark Registration</a></li>
                                                 </ul>
                                             </li>
 
@@ -88,6 +88,14 @@
                                                     href="{{ route('contact') }}"
                                                     class="{{ request()->routeIs('contact') ? 'active' : '' }}">
                                                     Contact Us
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    wire:navigate
+                                                    href="{{ route('blogs') }}"
+                                                    class="{{ request()->routeIs('blog') ? 'active' : '' }}">
+                                                    Blogs
                                                 </a>
                                             </li>
                                         </ul>
@@ -126,7 +134,7 @@
                                 <!-- Quote Button -->
                                 <div class="quote-btn d-none d-md-block ml-20">
                                     <a wire:navigate href="{{ route('contact') }}" class="theme_btn theme_btn3">
-                                        Get a quote <i class="far fa-chevron-right"></i>
+                                        Contact Us<i class="far fa-chevron-right"></i>
                                     </a>
                                 </div>
                             </div>

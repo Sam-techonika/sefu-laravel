@@ -6,7 +6,7 @@
                         <div class="footer__widget fot_widget_h3 text-center text-md-left pos-rel mb-30">
                             <div class="footer-log mb-40">
                                 <a href="index.html" class="logo">
-                                    <img src="assets/img/logo/header_logo_three.svg" alt="">
+                                    <img src="{{ asset('assets/img/logo/header_logo_three.svg') }}" alt="">
                                 </a>
                             </div>
                             <ul class="contact-list">
@@ -17,8 +17,8 @@
                                     <h5>+757 699-4478</h5>
                                 </li>
                             </ul>
-                            <img class="f-shapes shape_1 d-none d-lg-inline-block" src="assets/img/shape/ball2.svg" alt="">
-                            <img class="f-shapes shape_2 d-none d-lg-inline-block" src="assets/img/shape/ball3.svg" alt="">
+                            <img class="f-shapes shape_1 d-none d-lg-inline-block" src="{{ asset('assets/img/shape/ball2.svg') }}" alt="">
+                            <img class="f-shapes shape_2 d-none d-lg-inline-block" src="{{ asset('assets/img/shape/ball3.svg') }}" alt="">
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-6 wow fadeInUp2 animated" data-wow-delay='.3s'>

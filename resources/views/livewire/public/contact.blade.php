@@ -22,21 +22,21 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="address-box text-center mb-50 pl-45 pr-45">
-                            <img class="loc-icon mb-25" src="assets/img/icon/location.svg" alt="">
+                            <img class="loc-icon mb-25" src="{{ asset('assets/img/icon/location.svg') }}" alt="">
                             <h4 class="sub-title mb-25">Our Location</h4>
                             <p>Danmondi, 7563 King Meadow Suite 896, USA</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="address-box text-center mb-50 pl-45 pr-45">
-                            <img class="loc-icon mb-25" src="assets/img/icon/mail.svg" alt="">
+                            <img class="loc-icon mb-25" src="{{ asset('assets/img/icon/mail.svg') }}" alt="">
                             <h4 class="sub-title mb-25">Email & Phone</h4>
                             <p>weberrindia@gmail.com 880 1723801729</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="address-box text-center mb-50 pl-45 pr-45">
-                            <img class="loc-icon mb-25" src="assets/img/icon/chain.svg" alt="">
+                            <img class="loc-icon mb-25" src="{{ asset('assets/img/icon/chain.svg') }}" alt="">
                             <h4 class="sub-title mb-25">Get In Touch</h4>
                             <p>DAlso find us social media below</p>
                              <div class="footer-social">

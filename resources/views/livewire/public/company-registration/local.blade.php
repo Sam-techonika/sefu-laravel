@@ -2,7 +2,7 @@
     <section class="slider-area pos-rel light-home-one" style="background-color:#f9f9f9; color:#222; padding:120px 0; position:relative; overflow:hidden;">
         <div class="slider-actives">
             <div class="single-slider pos-rel d-flex align-items-center" style="color:#222;">
-                <div class="slider-img-one" style="background-image:url('assets/img/slider/slider1a.jpg'); background-size:cover; background-position:center; position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1;"></div>
+                <div class="slider-img-one" data-bg="{{ asset('assets/img/slider/slider1a.jpg') }}" style="background-size:cover; background-position:center; position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1;"></div>
 
                 <div class="container" style="max-width:1200px; margin:0 auto;">
                     <div class="row align-items-center" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
@@ -496,7 +496,7 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.2s">
                     <div class="do-box active skew-bg mb-30">
                         <div class="icon mb-50">
-                            <img src="assets/img/icon/icon3.svg" alt="">
+                            <img src="{{ asset('assets/img/icon/icon3.svg') }}" alt="">
                         </div>
                         <h5>Expert-Led Process</h5>
                         <h3>Handled by qualified Company Secretaries and legal professionals.</h3>
@@ -505,7 +505,7 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.4s">
                     <div class="do-box skew-bg mb-30">
                         <div class="icon mb-50">
-                            <img src="assets/img/icon/icon2.svg" alt="">
+                            <img src="{{ asset('assets/img/icon/icon2.svg') }}" alt="">
                         </div>
                         <h5>Transparent Pricing</h5>
                         <h3>All-inclusive plans with clear breakup of government and professional fees.</h3>
@@ -514,7 +514,7 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.6s">
                     <div class="do-box skew-bg mb-30">
                         <div class="icon mb-50">
-                            <img src="assets/img/icon/icon4.svg" alt="">
+                            <img src="{{ asset('assets/img/icon/icon4.svg') }}" alt="">
                         </div>
                         <h5>End-to-End Support</h5>
                         <h3>From incorporation to compliance we manage the complete legal lifecycle.</h3>
@@ -583,11 +583,11 @@
     </section> -->
 
     <section class="plan-coverage-area pos-rel about-style-1 pt-90 pb-100 pt-lg-50 pt-md-10 pb-md-30 pt-xs-10 pb-xs-30">
-        <div class="about-img-wrapper" style="background-image: url(assets/img/about/01.jpg)">
+        <div class="about-img-wrapper" data-bg="{{ asset('assets/img/about/01.jpg') }}" style="background-size: cover; background-position: center;">
             <h1 class="title-text">We'r Pratham Legal</h1>
             <div class="authors-quote">
                 <div class="a-icon">
-                    <img src="assets/img/icon/icon20.svg" alt="">
+                    <img src="{{ asset('assets/img/icon/icon20.svg') }}" alt="">
                 </div>
                 <h5>- Prashant Kumar,<span> Partner, Pratham Legal</span></h5>
                 <h5 class="a-text">Legal compliance isn’t just about ticking boxes it’s about building confidence in every business decision.</h5>
@@ -691,12 +691,12 @@
     </section>
 
     <section class="client-feedback-area cf-area-three pos-rel pt-100 pb-100 pt-md-85 pb-mb-60 pt-xs-85 pb-xs-100">
-        <img class="test test_01 d-none d-lg-inline-block" src="assets/img/testimonial/10.png" alt="">
-        <img class="test test_02 d-none d-lg-inline-block" src="assets/img/testimonial/11.png" alt="">
-        <img class="test test_03 d-none d-lg-inline-block" src="assets/img/testimonial/12.png" alt="">
-        <img class="test test_04 d-none d-lg-inline-block" src="assets/img/testimonial/13.png" alt="">
-        <img class="test test_05 d-none d-lg-inline-block" src="assets/img/testimonial/14.png" alt="">
-        <img class="test test_06 d-none d-lg-inline-block" src="assets/img/testimonial/15.png" alt="">
+        <img class="test test_01 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/10.png') }}" alt="">
+        <img class="test test_02 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/11.png') }}" alt="">
+        <img class="test test_03 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/12.png') }}" alt="">
+        <img class="test test_04 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/13.png') }}" alt="">
+        <img class="test test_05 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/14.png') }}" alt="">
+        <img class="test test_06 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/15.png') }}" alt="">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
@@ -1214,5 +1214,16 @@
             }
         }
     </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('[data-bg]').forEach(function (el) {
+                var url = el.getAttribute('data-bg');
+                if (url) {
+                    el.style.backgroundImage = 'url(' + url + ')';
+                }
+            });
+        });
+    </script>
 
 </div>

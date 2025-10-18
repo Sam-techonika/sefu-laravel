@@ -32,7 +32,7 @@
                   <div class="blogs__thumb mb-40">
                     <img
                       class="img-fluid"
-                      src="assets/img/blog/01.jpg"
+                      src="{{ asset('assets/img/blog/01.jpg') }}"
                       alt=""
                     />
                   </div>
@@ -45,7 +45,7 @@
                     >
                   </h3>
                   <a class="blog-btn" href="blog-details.html"
-                    ><img src="assets/img/icon/icon12.svg" alt=""
+                    ><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""
                   /></a>
                 </div>
               </div>
@@ -56,7 +56,7 @@
                   <div class="blogs__thumb mb-40">
                     <img
                       class="img-fluid"
-                      src="assets/img/blog/02.jpg"
+                      src="{{ asset('assets/img/blog/02.jpg') }}"
                       alt=""
                     />
                   </div>
@@ -69,7 +69,7 @@
                     >
                   </h3>
                   <a class="blog-btn" href="blog-details.html"
-                    ><img src="assets/img/icon/icon12.svg" alt=""
+                    ><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""
                   /></a>
                 </div>
               </div>
@@ -80,7 +80,7 @@
                   <div class="blogs__thumb mb-40">
                     <img
                       class="img-fluid"
-                      src="assets/img/blog/03.jpg"
+                      src="{{ asset('assets/img/blog/03.jpg') }}"
                       alt=""
                     />
                   </div>
@@ -93,7 +93,7 @@
                     >
                   </h3>
                   <a class="blog-btn" href="blog-details.html"
-                    ><img src="assets/img/icon/icon12.svg" alt=""
+                    ><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""
                   /></a>
                 </div>
               </div>
@@ -104,7 +104,7 @@
                   <div class="blogs__thumb mb-40">
                     <img
                       class="img-fluid"
-                      src="assets/img/blog/07.jpg"
+                      src="{{ asset('assets/img/blog/07.jpg') }}"
                       alt=""
                     />
                   </div>
@@ -117,7 +117,7 @@
                     >
                   </h3>
                   <a class="blog-btn" href="blog-details.html"
-                    ><img src="assets/img/icon/icon12.svg" alt=""
+                    ><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""
                   /></a>
                 </div>
               </div>
@@ -128,7 +128,7 @@
                   <div class="blogs__thumb mb-40">
                     <img
                       class="img-fluid"
-                      src="assets/img/blog/08.jpg"
+                      src="{{ asset('assets/img/blog/08.jpg') }}"
                       alt=""
                     />
                   </div>
@@ -141,7 +141,7 @@
                     >
                   </h3>
                   <a class="blog-btn" href="blog-details.html"
-                    ><img src="assets/img/icon/icon12.svg" alt=""
+                    ><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""
                   /></a>
                 </div>
               </div>
@@ -152,7 +152,7 @@
                   <div class="blogs__thumb mb-40">
                     <img
                       class="img-fluid"
-                      src="assets/img/blog/09.jpg"
+                      src="{{ asset('assets/img/blog/09.jpg') }}"
                       alt=""
                     />
                   </div>
@@ -165,7 +165,7 @@
                     >
                   </h3>
                   <a class="blog-btn" href="blog-details.html"
-                    ><img src="assets/img/icon/icon12.svg" alt=""
+                    ><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""
                   /></a>
                 </div>
               </div>
@@ -176,7 +176,7 @@
                   <div class="blogs__thumb mb-40">
                     <img
                       class="img-fluid"
-                      src="assets/img/blog/10.jpg"
+                      src="{{ asset('assets/img/blog/10.jpg') }}"
                       alt=""
                     />
                   </div>
@@ -189,7 +189,7 @@
                     >
                   </h3>
                   <a class="blog-btn" href="blog-details.html"
-                    ><img src="assets/img/icon/icon12.svg" alt=""
+                    ><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""
                   /></a>
                 </div>
               </div>
@@ -200,7 +200,7 @@
                   <div class="blogs__thumb mb-40">
                     <img
                       class="img-fluid"
-                      src="assets/img/blog/11.jpg"
+                      src="{{ asset('assets/img/blog/11.jpg') }}"
                       alt=""
                     />
                   </div>
@@ -213,7 +213,7 @@
                     >
                   </h3>
                   <a class="blog-btn" href="blog-details.html"
-                    ><img src="assets/img/icon/icon12.svg" alt=""
+                    ><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""
                   /></a>
                 </div>
               </div>
@@ -224,7 +224,7 @@
                   <div class="blogs__thumb mb-40">
                     <img
                       class="img-fluid"
-                      src="assets/img/blog/12.jpg"
+                      src="{{ asset('assets/img/blog/12.jpg') }}"
                       alt=""
                     />
                   </div>
@@ -237,7 +237,7 @@
                     >
                   </h3>
                   <a class="blog-btn" href="blog-details.html"
-                    ><img src="assets/img/icon/icon12.svg" alt=""
+                    ><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""
                   /></a>
                 </div>
               </div>

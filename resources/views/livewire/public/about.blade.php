@@ -1,6 +1,6 @@
     <div>
-        <section class="page-title-area page-t-height" style="background-image: url(assets/img/slider/slider1.jpg); color: #f5f5f5;">
-            <div class="page-title-img about-page-title" style="background-image: url(assets/img/page-title/p-bg1.jpg);">
+        <section class="page-title-area page-t-height" data-bg="{{ asset('assets/img/slider/slider1.jpg') }}" style="color: #f5f5f5;">
+            <div class="page-title-img about-page-title" data-bg="{{ asset('assets/img/page-title/p-bg1.jpg') }}">
                 <h1 class="title-text d-none d-lg-inline-block">About Us</h1>
             </div>
             <div class="container">
@@ -11,7 +11,7 @@
                             <h4 class="sub-title mb-35">India’s legal landscape can be complex but with the right partner, it becomes your biggest advantage.</h4>
                             <h4 class="sub-title mb-55 mb-xs-25">That’s what we deliver every day.</h4>
                             <h5 class="mb-15">Prashant Kumar <span>Partner, Pratham Legal</span></h5>
-                            <img class="d-none d-md-inline-block" src="assets/img/shape/signature.png" alt="">
+                            <img class="d-none d-md-inline-block" src="{{ asset('assets/img/shape/signature.png') }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="do-box active skew-bg mb-30">
                             <div class="icon mb-50">
-                                <img src="assets/img/icon/icon3.svg" alt="">
+                                <img src="{{ asset('assets/img/icon/icon3.svg') }}" alt="">
                             </div>
                             <h5>Expert-Led Services</h5>
                             <h3>Handled by qualified professionals not agents.</h3>
@@ -37,7 +37,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="do-box skew-bg mb-30">
                             <div class="icon mb-50">
-                                <img src="assets/img/icon/icon2.svg" alt="">
+                                <img src="{{ asset('assets/img/icon/icon2.svg') }}" alt="">
                             </div>
                             <h5>Quick & Hassle-Free</h5>
                             <h3>Fast, compliant, and fully online.</h3>
@@ -46,7 +46,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="do-box skew-bg mb-30">
                             <div class="icon mb-50">
-                                <img src="assets/img/icon/icon4.svg" alt="">
+                                <img src="{{ asset('assets/img/icon/icon4.svg') }}" alt="">
                             </div>
                             <h5>Trusted by Businesses/h5>
                                 <h3>100% professional. Clear scope. Transparent pricing.</h3>
@@ -110,11 +110,19 @@
             </div><!-- /.container -->
         </section>
         <section class="plan-coverage-area pos-rel about-style-1 pt-90 pb-95 pt-lg-50 pt-md-10 pb-md-30 pt-xs-10 pb-xs-30">
-            <div class="about-img-wrapper" style="background-image: url(assets/img/about/01.jpg)">
+            <div class="about-img-wrapper" data-bg="{{ asset('assets/img/about/01.jpg') }}">
                 <h1 class="title-text">Our Commitment</h1>
                 <div class="authors-quote">
                     <div class="a-icon">
-                        <img src="assets/img/icon/icon20.svg" alt="">
+                        <img src="{{ asset('assets/img/icon/icon20.svg') }}" alt="">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('[data-bg]').forEach(function (el) {
+                var url = el.getAttribute('data-bg');
+                if (url) el.style.backgroundImage = 'url(' + url + ')';
+            });
+        });
+    </script>
                     </div>
                     <h5>- Prashant Kumar <span>Partner</span></h5>
                     <h5 class="a-text">We aim to respond to every client query quickly and clearly with professional guidance that turns complex legal issues into confident business action</h5>
