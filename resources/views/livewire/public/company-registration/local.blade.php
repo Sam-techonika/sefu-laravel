@@ -41,12 +41,6 @@
             </div>
         </div>
     </section>
-
-
-
-
-
-
     <section class="plan-area pb-70 pt-100">
         <div class="container">
             <div class="row justify-content-center">
@@ -108,7 +102,7 @@
                                     </ul>
                                 </div>
                                 <div class="plan__footer text-center">
-                                    <a href="#" class="theme_btn border-btn mb-10">Upgrade to Compliance →</a>
+                                    <a href="#" class="theme_btn border-btn mb-10">Get Complete Setup →</a>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +125,7 @@
                                     </ul>
                                 </div>
                                 <div class="plan__footer text-center">
-                                    <a href="#" class="theme_btn border-btn mb-10">Get Complete Setup →</a>
+                                    <a href="#" class="theme_btn border-btn mb-10">Get Compliance Setup →</a>
                                 </div>
                             </div>
                         </div>
@@ -432,9 +426,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>
@@ -442,7 +433,6 @@
         </div>
     </section>
 
-    <!-- Quick Summary Section -->
     <section class="quick-summary-area pt-40 pb-60">
         <div class="container">
             <div class="row">
@@ -531,7 +521,7 @@
                     </div>
                 </div>
             </div>
-        </div><!-- /.container -->
+        </div>
     </section>
     <!-- <section class="subscribe-letter-area pt-50 pb-115">
         <div class="container">
