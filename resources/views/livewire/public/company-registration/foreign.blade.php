@@ -994,12 +994,57 @@
         }
 
         @media (max-width: 767px) {
-            .modern-comparison-wrapper {
-                overflow-x: auto;
+            /* Mobile-first stacked layout (no horizontal scroll) */
+            .comparison-header {
+                display: none; /* hide the grid header on small screens */
             }
 
             .comparison-row {
-                min-width: 700px;
+                grid-template-columns: 1fr; /* stack: feature then each plan */
+            }
+
+            .comparison-body .feature-col {
+                padding: 14px 16px;
+                justify-content: flex-start;
+                text-align: left;
+                background: #f9f9f9;
+                border-right: none;
+            }
+
+            .comparison-body .plan-col {
+                padding: 12px 16px;
+                justify-content: flex-start;
+                text-align: left;
+                border-left: none; /* remove column divider in stacked layout */
+                border-top: 1px solid #f0f0f0; /* subtle separation between plans */
+                position: relative;
+                gap: 10px;
+            }
+
+            /* Add plan labels before each plan value using nth-child mapping */
+            .comparison-body .comparison-row > .plan-col::before {
+                content: '';
+                display: inline-block;
+                font-weight: 600;
+                font-size: 12px;
+                color: #050020;
+                background: #eef0f7;
+                border-radius: 4px;
+                padding: 3px 8px;
+                margin-right: 10px;
+                line-height: 1.2;
+            }
+
+            .comparison-body .comparison-row > .plan-col:nth-child(2)::before {
+                content: 'Starter';
+            }
+
+            .comparison-body .comparison-row > .plan-col:nth-child(3)::before {
+                content: 'Compliance';
+            }
+
+            .comparison-body .comparison-row > .plan-col:nth-child(4)::before {
+                content: 'Complete Setup';
             }
 
             .price-tag {
