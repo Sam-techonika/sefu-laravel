@@ -163,6 +163,326 @@
         </section> -->
         </div>
     </section>
+
+     <section class="comparison-area pt-30 pb-90">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center mb-70">
+                        <h3>Compare Our Plans</h3>
+                        <p class="sub-title mt-30">Choose the perfect plan that fits your business needs</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="modern-comparison-wrapper">
+                        <!-- Header with Plan Names and Prices -->
+                        <div class="comparison-header">
+                            <div class="comparison-row header-row">
+                                <div class="feature-col header-feature">
+                                    <h4>Plan Features</h4>
+                                </div>
+                                <div class="plan-col">
+                                    <div class="plan-header-content">
+                                        <h4>Starter Plan</h4>
+                                        <div class="price-tag">₹8,999</div>
+                                        <p class="price-subtitle">(All Inclusive)</p>
+                                        <small>₹6,500 Govt + ₹2,499 Professional</small>
+                                        <a href="#" class="get-started-btn">Get Started</a>
+                                    </div>
+                                </div>
+                                <div class="plan-col featured-plan">
+                                    <div class="plan-header-content">
+                                        <h4>Compliance Plan</h4>
+                                        <div class="price-tag">₹12,999</div>
+                                        <p class="price-subtitle">(All Inclusive)</p>
+                                        <small>₹6,500 Govt + ₹6,499 Professional</small>
+                                        <a href="#" class="get-started-btn">Get Started</a>
+                                    </div>
+                                </div>
+                                <div class="plan-col">
+                                    <div class="plan-header-content">
+                                        <h4>Complete Setup</h4>
+                                        <div class="price-tag">₹24,999</div>
+                                        <p class="price-subtitle">(All Inclusive)</p>
+                                        <small>₹11,000 Govt + ₹13,999 Professional</small>
+                                        <a href="#" class="get-started-btn">Get Started</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Collapsible Sections -->
+                        <div class="comparison-body" x-data="{ 
+                            incorporationOpen: true, 
+                            complianceOpen: false, 
+                            advisoryOpen: false 
+                        }" x-init="$wire.on('livewire:navigated', () => { incorporationOpen = true; complianceOpen = false; advisoryOpen = false; })">
+
+                            <!-- Incorporation Section -->
+                            <div class="feature-section">
+                                <div class="section-header" @click="incorporationOpen = !incorporationOpen">
+                                    <div class="section-title-content">
+                                        <i class="fas fa-building"></i>
+                                        <span>Incorporation</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down toggle-icon" :class="{ 'rotate': incorporationOpen }"></i>
+                                </div>
+                                <div class="section-content" :class="{ 'open': incorporationOpen }">
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">Company Incorporation</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col featured"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">DIN & DSC for 2 Directors</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col featured"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">Name Reservation SPICe+ RUN</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col featured"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">MOA, AOA & Incorporation Certificate</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col featured"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">PAN & TAN Allotment</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col featured"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">Post-Incorporation Docs (Share Certificates, Registers, Minutes)</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col featured"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">Assistance in Bank Account Opening</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col featured"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">Registrations & Licenses</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col featured"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Compliance & Governance Section -->
+                            <div class="feature-section">
+                                <div class="section-header" @click="complianceOpen = !complianceOpen">
+                                    <div class="section-title-content">
+                                        <i class="fas fa-clipboard-check"></i>
+                                        <span>Compliance & Governance</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down toggle-icon" :class="{ 'rotate': complianceOpen }"></i>
+                                </div>
+                                <div class="section-content" :class="{ 'open': complianceOpen }">
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">GST Registration</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col featured"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">MSME (Udyam) Registration</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col featured"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">Startup India (DPIIT) Recognition</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col featured"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">Trademark Filing (1 Class – Name or Logo)</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col featured"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">Compliance Calendar & Due-Date Tracker</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col featured"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">30-Minute CS Consultation</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col featured"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">1-Year CS Compliance Package</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col featured"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">Annual ROC Filings (AOC-4, MGT-7A)</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col featured"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Advisory & Support Section -->
+                            <div class="feature-section">
+                                <div class="section-header" @click="advisoryOpen = !advisoryOpen">
+                                    <div class="section-title-content">
+                                        <i class="fas fa-headset"></i>
+                                        <span>Advisory & Support</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down toggle-icon" :class="{ 'rotate': advisoryOpen }"></i>
+                                </div>
+                                <div class="section-content" :class="{ 'open': advisoryOpen }">
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">AGM & Board Meeting Documentation</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col featured"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">1-Year Secretarial Record</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col featured"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">Dedicated CS Support (Call, WhatsApp & Email)</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col featured"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">First-Year Compliance Guidance</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-cross">✕</span></div>
+                                        <div class="plan-col featured"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="feature-col">
+                                            <span class="feature-name">Post-incorporation Advisory (Bank, Accounting, Startup Recognition)</span>
+                                        </div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col featured"><span class="icon-check">✓</span></div>
+                                        <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quick-summary-area pt-20 pb-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="section-title text-center mb-70">
+                                <h3>Quick summary</h3>
+                            </div>
+                            <div class="quick-summary-card">
+                                <div class="d-flex align-items-center justify-content-between mb-20">
+                                    <h4 class="quick-summary-title mb-0">Quick Summary</h4>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="quick-summary-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Plan Name</th>
+                                                <th>Ideal For</th>
+                                                <th class="text-right">All-Inclusive Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td data-label="Plan Name">Starter Plan</td>
+                                                <td data-label="Ideal For">Foreign entrepreneurs needing quick India incorporation & FEMA compliance</td>
+                                                <td data-label="All-Inclusive Price" class="text-right price-cell">₹24,999</td>
+                                            </tr>
+                                            <tr>
+                                                <td data-label="Plan Name">Compliance Plan</td>
+                                                <td data-label="Ideal For">Foreign investors requiring short-term office &amp; director support</td>
+                                                <td data-label="All-Inclusive Price" class="text-right price-cell">₹59,999</td>
+                                            </tr>
+                                            <tr>
+                                                <td data-label="Plan Name">Complete Setup Plan</td>
+                                                <td data-label="Ideal For">Global founders seeking full-year office, director &amp; compliance package</td>
+                                                <td data-label="All-Inclusive Price" class="text-right price-cell">₹149,999</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
      <section class="what-we-do-area pt-30 pb-30 pt-md-100 pb-md-85 pt-xs-100 pb-xs-85">
         <div class="container">
             <div class="row align-items-center">
@@ -588,28 +908,7 @@
         }
 
         /* Comparison Rows */
-        .comparison-body .comparison-row {
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .comparison-body .comparison-row:hover {
-            background: #fafafa;
-        }
-
-        .comparison-body .feature-col {
-            justify-content: flex-start;
-            text-align: left;
-            padding: 16px 20px;
-        }
-
-        .feature-name {
-            font-size: 14px;
-            color: #343434;
-            font-weight: 400;
-            font-family: "Circular Std Book", sans-serif;
-        }
-
-        .comparison-body .plan-col {
+      .comparison-body .plan-col {
             padding: 16px 15px;
             border-left: 1px solid #f0f0f0;
         }
