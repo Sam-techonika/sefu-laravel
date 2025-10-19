@@ -30,11 +30,11 @@
                             </div>
                             <div class="blogs__content">
                                <span class="date-tag mb-20">23 Apr, 2021</span>
-                                <h3 class="blog-title mb-20"><a href="blog-details.html">Quis Nostr Exercitation Ullamco Laboris nisi ut
+                                <h3 class="blog-title mb-20"><a wire:navigate href="{{route('blog.view')}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
                                      Aliquip exeal nothing.</a></h3>
                                 <h5 class="mb-25">Tomfoolery crikey bits and bobs brilliant bamboozled down pub amongst brolly hank panky cack bonnet
                                      arse over tit burke bugger all mate bodge..</h5>
-                                <a class="theme_btn blog-btn" href="blog-details.html">Continue Reading <i class="far fa-chevron-right"></i></a>
+                                <a class="theme_btn blog-btn" wire:navigate href="{{route('blog.view')}}">Continue Reading <i class="far fa-chevron-right"></i></a>
                             </div>
                         </div>
                         <div class="blogs blogs-std mb-75">
@@ -43,11 +43,11 @@
                             </div>
                             <div class="blogs__content">
                                <span class="date-tag mb-20">23 Apr, 2021</span>
-                                <h3 class="blog-title mb-20"><a href="blog-details.html">Quis Nostr Exercitation Ullamco Laboris nisi ut
+                                <h3 class="blog-title mb-20"><a wire:navigate href="{{route('blog.view')}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
                                      Aliquip exeal nothing.</a></h3>
                                 <h5 class="mb-25">Tomfoolery crikey bits and bobs brilliant bamboozled down pub amongst brolly hank panky cack bonnet
                                      arse over tit burke bugger all mate bodge..</h5>
-                                <a class="theme_btn blog-btn" href="blog-details.html">Continue Reading <i class="far fa-chevron-right"></i></a>
+                                <a class="theme_btn blog-btn" wire:navigate href="{{route('blog.view')}}">Continue Reading <i class="far fa-chevron-right"></i></a>
                             </div>
                         </div>
                         <div class="blogs blogs-std mb-75">
@@ -56,11 +56,11 @@
                             </div>
                             <div class="blogs__content">
                                <span class="date-tag mb-20">23 Apr, 2021</span>
-                                <h3 class="blog-title mb-20"><a href="blog-details.html">Quis Nostr Exercitation Ullamco Laboris nisi ut
+                                <h3 class="blog-title mb-20"><a wire:navigate href="{{route('blog.view')}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
                                      Aliquip exeal nothing.</a></h3>
                                 <h5 class="mb-25">Tomfoolery crikey bits and bobs brilliant bamboozled down pub amongst brolly hank panky cack bonnet
                                      arse over tit burke bugger all mate bodge..</h5>
-                                <a class="theme_btn blog-btn" href="blog-details.html">Continue Reading <i class="far fa-chevron-right"></i></a>
+                                <a class="theme_btn blog-btn" wire:navigate href="{{route('blog.view')}}">Continue Reading <i class="far fa-chevron-right"></i></a>
                             </div>
                         </div>
                         <div class="blogs blogs-std mb-75">
@@ -69,11 +69,11 @@
                             </div>
                             <div class="blogs__content">
                                <span class="date-tag mb-20">23 Apr, 2021</span>
-                                <h3 class="blog-title mb-20"><a href="blog-details.html">Quis Nostr Exercitation Ullamco Laboris nisi ut
+                                <h3 class="blog-title mb-20"><a wire:navigate href="{{route('blog.view')}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
                                      Aliquip exeal nothing.</a></h3>
                                 <h5 class="mb-25">Tomfoolery crikey bits and bobs brilliant bamboozled down pub amongst brolly hank panky cack bonnet
                                      arse over tit burke bugger all mate bodge..</h5>
-                                <a class="theme_btn blog-btn" href="blog-details.html">Continue Reading <i class="far fa-chevron-right"></i></a>
+                                <a class="theme_btn blog-btn" wire:navigate href="{{route('blog.view')}}">Continue Reading <i class="far fa-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -91,11 +91,11 @@
                                 <div class="widget-categories-content">
                                     <h3 class="widget-title mb-20">Categories</h3>
                                     <ul class="categories-list">
-                                        <li><a href="#">Web Design <span class="f-right">(13)</span></a></li>
-                                        <li><a href="#">Graphics <span class="f-right">(05)</span></a></li>
-                                        <li><a href="#">Web Development <span class="f-right">(24)</span></a></li>
-                                        <li><a href="#">IOS/Android Development <span class="f-right">(08)</span></a></li>
-                                        <li><a href="#">others <span class="f-right">(09)</span></a></li>
+                                        <li><a wire:navigate href="#">Web Design <span class="f-right">(13)</span></a></li>
+                                        <li><a wire:navigate href="#">Graphics <span class="f-right">(05)</span></a></li>
+                                        <li><a wire:navigate href="#">Web Development <span class="f-right">(24)</span></a></li>
+                                        <li><a wire:navigate href="#">IOS/Android Development <span class="f-right">(08)</span></a></li>
+                                        <li><a wire:navigate href="#">others <span class="f-right">(09)</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -103,15 +103,15 @@
                                 <div class="widget-post-content">
                                     <h3 class="widget-title mb-20">Recent News</h3>
                                     <div class="post-box">
-                                        <h4 class="sub-title"><a href="blog-details.html">10 days quick challange for boost visitors.</a></h4>
+                                        <h4 class="sub-title"><a wire:navigate href="{{route('blog.view')}}">10 days quick challange for boost visitors.</a></h4>
                                         <h5>23 July, 2018</h5>
                                     </div>
                                     <div class="post-box">
-                                        <h4 class="sub-title"><a href="blog-details.html">10 days quick challange for boost visitors.</a></h4>
+                                        <h4 class="sub-title"><a wire:navigate href="{{route('blog.view')}}">10 days quick challange for boost visitors.</a></h4>
                                         <h5>23 July, 2018</h5>
                                     </div>
                                     <div class="post-box">
-                                        <h4 class="sub-title"><a href="blog-details.html">10 days quick challange for boost visitors.</a></h4>
+                                        <h4 class="sub-title"><a wire:navigate href="{{route('blog.view')}}">10 days quick challange for boost visitors.</a></h4>
                                         <h5>23 July, 2018</h5>
                                     </div>
                                 </div>
@@ -120,11 +120,11 @@
                                 <div class="widget-tags-content">
                                     <h3 class="widget-title mb-20">Recent News</h3>
                                     <div class="tag-list">
-                                        <a class="tags" href="#">Ideas</a>
-                                        <a class="tags"  href="#">Education</a>
-                                        <a class="tags"  href="#">Design</a>
-                                        <a class="tags"  href="#">Development</a>
-                                        <a class="tags"  href="#">Branding</a>
+                                        <a class="tags" wire:navigate href="#">Ideas</a>
+                                        <a class="tags"  wire:navigate href="#">Education</a>
+                                        <a class="tags"  wire:navigate href="#">Design</a>
+                                        <a class="tags"  wire:navigate href="#">Development</a>
+                                        <a class="tags"  wire:navigate href="#">Branding</a>
                                     </div>
                                 </div>
                             </div>
@@ -134,13 +134,13 @@
                         <div class="pagination-area mt-10 mb-35">
                             <nav aria-label="Page navigation">
                                 <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#"><i class="far fa-chevron-left"></i></a></li>
-                                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">...</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">13</a></li>
-                                    <li class="page-item"><a class="page-link" href="#"><i class="far fa-chevron-right"></i></a></li>
+                                    <li class="page-item"><a class="page-link" wire:navigate href="#"><i class="far fa-chevron-left"></i></a></li>
+                                    <li class="page-item"><a class="page-link active" wire:navigate href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" wire:navigate href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" wire:navigate href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" wire:navigate href="#">...</a></li>
+                                    <li class="page-item"><a class="page-link" wire:navigate href="#">13</a></li>
+                                    <li class="page-item"><a class="page-link" wire:navigate href="#"><i class="far fa-chevron-right"></i></a></li>
                                 </ul>
                             </nav>
                         </div>
