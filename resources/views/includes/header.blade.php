@@ -66,7 +66,14 @@
                                                     <li><a wire:navigate href="{{ route('about') }}">About Us</a></li>
                                                     <li><a wire:navigate href="{{ route('service') }}">Our Services</a></li>
                                                     <li><a wire:navigate href="{{ route('contact') }}">Contact Us</a></li>
-                                                    <li><a wire:navigate href="#">FAQ</a></li>
+                                                    <li>
+                                                        <a
+                                                            wire:navigate
+                                                            href="{{ route('case.study') }}"
+                                                            class="{{ request()->routeIs('case.study') ? 'active' : '' }}">
+                                                            Case Study
+                                                        </a>
+                                                    </li>
                                                     <li><a wire:navigate href="#">Team</a></li>
                                                 </ul>
                                             </li>
@@ -98,6 +105,7 @@
                                                     Blogs
                                                 </a>
                                             </li>
+
                                         </ul>
                                     </nav>
                                 </div>
@@ -146,59 +154,86 @@
     </header>
 
     <!-- Slide-bar / Mobile Menu -->
-    <aside class="slide-bar">
-        <div class="close-mobile-menu">
-            <a href="javascript:void(0);"><i class="fas fa-times"></i></a>
-        </div>
+    <!-- Slide-bar / Mobile Menu -->
+<aside class="slide-bar">
+    <div class="close-mobile-menu">
+        <a href="javascript:void(0);"><i class="fas fa-times"></i></a>
+    </div>
 
-        <div class="offset-sidebar">
-            <div class="offset-widget offset-logo mb-30">
-                <a wire:navigate href="{{ route('home') }}">
-                    <img src="{{ asset('assets/img/logo/header_logo_one.png') }}" alt="logo">
+    <div class="offset-sidebar">
+        <div class="offset-widget offset-logo mb-30">
+            <a wire:navigate href="{{ route('home') }}">
+                <img src="{{ asset('assets/img/logo/header_logo_one.png') }}" alt="logo">
+            </a>
+        </div>
+        <div class="offset-widget mb-40">
+            <div class="info-widget">
+                <h4 class="offset-title mb-20">About Us</h4>
+                <p class="mb-30">
+                    But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain
+                    was born and will give you a complete account of the system and expound the actual teachings of
+                    the great explore.
+                </p>
+                <a class="theme_btn theme_btn_bg" wire:navigate href="{{ route('contact') }}">Contact Us</a>
+            </div>
+        </div>
+        <div class="offset-widget mb-30 pr-10">
+            <div class="info-widget info-widget2">
+                <h4 class="offset-title mb-20">Contact Info</h4>
+                <p><i class="fal fa-address-book"></i> 23/A, Miranda City Likaoli Prikano, Dope</p>
+                <p><i class="fal fa-phone"></i> +0989 7876 9865 9</p>
+                <p><i class="fal fa-envelope-open"></i> info@example.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav class="side-mobile-menu">
+        <ul id="mobile-menu-active">
+            <!-- Home -->
+            <li>
+                <a wire:navigate href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">
+                    Home
                 </a>
-            </div>
-            <div class="offset-widget mb-40">
-                <div class="info-widget">
-                    <h4 class="offset-title mb-20">About Us</h4>
-                    <p class="mb-30">
-                        But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain
-                        was born and will give you a complete account of the system and expound the actual teachings of
-                        the great explore.
-                    </p>
-                    <a class="theme_btn theme_btn_bg" wire:navigate href="{{ route('contact') }}">Contact Us</a>
-                </div>
-            </div>
-            <div class="offset-widget mb-30 pr-10">
-                <div class="info-widget info-widget2">
-                    <h4 class="offset-title mb-20">Contact Info</h4>
-                    <p><i class="fal fa-address-book"></i> 23/A, Miranda City Likaoli Prikano, Dope</p>
-                    <p><i class="fal fa-phone"></i> +0989 7876 9865 9</p>
-                    <p><i class="fal fa-envelope-open"></i> info@example.com</p>
-                </div>
-            </div>
-        </div>
+            </li>
 
-        <!-- Mobile Menu -->
-        <nav class="side-mobile-menu">
-            <ul id="mobile-menu-active">
-                <li><a wire:navigate href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a></li>
-                <li class="has-dropdown">
-                    <a href="javascript:void(0);">Pages</a>
-                    <ul class="submenu">
-                        <li><a wire:navigate href="{{ route('about') }}">About Us</a></li>
-                        <li><a wire:navigate href="{{ route('service') }}">Our Services</a></li>
-                        <li><a wire:navigate href="{{ route('contact') }}">Contact Us</a></li>
-                    </ul>
-                </li>
-                <li class="has-dropdown">
-                    <a href="javascript:void(0);">Blog</a>
-                    <ul class="submenu">
-                        <li><a wire:navigate href="#">Blog Grid</a></li>
-                        <li><a wire:navigate href="#">Blog Standard</a></li>
-                        <li><a wire:navigate href="#">Blog Details</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </aside>
+            <!-- Explore Dropdown -->
+            <li class="has-dropdown">
+                <a href="javascript:void(0);">Explore</a>
+                <ul class="submenu">
+                    <li><a wire:navigate href="{{ route('about') }}">About Us</a></li>
+                    <li><a wire:navigate href="{{ route('service') }}">Our Services</a></li>
+                    <li><a wire:navigate href="{{ route('contact') }}">Contact Us</a></li>
+                    <li><a wire:navigate href="{{ route('case.study') }}">Case Study</a></li>
+                    <li><a wire:navigate href="#">Team</a></li>
+                </ul>
+            </li>
+
+            <!-- Package Dropdown -->
+            <li class="has-dropdown">
+                <a href="javascript:void(0);">Package</a>
+                <ul class="submenu" style="min-width: 220px;">
+                    <li><a wire:navigate href="{{ route('registration.local') }}">Company Registration For Locals</a></li>
+                    <li><a wire:navigate href="{{ route('registration.foriegn') }}">Compare Plan Foreign National</a></li>
+                    <li><a wire:navigate href="{{ route('registration.trade-registration') }}">Trademark Registration</a></li>
+                </ul>
+            </li>
+
+            <!-- Contact Us -->
+            <li>
+                <a wire:navigate href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">
+                    Contact Us
+                </a>
+            </li>
+
+            <!-- Blogs -->
+            <li>
+                <a wire:navigate href="{{ route('blogs') }}" class="{{ request()->routeIs('blogs') ? 'active' : '' }}">
+                    Blogs
+                </a>
+            </li>
+        </ul>
+    </nav>
+</aside>
+
 </div>

@@ -3,6 +3,7 @@
 use App\Livewire\Public\About;
 use App\Livewire\Public\Blog;
 use App\Livewire\Public\BlogView;
+use App\Livewire\Public\CaseStudy;
 use App\Livewire\Public\CompanyRegistration\Foreign;
 use App\Livewire\Public\CompanyRegistration\Local;
 use App\Livewire\Public\CompanyRegistration\TradeMark;
@@ -17,6 +18,7 @@ Route::get('/service',Service::class)->name('service');
 Route::get('/contact',Contact::class)->name('contact');
 Route::get('/blogs',Blog::class)->name('blogs');
 Route::get('/blog',BlogView::class)->name('blog.view');
+Route::get('/case-study',CaseStudy::class)->name('case.study');
 
 Route::get('registration/local',Local::class)->name('registration.local');
 Route::get('registration/international',Foreign::class)->name('registration.foriegn');
