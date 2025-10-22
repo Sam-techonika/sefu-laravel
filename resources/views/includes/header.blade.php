@@ -45,7 +45,7 @@
                         <div class="col-xl-8 col-lg-7 col-md-6 col-6">
                             <div class="main-nav d-flex align-items-center">
                                 <!-- Desktop Menu -->
-                                <div class="main-menu main-menu-3 mr-80 mr-lg-0 mr-md-0 mr-xs-0 d-none d-lg-block">
+                                <div class="main-menu main-menu-3 mr-60 mr-lg-0 mr-md-0 mr-xs-0 d-none d-lg-block">
                                     <nav>
                                         <ul>
                                             <li>
@@ -199,17 +199,27 @@
                 <!-- Explore Dropdown -->
                 <li class="has-dropdown">
                     <a href="javascript:void(0);">Explore</a>
-                    <ul class="submenu">
+                    <ul class="submenu" style="min-width: 220px;">
                         <li><a wire:navigate href="{{ route('about') }}">About Us</a></li>
-                        <li><a wire:navigate href="{{ route('case.study') }}">Case Study</a></li>
-                        <li><a wire:navigate href="#">Team</a></li>
+                        <li><a wire:navigate href="{{ route('service') }}">Our Services</a></li>
+                        <li><a wire:navigate href="{{ route('contact') }}">Contact Us</a></li>
+                        <li>
+                            <a
+                                wire:navigate
+                                href="{{ route('case.study') }}"
+                                class="{{ request()->routeIs('case.study') ? 'active' : '' }}">
+                                Case Study
+                            </a>
+                        </li>
+                        <li><a wire:navigate href="{{ route('testimonials') }}">Testimonials</a></li>
+                        <li><a wire:navigate href="{{ route('faq') }}">FAQ</a></li>
                     </ul>
                 </li>
-               
+
 
                 <!-- Package Dropdown -->
                 <li class="has-dropdown">
-                    <a href="javascript:void(0);">Package</a>
+                    <a href="javascript:void(0);">Packages</a>
                     <ul class="submenu" style="min-width: 220px;">
                         <li><a wire:navigate href="{{ route('registration.local') }}">Company Registration For Locals</a></li>
                         <li><a wire:navigate href="{{ route('registration.foriegn') }}">Compare Plan Foreign National</a></li>
