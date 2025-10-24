@@ -30,11 +30,11 @@
                             </div>
                             <div class="blogs__content">
                                <span class="date-tag mb-20">23 Apr, 2021</span>
-                                <h3 class="blog-title mb-20"><a wire:navigate href="{{route('blog.view')}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
+                                <h3 class="blog-title mb-20"><a wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
                                      Aliquip exeal nothing.</a></h3>
                                 <h5 class="mb-25">Tomfoolery crikey bits and bobs brilliant bamboozled down pub amongst brolly hank panky cack bonnet
                                      arse over tit burke bugger all mate bodge..</h5>
-                                <a class="theme_btn blog-btn" wire:navigate href="{{route('blog.view')}}">Continue Reading <i class="far fa-chevron-right"></i></a>
+                                <a class="theme_btn blog-btn" wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Continue Reading <i class="far fa-chevron-right"></i></a>
                             </div>
                         </div>
                         <div class="blogs blogs-std mb-75">
@@ -43,11 +43,11 @@
                             </div>
                             <div class="blogs__content">
                                <span class="date-tag mb-20">23 Apr, 2021</span>
-                                <h3 class="blog-title mb-20"><a wire:navigate href="{{route('blog.view')}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
+                                <h3 class="blog-title mb-20"><a wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
                                      Aliquip exeal nothing.</a></h3>
                                 <h5 class="mb-25">Tomfoolery crikey bits and bobs brilliant bamboozled down pub amongst brolly hank panky cack bonnet
                                      arse over tit burke bugger all mate bodge..</h5>
-                                <a class="theme_btn blog-btn" wire:navigate href="{{route('blog.view')}}">Continue Reading <i class="far fa-chevron-right"></i></a>
+                                <a class="theme_btn blog-btn" wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Continue Reading <i class="far fa-chevron-right"></i></a>
                             </div>
                         </div>
                         <div class="blogs blogs-std mb-75">
@@ -56,11 +56,11 @@
                             </div>
                             <div class="blogs__content">
                                <span class="date-tag mb-20">23 Apr, 2021</span>
-                                <h3 class="blog-title mb-20"><a wire:navigate href="{{route('blog.view')}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
+                                <h3 class="blog-title mb-20"><a wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
                                      Aliquip exeal nothing.</a></h3>
                                 <h5 class="mb-25">Tomfoolery crikey bits and bobs brilliant bamboozled down pub amongst brolly hank panky cack bonnet
                                      arse over tit burke bugger all mate bodge..</h5>
-                                <a class="theme_btn blog-btn" wire:navigate href="{{route('blog.view')}}">Continue Reading <i class="far fa-chevron-right"></i></a>
+                                <a class="theme_btn blog-btn" wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Continue Reading <i class="far fa-chevron-right"></i></a>
                             </div>
                         </div>
                         <div class="blogs blogs-std mb-75">
@@ -69,11 +69,11 @@
                             </div>
                             <div class="blogs__content">
                                <span class="date-tag mb-20">23 Apr, 2021</span>
-                                <h3 class="blog-title mb-20"><a wire:navigate href="{{route('blog.view')}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
+                                <h3 class="blog-title mb-20"><a wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
                                      Aliquip exeal nothing.</a></h3>
                                 <h5 class="mb-25">Tomfoolery crikey bits and bobs brilliant bamboozled down pub amongst brolly hank panky cack bonnet
                                      arse over tit burke bugger all mate bodge..</h5>
-                                <a class="theme_btn blog-btn" wire:navigate href="{{route('blog.view')}}">Continue Reading <i class="far fa-chevron-right"></i></a>
+                                <a class="theme_btn blog-btn" wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Continue Reading <i class="far fa-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -103,15 +103,15 @@
                                 <div class="widget-post-content">
                                     <h3 class="widget-title mb-20">Recent News</h3>
                                     <div class="post-box">
-                                        <h4 class="sub-title"><a wire:navigate href="{{route('blog.view')}}">10 days quick challange for boost visitors.</a></h4>
+                                        <h4 class="sub-title"><a wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">10 days quick challange for boost visitors.</a></h4>
                                         <h5>23 July, 2018</h5>
                                     </div>
                                     <div class="post-box">
-                                        <h4 class="sub-title"><a wire:navigate href="{{route('blog.view')}}">10 days quick challange for boost visitors.</a></h4>
+                                        <h4 class="sub-title"><a wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">10 days quick challange for boost visitors.</a></h4>
                                         <h5>23 July, 2018</h5>
                                     </div>
                                     <div class="post-box">
-                                        <h4 class="sub-title"><a wire:navigate href="{{route('blog.view')}}">10 days quick challange for boost visitors.</a></h4>
+                                        <h4 class="sub-title"><a wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">10 days quick challange for boost visitors.</a></h4>
                                         <h5>23 July, 2018</h5>
                                     </div>
                                 </div>

@@ -34,7 +34,7 @@
               <li>PAN, TAN, GST, IEC, Shops & Establishment</li>
             </ul>
             <div class="service-cta">
-              <a wire:navigate href="{{ route('service.view') }}" class="theme_btn theme_btn3">Start now <i class="far fa-chevron-right"></i></a>
+              <a wire:navigate href="{{  route('service.view',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Start now <i class="far fa-chevron-right"></i></a>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@
               <li>Event compliances: allotment, ESOP, charges</li>
             </ul>
             <div class="service-cta">
-              <a wire:navigate href="{{ route('service.view') }}" class="theme_btn theme_btn3">Talk to us <i class="far fa-chevron-right"></i></a>
+              <a wire:navigate href="{{  route('service.view',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Talk to us <i class="far fa-chevron-right"></i></a>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@
               <li>RBI approvals, compounding, downstream</li>
             </ul>
             <div class="service-cta">
-              <a wire:navigate href="{{ route('service.view') }}" class="theme_btn theme_btn3">Explore plans <i class="far fa-chevron-right"></i></a>
+              <a wire:navigate href="{{  route('service.view',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Explore plans <i class="far fa-chevron-right"></i></a>
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@
               <li>Watch services, oppositions, rectifications</li>
             </ul>
             <div class="service-cta">
-              <a wire:navigate href="{{ route('service.view') }}" class="theme_btn theme_btn3">Protect brand <i class="far fa-chevron-right"></i></a>
+              <a wire:navigate href="{{  route('service.view',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Protect brand <i class="far fa-chevron-right"></i></a>
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@
               <li>Vendor, employment, NDAs, SaaS/MSA contracts</li>
             </ul>
             <div class="service-cta">
-              <a wire:navigate href="{{ route('service.view') }}" class="theme_btn theme_btn3">Draft with experts <i class="far fa-chevron-right"></i></a>
+              <a wire:navigate href="{{  route('service.view',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Draft with experts <i class="far fa-chevron-right"></i></a>
             </div>
           </div>
         </div>
@@ -139,7 +139,7 @@
               <li>Priority SLAs and expert reviews</li>
             </ul>
             <div class="service-cta">
-              <a wire:navigate href="{{ route('service.view') }}" class="theme_btn theme_btn3">Get a quote <i class="far fa-chevron-right"></i></a>
+              <a wire:navigate href="{{  route('service.view',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Get a quote <i class="far fa-chevron-right"></i></a>
             </div>
           </div>
         </div>
@@ -151,7 +151,7 @@
           <div class="subs-letter-bg grey-bg-soft pt-45 pb-45 text-center">
             <h3 class="mb-15">Not sure where to start?</h3>
             <h4 class="sub-title mb-30">Book a quick call and we'll guide you to the right solution.</h4>
-            <a wire:navigate href="{{ route('service.view') }}" class="theme_btn theme_btn3">Talk to an expert <i class="far fa-chevron-right"></i></a>
+            <a wire:navigate href="{{  route('service.view',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Talk to an expert <i class="far fa-chevron-right"></i></a>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-xl-4 col-lg-3 col-md-6 col-sm-6">
                         <div class="logo">
-                            <a class="logo-img" wire:navigate href="{{ route('home') }}">
+                            <a class="logo-img"  wire:navigate href="{{ route('home', ['locale' => app()->getLocale()]) }}">
                                 <img
                                     class="logo-1 mt-1"
                                     src="{{ asset('assets/img/logo/logo2.png') }}"
@@ -48,65 +48,37 @@
                                 <div class="main-menu main-menu-3 mr-60 mr-lg-0 mr-md-0 mr-xs-0 d-none d-lg-block">
                                     <nav>
                                         <ul>
-                                            <li>
-                                                <a
-                                                    wire:navigate
-                                                    href="{{ route('home') }}"
-                                                    class="{{ request()->routeIs('home') ? 'active' : '' }}">
-                                                    Home
-                                                </a>
-                                            </li>
-                                            <li><a wire:navigate href="{{ route('service') }}">Our Services</a></li>
-
-
-                                            <!-- Dropdown Menu Example -->
-                                            <li class="has-dropdown">
-                                                <a href="javascript:void(0);">
-                                                    Explore <i class="far fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a wire:navigate href="{{ route('about') }}">About Us</a></li>
-                                                    <li><a wire:navigate href="{{ route('service') }}">Our Services</a></li>
-                                                    <li><a wire:navigate href="{{ route('contact') }}">Contact Us</a></li>
-                                                    <li>
-                                                        <a
-                                                            wire:navigate
-                                                            href="{{ route('case.study') }}"
-                                                            class="{{ request()->routeIs('case.study') ? 'active' : '' }}">
-                                                            Case Study
+                                            @foreach(__('header.main') as $item)
+                                                <li @if(isset($item['submenu'])) class="has-dropdown" @endif>
+                                                    @if(isset($item['submenu']))
+                                                        <a wire:navigate href="javascript:void(0);">
+                                                            {{ $item['name'] }} <i class="far fa-chevron-down"></i>
                                                         </a>
-                                                    </li>
-                                                    <li><a wire:navigate href="{{ route('testimonials') }}">Testimonials</a></li>
-                                                    <li><a wire:navigate href="{{ route('faq') }}">FAQ</a></li>
-                                                </ul>
-                                            </li>
-
-                                            <li class="has-dropdown">
-                                                <a href="javascript:void(0);">
-                                                    Package <i class="far fa-chevron-down"></i>
-                                                </a>
-                                                <ul class="submenu" style="min-width: 220px;">
-                                                    <li><a wire:navigate href="{{ route('registration.local') }}">Company Registration For Locals</a></li>
-                                                    <li><a wire:navigate href="{{ route('registration.foriegn') }}">Compare Plan Foreign National</a></li>
-                                                    <li><a wire:navigate href="{{ route('registration.trade-registration')}}">Trademark Registration</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    wire:navigate
-                                                    href="{{ route('blogs') }}"
-                                                    class="{{ request()->routeIs('blog') ? 'active' : '' }}">
-                                                    Blogs
-                                                </a>
-                                            </li>
-
+                                                        <ul class="submenu">
+                                                            @foreach($item['submenu'] as $subitem)
+                                                                <li>
+                                                                    <a wire:navigate href="{{ route($subitem['route'], ['locale' => app()->getLocale()]) }}" 
+                                                                       class="{{ request()->routeIs($subitem['route']) ? 'active' : '' }}">
+                                                                        {{ $subitem['name'] }}
+                                                                    </a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @else
+                                                        <a wire:navigate href="{{ route($item['route'], ['locale' => app()->getLocale()]) }}" 
+                                                           class="{{ request()->routeIs($item['route']) ? 'active' : '' }}">
+                                                        {{ $item['name'] }}
+                                                        </a>
+                                                    @endif
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </nav>
                                 </div>
 
                                 <!-- Mobile Menu Toggle -->
                                 <div class="hamburger-menu d-md-block d-lg-none text-right">
-                                    <a href="javascript:void(0);">
+                                    <a wire:navigate href="javascript:void(0);">
                                         <i class="far fa-bars"></i>
                                     </a>
                                 </div>
@@ -119,23 +91,25 @@
                                 <!-- Language Switcher -->
                                 <div class="language-switcher dropdown">
                                     <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        English
+                                        {{ __('header.languages')[app()->getLocale()] ?? strtoupper(app()->getLocale()) }}
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
                                         <ul class="ct-language_dropdown">
-                                            <li><a wire:navigate href="#">Arabic</a></li>
-                                            <li><a wire:navigate href="#">German</a></li>
-                                            <li><a wire:navigate href="#">Spanish</a></li>
-                                            <li><a wire:navigate href="#">China</a></li>
-                                            <li><a wire:navigate href="#">Italy</a></li>
-                                            <li><a wire:navigate href="#">USA</a></li>
+                                            @foreach(__('header.languages') as $code => $name)
+                                                <li>
+                                                    <a wire:navigate href="{{ \App\Helpers\LocaleHelper::getLocalizedUrl($code) }}" 
+                                                       class="{{ app()->getLocale() === $code ? 'active' : '' }}">
+                                                        {{ $name }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
 
                                 <!-- Quote Button -->
                                 <div class="quote-btn d-none d-md-block ml-20">
-                                    <a wire:navigate href="{{ route('contact') }}" class="theme_btn theme_btn3">
+                                    <a  wire:navigate href="{{ route('contact', ['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">
                                         Contact Us<i class="far fa-chevron-right"></i>
                                     </a>
                                 </div>
@@ -148,16 +122,15 @@
     </header>
 
     <!-- Slide-bar / Mobile Menu -->
-    <!-- Slide-bar / Mobile Menu -->
     <aside class="slide-bar">
         <div class="close-mobile-menu">
-            <a href="javascript:void(0);"><i class="fas fa-times"></i></a>
+            <a wire:navigate href="javascript:void(0);"><i class="fas fa-times"></i></a>
         </div>
 
         <div class="offset-sidebar">
             <div class="offset-widget offset-logo mb-30">
-                <a wire:navigate href="{{ route('home') }}">
-                    <img src="{{ asset('assets/img/logo/header_logo_one.png') }}" alt="logo">
+                <a  wire:navigate href="{{ route('home', ['locale' => app()->getLocale()]) }}">
+                    <img src="" alt="logo">
                 </a>
             </div>
             <div class="offset-widget mb-40">
@@ -168,7 +141,7 @@
                         was born and will give you a complete account of the system and expound the actual teachings of
                         the great explore.
                     </p>
-                    <a class="theme_btn theme_btn_bg" wire:navigate href="{{ route('contact') }}">Contact Us</a>
+                    <a class="theme_btn theme_btn_bg"  wire:navigate href="{{ route('contact', ['locale' => app()->getLocale()]) }}">Contact Us</a>
                 </div>
             </div>
             <div class="offset-widget mb-30 pr-10">
@@ -184,64 +157,29 @@
         <!-- Mobile Menu -->
         <nav class="side-mobile-menu">
             <ul id="mobile-menu-active">
-                <!-- Home -->
-                <li>
-                    <a wire:navigate href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a wire:navigate href="{{ route('service') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">
-                        Our Services
-                    </a>
-                </li>
-
-                <!-- Explore Dropdown -->
-                <li class="has-dropdown">
-                    <a href="javascript:void(0);">Explore</a>
-                    <ul class="submenu" style="min-width: 220px;">
-                        <li><a wire:navigate href="{{ route('about') }}">About Us</a></li>
-                        <li><a wire:navigate href="{{ route('service') }}">Our Services</a></li>
-                        <li><a wire:navigate href="{{ route('contact') }}">Contact Us</a></li>
-                        <li>
-                            <a
-                                wire:navigate
-                                href="{{ route('case.study') }}"
-                                class="{{ request()->routeIs('case.study') ? 'active' : '' }}">
-                                Case Study
+                @foreach(__('header.main') as $item)
+                    <li @if(isset($item['submenu'])) class="has-dropdown" @endif>
+                        @if(isset($item['submenu']))
+                            <a wire:navigate href="javascript:void(0);">{{ $item['name'] }}</a>
+                            <ul class="submenu">
+                                @foreach($item['submenu'] as $subitem)
+                                    <li>
+                                        <a wire:navigate href="{{ route($subitem['route'], ['locale' => app()->getLocale()]) }}" 
+                                           class="{{ request()->routeIs($subitem['route']) ? 'active' : '' }}">
+                                            {{ $subitem['name'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @else
+                            <a wire:navigate href="{{ route($item['route'], ['locale' => app()->getLocale()]) }}" 
+                               class="{{ request()->routeIs($item['route']) ? 'active' : '' }}">
+                                {{ $item['name'] }}
                             </a>
-                        </li>
-                        <li><a wire:navigate href="{{ route('testimonials') }}">Testimonials</a></li>
-                        <li><a wire:navigate href="{{ route('faq') }}">FAQ</a></li>
-                    </ul>
-                </li>
-
-
-                <!-- Package Dropdown -->
-                <li class="has-dropdown">
-                    <a href="javascript:void(0);">Packages</a>
-                    <ul class="submenu" style="min-width: 220px;">
-                        <li><a wire:navigate href="{{ route('registration.local') }}">Company Registration For Locals</a></li>
-                        <li><a wire:navigate href="{{ route('registration.foriegn') }}">Compare Plan Foreign National</a></li>
-                        <li><a wire:navigate href="{{ route('registration.trade-registration') }}">Trademark Registration</a></li>
-                    </ul>
-                </li>
-
-                <!-- Contact Us -->
-                <li>
-                    <a wire:navigate href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">
-                        Contact Us
-                    </a>
-                </li>
-
-                <!-- Blogs -->
-                <li>
-                    <a wire:navigate href="{{ route('blogs') }}" class="{{ request()->routeIs('blogs') ? 'active' : '' }}">
-                        Blogs
-                    </a>
-                </li>
+                        @endif
+                    </li>
+                @endforeach
             </ul>
         </nav>
     </aside>
-
 </div>

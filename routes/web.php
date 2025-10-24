@@ -16,18 +16,36 @@ use App\Livewire\Public\ServiceView;
 use App\Livewire\Public\Testimonial;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',Home::class)->name('home');
-Route::get('/about',About::class)->name('about');
-Route::get('/service',Service::class)->name('service');
-Route::get('/contact',Contact::class)->name('contact');
-Route::get('/blogs',Blog::class)->name('blogs');
-Route::get('/blog',BlogView::class)->name('blog.view');
-Route::get('/case-study',CaseStudy::class)->name('case.study');
-Route::get('/service-view',ServiceView::class)->name('service.view');
-Route::get('/case-study-view',CaseStudyView::class)->name('case.study.view');
-Route::get('/testimonials',Testimonial::class)->name('testimonials');
-Route::get('/faq',Faq::class)->name('faq');
+Route::group([
+    'prefix' => '{locale}',
+    'where' => ['locale' => 'en|hi'],
+], function () {
 
-Route::get('registration/local',Local::class)->name('registration.local');
-Route::get('registration/international',Foreign::class)->name('registration.foriegn');
-Route::get('registration/trade-registration',TradeMark::class)->name('registration.trade-registration');
+    Route::get('/', Home::class)->name('home');
+    Route::get('/about', About::class)->name('about');
+    Route::get('/service', Service::class)->name('service');
+    Route::get('/contact', Contact::class)->name('contact');
+    Route::get('/blogs', Blog::class)->name('blogs');
+    Route::get('/blog', BlogView::class)->name('blog.view');
+    Route::get('/case-study', CaseStudy::class)->name('case.study');
+    Route::get('/service-view', ServiceView::class)->name('service.view');
+    Route::get('/case-study-view', CaseStudyView::class)->name('case.study.view');
+    Route::get('/testimonials', Testimonial::class)->name('testimonials');
+    Route::get('/faq', Faq::class)->name('faq');
+
+    Route::get('registration/local', Local::class)->name('registration.local');
+    Route::get('registration/international', Foreign::class)->name('registration.foreign');
+    Route::get('registration/trade-registration', TradeMark::class)->name('registration.trade-registration');
+
+});
+
+Route::get('/', function () {
+    $locale = session('locale', config('app.locale', 'en'));
+    return redirect("/{$locale}");
+});
+
+Route::fallback(function () {
+    $locale = session('locale', config('app.locale', 'en'));
+    $path = request()->path();
+    return redirect("/{$locale}/{$path}");
+});

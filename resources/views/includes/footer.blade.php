@@ -6,7 +6,7 @@
                         <div class="footer__widget fot_widget_h3 text-center text-md-left pos-rel mb-30">
                             <div class="footer-log mb-40">
                                 <a href="index.html" class="logo">
-                                    <img src="{{ asset('assets/img/logo/header_logo_three.svg') }}" alt="">
+                                    <img src="" alt="">
                                 </a>
                             </div>
                             <ul class="contact-list">

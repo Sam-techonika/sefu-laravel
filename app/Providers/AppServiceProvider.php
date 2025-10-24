@@ -11,7 +11,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Register the LocaleHelper as a singleton
+        $this->app->singleton('locale-helper', function () {
+            return new \App\Helpers\LocaleHelper();
+        });
     }
 
     /**
@@ -19,6 +22,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Set up supported locales for the application
+        config(['app.supported_locales' => ['en', 'hi']]);
+        
+        // Share current locale with all views
+        view()->share('currentLocale', app()->getLocale());
+        view()->share('supportedLocales', config('app.supported_locales'));
     }
 }
