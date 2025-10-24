@@ -207,7 +207,7 @@
                                   <div class="col-lg-12">
                                       <div class="get-answer text-center mt-50">
                                           <h3>Don't find your answer?</h3>
-                                          <a href="{{ route('contact') }}" class="theme_btn faq-btn">Contact us</a>
+                                          <a href="{{ route('contact',app()->getLocale()) }}" class="theme_btn faq-btn">Contact us</a>
                                       </div>
                                   </div>
                               </div>

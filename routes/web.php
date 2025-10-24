@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\Admin\Dashboard;
+use App\Livewire\Admin\UserList;
 use App\Livewire\Public\About;
 use App\Livewire\Public\Blog;
 use App\Livewire\Public\BlogView;
@@ -14,7 +16,14 @@ use App\Livewire\Public\Home;
 use App\Livewire\Public\Service;
 use App\Livewire\Public\ServiceView;
 use App\Livewire\Public\Testimonial;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+
+
+
+
 
 Route::group([
     'prefix' => '{locale}',
@@ -39,13 +48,46 @@ Route::group([
 
 });
 
-Route::get('/', function () {
-    $locale = session('locale', config('app.locale', 'en'));
-    return redirect("/{$locale}");
-});
+// Route::get('/', function () {
+//     $locale = session('locale', config('app.locale', 'en'));
+//     return redirect("/{$locale}");
+// });
+
+// Route::fallback(function () {
+//     $locale = session('locale', config('app.locale', 'en'));
+//     $path = request()->path();
+//     return redirect("/{$locale}/{$path}");
+// });
 
 Route::fallback(function () {
-    $locale = session('locale', config('app.locale', 'en'));
     $path = request()->path();
+    
+    // Don't redirect admin routes or other specific routes
+    if (str_starts_with($path, 'admin') || 
+        str_starts_with($path, 'clear-cache') || 
+        str_starts_with($path, 'logout') ||
+        str_starts_with($path, 'livewire')) {
+        abort(404);
+    }
+    
+    $locale = session('locale', config('app.locale', 'en'));
     return redirect("/{$locale}/{$path}");
+}); 
+
+// Admin Routes
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', Dashboard::class)->name('dashboard');
+    Route::get('/users',UserList::class)->name('users');
+});
+
+Route::get('/logout',function(){
+    Auth::logout();
+    return redirect()->route('home',app()->getLocale());
+})->name('logout'); 
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    return "Cache Cleared!";
 });
