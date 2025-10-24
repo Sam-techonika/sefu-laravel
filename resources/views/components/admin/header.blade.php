@@ -2,7 +2,7 @@
     $user = auth()->user() ?? (object)[
         'name' => 'Admin User',
         'role' => 'Administrator',
-        'avatar' => asset('assets/theme/img/avatar.png')
+        'avatar' => asset('tabler/theme/img/avatar.jpg') ?? asset('assets/theme/img/avatar.jpg'),
     ];
 @endphp
 
