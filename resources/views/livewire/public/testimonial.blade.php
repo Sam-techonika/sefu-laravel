@@ -101,7 +101,7 @@
 
                         <div class="feedback-inner-content">
                             <div class="quote-icon mb-25">
-                                <img src="assets/img/icon/icon10.svg" alt="">
+                                <img src="{{asset('assets/img/icon/icon10.svg')}}" alt="">
                             </div>
                             <h4 class="inner-text mb-35">We’v 9,000 agents around the country, Find agents near your neighborhood.</h4>
                             <div class="client-box">
@@ -117,7 +117,7 @@
 
                         <div class="feedback-inner-content">
                             <div class="quote-icon mb-25">
-                                <img src="assets/img/icon/icon10.svg" alt="">
+                                <img src="{{asset('assets/img/icon/icon10.svg')}}" alt="">
                             </div>
                             <h4 class="inner-text mb-35">We’v 9,000 agents around the country, Find agents near your neighborhood.</h4>
                             <div class="client-box">
@@ -132,7 +132,7 @@
                     <div class="feedback-item">
                         <div class="feedback-inner-content">
                             <div class="quote-icon mb-25">
-                                <img src="assets/img/icon/icon10.svg" alt="">
+                                <img src="{{asset('assets/img/icon/icon10.svg')}}" alt="">
                             </div>
                             <h4 class="inner-text mb-35">Lorem ipsum dolor sit amet consectetur, adipisicing elit. this omnis.</h4>
                             <div class="client-box">
@@ -147,7 +147,7 @@
                     <div class="feedback-item">
                         <div class="feedback-inner-content">
                             <div class="quote-icon mb-25">
-                                <img src="assets/img/icon/icon10.svg" alt="">
+                                <img src="{{asset('assets/img/icon/icon10.svg')}}" alt="">
                             </div>
                             <h4 class="inner-text mb-35">ipsum consectetur around the country, Find agents near your neighborhood.</h4>
                             <div class="client-box">
@@ -162,7 +162,7 @@
                     <div class="feedback-item">
                         <div class="feedback-inner-content">
                             <div class="quote-icon mb-25">
-                                <img src="assets/img/icon/icon10.svg" alt="">
+                                <img src="{{asset('assets/img/icon/icon10.svg')}}" alt="">
                             </div>
                             <h4 class="inner-text mb-35">We’v 9,000 agents around the country, Find agents near your neighborhood.</h4>
                             <div class="client-box">

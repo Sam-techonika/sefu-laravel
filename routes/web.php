@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Admin\Category\CategoryList;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\UserList;
 use App\Livewire\Public\About;
@@ -78,6 +79,7 @@ Route::fallback(function () {
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', Dashboard::class)->name('dashboard');
     Route::get('/users',UserList::class)->name('users');
+    Route::get('/categories', CategoryList::class)->name('categories');
 });
 
 Route::get('/logout',function(){

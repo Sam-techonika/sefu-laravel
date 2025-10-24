@@ -69,37 +69,7 @@
                       </div>
                       @endif
 
-                      <div class="blog-quote pink-bg mb-50">
-                          <div class="quote-icon mr-30">
-                              <img src="assets/img/icon/icon10.svg" alt="">
-                          </div>
-                          <h3>{{ $quoteText ?? 'A brand for company is like reputation for a person. You earn reputation trying to do hard things well.' }}</h3>
-                      </div>
-                      <div class="blog-share">
-                          <h4 class="sub-title mb-35">This response is important for our ability to learn mistakes, it due alsogives rise to self-criticism because.</h4>
-                          <p>One touch of a red-hot stove is usually all we need to avoid that kind of discomfort in the.
-                              The same is true as we experience the emotional sensation of stress from our
-                              instance of social rejection to fear and thus automatically.</p>
-                          <div class="row pt-50">
-                              <div class="col-lg-6 col-md-6 col-12">
-                                  <div class="share-tag mb-30">
-                                      <span>Tag: </span>
-                                      <a href="#">Adventure,</a>
-                                      <a href="#">Landscape,</a>
-                                      <a href="#">Nature</a>
-                                  </div>
-                              </div>
-                              <div class="col-lg-6 col-md-6 col-12 text-md-right">
-                                  <div class="footer-social share-social mb-30">
-                                      <span>Share : </span>
-                                      <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                      <a href="#"><i class="fab fa-twitter"></i></a>
-                                      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                      <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+                  
                       {{-- FAQ Section --}}
                       <section class="faq-area pt-20 pb-20 pt-md-95 pt-xs-95">
                           <div class="">

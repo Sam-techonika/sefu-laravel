@@ -37,6 +37,15 @@ class AdminSidebar
                     (object)['title' => 'Users', 'url' => route('admin.users')],
                 ],
             ],
+            (object)[
+                'title' => 'Blogs',
+                'icon' => 'ti ti-file-text',
+                'url' => '#',
+                'hasSubmenu' => true,
+                'submenu' => [
+                    (object)['title' => 'Categories', 'url' => route('admin.categories')],
+                ],
+            ],
             // Add more menus here as needed
         ]);
 
