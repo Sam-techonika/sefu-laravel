@@ -1,7 +1,10 @@
 <?php
 
+use App\Livewire\Admin\Blog\AddBlog;
+use App\Livewire\Admin\Blog\BlogList;
 use App\Livewire\Admin\Category\CategoryList;
 use App\Livewire\Admin\Dashboard;
+use App\Livewire\Admin\Tag\TagList;
 use App\Livewire\Admin\UserList;
 use App\Livewire\Public\About;
 use App\Livewire\Public\Blog;
@@ -80,6 +83,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', Dashboard::class)->name('dashboard');
     Route::get('/users',UserList::class)->name('users');
     Route::get('/categories', CategoryList::class)->name('categories');
+    Route::get('/tags', TagList::class)->name('tags');
+    Route::get('/blogs', BlogList::class)->name('blogs');
+    Route::get('/blogs/add', AddBlog::class)->name('blog.add');
 });
 
 Route::get('/logout',function(){

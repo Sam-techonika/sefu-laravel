@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Livewire\Admin\Category;
+namespace App\Livewire\Admin\Tag;
 
-use App\Models\Category;
-use App\Models\CategoryTranslation;
+use App\Models\Tag;
+use App\Models\TagTranslation;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Enums\LocaleType;
 use Livewire\Attributes\Layout;
 
-class CategoryList extends Component
+class TagList extends Component
 {
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+        protected $paginationTheme = 'bootstrap';
 
 
     public $search = '';
@@ -20,7 +20,7 @@ class CategoryList extends Component
     public $showConfirmModal = false;
     public $isEdit = false;
 
-    public $categoryId;
+    public $tagId;
     public $deleteId;
     public $names = [];
 
@@ -39,7 +39,7 @@ class CategoryList extends Component
     #[Layout('components.layouts.admin')]
     public function render()
     {
-        $categories = Category::with('translations')
+        $tags = Tag::with('translations')
             ->when(
                 $this->search,
                 fn($q) =>
@@ -52,20 +52,19 @@ class CategoryList extends Component
             ->latest()
             ->paginate(10);
 
-        return view('livewire.admin.category.category-list', compact('categories'));
+        return view('livewire.admin.tag.tag-list', compact('tags'));
     }
 
     public function openModal($id = null)
     {
         $this->resetValidation();
-        $this->reset(['names', 'isEdit', 'categoryId']);
+        $this->reset(['names', 'isEdit', 'tagId']);
 
         if ($id) {
             $this->isEdit = true;
-            $this->categoryId = $id;
-            $category = Category::with('translations')->findOrFail($id);
-
-            foreach ($category->translations as $translation) {
+            $this->tagId = $id;
+            $tag = Tag::with('translations')->findOrFail($id);
+            foreach ($tag->translations as $translation) {
                 $this->names[$translation->locale] = $translation->name;
             }
         }
@@ -78,29 +77,21 @@ class CategoryList extends Component
         $this->showModal = false;
     }
 
-    public function saveCategory()
+    public function saveTag()
     {
         $this->validate();
 
-
-        $category = $this->isEdit
-            ? Category::findOrFail($this->categoryId)
-            : Category::create();
+        $tag = $this->isEdit
+            ? Tag::findOrFail($this->tagId)
+            : Tag::create();
 
         foreach ($this->availableLocales as $code => $label) {
-            CategoryTranslation::updateOrCreate(
-                [
-                    'category_id' => $category->id,
-                    'locale' => $code,
-                ],
-                [
-                    'name' => $this->names[$code] ?? '',
-                ]
+            TagTranslation::updateOrCreate(
+                ['tag_id' => $tag->id, 'locale' => $code],
+                ['name' => $this->names[$code] ?? '']
             );
         }
-
-        $this->dispatch('success', $this->isEdit ? 'Category updated successfully!' : 'Category created successfully!');
-
+        $this->dispatch('success', $this->isEdit ? 'Tag updated successfully!' : 'Tag created successfully!');
         $this->closeModal();
     }
 
@@ -110,13 +101,12 @@ class CategoryList extends Component
         $this->showConfirmModal = true;
     }
 
-    public function deleteCategory()
+    public function deleteTag()
     {
         if ($this->deleteId) {
-            Category::find($this->deleteId)?->delete();
-            $this->dispatch('success', 'Category deleted successfully!');
+            Tag::find($this->deleteId)?->delete();
+            $this->dispatch('success', 'Tag deleted successfully!');
         }
-
         $this->showConfirmModal = false;
         $this->deleteId = null;
     }
