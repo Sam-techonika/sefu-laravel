@@ -20,6 +20,7 @@ class UserList extends Component
     public $showDeleteModal = false;
     public $editMode = false;
     public $search = '';
+    public $role = 'user';
 
     protected $paginationTheme = 'bootstrap';
 
@@ -43,6 +44,7 @@ class UserList extends Component
 
         $user = User::findOrFail($id);
         $this->userId = $id;
+        $this->role = $user->role;
         $this->name = $user->name;
         $this->email = $user->email;
         $this->password = '';
@@ -66,12 +68,14 @@ class UserList extends Component
             $user->update([
                 'name' => $this->name,
                 'email' => $this->email,
+                'role' => $this->role,
                 'password' => $this->password ? Hash::make($this->password) : $user->password,
             ]);
         } else {
             User::create([
                 'name' => $this->name,
                 'email' => $this->email,
+                'role' => $this->role,
                 'password' => Hash::make($this->password),
             ]);
         }

@@ -16,6 +16,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Role</th>
                         <th class="text-end">Actions</th>
                     </tr>
                 </thead>
@@ -25,6 +26,7 @@
                             <td>{{ $loop->iteration + ($users->currentPage() - 1) * $users->perPage() }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->role }}</td>
                             <td class="text-end">
                                 <button wire:click="openEditModal({{ $user->id }})" class="btn btn-sm btn-warning me-1">
                                     <i class="ti ti-pencil"></i>
@@ -69,6 +71,16 @@
                                 <label class="form-label">Email</label>
                                 <input type="email" class="form-control" wire:model.defer="email" required>
                                 @error('email') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Role</label>
+                                <select class="form-select" wire:model.defer="role">
+                                    <option value="user">User</option>
+                                    <option value="author">Author</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                                @error('role') <div class="text-danger">{{ $message }}</div> @enderror
                             </div>
 
                             <div class="mb-3">
