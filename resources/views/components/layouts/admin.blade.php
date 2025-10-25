@@ -16,6 +16,7 @@
     <link href="{{ asset('tabler/theme/css/tabler-vendors.min.css') }}" rel="stylesheet" />
 
     <!-- Tabler Icons -->
+     <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
 
     <!-- Custom Styles -->
@@ -76,6 +77,7 @@
     <script src="{{ asset('tabler/theme/prefs.js') }}"></script>
 
     <!-- Toastr JS -->
+     <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     @livewireScripts

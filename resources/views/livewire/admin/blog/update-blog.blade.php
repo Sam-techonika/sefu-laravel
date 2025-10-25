@@ -1,3 +1,219 @@
 <div>
-    {{-- The Master doesn't talk, he acts. --}}
+    <div class="page-header d-print-none">
+        <div class="row align-items-center">
+            <div class="col">
+                <h2 class="page-title">
+                    Edit Blog
+                    <span class="text-muted fs-6">- ID: {{ $blogId }}</span>
+                </h2>
+                <div class="text-muted mt-1">
+                    Currently editing: <span class="badge bg-blue">{{ $locale === 'en' ? 'English' : 'हिंदी (Hindi)' }}</span>
+                </div>
+            </div>
+            <div class="col-auto ms-auto">
+                <div class="btn-list">
+                    <a href="{{ route('admin.blogs') }}" class="btn btn-outline-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1"/>
+                        </svg>
+                        Back to Blogs
+                    </a>
+                    <a href="{{ route('admin.blog.languages', $blogId) }}" class="btn btn-outline-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M4 5h3l3 3h7l-3 -3h3a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-8a2 2 0 0 1 2 -2z"/>
+                            <path d="M9 13v-1a1 1 0 0 1 1 -1h1m2 1v1a1 1 0 0 1 -1 1h-1"/>
+                            <path d="M11 10h1"/>
+                        </svg>
+                        View Languages
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (session()->has('message'))
+        <div class="alert alert-success mt-2">{{ session('message') }}</div>
+    @endif
+
+    <div class="card mt-3">
+        <div class="card-body">
+            <form wire:submit.prevent="save">
+                {{-- Category and Tags --}}
+                <div class="row mb-3">
+                    <div class="col-md-2">
+                        <label class="form-label">Current Locale</label>
+                        <div class="form-control-plaintext">
+                            <span class="badge bg-blue fs-6">{{ $locale === 'en' ? 'English' : 'हिंदी (Hindi)' }}</span>
+                        </div>
+                    </div>
+
+                    {{-- Category with TomSelect --}}
+                    <div class="col-md-4" wire:ignore x-data x-init="
+                        let categorySelect = new TomSelect($refs.categorySelect,{ placeholder:'Select Category' });
+                        $refs.categorySelect.addEventListener('change',()=>{ $wire.set('category_id',$refs.categorySelect.value); });
+                    ">
+                        <label class="form-label">Category</label>
+                        <select x-ref="categorySelect" class="form-select">
+                            <option value="">Select Category</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category['id'] }}" @selected($category['id'] == $category_id)>
+                                    {{ $category['name'] }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('category_id') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+
+                    {{-- Tags with TomSelect --}}
+                    <div class="col-md-6" wire:ignore x-data x-init="
+                        let tagSelect = new TomSelect($refs.tagSelect,{
+                            plugins:['remove_button'], placeholder:'Select Tags'
+                        });
+                        $refs.tagSelect.addEventListener('change',()=>{
+                            let selected=[...$refs.tagSelect.selectedOptions].map(o=>o.value);
+                            $wire.set('selectedTags',selected);
+                        });
+                    ">
+                        <label class="form-label">Tags</label>
+                        <select x-ref="tagSelect" multiple class="form-select">
+                            @foreach($tags as $tag)
+                                <option value="{{ $tag['id'] }}" @selected(in_array($tag['id'],$selectedTags))>
+                                    {{ $tag['name'] }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('selectedTags') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+                </div>
+
+                {{-- Title --}}
+                <div class="mb-3">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-control" wire:model="title.{{ $locale }}">
+                    @error('title') <span class="text-danger">{{ $message }}</span> @enderror
+                </div>
+
+                {{-- TinyMCE Fields --}}
+                @foreach(['at_glance', 'introduction', 'main_content', 'key_takeaways'] as $field)
+                    <div class="mb-3" wire:ignore>
+                        <label class="form-label">{{ ucwords(str_replace('_', ' ', $field)) }}</label>
+                        <textarea id="{{ $field }}" class="form-control">{{ $this->$field[$locale] ?? '' }}</textarea>
+                    </div>
+                @endforeach
+
+                {{-- FAQs with Dynamic Question-Answer Format --}}
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <label class="form-label mb-0">FAQs</label>
+                        <button type="button" class="btn btn-sm btn-outline-primary" wire:click="addFaq">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                            Add FAQ
+                        </button>
+                    </div>
+                    
+                    @if(isset($faqs[$locale]) && is_array($faqs[$locale]))
+                        @foreach($faqs[$locale] as $index => $faq)
+                            <div class="card mb-3" wire:key="faq-{{ $locale }}-{{ $index }}">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h5 class="card-title mb-0">FAQ #{{ $index + 1 }}</h5>
+                                        @if(count($faqs[$locale]) > 1)
+                                            <button type="button" class="btn btn-sm btn-outline-danger" wire:click="removeFaq({{ $index }})">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                    <line x1="18" y1="6" x2="6" y2="18"/>
+                                                    <line x1="6" y1="6" x2="18" y2="18"/>
+                                                </svg>
+                                                Remove
+                                            </button>
+                                        @endif
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-12 mb-3">
+                                            <label class="form-label">Question</label>
+                                            <input type="text" class="form-control" 
+                                                   wire:model="faqs.{{ $locale }}.{{ $index }}.question" 
+                                                   placeholder="Enter your question here...">
+                                            @error("faqs.{$locale}.{$index}.question") 
+                                                <span class="text-danger">{{ $message }}</span> 
+                                            @enderror
+                                        </div>
+                                        
+                                        <div class="col-12">
+                                            <label class="form-label">Answer</label>
+                                            <textarea class="form-control" rows="3" 
+                                                      wire:model="faqs.{{ $locale }}.{{ $index }}.answer" 
+                                                      placeholder="Enter your answer here..."></textarea>
+                                            @error("faqs.{$locale}.{$index}.answer") 
+                                                <span class="text-danger">{{ $message }}</span> 
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                    
+                    @if(empty($faqs[$locale]))
+                        <div class="text-center py-4 border rounded bg-light">
+                            <p class="text-muted mb-2">No FAQs added yet</p>
+                            <button type="button" class="btn btn-sm btn-primary" wire:click="addFaq">
+                                Add Your First FAQ
+                            </button>
+                        </div>
+                    @endif
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M19 7l-3 3l-3 -3"/>
+                        <path d="M16 10v9a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1v-12a1 1 0 0 1 1 -1h8m4 0l2 2l-8 8l-2.5 -2.5"/>
+                    </svg>
+                    Update Blog
+                </button>
+            </form>
+        </div>
+    </div>
+
+    {{-- JS Dependencies --}}
+    <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+
+    {{-- TinyMCE with API key --}}
+    <script src="https://cdn.tiny.cloud/1/pvxf2rey6dhbd0zfoep9pxag4n66tqcoa74t54qq0aybqjbs/tinymce/8/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        let currentLocale = @json($locale);
+
+        function initTinyMCE() {
+            ['at_glance','introduction','main_content','key_takeaways'].forEach(field => {
+                if (tinymce.get(field)) tinymce.get(field).remove();
+
+                tinymce.init({
+                    selector: `#${field}`,
+                    height: 300,
+                    menubar: false,
+                    plugins: 'lists link image paste help wordcount',
+                    toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image | removeformat',
+                    setup: function(editor) {
+                        editor.on('Change KeyUp', function() {
+                            Livewire.find(document.querySelector('[wire\\:id]').getAttribute('wire:id'))
+                                .set(`${field}.${currentLocale}`, editor.getContent());
+                        });
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('livewire:init', () => initTinyMCE());
+        document.addEventListener('livewire:mount', () => initTinyMCE());
+    </script>
 </div>

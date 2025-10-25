@@ -13,16 +13,12 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->string('locale', 5)->default('en');
+            $table->string('name');
             $table->foreignId('category_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->json('title'); 
             $table->string('featured_image')->nullable();
-            $table->json('at_glance')->nullable(); 
-            $table->json('introduction')->nullable();
-            $table->json('main_content')->nullable();
-            $table->json('key_takeaways')->nullable();
-            $table->json('faqs')->nullable(); 
-            $table->json('author')->nullable(); 
+            $table->boolean('is_active')->default(true);
+            $table->foreignId('author')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -1,7 +1,9 @@
 <?php
 
 use App\Livewire\Admin\Blog\AddBlog;
+use App\Livewire\Admin\Blog\BlogLangList;
 use App\Livewire\Admin\Blog\BlogList;
+use App\Livewire\Admin\Blog\UpdateBlog;
 use App\Livewire\Admin\Category\CategoryList;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Tag\TagList;
@@ -85,7 +87,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/categories', CategoryList::class)->name('categories');
     Route::get('/tags', TagList::class)->name('tags');
     Route::get('/blogs', BlogList::class)->name('blogs');
-    Route::get('/blogs/add', AddBlog::class)->name('blog.add');
+    Route::get('/blog/add/{id}', AddBlog::class)->name('blog.add');
+    Route::get('/blog/edit/{id}/{locale}', UpdateBlog::class)->name('blog.edit');
+    Route::get('blog/languages/{id}', BlogLangList::class)->name('blog.languages');
 });
 
 Route::get('/logout',function(){

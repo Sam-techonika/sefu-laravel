@@ -45,6 +45,7 @@ class AdminSidebar
                 'submenu' => [
                     (object)['title' => 'Categories', 'url' => route('admin.categories')],
                     (object)['title' => 'Tags', 'url' => route('admin.tags')],
+                    (object)['title' => 'Blogs', 'url' => route('admin.blogs')],
                 ],
             ],
             // Add more menus here as needed

@@ -16,7 +16,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-6 col-lg-8">
                             <div class="slider__content slider__content-3 text-center text-md-left pt-325">
-                                <h1 class="main-title wow fadeInUp2 animated mb-40 " data-wow-delay=".1s">Start Structure &<span></span> <span class="round-line">Succeed</span> — Legally.</h1>
+                                <h1 class="main-title wow fadeInUp2 animated mb-40 " data-wow-delay=".1s">Start Smart &<span></span> <span class="round-line"> Succeed</span> Legally.</h1>
                                 <h4 class="sub-title wow fadeInUp2 animated mb-50" data-wow-delay=".3s">Helping you build and grow your business with clarity, compliance, and confidence.</h4>
                                 <ul class="btn-list d-sm-flex align-items-center wow fadeInUp2 animated mb-35" data-wow-delay=".5s">
                                     <li>
@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="status-content">
                                     <span>Expert-Led Services</span>
-                                    <h4 class="sub-title">Handled by qualified professionals not agents</h4>
+                                    <h4 class="sub-title">By experts, not agents</h4>
                                 </div>
                             </div>
                         </div>
@@ -171,13 +171,13 @@
                     <div class="col-lg-7">
                         <div class="do-wrapper text-center text-md-left mb-30">
                             <div class="section-title section-title-4 pr-70 pr-lg-0 pr-md-0 pr-xs-0">
-                                <h3><span class="round-line">20000+</span> Trusted by founders across India & abroad.</h3>
+                                <h3>Trusted by <span class="round-line">founders</span> across India.</h3>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="what-text-2 text-center text-md-left mb-30">
-                            <h3>We manage everything — company registration, compliance, documentation, and regulatory filings.</h3>
+                            <h3>We manage everything,company registration, compliance, documentation & regulatory filings.</h3>
                         </div>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
