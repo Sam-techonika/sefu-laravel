@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Blog;
 
+use App\Enums\LocaleType;
 use Livewire\Component;
 use App\Models\Blog;
 use App\Models\BlogTranslation;
@@ -12,7 +13,7 @@ use Livewire\Attributes\Layout;
 class UpdateBlog extends Component
 {
     public $blogId;
-    public $locale = 'en';
+    public $locale = LocaleType::EN->value;
     public $category_id;
     public $title = [];
     public $at_glance = [];
@@ -26,10 +27,17 @@ class UpdateBlog extends Component
     public $tags = [];
     public $blog;
 
-    public function mount($id, $locale =null)
+    public function mount($id, $locale = null)
     {
         $this->blogId = $id;
-        $this->locale = $locale;
+        
+        // Validate and set locale using enum
+        if ($locale && in_array($locale, LocaleType::values())) {
+            $this->locale = $locale;
+        } else {
+            $this->locale = LocaleType::EN->value;
+        }
+        
         $this->loadBlogData();
         $this->initializeFaqs();
         $this->loadLocaleData($this->locale);
@@ -107,20 +115,23 @@ class UpdateBlog extends Component
             ])->toArray();
     }
 
-    protected $rules = [
-        'locale' => 'required|string|size:2',
-        'category_id' => 'nullable|exists:categories,id',
-        'title.*' => 'required|string|max:255',
-        'at_glance.*' => 'nullable|string',
-        'introduction.*' => 'nullable|string',
-        'main_content.*' => 'nullable|string',
-        'key_takeaways.*' => 'nullable|string',
-        'faqs.*' => 'nullable|array',
-        'faqs.*.*.question' => 'nullable|string',
-        'faqs.*.*.answer' => 'nullable|string',
-        'selectedTags' => 'nullable|array',
-        'selectedTags.*' => 'exists:tags,id',
-    ];
+    protected function rules()
+    {
+        return [
+            'locale' => 'required|string|in:' . implode(',', LocaleType::values()),
+            'category_id' => 'nullable|exists:categories,id',
+            'title.*' => 'required|string|max:255',
+            'at_glance.*' => 'nullable|string',
+            'introduction.*' => 'nullable|string',
+            'main_content.*' => 'nullable|string',
+            'key_takeaways.*' => 'nullable|string',
+            'faqs.*' => 'nullable|array',
+            'faqs.*.*.question' => 'nullable|string',
+            'faqs.*.*.answer' => 'nullable|string',
+            'selectedTags' => 'nullable|array',
+            'selectedTags.*' => 'exists:tags,id',
+        ];
+    }
 
     public function save()
     {

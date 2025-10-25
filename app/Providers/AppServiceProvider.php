@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Enums\LocaleType;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Set up supported locales for the application
-        config(['app.supported_locales' => ['en', 'hi']]);
+        config(['app.supported_locales' => LocaleType::values()]);
         
         // Share current locale with all views
         view()->share('currentLocale', app()->getLocale());

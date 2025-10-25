@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Blog;
 
+use App\Enums\LocaleType;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
@@ -19,19 +20,19 @@ class BlogList extends Component
     public $search = '';
     public $category_id = '';
     public $tag_id = '';
-    public $locale = 'en';
+    public $locale = LocaleType::EN->value;
     public $categories;
     public $tags;
     public $users;
     public $is_active = true;
 
     public $isModalOpen = false;
-    public $blogId = null; // For editing
+    public $blogId = null; 
 
-    // Form fields
+   
     public $featured_image;
     public $author;
-    public $selectedTags = []; // Selected tags
+    public $selectedTags = []; 
     public $nextBlogName;
 
     protected $paginationTheme = 'bootstrap';
@@ -47,7 +48,7 @@ class BlogList extends Component
     public function mount()
     {
         $this->users = User::all();
-        $locale = 'en';
+        $locale = LocaleType::EN->value;
          $this->categories = Category::with('translations')->get()
             ->map(fn($category) => [
                 'id' => $category->id,

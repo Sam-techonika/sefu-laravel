@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use App\Enums\LocaleType;
 use Illuminate\Support\Facades\Route;
 
 class LocaleHelper
@@ -33,7 +34,7 @@ class LocaleHelper
      */
     public static function getSupportedLocales(): array
     {
-        return config('app.supported_locales', ['en', 'hi']);
+        return LocaleType::values();
     }
 
     /**

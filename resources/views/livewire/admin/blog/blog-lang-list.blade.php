@@ -37,7 +37,6 @@
         <div class="container-xl">
       
 
-            @if(!empty($blogTranslations) && count($blogTranslations) > 0)
             <div class="row mt-4">
                 <div class="col-12">
                     <div class="card">
@@ -49,9 +48,9 @@
                                     <rect x="9" y="3" width="6" height="4" rx="2" />
                                     <path d="M9 12l2 2l4 -4" />
                                 </svg>
-                                Available Translations
+                                Blog Translations
                             </h3>
-                            <div class="card-subtitle">{{ count($blogTranslations) }} language(s) available</div>
+                            <div class="card-subtitle">{{ $blogTranslations->count() }} of {{ $this->getTotalLocalesCount() }} language(s) available</div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -68,62 +67,69 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach(['en', 'hi'] as $locale)
-                                        @if(isset($blogTranslations[$locale]))
+                                        @foreach($this->getLocales() as $localeEnum)
+                                        @php 
+                                            $locale = $localeEnum->value;
+                                            $translation = $blogTranslations->get($locale); 
+                                        @endphp
+                                        @if($translation)
                                         <tr>
                                             <td>
-                                                <span class="flag flag-{{ $locale === 'en' ? 'us' : 'in' }} flag-sm me-2"></span>
-                                                {{ $locale === 'en' ? 'English' : 'हिंदी (Hindi)' }}
+                                                <span class="flag flag-{{ $this->getLocaleFlagCode($locale) }} flag-sm me-2"></span>
+                                                {{ $this->getLocaleDisplayName($locale) }}
                                             </td>
                                             <td>
                                                 <span class="badge bg-success">Available</span>
                                             </td>
+                                            <td>{{ Str::limit($translation->title, 30) }}</td>
                                             <td>
-                                                @php $translation = collect($blogTranslations[$locale])->first(); @endphp
-                                                {{ Str::limit($translation['title'], 30) }}
-                                            </td>
-                                            <td>
-                                                @php
-                                                $translation = collect($blogTranslations[$locale])->first();
-                                                $categoryTranslation = $translation['category'] ? collect($translation['category']['translations'])->where('locale', $locale)->first() : null;
-                                                @endphp
-                                                @if($categoryTranslation)
-                                                <span class="badge bg-blue-lt">{{ $categoryTranslation['name'] }}</span>
+                                                @if($translation->category)
+                                                    @php $categoryName = $translation->category->translations->where('locale', $locale)->first()?->name; @endphp
+                                                    @if($categoryName)
+                                                        <span class="badge bg-blue-lt">{{ $categoryName }}</span>
+                                                    @else
+                                                        <span class="text-muted">-</span>
+                                                    @endif
                                                 @else
-                                                <span class="text-muted">-</span>
+                                                    <span class="text-muted">-</span>
                                                 @endif
                                             </td>
                                             <td>
-                                                @php $translation = collect($blogTranslations[$locale])->first(); @endphp
                                                 <div class="d-flex gap-1">
-                                                    @if($translation['at_glance'])
-                                                    <span class="badge bg-success badge-sm" title="At Glance">AG</span>
-                                                    @endif
-                                                    @if($translation['introduction'])
-                                                    <span class="badge bg-success badge-sm" title="Introduction">IN</span>
-                                                    @endif
-                                                    @if($translation['main_content'])
-                                                    <span class="badge bg-success badge-sm" title="Main Content">MC</span>
-                                                    @endif
-                                                    @if($translation['key_takeaways'])
-                                                    <span class="badge bg-success badge-sm" title="Key Takeaways">KT</span>
-                                                    @endif
-                                                    @if($translation['faqs'])
-                                                    <span class="badge bg-success badge-sm" title="FAQs">FAQ</span>
-                                                    @endif
-                                                    @if(!$translation['at_glance'] && !$translation['introduction'] && !$translation['main_content'] && !$translation['key_takeaways'] && !$translation['faqs'])
-                                                    <span class="text-muted">No content sections</span>
+                                                    @if($translation->at_glance)<span class="badge bg-success badge-sm" title="At Glance">AG</span>@endif
+                                                    @if($translation->introduction)<span class="badge bg-success badge-sm" title="Introduction">IN</span>@endif
+                                                    @if($translation->main_content)<span class="badge bg-success badge-sm" title="Main Content">MC</span>@endif
+                                                    @if($translation->key_takeaways)<span class="badge bg-success badge-sm" title="Key Takeaways">KT</span>@endif
+                                                    @if($translation->faqs)<span class="badge bg-success badge-sm" title="FAQs">FAQ</span>@endif
+                                                    @if(!$translation->at_glance && !$translation->introduction && !$translation->main_content && !$translation->key_takeaways && !$translation->faqs)
+                                                        <span class="text-muted">No content sections</span>
                                                     @endif
                                                 </div>
                                             </td>
-                                            <td>
-                                                @php $translation = collect($blogTranslations[$locale])->first(); @endphp
-                                                {{ \Carbon\Carbon::parse($translation['updated_at'])->diffForHumans() }}
-                                            </td>
+                                            <td>{{ $translation->updated_at->diffForHumans() }}</td>
                                             <td>
                                                 <div class="btn-list flex-nowrap">
-                                                    <a href="{{ route('admin.blog.add', $blogId) }}?locale={{ $locale }}" class="btn btn-sm btn-primary">Edit</a>
+                                                    <a href="{{ route('admin.blog.edit', ['id' => $blogId, 'locale' => $locale]) }}" class="btn btn-sm btn-primary">Edit</a>
                                                     <a href="#" class="btn btn-sm btn-outline-secondary">Preview</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @else
+                                        <tr>
+                                            <td>
+                                                <span class="flag flag-{{ $this->getLocaleFlagCode($locale) }} flag-sm me-2"></span>
+                                                {{ $this->getLocaleDisplayName($locale) }}
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-warning">Missing</span>
+                                            </td>
+                                            <td class="text-muted">-</td>
+                                            <td class="text-muted">-</td>
+                                            <td class="text-muted">-</td>
+                                            <td class="text-muted">-</td>
+                                            <td>
+                                                <div class="btn-list flex-nowrap">
+                                                    <a href="{{ route('admin.blog.add', $blogId) }}?locale={{ $locale }}" class="btn btn-sm btn-outline-primary">Add</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -136,7 +142,7 @@
                     </div>
                 </div>
             </div>
-            @else
+            @if($blogTranslations->count() === 0)
             <div class="row mt-4">
                 <div class="col-12">
                     <div class="card">
@@ -158,6 +164,33 @@
                                 </svg>
                                 Add First Translation
                             </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @else
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="alert alert-info">
+                        <div class="d-flex">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon alert-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <circle cx="12" cy="12" r="9" />
+                                    <line x1="12" y1="8" x2="12.01" y2="8" />
+                                    <polyline points="11,12 12,12 12,16 13,16" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="alert-title">Content Badges</h4>
+                                <div class="text-muted">
+                                    <strong>AG:</strong> At Glance &nbsp;|&nbsp; 
+                                    <strong>IN:</strong> Introduction &nbsp;|&nbsp; 
+                                    <strong>MC:</strong> Main Content &nbsp;|&nbsp; 
+                                    <strong>KT:</strong> Key Takeaways &nbsp;|&nbsp; 
+                                    <strong>FAQ:</strong> Frequently Asked Questions
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

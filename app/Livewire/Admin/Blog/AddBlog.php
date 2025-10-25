@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Blog;
 
+use App\Enums\LocaleType;
 use Livewire\Component;
 use App\Models\Blog;
 use App\Models\BlogTranslation;
@@ -11,7 +12,7 @@ use Illuminate\Support\Str;
 
 class AddBlog extends Component
 {
-    public $locale = 'en';
+    public $locale = LocaleType::EN->value;
     public $title;
     public $slug;
     public $at_glance;
@@ -29,6 +30,11 @@ class AddBlog extends Component
         if (!$this->blog) {
             session()->flash('error', 'Blog not found!');
             return redirect()->route('admin.blogs');
+        }
+        
+        // Check for locale parameter in query string
+        if (request()->has('locale') && in_array(request('locale'), LocaleType::values())) {
+            $this->locale = request('locale');
         }
         
         $this->loadTranslationData();
@@ -53,7 +59,6 @@ class AddBlog extends Component
             $this->main_content_sections = is_array($translation->main_content) ? $translation->main_content : [];
             $this->faqs = is_array($translation->faqs) ? $translation->faqs : [];
         } else {
-            // Reset to empty values for new translation
             $this->title = '';
             $this->slug = '';
             $this->at_glance = '';
@@ -136,20 +141,23 @@ class AddBlog extends Component
         }
     }
 
-    protected $rules = [
-        'locale' => 'required|string|in:en,hi',
-        'title' => 'required|string|max:255',
-        'slug' => 'required|string|max:255',
-        'at_glance' => 'nullable|string|max:1000',
-        'introduction' => 'nullable|string|max:5000',
-        'main_content_sections' => 'nullable|array',
-        'main_content_sections.*.title' => 'required|string|max:255',
-        'main_content_sections.*.content' => 'nullable|string',
-        'key_takeaways' => 'nullable|string|max:5000',
-        'faqs' => 'nullable|array',
-        'faqs.*.question' => 'required_with:faqs.*.answer|string|max:500',
-        'faqs.*.answer' => 'required_with:faqs.*.question|string|max:2000',
-    ];
+    protected function rules()
+    {
+        return [
+            'locale' => 'required|string|in:' . implode(',', LocaleType::values()),
+            'title' => 'required|string|max:255',
+            'slug' => 'required|string|max:255',
+            'at_glance' => 'nullable|string|max:1000',
+            'introduction' => 'nullable|string|max:5000',
+            'main_content_sections' => 'nullable|array',
+            'main_content_sections.*.title' => 'required|string|max:255',
+            'main_content_sections.*.content' => 'nullable|string',
+            'key_takeaways' => 'nullable|string|max:5000',
+            'faqs' => 'nullable|array',
+            'faqs.*.question' => 'required_with:faqs.*.answer|string|max:500',
+            'faqs.*.answer' => 'required_with:faqs.*.question|string|max:2000',
+        ];
+    }
 
     protected $messages = [
         'title.required' => 'Title is required.',

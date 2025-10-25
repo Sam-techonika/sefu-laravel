@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Enums\LocaleType;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,8 +19,8 @@ class SetLocale
     public function handle(Request $request, Closure $next): Response
     {
         $locale = $request->segment(1);
-        $supportedLocales = config('app.supported_locales', ['en', 'hi']);
-        $defaultLocale = config('app.locale', 'en');
+        $supportedLocales = LocaleType::values();
+        $defaultLocale = LocaleType::EN->value;
 
         if (in_array($locale, $supportedLocales)) {
             App::setLocale($locale);
