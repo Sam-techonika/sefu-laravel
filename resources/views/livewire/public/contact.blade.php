@@ -74,7 +74,7 @@
                                     <label class="input-title">Your Message</label>
                                     <textarea name="message" id="message" cols="30" rows="10" placeholder="Hi, This is rashed, I need some urgen help abou the recent pur…"></textarea>
                                 </div>
-                                <button class="theme_btn comments-btn">SEND</button>
+                                <button class="theme_btn comments-btn">{{ __('button.send') }}</button>
                             </form>
                         </div>
                     </div>

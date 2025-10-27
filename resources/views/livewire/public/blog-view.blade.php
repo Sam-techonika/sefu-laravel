@@ -139,7 +139,7 @@
                                   <div class="col-lg-12">
                                       <div class="get-answer text-center mt-50">
                                           <h3>Don't find your answer?</h3>
-                                          <a href="{{ route('contact',app()->getLocale()) }}" class="theme_btn faq-btn">Contact us</a>
+                                          <a href="{{ route('contact',app()->getLocale()) }}" class="theme_btn faq-btn">{{ __('button.contact_us') }}</a>
                                       </div>
                                   </div>
                               </div>
@@ -230,7 +230,7 @@
                                     <label class="input-title">Your Message</label>
                                     <textarea name="message" id="message" cols="30" rows="10" placeholder="Hi, I am julia I nee some…."></textarea>
                                 </div>
-                                <button class="theme_btn comments-btn">SEND</button>
+                                <button class="theme_btn comments-btn">{{ __('button.send') }}</button>
                             </form>
                         </div>
                         --}}

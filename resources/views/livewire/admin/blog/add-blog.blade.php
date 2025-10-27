@@ -107,7 +107,7 @@
                                 <line x1="12" y1="5" x2="12" y2="19" />
                                 <line x1="5" y1="12" x2="19" y2="12" />
                             </svg>
-                            Add Section
+                            {{ __('button.add_section') }}
                         </button>
                     </div>
 
@@ -123,7 +123,7 @@
                                         <line x1="18" y1="6" x2="6" y2="18" />
                                         <line x1="6" y1="6" x2="18" y2="18" />
                                     </svg>
-                                    Remove
+                                    {{ __('button.remove') }}
                                 </button>
                                 @endif
                             </div>
@@ -164,7 +164,7 @@
                                 <line x1="12" y1="5" x2="12" y2="19" />
                                 <line x1="5" y1="12" x2="19" y2="12" />
                             </svg>
-                            Add FAQ
+                            {{ __('button.add_faq') }}
                         </button>
                     </div>
 
@@ -180,7 +180,7 @@
                                         <line x1="18" y1="6" x2="6" y2="18" />
                                         <line x1="6" y1="6" x2="18" y2="18" />
                                     </svg>
-                                    Remove
+                                    {{ __('button.remove') }}
                                 </button>
                                 @endif
                             </div>
@@ -217,7 +217,7 @@
                         <path d="M19 7l-3 3l-3 -3" />
                         <path d="M16 10v9a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1v-12a1 1 0 0 1 1 -1h8m4 0l2 2l-8 8l-2.5 -2.5" />
                     </svg>
-                    Update Translation
+                    {{ __('button.update_translation') }}
                 </button>
             </form>
         </div>

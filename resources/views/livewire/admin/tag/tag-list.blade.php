@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-between align-items-center mb-3">
         <input type="text" wire:model.debounce.300ms="search" placeholder="Search tag..." class="form-control w-25">
         <button class="btn btn-primary" wire:click="openModal">
-            <i class="ti ti-plus me-1"></i> Add Tag
+            <i class="ti ti-plus me-1"></i> {{ __('button.add_tag') }}
         </button>
     </div>
 
@@ -72,8 +72,8 @@
                         @endforeach
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn me-auto" wire:click="closeModal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">{{ $isEdit ? 'Update' : 'Save' }}</button>
+                        <button type="button" class="btn me-auto" wire:click="closeModal">{{ __('button.cancel') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ $isEdit ? __('button.update') : __('button.save') }}</button>
                     </div>
                 </form>
             </div>
@@ -92,8 +92,8 @@
                     <p class="text-muted">This action cannot be undone.</p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-link link-secondary" wire:click="$set('showConfirmModal', false)">Cancel</button>
-                    <button class="btn btn-danger ms-auto" wire:click="deleteTag">Yes, Delete</button>
+                    <button class="btn btn-link link-secondary" wire:click="$set('showConfirmModal', false)">{{ __('button.cancel') }}</button>
+                    <button class="btn btn-danger ms-auto" wire:click="deleteTag">{{ __('button.yes_delete') }}</button>
                 </div>
             </div>
         </div>

@@ -1,10 +1,10 @@
 <div>
-    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="d-flex justify-content-between align-items-center mb-3">
         <input type="text" wire:model.debounce.300ms="search"
                placeholder="Search category..."
                class="form-control w-25">
         <button class="btn btn-primary" wire:click="openModal">
-            <i class="ti ti-plus me-1"></i> Add Category
+            <i class="ti ti-plus me-1"></i> {{ __('button.add_category') }}
         </button>
     </div>
 
@@ -81,9 +81,9 @@
                         @endforeach
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn me-auto" wire:click="closeModal">Cancel</button>
+                        <button type="button" class="btn me-auto" wire:click="closeModal">{{ __('button.cancel') }}</button>
                         <button type="submit" class="btn btn-primary">
-                            {{ $isEdit ? 'Update' : 'Save' }}
+                            {{ $isEdit ? __('button.update') : __('button.save') }}
                         </button>
                     </div>
                 </form>
@@ -104,10 +104,10 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-link link-secondary" wire:click="$set('showConfirmModal', false)">
-                        Cancel
+                        {{ __('button.cancel') }}
                     </button>
                     <button class="btn btn-danger ms-auto" wire:click="deleteCategory">
-                        Yes, Delete
+                        {{ __('button.yes_delete') }}
                     </button>
                 </div>
             </div>

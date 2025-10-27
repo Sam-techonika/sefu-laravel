@@ -20,10 +20,10 @@
                                 <h4 class="sub-title wow fadeInUp2 animated mb-50" data-wow-delay=".3s">Helping you build and grow your business with clarity, compliance, and confidence.</h4>
                                 <ul class="btn-list d-sm-flex align-items-center wow fadeInUp2 animated mb-35" data-wow-delay=".5s">
                                     <li>
-                                        <a class="theme_btn border-btn active mr-20" href="contact.html">Get Started</a>
+                                        <a class="theme_btn border-btn active mr-20" href="contact.html">{{ __('button.get_started') }}</a>
                                     </li>
                                     <li>
-                                        <a class="theme_btn border-btn" href="contact.html">Consult an Expert</a>
+                                        <a class="theme_btn border-btn" href="contact.html">{{ __('button.consult_expert') }}</a>
                                     </li>
                                 </ul>
                                 <div class="client-review text-center d-sm-flex align-items-center justify-content-md-start wow fadeInUp2 animated" data-wow-delay=".7s">
@@ -157,7 +157,7 @@
                     <div class="col-lg-9">
                         <div class="row-title text-center wow fadeInUp2 animated mb-30" data-wow-delay='.1s'>
                             <h3 class="mb-20">Complete legal and regulatory support for foreign investors.</h3>
-                            <a href="contact.html" class="theme_btn theme_btn3">Book a Consultation →</a>
+                                            <a href="contact.html" class="theme_btn theme_btn3">{{ __('button.book_consultation') }}</a>
                         </div>
                     </div>
                 </div>
@@ -254,7 +254,7 @@
                                 <h3 class="mb-20">Clarity <span class="round-line"> Compliance.</span> Confidence. </h3>
                                 <h4 class="sub-title-2 mb-40">Things change fast in business — laws, rules, and markets. At Pratham Legal, you’ll always find real professionals, not bots, guiding you through every compliance, investment, or regulatory challenge.</h4>
                                 <h4 class="sub-title-2 mb-55">We aim to respond to every query in under 15 minutes — because expert advice should never keep you waiting.</h4>
-                                <a href="contact.html" class="theme_btn theme_btn3">Book a Consultation →</a>
+                                <a href="contact.html" class="theme_btn theme_btn3">{{ __('button.book_consultation') }}</a>
                             </div>
                             <img class="shape shapes_1" src="{{ asset('assets/img/shape/ball2.svg') }}" alt="">
                             <img class="shape shapes_2" src="{{ asset('assets/img/shape/ball3.svg') }}" alt="">
@@ -462,7 +462,7 @@
                                         <label class="input-title">Email</label>
                                         <input type="text" placeholder="uhenilezu@upu.com">
                                     </div>
-                                    <button class="theme_btn3 q-btn-lg mb-10">SEND MESSAGE</button>
+                                        <button class="theme_btn3 q-btn-lg mb-10">{{ __('button.send_message') }}</button>
                                 </form>
                                 <p class="review-text">Been here before? <a href="#">View your previous requests or continue your consultation</a></p>
                                 <p class="review-text">Need help? <a href="#">Speak with our team — real professionals, not bots. 📞 Call: +91-9821008011 </a></p>
@@ -472,9 +472,9 @@
                             <div class="quote-wrapper mb-30">
                                 <div class="section-title section-title-4 text-center text-md-left">
                                     <h3 class="mb-20">Ready to start? Let’s build your <span class="round-line">business</span> the right way.</h3>
-                                    <h5 class="mb-45">We understand how complex laws can be — that’s why real professionals, not bots, handle every query personally.</h5>
-                                    <p>Need quick help? </p>
-                                    <span class="number"><b>call:</b> +91-9821008011</span>
+                                        <h5 class="mb-45">We understand how complex laws can be — that’s why real professionals, not bots, handle every query personally.</h5>
+                                        <p>Need quick help? </p>
+                                        <span class="number"><b>call:</b> +91-9821008011</span>
                                 </div>
                             </div>
                         </div>
@@ -551,7 +551,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="get-quote-btn text-center text-md-right mb-30">
-                                <a href="contact.html" class="theme_btn theme_btn3 sub-btn">Start Your Consultation →</a>
+                                <a href="contact.html" class="theme_btn theme_btn3 sub-btn">{{ __('button.start_your_consultation') }}</a>
                             </div>
                         </div>
                     </div>

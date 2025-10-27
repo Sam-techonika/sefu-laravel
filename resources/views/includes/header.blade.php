@@ -117,7 +117,7 @@
                                 <!-- Quote Button -->
                                 <div class="quote-btn d-none d-md-block ml-20">
                                     <a wire:navigate href="{{ route('contact', ['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">
-                                        Contact Us<i class="far fa-chevron-right"></i>
+                                        {{ __('button.contact_us') }}<i class="far fa-chevron-right"></i>
                                     </a>
                                 </div>
                             </div>
@@ -148,7 +148,7 @@
                         was born and will give you a complete account of the system and expound the actual teachings of
                         the great explore.
                     </p>
-                    <a class="theme_btn theme_btn_bg" wire:navigate href="{{ route('contact', ['locale' => app()->getLocale()]) }}">Contact Us</a>
+                    <a class="theme_btn theme_btn_bg" wire:navigate href="{{ route('contact', ['locale' => app()->getLocale()]) }}">{{ __('button.contact_us') }}</a>
                 </div>
             </div>
             <div class="offset-widget mb-30 pr-10">

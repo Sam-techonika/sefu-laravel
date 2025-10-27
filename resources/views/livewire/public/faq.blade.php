@@ -175,7 +175,7 @@
                     <div class="col-lg-12">
                         <div class="get-answer text-center mt-50">
                             <h3>Don’t find your answer?</h3>
-                            <a href="faq.html" class="theme_btn faq-btn">Contact us</a>
+                            <a href="faq.html" class="theme_btn faq-btn">{{ __('button.contact_us') }}</a>
                         </div>
                     </div>
                 </div>

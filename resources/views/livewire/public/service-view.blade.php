@@ -180,7 +180,7 @@
                     </div>
                     <div class="get-answer text-center mt-20">
                         <h4 class="mb-15">Still have questions?</h4>
-                        <a wire:navigate href="{{ route('contact',app()->getLocale()) }}" class="theme_btn faq-btn">Contact us</a>
+                        <a wire:navigate href="{{ route('contact',app()->getLocale()) }}" class="theme_btn faq-btn">{{ __('button.contact_us') }}</a>
                     </div>
                 </div>
             </div>
@@ -197,7 +197,7 @@
                             <div class="section-title">
                                 <h3 class="mb-15">Ready to start your India journey?</h3>
                                 <h4 class="sub-title mb-30">Book a 20‑minute consultation. Well map the fastest compliant route.</h4>
-                                <a wire:navigate href="{{ route('contact',app()->getLocale()) }}" class="theme_btn theme_btn3">Book a call <i class="far fa-chevron-right"></i></a>
+                                <a wire:navigate href="{{ route('contact',app()->getLocale()) }}" class="theme_btn theme_btn3">{{ __('button.book_consultation') }} <i class="far fa-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>

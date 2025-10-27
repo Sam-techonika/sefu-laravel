@@ -1,7 +1,7 @@
 <div>
     <div class="d-flex justify-content-between align-items-center mb-3">
         <button wire:click="openCreateModal" class="btn btn-primary">
-            <i class="ti ti-plus me-1"></i> Add User
+            <i class="ti ti-plus me-1"></i> {{ __('button.add_user') }}
         </button>
 
         <input type="text" class="form-control w-25" placeholder="Search by Name or Email"
@@ -91,9 +91,9 @@
 
                             <div class="d-flex justify-content-end mt-3">
                                 <button type="submit" class="btn btn-primary me-2">
-                                    {{ $editMode ? 'Update' : 'Create' }}
+                                    {{ $editMode ? __('button.update') : __('button.create') }}
                                 </button>
-                                <button type="button" class="btn btn-link" wire:click="$set('showModal', false)">Cancel</button>
+                                <button type="button" class="btn btn-link" wire:click="$set('showModal', false)">{{ __('button.cancel') }}</button>
                             </div>
                         </form>
                     </div>
@@ -112,8 +112,8 @@
                         <h3>Are you sure?</h3>
                         <p>This user will be deleted permanently!</p>
                         <div class="d-flex justify-content-center mt-3">
-                            <button class="btn btn-danger me-2" wire:click="deleteUser">Delete</button>
-                            <button class="btn btn-secondary" wire:click="$set('showDeleteModal', false)">Cancel</button>
+                            <button class="btn btn-danger me-2" wire:click="deleteUser">{{ __('button.delete') }}</button>
+                            <button class="btn btn-secondary" wire:click="$set('showDeleteModal', false)">{{ __('button.cancel') }}</button>
                         </div>
                     </div>
                 </div>

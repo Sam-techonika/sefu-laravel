@@ -1,7 +1,7 @@
 <div>
-    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="d-flex justify-content-between align-items-center mb-3">
         <button class="btn btn-primary" wire:click="openModal">
-            <i class="ti ti-plus"></i> Add Blog
+            <i class="ti ti-plus"></i> {{ __('button.add_blog') }}
         </button>
         <input type="text" class="form-control w-25" placeholder="Search..." wire:model.debounce.300ms="search">
     </div>
@@ -214,9 +214,9 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" wire:click="closeModal">Cancel</button>
+                        <button type="button" class="btn btn-secondary" wire:click="closeModal">{{ __('button.cancel') }}</button>
                         <button type="submit" class="btn btn-primary">
-                            {{ $blogId ? 'Update Blog' : 'Save Blog' }}
+                            {{ $blogId ? __('button.update') : __('button.save') }}
                         </button>
                     </div>
                 </form>
