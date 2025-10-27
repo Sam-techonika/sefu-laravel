@@ -37,25 +37,6 @@ class BlogList extends Component
 
     protected $paginationTheme = 'bootstrap';
 
-    protected $rules = [
-        'nextBlogName' => 'required|string|max:255',
-        'author' => 'required|exists:users,id',
-        'featured_image' => 'nullable|image|max:2048',
-        // Tags should be optional; allow empty array
-        'selectedTags' => 'nullable|array',
-        'selectedTags.*' => 'exists:tags,id',
-    ];
-
-    protected $messages = [
-        'nextBlogName.required' => 'Please enter a blog title.',
-        'nextBlogName.max' => 'Blog title must not exceed 255 characters.',
-        'author.required' => 'Please select an author for the blog.',
-        'author.exists' => 'The selected author does not exist.',
-        'featured_image.image' => 'The featured file must be an image.',
-        'featured_image.max' => 'The featured image must not exceed 2MB.',
-        'selectedTags.array' => 'Tags selection is invalid.',
-        'selectedTags.*.exists' => 'One or more selected tags do not exist.',
-    ];
 
     public function mount()
     {
@@ -92,7 +73,6 @@ class BlogList extends Component
         }
     }
 
-    // Set next auto-generated blog name
     public function setNextBlogName()
     {
         $lastBlog = Blog::withTrashed()->latest('id')->first();
@@ -100,84 +80,26 @@ class BlogList extends Component
         $this->nextBlogName = 'BlogPost ' . $number;
     }
 
-    // Open Modal
+   
     public function openModal()
     {
-        // Open the separate BlogForm component for creating
-        $this->dispatch('openBlogForm', null);
+    
+        $this->dispatch('openBlogForm');
     }
 
-    // Close Modal
+
     public function closeModal()
     {
         $this->isModalOpen = false;
     }
 
-    // Save Blog (Create or Update)
-    public function saveBlog()
-    {
-        // Validate input and show friendly messages declared in $messages
-        $this->validate();
 
-        $path = null;
-        if ($this->featured_image) {
-            $path = $this->featured_image->store('blogs', 'public');
-        }
-
-        if ($this->blogId) {
-            // Update existing blog
-            $blog = Blog::find($this->blogId);
-            $blog->update([
-                'name' => $this->nextBlogName,
-                'author' => $this->author,
-                'category_id' => $this->category_id,
-                'is_active' => $this->is_active,
-            ]);
-            
-            // Update featured image only if new one is uploaded
-            if ($path) {
-                $blog->update(['featured_image' => $path]);
-            }
-            
-            $this->dispatch('refreshBlogs');
-
-            $message = 'Blog "' . $blog->name . '" updated successfully!';
-        } else {
-            // Create new blog
-            $blog = Blog::create([
-                'name' => $this->nextBlogName,
-                'featured_image' => $path,
-                'author' => $this->author,
-                'category_id' => $this->category_id,
-                'is_active' => $this->is_active,
-            ]);
-
-            $this->dispatch('refreshBlogs');
-
-            $message = 'Blog "' . $blog->name . '" added successfully!';
-        }
-
-        // Sync tags (works for both create and update)
-        $tags = is_array($this->selectedTags) ? $this->selectedTags : [];
-        if (!empty($tags)) {
-            $blog->tags()->sync($tags);
-        } else {
-            $blog->tags()->detach();
-        }
-
-        $this->closeModal();
-        $this->dispatch('refreshBlogs');
-        session()->flash('message', $message);
-    }
-
-    // Edit Blog
     public function edit($id)
     {
-        // Tell the BlogForm component to open and load this blog for edit
+        
         $this->dispatch('openBlogForm', $id);
     }
 
-    // Delete Blog
     public function delete($id)
     {
         $blog = Blog::find($id);
@@ -191,19 +113,18 @@ class BlogList extends Component
         
     }
 
-    // Reset form
+
     public function resetForm()
     {
-        // Only reset fields that shouldn't persist between edit operations.
-        // Avoid resetting blogId here to prevent flicker/race when editing an existing blog.
+      
         $this->reset(['featured_image', 'author', 'selectedTags', 'category_id']);
         $this->is_active = true;
     }
 
-    // Reset only for create modal
+   
     public function resetCreateForm()
     {
-        // Clear any leftover data from previous create attempts
+       
         $this->reset(['featured_image', 'author', 'selectedTags', 'category_id', 'blogId', 'nextBlogName']);
         $this->is_active = true;
     }
@@ -212,7 +133,7 @@ class BlogList extends Component
     #[Layout('components.layouts.admin')]
     public function render()
     {
-        // Eager load tags and category translations so blade can read translated names without N+1 queries
+       
         $query = Blog::with([
             'tags.translations',
             'category.translations',

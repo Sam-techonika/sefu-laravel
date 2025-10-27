@@ -40,7 +40,7 @@
                         <i class="ti ti-user me-2"></i> Profile
                     </a>
                     <div class="dropdown-divider"></div>
-                    <form method="POST" action="{{route('logout')}}">
+                    <form  action="{{route('logout')}}">
                         @csrf
                         <button type="submit" class="dropdown-item">
                             <i class="ti ti-logout me-2"></i> Logout

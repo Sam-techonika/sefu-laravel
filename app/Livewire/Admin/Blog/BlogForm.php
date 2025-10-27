@@ -6,12 +6,11 @@ use App\Enums\LocaleType;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Blog;
-use App\Models\BlogTag;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\User;
 use Livewire\Attributes\Layout;
-use Illuminate\Support\Facades\Log;
+use Livewire\Attributes\On;
 
 class BlogForm extends Component
 {
@@ -22,10 +21,12 @@ class BlogForm extends Component
 
     public $nextBlogName;
     public $featured_image;
+    public $existingFeaturedImage = null;
     public $author;
     public $selectedTags = [];
     public $category_id;
     public $is_active = true;
+    public $description;
 
     public $users = [];
     public $tags = [];
@@ -40,20 +41,37 @@ class BlogForm extends Component
         'category_id' => 'nullable|exists:categories,id',
     ];
 
-    protected $messages = [
-        'nextBlogName.required' => 'Please enter a blog title.',
-        'nextBlogName.max' => 'Blog title must not exceed 255 characters.',
-        'author.required' => 'Please select an author for the blog.',
-        'author.exists' => 'The selected author does not exist.',
-        'featured_image.image' => 'The featured file must be an image.',
-        'featured_image.max' => 'The featured image must not exceed 2MB.',
-        'selectedTags.array' => 'Tags selection is invalid.',
-        'selectedTags.*.exists' => 'One or more selected tags do not exist.',
-    ];
+    #[On('openBlogForm')]
+    public function open($id = null)
+    {
+        $this->resetValidation();
+        $this->reset(['featured_image', 'existingFeaturedImage', 'author', 'selectedTags', 'category_id', 'nextBlogName']);
+        $this->is_active = true;
+        $this->blogId = null;
 
-    protected $listeners = [
-        'openBlogForm' => 'open',
-    ];
+        if ($id) {
+            $blog = Blog::with('tags')->find($id);
+            if (!$blog) {
+                session()->flash('error', 'Blog not found!');
+                return;
+            }
+
+            $this->blogId = $blog->id;
+            $this->author = $blog->author;
+            $this->category_id = $blog->category_id;
+            $this->is_active = $blog->is_active;
+            $this->selectedTags = $blog->tags->pluck('id')->toArray();
+            $this->nextBlogName = $blog->name;
+            $this->description = $blog->description;
+            // keep the stored featured image path so we can preview it when editing
+            $this->existingFeaturedImage = $blog->featured_image;
+        } else {
+            $this->setNextBlogName();
+        }
+
+        $this->isModalOpen = true;
+        $this->dispatch('modal-opened');
+    }
 
     public function mount()
     {
@@ -65,6 +83,7 @@ class BlogForm extends Component
     {
         $this->users = User::all();
         $locale = LocaleType::EN->value;
+
         $this->categories = Category::with('translations')->get()
             ->map(fn($category) => [
                 'id' => $category->id,
@@ -78,38 +97,11 @@ class BlogForm extends Component
             ])->toArray();
     }
 
-    public function open($id = null)
-    {
-        $this->resetValidation();
-        $this->reset(['featured_image', 'author', 'selectedTags', 'category_id', 'nextBlogName']);
-        $this->is_active = true;
-
-        if ($id) {
-            $blog = Blog::with('tags')->find($id);
-            if (!$blog) {
-                session()->flash('error', 'Blog not found!');
-                return;
-            }
-            $this->blogId = $blog->id;
-            $this->author = $blog->author;
-            $this->category_id = $blog->category_id;
-            $this->is_active = $blog->is_active;
-            $this->selectedTags = $blog->tags->pluck('id')->toArray();
-            $this->nextBlogName = $blog->name;
-        } else {
-            $this->blogId = null;
-            $this->setNextBlogName();
-        }
-
-        $this->isModalOpen = true;
-    }
-
     public function close()
     {
         $this->isModalOpen = false;
     }
 
-    // Set next auto-generated blog name
     public function setNextBlogName()
     {
         $lastBlog = Blog::withTrashed()->latest('id')->first();
@@ -121,57 +113,31 @@ class BlogForm extends Component
     {
         $this->validate();
 
-        $path = null;
+        $data = [
+            'name' => $this->nextBlogName,
+            'author' => $this->author,
+            'category_id' => $this->category_id,
+            'is_active' => $this->is_active,
+        ];
+
         if ($this->featured_image) {
-            $path = $this->featured_image->store('blogs', 'public');
+            $path = $this->featured_image->store('blog_images', 'public');
+            $data['featured_image'] = $path;
         }
 
         if ($this->blogId) {
-            $blog = Blog::find($this->blogId);
-            $blog->update([
-                'name' => $this->nextBlogName,
-                'author' => $this->author,
-                'category_id' => $this->category_id,
-                'is_active' => $this->is_active,
-            ]);
-
-            if ($path) {
-                $blog->update(['featured_image' => $path]);
-            }
-
-            $message = 'Blog "' . $blog->name . '" updated successfully!';
+            $blog = Blog::findOrFail($this->blogId);
+            $blog->update($data);
         } else {
-            $blog = Blog::create([
-                'name' => $this->nextBlogName,
-                'featured_image' => $path,
-                'author' => $this->author,
-                'category_id' => $this->category_id,
-                'is_active' => $this->is_active,
-            ]);
-
-            $message = 'Blog "' . $blog->name . '" added successfully!';
+            $blog = Blog::create($data);
         }
 
-            $tags = is_array($this->selectedTags) ? array_map(fn($t) => (int) $t, $this->selectedTags) : [];
-            try {
-                BlogTag::where('blog_id', $blog->id)->delete();
+        $blog->tags()->sync($this->selectedTags ?? []);
 
-                foreach ($tags as $tagId) {
-                    if ($tagId) {
-                        BlogTag::create([
-                            'blog_id' => $blog->id,
-                            'tag_id' => $tagId,
-                        ]);
-                    }
-                }
-            } catch (\Exception $e) {
-                Log::error('Failed to save blog tags via BlogTag model', ['blog_id' => $blog->id ?? null, 'tags' => $tags, 'error' => $e->getMessage()]);
-                session()->flash('error', 'Failed to save tags. Check logs for details.');
-        }
-
-        $this->close();
         $this->dispatch('refreshBlogs');
-        session()->flash('message', $message);
+        $this->isModalOpen = false;
+
+        $this->dispatch('success', $this->blogId ? 'Blog updated successfully!' : 'Blog created successfully!');
     }
 
     #[Layout('components.layouts.admin')]
