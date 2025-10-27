@@ -105,7 +105,8 @@ class BlogList extends Component
     // Save Blog (Create or Update)
     public function saveBlog()
     {
-        $this->validate();
+
+    
 
         $path = null;
         if ($this->featured_image) {

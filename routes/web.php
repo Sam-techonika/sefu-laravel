@@ -41,7 +41,7 @@ Route::group([
     Route::get('/service', Service::class)->name('service');
     Route::get('/contact', Contact::class)->name('contact');
     Route::get('/blogs', Blog::class)->name('blogs');
-    Route::get('/blog', BlogView::class)->name('blog.view');
+    Route::get('/blog/{slug}', BlogView::class)->name('blog.view');
     Route::get('/case-study', CaseStudy::class)->name('case.study');
     Route::get('/service-view', ServiceView::class)->name('service.view');
     Route::get('/case-study-view', CaseStudyView::class)->name('case.study.view');

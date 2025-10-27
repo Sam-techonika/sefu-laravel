@@ -6,16 +6,15 @@
                   <div class="col-xl-12">
                       <div class="blogs mb-75">
                           <div class="blogs__content section-title">
-                              <span class="tag mb-25">23 Apr. 2020</span>
-                              <h3 class="mb-20"><a href="blog-details.html">Quis Nostr Exercitation Ullamco Laboris nisi ut
-                                      Aliquip exeal nothing.</a></h3>
+                                  <span class="tag mb-25">{{ $publishDate ?? now()->format('F d, Y') }}</span>
+                                  <h3 class="mb-20">{{ $blogTitle ?? 'Blog Title' }}</h3>
                           </div>
                       </div>
                   </div>
                   <div class="col-xl-8 col-lg-8">
                       <div class="blogs-std mb-75">
                           <div class="blogs__thumb mb-60">
-                              <img class="img-fluid" src="{{ $featuredImage ?? asset('assets/img/blog/16.jpg') }}" alt="{{ $blogTitle ?? 'Blog Image' }}">
+                              <img class="img-fluid" src="{{ $featuredImage ? asset('storage/'.$featuredImage) : asset('assets/img/blog/16.jpg') }}" alt="{{ $blogTitle ?? 'Blog Image' }}">
                           </div>
 
                           {{-- At a Glance Section --}}
@@ -46,8 +45,14 @@
 
                           {{-- Main Content --}}
                           <div class="blog-main-content mb-50 ck-content">
-                              {!! $mainContent ?? '<p>Tomfoolery crikey bits and bobs brilliant bamboozled down pub amongst brolly hank panky cack bonnet arse over tit burke bugger all mate bodge..</p>
-                              <p>One touch of a red-hot stove is usually all we need to avoid that kind of discomfort in the future. The same is true as we experience the emotional sensation of stress from instances social rejection ridicule. We quickly learn fear & thus automatically potentially stressful situations of all kinds, including the most common of all: making mistakes. dummy sint crikey mate bodge.</p>' !!}
+                              {{-- mainContent may be an array of HTML blocks (created from JSON) or a raw HTML string --}}
+                              @if(is_array($mainContent))
+                                  @foreach($mainContent as $block)
+                                      {!! $block !!}
+                                  @endforeach
+                              @else
+                                  {!! $mainContent ?? '' !!}
+                              @endif
                           </div>
                       </div>
                       {{-- Key Takeaways Section --}}
@@ -69,7 +74,7 @@
                       </div>
                       @endif
 
-                  
+
                       {{-- FAQ Section --}}
                       <section class="faq-area pt-20 pb-20 pt-md-95 pt-xs-95">
                           <div class="">
@@ -87,90 +92,47 @@
                                   <div class="col-lg-12">
                                       <div class="faq-que faq-que-2 mb-30">
                                           <div id="accordion">
-                                              <div class="card">
-                                                  <div class="card-header" id="headingOne">
-                                                      <h5 class="mb-0">
-                                                          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                              {{ $faq1Question ?? 'How long does a trademark registration take?' }}
-                                                          </button>
-                                                      </h5>
-                                                  </div>
-                                                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                                      <div class="card-body">
-                                                          {{ $faq1Answer ?? 'The trademark registration process in India typically takes 18-24 months, depending on objections and the workload of the trademark office.' }}
+                                              @if(!empty($faqs) && is_array($faqs))
+                                                  @foreach($faqs as $i => $faq)
+                                                      @php
+                                                          $idx = $i + 1;
+                                                          $headingId = "heading{$idx}";
+                                                          $collapseId = "collapse{$idx}";
+                                                          $isOpen = $i === 0 ? 'show' : '';
+                                                          $ariaExpanded = $i === 0 ? 'true' : 'false';
+                                                      @endphp
+                                                      <div class="card">
+                                                          <div class="card-header" id="{{ $headingId }}">
+                                                              <h5 class="mb-0">
+                                                                  <button class="btn btn-link {{ $i !== 0 ? 'collapsed' : '' }}" data-toggle="collapse" data-target="#{{ $collapseId }}" aria-expanded="{{ $ariaExpanded }}" aria-controls="{{ $collapseId }}">
+                                                                      {{ $faq['question'] ?? 'Question' }}
+                                                                  </button>
+                                                              </h5>
+                                                          </div>
+                                                          <div id="{{ $collapseId }}" class="collapse {{ $isOpen }}" aria-labelledby="{{ $headingId }}" data-parent="#accordion">
+                                                              <div class="card-body">
+                                                                  {!! $faq['answer'] ?? '' !!}
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  @endforeach
+                                              @else
+                                                  {{-- fallback: keep original static FAQs if no dynamic faqs available --}}
+                                                  <div class="card">
+                                                      <div class="card-header" id="headingOne">
+                                                          <h5 class="mb-0">
+                                                              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                  {{ $faq1Question ?? 'How long does a trademark registration take?' }}
+                                                              </button>
+                                                          </h5>
+                                                      </div>
+                                                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                                          <div class="card-body">
+                                                              {{ $faq1Answer ?? 'The trademark registration process in India typically takes 18-24 months, depending on objections and the workload of the trademark office.' }}
+                                                          </div>
                                                       </div>
                                                   </div>
-                                              </div>
-                                              <div class="card">
-                                                  <div class="card-header" id="headingTwo">
-                                                      <h5 class="mb-0">
-                                                          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                              {{ $faq2Question ?? 'Can I file a trademark on my own?' }}
-                                                          </button>
-                                                      </h5>
-                                                  </div>
-                                                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                                      <div class="card-body">
-                                                          {{ $faq2Answer ?? 'Yes, you can file a trademark application on your own, but it\'s recommended to consult with a trademark attorney to avoid common mistakes and ensure proper protection.' }}
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="card">
-                                                  <div class="card-header" id="headingThree">
-                                                      <h5 class="mb-0">
-                                                          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                              {{ $faq3Question ?? 'What if my application is opposed?' }}
-                                                          </button>
-                                                      </h5>
-                                                  </div>
-                                                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                                      <div class="card-body">
-                                                          {{ $faq3Answer ?? 'If your trademark application is opposed, you will need to file a counter-statement and may need to attend hearings. Legal assistance is highly recommended in such cases.' }}
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="card">
-                                                  <div class="card-header" id="headingFour">
-                                                      <h5 class="mb-0">
-                                                          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                              {{ $faq4Question ?? 'How long does a trademark last?' }}
-                                                          </button>
-                                                      </h5>
-                                                  </div>
-                                                  <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                                                      <div class="card-body">
-                                                          {{ $faq4Answer ?? 'A registered trademark in India is valid for 10 years from the date of application and can be renewed indefinitely for successive 10-year periods.' }}
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="card">
-                                                  <div class="card-header" id="headingFive">
-                                                      <h5 class="mb-0">
-                                                          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                                              {{ $faq5Question ?? 'What classes should I register my trademark in?' }}
-                                                          </button>
-                                                      </h5>
-                                                  </div>
-                                                  <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
-                                                      <div class="card-body">
-                                                          {{ $faq5Answer ?? 'Choose classes based on your business activities. For example, Class 25 for clothing, Class 35 for retail services, etc. Consult an expert for proper class selection.' }}
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="card">
-                                                  <div class="card-header" id="headingSix">
-                                                      <h5 class="mb-0">
-                                                          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                                              {{ $faq6Question ?? 'Can I trademark a logo?' }}
-                                                          </button>
-                                                      </h5>
-                                                  </div>
-                                                  <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
-                                                      <div class="card-body">
-                                                          {{ $faq6Answer ?? 'Yes, logos can be registered as device marks or combination marks. Ensure your logo is distinctive and not similar to existing trademarks.' }}
-                                                      </div>
-                                                  </div>
-                                              </div>
+                                              @endif
                                           </div>
                                       </div>
                                   </div>
@@ -480,111 +442,113 @@
           }
       }
 
-    /* Author Bio Responsive Styles */
-    .author-bio-section {
-        background: #ffffff;
-        border-radius: 0;
-        padding: 0;
-        border-left: 4px solid #ff1f1f;
-        background: #fafafa;
-    }
-    
-    .author-bio-wrapper {
-        display: flex;
-        align-items: flex-start;
-        gap: 25px;
-        padding: 30px;
-    }
-    
-    .author-bio-image {
-        flex-shrink: 0;
-    }
-    
-    .author-bio-image img {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 2px solid #e0e0e0;
-    }
-    
-    .author-bio-content {
-        flex: 1;
-    }
-    
-    .author-bio-content .author-name {
-        font-size: 18px;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin: 0 0 5px 0;
-        line-height: 1.3;
-    }
-    
-    .author-bio-content .author-position {
-        font-size: 14px;
-        color: #ff1f1f;
-        font-weight: 600;
-        margin: 0 0 12px 0;
-        line-height: 1.3;
-    }
-    
-    .author-bio-content .author-description {
-        font-size: 14px;
-        color: #555;
-        line-height: 1.7;
-        margin: 0 0 12px 0;
-    }
-    
-    .author-bio-content .author-phone {
-        font-size: 13px;
-        color: #333;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-    
-    .author-bio-content .author-phone i {
-        color: #ff1f1f;
-        font-size: 12px;
-    }
-    
-    .author-bio-content .author-phone span {
-        font-weight: 500;
-    }
+      /* Author Bio Responsive Styles */
+      .author-bio-section {
+          background: #ffffff;
+          border-radius: 0;
+          padding: 0;
+          border-left: 4px solid #ff1f1f;
+          background: #fafafa;
+      }
 
-    @media (max-width: 768px) {
-        .author-bio-wrapper {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 25px 20px;
-            gap: 20px;
-        }
-        
-        .author-bio-image img {
-            width: 90px;
-            height: 90px;
-        }
-        
-        .author-bio-content .author-phone {
-            justify-content: center;
-        }
-    }
-    
-    @media (max-width: 576px) {
-        .author-bio-wrapper {
-            padding: 20px 15px;
-        }
-        
-        .author-bio-content .author-name {
-            font-size: 17px;
-        }
-        
-        .author-bio-content .author-description {
-            font-size: 13px;
-        }
-    }      /* FAQ Section Styles */
+      .author-bio-wrapper {
+          display: flex;
+          align-items: flex-start;
+          gap: 25px;
+          padding: 30px;
+      }
+
+      .author-bio-image {
+          flex-shrink: 0;
+      }
+
+      .author-bio-image img {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2px solid #e0e0e0;
+      }
+
+      .author-bio-content {
+          flex: 1;
+      }
+
+      .author-bio-content .author-name {
+          font-size: 18px;
+          font-weight: 700;
+          color: #1a1a1a;
+          margin: 0 0 5px 0;
+          line-height: 1.3;
+      }
+
+      .author-bio-content .author-position {
+          font-size: 14px;
+          color: #ff1f1f;
+          font-weight: 600;
+          margin: 0 0 12px 0;
+          line-height: 1.3;
+      }
+
+      .author-bio-content .author-description {
+          font-size: 14px;
+          color: #555;
+          line-height: 1.7;
+          margin: 0 0 12px 0;
+      }
+
+      .author-bio-content .author-phone {
+          font-size: 13px;
+          color: #333;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+      }
+
+      .author-bio-content .author-phone i {
+          color: #ff1f1f;
+          font-size: 12px;
+      }
+
+      .author-bio-content .author-phone span {
+          font-weight: 500;
+      }
+
+      @media (max-width: 768px) {
+          .author-bio-wrapper {
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+              padding: 25px 20px;
+              gap: 20px;
+          }
+
+          .author-bio-image img {
+              width: 90px;
+              height: 90px;
+          }
+
+          .author-bio-content .author-phone {
+              justify-content: center;
+          }
+      }
+
+      @media (max-width: 576px) {
+          .author-bio-wrapper {
+              padding: 20px 15px;
+          }
+
+          .author-bio-content .author-name {
+              font-size: 17px;
+          }
+
+          .author-bio-content .author-description {
+              font-size: 13px;
+          }
+      }
+
+      /* FAQ Section Styles */
       .faq-area .section-title h6 {
           color: #ff1f1f;
           font-weight: 600;

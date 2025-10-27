@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Public;
 
+use App\Models\BlogTranslation;
 use Livewire\Component;
 
 class BlogView extends Component
@@ -62,25 +63,143 @@ class BlogView extends Component
     
     public $faq6Question = 'Can I trademark a logo?';
     public $faq6Answer = 'Yes, logos can be registered as device marks or combination marks. Ensure your logo is distinctive and not similar to existing trademarks.';
+    
+    // dynamic FAQs array (normalized from DB)
+    public $faqs = [];
 
     public function mount($slug = null)
     {
-        // Set default publish date if not provided
+        $locale = app()->getLocale() ?? redirect(404);
+        
+
+        
+        // Load translation by slug and hydrate view properties
+        if ($slug) {
+            
+            $translation = BlogTranslation::where('slug', $slug)
+                ->with(['blog.user', 'category.translations'])
+                ->firstOrFail();
+
+                if($locale !== $translation->locale) {
+                    $translation = BlogTranslation::where('blog_id', $translation->blog_id)
+                        ->where('locale', $locale)
+                        ->first();
+                    return redirect()->route('blog.view', ['slug' => $translation->slug, 'locale' => $locale]);
+                }
+
+            // Basic fields
+            $this->blogTitle = $translation->title ?? $this->blogTitle;
+            $this->featuredImage = $translation->blog->featured_image ?? $this->featuredImage;
+            $this->publishDate = optional($translation->created_at)->format('F d, Y') ?? $this->publishDate;
+
+            // Content fields (some are stored as JSON / arrays)
+            $this->atGlanceContent = $translation->at_glance ?? $this->atGlanceContent;
+            $this->introductionContent = $translation->introduction ?? $this->introductionContent;
+            $this->keyTakeawaysContent = $translation->key_takeaways ?? $this->keyTakeawaysContent;
+
+            // Normalize main content: it may be stored as JSON (array of {title,content}) or as HTML string
+            $rawMain = $translation->main_content ?? $this->mainContent;
+            $this->mainContent = $this->normalizeMainContent($rawMain);
+
+            // Normalize faqs: may be JSON string or array
+            $rawFaqs = $translation->faqs ?? [];
+            $this->faqs = $this->normalizeFaqs($rawFaqs);
+
+            // Category (try to use category translation for the current locale)
+            if ($translation->category) {
+                // category_translations table uses `name` for the translated label
+                $catTitle = $translation->category->translations()->where('locale', $translation->locale)->value('name')
+                    ?? $translation->category->translations()->value('name');
+                $this->category = $catTitle ?? $this->category;
+            }
+
+            // Author (if blog.user exists)
+            if (!empty($translation->blog) && !empty($translation->blog->user)) {
+                $user = $translation->blog->user;
+                $this->authorName = $user->name ?? $this->authorName;
+                $this->authorTitle = $user->title ?? $this->authorTitle;
+                $this->authorBio = $user->bio ?? $this->authorBio;
+                $this->authorPhone = $user->phone ?? $this->authorPhone;
+                $this->authorImage = $user->avatar ?? $this->authorImage;
+            }
+        }
+
+        // Ensure publish date is set
         if (!$this->publishDate) {
             $this->publishDate = now()->format('F d, Y');
         }
-        
-        // You can load blog data from database here based on $slug
-        // Example:
-        // if ($slug) {
-        //     $blog = Blog::where('slug', $slug)->firstOrFail();
-        //     $this->blogTitle = $blog->title;
-        //     $this->atGlanceContent = $blog->at_glance_content;
-        //     $this->introductionContent = $blog->introduction_content;
-        //     $this->mainContent = $blog->main_content;
-        //     $this->keyTakeawaysContent = $blog->key_takeaways_content;
-        //     // ... other properties
-        // }
+    }
+
+    /**
+     * Normalize main content which might be JSON or HTML string.
+     * Return an array of HTML blocks or a string.
+     */
+    protected function normalizeMainContent($raw)
+    {
+        // If already an array, try to map to HTML blocks
+        if (is_array($raw)) {
+            $blocks = [];
+            foreach ($raw as $item) {
+                if (is_array($item) && array_key_exists('title', $item)) {
+                    $title = $item['title'] ?? '';
+                    $content = $item['content'] ?? '';
+                    $blocks[] = "<h2>{$title}</h2>" . PHP_EOL . "<p>{$content}</p>";
+                } else {
+                    $blocks[] = is_string($item) ? $item : json_encode($item);
+                }
+            }
+            return $blocks;
+        }
+
+        // If it's a JSON string, try to decode
+        if (is_string($raw)) {
+            $trim = trim($raw);
+            if (($trim !== '') && ($trim[0] === '{' || $trim[0] === '[')) {
+                $decoded = json_decode($raw, true);
+                if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                    return $this->normalizeMainContent($decoded);
+                }
+            }
+
+            // Not JSON — assume it's already HTML
+            return $raw;
+        }
+
+        // Fallback
+        return $raw;
+    }
+
+    /**
+     * Normalize faqs: return array of ['question'=>..., 'answer'=>...]
+     */
+    protected function normalizeFaqs($raw)
+    {
+        if (is_array($raw)) {
+            return array_values(array_map(function ($item) {
+                if (is_array($item)) {
+                    return [
+                        'question' => $item['question'] ?? ($item['q'] ?? ''),
+                        'answer' => $item['answer'] ?? ($item['a'] ?? ''),
+                    ];
+                }
+                return ['question' => '', 'answer' => is_string($item) ? $item : json_encode($item)];
+            }, $raw));
+        }
+
+        if (is_string($raw)) {
+            $trim = trim($raw);
+            if (($trim !== '') && ($trim[0] === '{' || $trim[0] === '[')) {
+                $decoded = json_decode($raw, true);
+                if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                    return $this->normalizeFaqs($decoded);
+                }
+            }
+
+            // Could be a single text FAQ
+            return [['question' => '', 'answer' => $raw]];
+        }
+
+        return [];
     }
 
     public function render()

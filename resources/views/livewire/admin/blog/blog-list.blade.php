@@ -134,6 +134,7 @@
                                 <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
                                 @endforeach
                             </select>
+                            @error('category_id') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 
                         <div class="mb-3" x-data="{
