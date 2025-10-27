@@ -1,5 +1,5 @@
 <div>
-        <div class="d-flex justify-content-between align-items-center mb-3">
+    <div class="d-flex justify-content-between align-items-center mb-3">
         <button class="btn btn-primary" wire:click="openModal">
             <i class="ti ti-plus"></i> {{ __('button.add_blog') }}
         </button>
@@ -85,8 +85,8 @@
 
     <!-- Modal -->
     @if($isModalOpen)
-    <div class="modal fade show d-block" tabindex="-1" style="background: rgba(0,0,0,0.4);" wire:ignore.self 
-         x-data="{ 
+    <div class="modal fade show d-block" tabindex="-1" style="background: rgba(0,0,0,0.4);" wire:ignore.self
+        x-data="{ 
              shown: false,
              init() {
                  this.shown = true;
@@ -106,9 +106,9 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label>Blog Name {{ $blogId ? '' : '(Auto-generated)' }}</label>
-                            <input type="text" class="form-control" 
-                                   wire:model="nextBlogName" 
-                                   {{ $blogId ? '' : 'readonly' }}>
+                            <input type="text" class="form-control"
+                                wire:model="nextBlogName"
+                                {{ $blogId ? '' : 'readonly' }}>
                             @if(!$blogId)
                             <small class="text-muted">Name will be like BlogPost 1, 2, 3…</small>
                             @endif

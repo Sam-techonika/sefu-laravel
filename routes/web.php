@@ -8,6 +8,7 @@ use App\Livewire\Admin\Category\CategoryList;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Tag\TagList;
 use App\Livewire\Admin\UserList;
+use App\Livewire\Auth\Login as AuthLogin;
 use App\Livewire\Public\About;
 use App\Livewire\Public\Blog;
 use App\Livewire\Public\BlogView;
@@ -51,7 +52,6 @@ Route::group([
     Route::get('registration/local', Local::class)->name('registration.local');
     Route::get('registration/international', Foreign::class)->name('registration.foreign');
     Route::get('registration/trade-registration', TradeMark::class)->name('registration.trade-registration');
-
 });
 
 // Route::get('/', function () {
@@ -67,23 +67,27 @@ Route::group([
 
 Route::fallback(function () {
     $path = request()->path();
-    
+
     // Don't redirect admin routes or other specific routes
-    if (str_starts_with($path, 'admin') || 
-        str_starts_with($path, 'clear-cache') || 
+    if (
+        str_starts_with($path, 'admin') ||
+        str_starts_with($path, 'clear-cache') ||
         str_starts_with($path, 'logout') ||
-        str_starts_with($path, 'livewire')) {
+        str_starts_with($path, 'livewire')
+    ) {
         abort(404);
     }
-    
+
     $locale = session('locale', config('app.locale', 'en'));
     return redirect("/{$locale}/{$path}");
-}); 
+});
+
+Route::get('login', AuthLogin::class)->name('login');
 
 // Admin Routes
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
     Route::get('/', Dashboard::class)->name('dashboard');
-    Route::get('/users',UserList::class)->name('users');
+    Route::get('/users', UserList::class)->name('users');
     Route::get('/categories', CategoryList::class)->name('categories');
     Route::get('/tags', TagList::class)->name('tags');
     Route::get('/blogs', BlogList::class)->name('blogs');
@@ -92,11 +96,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('blog/languages/{id}', BlogLangList::class)->name('blog.languages');
 });
 
-Route::get('/logout',function(){
+Route::get('/logout', function () {
     Auth::logout();
-    return redirect()->route('home',app()->getLocale());
-})->name('logout'); 
-Route::get('/clear-cache', function() {
+    return redirect()->route('home', app()->getLocale());
+})->name('logout');
+
+Route::get('/clear-cache', function () {
     Artisan::call('cache:clear');
     Artisan::call('config:clear');
     Artisan::call('config:cache');

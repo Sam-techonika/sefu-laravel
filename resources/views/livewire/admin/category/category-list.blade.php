@@ -31,7 +31,7 @@
                             <td class="text-center fw-bold">{{ $category->id }}</td>
                             <td>
                                 @foreach ($category->translations as $t)
-                                    <span class="badge bg-primary me-1">
+                                    <span class="badge bg-primary-lt me-1">
                                         {{ strtoupper($t->locale) }}: {{ $t->name }}
                                     </span>
                                 @endforeach

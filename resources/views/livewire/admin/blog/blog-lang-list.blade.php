@@ -10,14 +10,14 @@
                 </div>
                 <div class="col-auto ms-auto">
                     <div class="btn-list">
-                        <a href="{{route('admin.blog.add', $blogId)}}" class="btn btn-primary">
+                        <!-- <a href="{{route('admin.blog.add', $blogId)}}" class="btn btn-primary">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <line x1="12" y1="5" x2="12" y2="19" />
                                 <line x1="5" y1="12" x2="19" y2="12" />
                             </svg>
                             Add Translation
-                        </a>
+                        </a> -->
                         <div class="btn-list">
                             <a href="{{ route('admin.blogs') }}" class="btn btn-outline-primary">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -50,7 +50,7 @@
                                 </svg>
                                 Blog Translations
                             </h3>
-                            <div class="card-subtitle">{{ $blogTranslations->count() }} of {{ $this->getTotalLocalesCount() }} language(s) available</div>
+                            &nbsp;<div class="card-subtitle">{{ $blogTranslations->count() }} of {{ $this->getTotalLocalesCount() }} language(s) available</div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -79,7 +79,7 @@
                                                 {{ $this->getLocaleDisplayName($locale) }}
                                             </td>
                                             <td>
-                                                <span class="badge bg-success">Available</span>
+                                                <span class="badge bg-success-lt text-white">Available</span>
                                             </td>
                                             <td>{{ Str::limit($translation->title, 30) }}</td>
                                             <td>
@@ -96,11 +96,11 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-1">
-                                                    @if($translation->at_glance)<span class="badge bg-success badge-sm" title="At Glance">AG</span>@endif
-                                                    @if($translation->introduction)<span class="badge bg-success badge-sm" title="Introduction">IN</span>@endif
-                                                    @if($translation->main_content)<span class="badge bg-success badge-sm" title="Main Content">MC</span>@endif
-                                                    @if($translation->key_takeaways)<span class="badge bg-success badge-sm" title="Key Takeaways">KT</span>@endif
-                                                    @if($translation->faqs)<span class="badge bg-success badge-sm" title="FAQs">FAQ</span>@endif
+                                                    @if($translation->at_glance)<span class="badge bg-success-lt text-white badge-sm" title="At Glance">AG</span>@endif
+                                                    @if($translation->introduction)<span class="badge bg-success-lt text-white badge-sm" title="Introduction">IN</span>@endif
+                                                    @if($translation->main_content)<span class="badge bg-success-lt text-white badge-sm" title="Main Content">MC</span>@endif
+                                                    @if($translation->key_takeaways)<span class="badge bg-success-lt text-white badge-sm" title="Key Takeaways">KT</span>@endif
+                                                    @if($translation->faqs)<span class="badge bg-success-lt text-white badge-sm" title="FAQs">FAQ</span>@endif
                                                     @if(!$translation->at_glance && !$translation->introduction && !$translation->main_content && !$translation->key_takeaways && !$translation->faqs)
                                                         <span class="text-muted">No content sections</span>
                                                     @endif

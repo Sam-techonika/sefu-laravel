@@ -7,7 +7,7 @@
 
     <title> {{ config('settings.brand_name', 'Panel') }} | {{ $title ?? 'Page Title' }} </title>
 
-    @php $tablerVersion = config('settings.tabler_version'); @endphp
+    @php $tablerVersion = config('settings.tabler_version'); @endphp 
 
     <!-- Tabler CSS -->
     <link href="{{ asset('tabler/theme/css/tabler.min.css') }}" rel="stylesheet" />
