@@ -41,8 +41,20 @@ class BlogList extends Component
         'nextBlogName' => 'required|string|max:255',
         'author' => 'required|exists:users,id',
         'featured_image' => 'nullable|image|max:2048',
-        'selectedTags' => 'required|array',
+        // Tags should be optional; allow empty array
+        'selectedTags' => 'nullable|array',
         'selectedTags.*' => 'exists:tags,id',
+    ];
+
+    protected $messages = [
+        'nextBlogName.required' => 'Please enter a blog title.',
+        'nextBlogName.max' => 'Blog title must not exceed 255 characters.',
+        'author.required' => 'Please select an author for the blog.',
+        'author.exists' => 'The selected author does not exist.',
+        'featured_image.image' => 'The featured file must be an image.',
+        'featured_image.max' => 'The featured image must not exceed 2MB.',
+        'selectedTags.array' => 'Tags selection is invalid.',
+        'selectedTags.*.exists' => 'One or more selected tags do not exist.',
     ];
 
     public function mount()
@@ -91,9 +103,8 @@ class BlogList extends Component
     // Open Modal
     public function openModal()
     {
-        $this->resetForm();
-        $this->setNextBlogName();
-        $this->isModalOpen = true;
+        // Open the separate BlogForm component for creating
+        $this->dispatch('openBlogForm', null);
     }
 
     // Close Modal
@@ -105,8 +116,8 @@ class BlogList extends Component
     // Save Blog (Create or Update)
     public function saveBlog()
     {
-
-    
+        // Validate input and show friendly messages declared in $messages
+        $this->validate();
 
         $path = null;
         if ($this->featured_image) {
@@ -147,8 +158,9 @@ class BlogList extends Component
         }
 
         // Sync tags (works for both create and update)
-        if (!empty($this->selectedTags)) {
-            $blog->tags()->sync($this->selectedTags);
+        $tags = is_array($this->selectedTags) ? $this->selectedTags : [];
+        if (!empty($tags)) {
+            $blog->tags()->sync($tags);
         } else {
             $blog->tags()->detach();
         }
@@ -161,20 +173,8 @@ class BlogList extends Component
     // Edit Blog
     public function edit($id)
     {
-        $blog = Blog::with('tags')->find($id);
-        if (!$blog) {
-            session()->flash('error', 'Blog not found!');
-            return;
-        }
-
-        $this->resetForm();
-        $this->blogId = $blog->id;
-        $this->author = $blog->author;
-        $this->category_id = $blog->category_id;
-        $this->is_active = $blog->is_active;
-        $this->selectedTags = $blog->tags->pluck('id')->toArray();
-        $this->nextBlogName = $blog->name;
-        $this->isModalOpen = true;
+        // Tell the BlogForm component to open and load this blog for edit
+        $this->dispatch('openBlogForm', $id);
     }
 
     // Delete Blog
@@ -194,7 +194,17 @@ class BlogList extends Component
     // Reset form
     public function resetForm()
     {
-        $this->reset(['featured_image', 'author', 'selectedTags', 'category_id', 'blogId']);
+        // Only reset fields that shouldn't persist between edit operations.
+        // Avoid resetting blogId here to prevent flicker/race when editing an existing blog.
+        $this->reset(['featured_image', 'author', 'selectedTags', 'category_id']);
+        $this->is_active = true;
+    }
+
+    // Reset only for create modal
+    public function resetCreateForm()
+    {
+        // Clear any leftover data from previous create attempts
+        $this->reset(['featured_image', 'author', 'selectedTags', 'category_id', 'blogId', 'nextBlogName']);
         $this->is_active = true;
     }
 
@@ -202,8 +212,10 @@ class BlogList extends Component
     #[Layout('components.layouts.admin')]
     public function render()
     {
+        // Eager load tags and category translations so blade can read translated names without N+1 queries
         $query = Blog::with([
-            'tags',
+            'tags.translations',
+            'category.translations',
         ]);
 
         if ($this->category_id) {

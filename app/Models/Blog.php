@@ -60,13 +60,7 @@ class Blog extends Model
 
     public function category()
     {
-        return $this->hasOneThrough(
-            Category::class,
-            BlogTranslation::class,
-            'blog_id',     // Foreign key on blog_translations table
-            'id',          // Local key on categories table
-            'id',          // Local key on blogs table
-            'category_id'  // Foreign key on blog_translations table
-        );
+        // Blog has a direct foreign key 'category_id' pointing to categories.id
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }

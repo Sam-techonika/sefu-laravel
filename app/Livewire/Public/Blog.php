@@ -11,9 +11,10 @@ class Blog extends Component
 {
     use WithPagination;
 
-    public $perPage = 9; // items per page
+    public $perPage = 9; 
 
-    protected $queryString = ['page'];
+
+    protected $queryString = [];
    
     public function render()
     {
