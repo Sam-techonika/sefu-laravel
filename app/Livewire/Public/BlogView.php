@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class BlogView extends Component
 {
-    // Blog Header
+ 
     public $blogTitle = '5 Common Trademark Filing Mistakes in India - and How to Avoid Them';
     public $authorName = 'John Smith';
     public $authorTitle = 'Partner at Example Legal';
@@ -18,34 +18,22 @@ class BlogView extends Component
     public $category = 'Business Guide';
     public $featuredImage;
     
-    // Content Sections (CKEditor Compatible)
-    public $atGlanceContent = '<p>Many businesses make costly errors when filing for trademarks in India. This guide covers the top 5 mistakes and how to file properly to safeguard your brand.</p>';
+  
+    public $atGlanceContent = '<p>At a glance not found</p>';
     
     public $introductionContent = '<p>Introduction about trademark identity, whether mistaken is priceful or protecting brand identity. Trademark registration is a crucial step for businesses to protect their brand identity and prevent unauthorized use by competitors.</p>';
     
     public $mainContent = '
         <h2>1. Choosing a Weak Name</h2>
-        <p>Avoid being an interest nearistent th atil pricefilling for trademarks in India. Use unique, coined names to handle using unique, coined names for use.</p>
-        <p>For example: if to startmark-deistake<sup>1</sup> names, use unique, cunique coined names to protect.</p>
-        
-        <h2>2. Incomplete Documentation</h2>
-        <p>Ensure all required documents are properly prepared and submitted. Missing documentation can lead to delays or rejection.</p>
-        
-        <h2>3. Wrong Class Selection</h2>
-        <p>Selecting the wrong trademark class can leave your brand unprotected. Consult with experts to choose the right classification.</p>
-        
-        <h2>4. Ignoring Prior Search</h2>
-        <p>Always conduct a comprehensive trademark search before filing to avoid conflicts with existing marks.</p>
-        
-        <h2>5. Missing Deadlines</h2>
-        <p>Trademark registration involves strict timelines. Missing deadlines can result in application abandonment.</p>
+        <p>No content available.</p>
+
     ';
     
-    public $keyTakeawaysContent = '<p><strong>Avoiding 5 common filing mistakes ensures your trademark is distinctive and legally protected in India.</strong></p>';
+    public $keyTakeawaysContent = '<p><strong>No key takeaways available.</strong></p>';
     
     public $quoteText = 'A brand for company is like reputation for a person. You earn reputation trying to do hard things well.';
     
-    // FAQs
+
     public $faq1Question = 'How long does a trademark registration take?';
     public $faq1Answer = 'The trademark registration process in India typically takes 18-24 months, depending on objections and the workload of the trademark office.';
     
@@ -151,7 +139,6 @@ class BlogView extends Component
             return $blocks;
         }
 
-        // If it's a JSON string, try to decode
         if (is_string($raw)) {
             $trim = trim($raw);
             if (($trim !== '') && ($trim[0] === '{' || $trim[0] === '[')) {
@@ -161,11 +148,10 @@ class BlogView extends Component
                 }
             }
 
-            // Not JSON — assume it's already HTML
             return $raw;
         }
 
-        // Fallback
+        // Fallback: return as-is
         return $raw;
     }
 

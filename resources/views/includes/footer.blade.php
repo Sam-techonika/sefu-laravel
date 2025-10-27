@@ -11,10 +11,10 @@
                             </div>
                             <ul class="contact-list">
                                 <li>
-                                    <h5>sefuinc@gmail.com</h5>
+                                    <h5>{{ __('footer.contact_email') }}</h5>
                                 </li>
                                 <li>
-                                    <h5>+757 699-4478</h5>
+                                    <h5>{{ __('footer.contact_phone') }}</h5>
                                 </li>
                             </ul>
                             <img class="f-shapes shape_1 d-none d-lg-inline-block" src="{{ asset('assets/img/shape/ball2.svg') }}" alt="">
@@ -23,45 +23,65 @@
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-6 wow fadeInUp2 animated" data-wow-delay='.3s'>
                         <div class="footer__widget fot_widget_h3 text-center text-md-left mb-30 pl-40">
-                            <h4 class="widget-title mb-40">Links</h4>
+                            <h4 class="widget-title mb-40">{{ __('footer.links_title') }}</h4>
                             <ul class="fot-list">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Product</a></li>
-                                <li><a href="#">Pricing</a></li>
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Careers</a></li>
-                                <li><a href="#">Features</a></li>
+                                @php
+                                    $links = [
+                                        'home', 'service', 'about', 'blogs', 'contact', 'testimonials', 'faq', 'case.study'
+                                    ];
+                                @endphp
+                                @foreach($links as $name)
+                                    @if(\Illuminate\Support\Facades\Route::has($name))
+                                        <li>
+                                            <a href="{{ route($name, ['locale' => app()->getLocale()]) }}">{{ __('footer.links.'.$name) != 'footer.links.'.$name ? __('footer.links.'.$name) : ucfirst(str_replace(['.', '-'], ' ', $name)) }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
                             </ul>
                         </div>
                     </div>
+
                     <div class="col-xl-3 col-lg-6 col-md-6  wow fadeInUp2 animated" data-wow-delay='.5s'>
                         <div class="footer__widget fot_widget_h3 text-center text-md-left mb-25 pl-85">
-                            <h4 class="widget-title mb-40">Help & Support</h4>
+                            <h4 class="widget-title mb-40">{{ __('footer.help_title') }}</h4>
                             <ul class="fot-list">
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Support</a></li>
+                                @php
+                                    $help = ['faq', 'blogs', 'contact'];
+                                @endphp
+                                @foreach($help as $name)
+                                    @if(\Illuminate\Support\Facades\Route::has($name))
+                                        <li>
+                                            <a href="{{ route($name, ['locale' => app()->getLocale()]) }}">{{ __('footer.help.'.$name) != 'footer.help.'.$name ? __('footer.help.'.$name) : ucfirst($name) }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
+                                <li>
+                                    <a href="{{ route('contact', ['locale' => app()->getLocale()]) }}">{{ __('footer.help.support') }}</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
+
                     <div class="col-xl-4 col-lg-6 col-md-6  wow fadeInUp2 animated" data-wow-delay='.7s'>
                         <div class="footer__widget fot_widget_h3 text-center text-md-left mb-30 pl-30">
-                            <h4 class="widget-title mb-40">Our Address</h4>
-                            <p class="mb-15">2190 Lojiho Terrace, Mirpur, Equal Licensed in 50 states.</p>
+                            <h4 class="widget-title mb-40">{{ __('footer.address_title') }}</h4>
+                            <p class="mb-15">{{ __('footer.address_text') }}</p>
                             <div class="footer-social mb-40">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                                @foreach(['facebook','twitter','linkedin','google'] as $net)
+                                    @if(config('services.social.'.$net))
+                                        <a href="{{ config('services.social.'.$net) }}"><i class="fab fa-{{ $net == 'google' ? 'google-plus-g' : $net }}"></i></a>
+                                    @else
+                                        <a href="#"><i class="fab fa-{{ $net == 'google' ? 'google-plus-g' : $net }}"></i></a>
+                                    @endif
+                                @endforeach
                             </div>
-                                <div class="foter-subscribe fot-border-subscribe">
-                                    <span>SIGN UP FOR NEWSLETTER</span>
-                                    <form class="subscribe-form" action="form.php">
-                                        <input type="text" placeholder="Email address">
-                                        <button class="theme_btn theme_btn3">Subscirbe</button>
-                                    </form>
-                                </div>
+                            <div class="foter-subscribe fot-border-subscribe">
+                                <span>{{ __('footer.newsletter_title') }}</span>
+                                <form class="subscribe-form" action="{{ route('contact', ['locale' => app()->getLocale()]) }}" method="GET">
+                                    <input type="email" name="email" placeholder="{{ __('footer.newsletter_placeholder') }}">
+                                    <button class="theme_btn theme_btn3">{{ __('footer.subscribe') }}</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -72,7 +92,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-12">
                         <div class="copyright mb-40 text-center">
-                            <p>© Copyright 2021 CreativeGigs</p>
+                            <p>{{ str_replace(':year', date('Y'), __('footer.copyright')) }}</p>
                         </div>
                     </div>
                 </div>
