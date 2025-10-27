@@ -191,7 +191,7 @@ class AddBlog extends Component
             $translationData = [
                 'blog_id' => $this->blog->id,
                 'locale' => $this->locale,
-                'slug' => Str::slug($this->slug ?? ''),
+                'slug' => $this->slug ?? '',
                 'category_id' => $this->blog->category_id, 
                 'title' => trim($this->title ?? ''),
                 'at_glance' => !empty($this->at_glance) ? trim($this->at_glance) : null,

@@ -217,7 +217,7 @@ class UpdateBlog extends Component
             $translationData = [
                 'blog_id' => $this->blogId,
                 'locale' => $this->locale,
-                'slug' => \Illuminate\Support\Str::slug($this->slug ?? ''),
+                'slug' => $this->slug ?? '',
                 'category_id' => $this->category_id,
                 'title' => trim($this->title ?? ''),
                 'at_glance' => !empty($this->at_glance) ? trim($this->at_glance) : null,
