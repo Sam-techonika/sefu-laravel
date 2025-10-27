@@ -1,5 +1,5 @@
 <div>
-      <main>
+  <main>
         <!--page-title-area start-->
         <section class="page-title-area pb-75 pt-240 pt-md-200 pt-xs-150">
             <div class="container">
@@ -10,7 +10,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="page-title-wrapper pl-80 pl-lg-20 pl-md-0 pl-xs-0">
+                        <div class="page-title-wrapper pl-80 pl-lg-0 pl-md-0 pl-xs-0">
                            <h4 class="sub-title mb-35">Excepteur sint occaecat cupidatat proident, sunt in culpa qui officia deserunt mollit sine anim id est laborum.</h4>
                         </div>
                     </div>
@@ -20,127 +20,146 @@
         <!--page-title-area end-->
         
        <!--blog-area start-->
-        <section class="blog-standard-area fix pt-80 pb-75 pt-md-20 pb-md-60 pt-xs-20">
+        <section class="blog-area pt-80 pb-75 pt-md-0 pb-md-35 pt-xs-0 pb-xs-35">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-8 col-lg-8">
-                        <div class="blogs blogs-std mb-75">
-                            <div class="blogs__thumb mb-35">
-                                <img class="img-fluid" src="{{ asset('assets/img/blog/13.jpg') }}" alt="">
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="blogs mb-50">
+                            <div class="blogs-mask-img">
+                                <div class="blogs__thumb mb-40">
+                                    <img class="img-fluid" src="{{ asset('assets/img/blog/01.jpg') }}" alt="">
+                                </div>
                             </div>
                             <div class="blogs__content">
-                               <span class="date-tag mb-20">23 Apr, 2021</span>
-                                <h3 class="blog-title mb-20"><a wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
-                                     Aliquip exeal nothing.</a></h3>
-                                <h5 class="mb-25">Tomfoolery crikey bits and bobs brilliant bamboozled down pub amongst brolly hank panky cack bonnet
-                                     arse over tit burke bugger all mate bodge..</h5>
-                                <a class="theme_btn blog-btn" wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Continue Reading <i class="far fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="blogs blogs-std mb-75">
-                            <div class="blogs__thumb mb-35">
-                                <img class="img-fluid" src="{{ asset('assets/img/blog/14.jpg') }}" alt="">
-                            </div>
-                            <div class="blogs__content">
-                               <span class="date-tag mb-20">23 Apr, 2021</span>
-                                <h3 class="blog-title mb-20"><a wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
-                                     Aliquip exeal nothing.</a></h3>
-                                <h5 class="mb-25">Tomfoolery crikey bits and bobs brilliant bamboozled down pub amongst brolly hank panky cack bonnet
-                                     arse over tit burke bugger all mate bodge..</h5>
-                                <a class="theme_btn blog-btn" wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Continue Reading <i class="far fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="blogs blogs-std mb-75">
-                            <div class="blogs__thumb mb-35">
-                                <img class="img-fluid" src="{{ asset('assets/img/blog/15.jpg') }}" alt="">
-                            </div>
-                            <div class="blogs__content">
-                               <span class="date-tag mb-20">23 Apr, 2021</span>
-                                <h3 class="blog-title mb-20"><a wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
-                                     Aliquip exeal nothing.</a></h3>
-                                <h5 class="mb-25">Tomfoolery crikey bits and bobs brilliant bamboozled down pub amongst brolly hank panky cack bonnet
-                                     arse over tit burke bugger all mate bodge..</h5>
-                                <a class="theme_btn blog-btn" wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Continue Reading <i class="far fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="blogs blogs-std mb-75">
-                            <div class="blogs__thumb mb-35">
-                                <img class="img-fluid" src="{{ asset('assets/img/blog/16.jpg') }}" alt="">
-                            </div>
-                            <div class="blogs__content">
-                               <span class="date-tag mb-20">23 Apr, 2021</span>
-                                <h3 class="blog-title mb-20"><a wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Quis Nostr Exercitation Ullamco Laboris nisi ut
-                                     Aliquip exeal nothing.</a></h3>
-                                <h5 class="mb-25">Tomfoolery crikey bits and bobs brilliant bamboozled down pub amongst brolly hank panky cack bonnet
-                                     arse over tit burke bugger all mate bodge..</h5>
-                                <a class="theme_btn blog-btn" wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">Continue Reading <i class="far fa-chevron-right"></i></a>
+                                <span class="tag mb-25">Travel</span>
+                                <h3 class="blog-title mb-20"><a href="blog-details.html">New ideas for a lowest cost vacation.</a></h3>
+                                <a class="blog-btn" href="blog-details.html"><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4">
-                        <div class="blog-widget-area">
-                            <div class="widget mb-80">
-                                <div class="widget-search-content">
-                                    <form class="subscribe-form" action="form.php">
-                                        <input type="text" placeholder="Search">
-                                        <button class="search-icon"><i class="far fa-search"></i></button>
-                                    </form>
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="blogs mb-50">
+                            <div class="blogs-mask-img">
+                                <div class="blogs__thumb mb-40">
+                                    <img class="img-fluid" src="{{ asset('assets/img/blog/02.jpg') }}" alt="">
                                 </div>
                             </div>
-                            <div class="widget mb-90">
-                                <div class="widget-categories-content">
-                                    <h3 class="widget-title mb-20">Categories</h3>
-                                    <ul class="categories-list">
-                                        <li><a wire:navigate href="#">Web Design <span class="f-right">(13)</span></a></li>
-                                        <li><a wire:navigate href="#">Graphics <span class="f-right">(05)</span></a></li>
-                                        <li><a wire:navigate href="#">Web Development <span class="f-right">(24)</span></a></li>
-                                        <li><a wire:navigate href="#">IOS/Android Development <span class="f-right">(08)</span></a></li>
-                                        <li><a wire:navigate href="#">others <span class="f-right">(09)</span></a></li>
-                                    </ul>
+                            <div class="blogs__content">
+                                <span class="tag mb-25">Loan</span>
+                                <h3 class="blog-title mb-20"><a href="blog-details.html">Tour ideas for a lowest price holiday.</a></h3>
+                                <a class="blog-btn" href="blog-details.html"><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="blogs mb-50">
+                            <div class="blogs-mask-img">
+                                <div class="blogs__thumb mb-40">
+                                    <img class="img-fluid" src="{{ asset('assets/img/blog/03.jpg') }}" alt="">
                                 </div>
                             </div>
-                            <div class="widget mb-90">
-                                <div class="widget-post-content">
-                                    <h3 class="widget-title mb-20">Recent News</h3>
-                                    <div class="post-box">
-                                        <h4 class="sub-title"><a wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">10 days quick challange for boost visitors.</a></h4>
-                                        <h5>23 July, 2018</h5>
-                                    </div>
-                                    <div class="post-box">
-                                        <h4 class="sub-title"><a wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">10 days quick challange for boost visitors.</a></h4>
-                                        <h5>23 July, 2018</h5>
-                                    </div>
-                                    <div class="post-box">
-                                        <h4 class="sub-title"><a wire:navigate href="{{ route('blog.view',['locale' => app()->getLocale()])}}">10 days quick challange for boost visitors.</a></h4>
-                                        <h5>23 July, 2018</h5>
-                                    </div>
+                            <div class="blogs__content">
+                                <span class="tag mb-25">Insurance</span>
+                                <h3 class="blog-title mb-20"><a href="blog-details.html">Where aur you go tension no in life.</a></h3>
+                                <a class="blog-btn" href="blog-details.html"><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="blogs mb-50">
+                            <div class="blogs-mask-img">
+                                <div class="blogs__thumb mb-40">
+                                    <img class="img-fluid" src="{{ asset('assets/img/blog/07.jpg') }}" alt="">
                                 </div>
                             </div>
-                            <div class="widget mb-90">
-                                <div class="widget-tags-content">
-                                    <h3 class="widget-title mb-20">Recent News</h3>
-                                    <div class="tag-list">
-                                        <a class="tags" wire:navigate href="#">Ideas</a>
-                                        <a class="tags"  wire:navigate href="#">Education</a>
-                                        <a class="tags"  wire:navigate href="#">Design</a>
-                                        <a class="tags"  wire:navigate href="#">Development</a>
-                                        <a class="tags"  wire:navigate href="#">Branding</a>
-                                    </div>
+                            <div class="blogs__content">
+                                <span class="tag mb-25">Travel</span>
+                                <h3 class="blog-title mb-20"><a href="blog-details.html">New ideas for a lowest cost vacation.</a></h3>
+                                <a class="blog-btn" href="blog-details.html"><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="blogs mb-50">
+                            <div class="blogs-mask-img">
+                                <div class="blogs__thumb mb-40">
+                                    <img class="img-fluid" src="{{ asset('assets/img/blog/08.jpg') }}" alt="">
                                 </div>
+                            </div>
+                            <div class="blogs__content">
+                                <span class="tag mb-25">Loan</span>
+                                <h3 class="blog-title mb-20"><a href="blog-details.html">Tour ideas for a lowest price holiday.</a></h3>
+                                <a class="blog-btn" href="blog-details.html"><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="blogs mb-50">
+                            <div class="blogs-mask-img">
+                                <div class="blogs__thumb mb-40">
+                                    <img class="img-fluid" src="{{ asset('assets/img/blog/09.jpg') }}" alt="">
+                                </div>
+                            </div>
+                            <div class="blogs__content">
+                                <span class="tag mb-25">Insurance</span>
+                                <h3 class="blog-title mb-20"><a href="blog-details.html">Where aur you go tension no in life..</a></h3>
+                                <a class="blog-btn" href="blog-details.html"><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="blogs mb-50">
+                            <div class="blogs-mask-img">
+                                <div class="blogs__thumb mb-40">
+                                    <img class="img-fluid" src="{{ asset('assets/img/blog/10.jpg') }}" alt="">
+                                </div>
+                            </div>
+                            <div class="blogs__content">
+                                <span class="tag mb-25">Travel</span>
+                                <h3 class="blog-title mb-20"><a href="blog-details.html">New ideas for a lowest cost vacation.</a></h3>
+                                <a class="blog-btn" href="blog-details.html"><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="blogs mb-50">
+                            <div class="blogs-mask-img">
+                                <div class="blogs__thumb mb-40">
+                                    <img class="img-fluid" src="{{ asset('assets/img/blog/11.jpg') }}" alt="">
+                                </div>
+                            </div>
+                            <div class="blogs__content">
+                                <span class="tag mb-25">Loan</span>
+                                <h3 class="blog-title mb-20"><a href="blog-details.html">Tour ideas for a lowest price holiday.</a></h3>
+                                <a class="blog-btn" href="blog-details.html"><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="blogs mb-50">
+                            <div class="blogs-mask-img">
+                                <div class="blogs__thumb mb-40">
+                                    <img class="img-fluid" src="{{ asset('assets/img/blog/12.jpg') }}" alt="">
+                                </div>
+                            </div>
+                            <div class="blogs__content">
+                                <span class="tag mb-25">Insurance</span>
+                                <h3 class="blog-title mb-20"><a href="blog-details.html">Where aur you go tension no in life.</a></h3>
+                                <a class="blog-btn" href="blog-details.html"><img src="{{ asset('assets/img/icon/icon12.svg') }}" alt=""></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-12">
-                        <div class="pagination-area mt-10 mb-35">
+                        <div class="pagination-area mt-70 mb-35">
                             <nav aria-label="Page navigation">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" wire:navigate href="#"><i class="far fa-chevron-left"></i></a></li>
-                                    <li class="page-item"><a class="page-link active" wire:navigate href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" wire:navigate href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" wire:navigate href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" wire:navigate href="#">...</a></li>
-                                    <li class="page-item"><a class="page-link" wire:navigate href="#">13</a></li>
-                                    <li class="page-item"><a class="page-link" wire:navigate href="#"><i class="far fa-chevron-right"></i></a></li>
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item"><a class="page-link" href="#"><i class="far fa-chevron-left"></i></a></li>
+                                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">...</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">13</a></li>
+                                    <li class="page-item"><a class="page-link" href="#"><i class="far fa-chevron-right"></i></a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -149,5 +168,24 @@
             </div>
         </section>
         <!--blog-area end-->
+        <!--subscribe-letter-area start-->
+        <section class="subscribe-letter-area pt-50 pb-115">
+            <div class="container">
+                <div class="subs-letter-bg grey-bg-soft pt-65 pb-55">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-10">
+                            <div class="subscribe-wrapper">
+                                <div class="section-title text-center">
+                                    <h3 class="mb-25">Ready to take plan? It’s just a matter of one <span class="round-line">clike</span></h3>
+                                    <h4 class="sub-title mb-50">Try it risk free — we don’t charge cancellation fees.</h4>
+                                    <a href="contact.html" class="theme_btn sub-btn">Get your free quote</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--subscribe-letter-area end-->
     </main>
 </div>
