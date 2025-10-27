@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-xl-4 col-lg-3 col-md-6 col-sm-6">
                         <div class="logo">
-                            <a class="logo-img"  wire:navigate href="{{ route('home', ['locale' => app()->getLocale()]) }}">
+                            <a class="logo-img" wire:navigate href="{{ route('home', ['locale' => app()->getLocale()]) }}">
                                 <img
                                     class="logo-1 mt-1"
                                     src="{{ asset('assets/img/logo/logo2.png') }}"
@@ -49,28 +49,28 @@
                                     <nav>
                                         <ul>
                                             @foreach(__('header.main') as $item)
-                                                <li @if(isset($item['submenu'])) class="has-dropdown" @endif>
-                                                    @if(isset($item['submenu']))
-                                                        <a wire:navigate href="javascript:void(0);">
-                                                            {{ $item['name'] }} <i class="far fa-chevron-down"></i>
+                                            <li @if(isset($item['submenu'])) class="has-dropdown" @endif>
+                                                @if(isset($item['submenu']))
+                                                <a wire:navigate href="javascript:void(0);">
+                                                    {{ $item['name'] }} <i class="far fa-chevron-down"></i>
+                                                </a>
+                                                <ul class="submenu">
+                                                    @foreach($item['submenu'] as $subitem)
+                                                    <li>
+                                                        <a wire:navigate href="{{ route($subitem['route'], ['locale' => app()->getLocale()]) }}"
+                                                            class="{{ request()->routeIs($subitem['route']) ? 'active' : '' }}">
+                                                            {{ $subitem['name'] }}
                                                         </a>
-                                                        <ul class="submenu">
-                                                            @foreach($item['submenu'] as $subitem)
-                                                                <li>
-                                                                    <a wire:navigate href="{{ route($subitem['route'], ['locale' => app()->getLocale()]) }}" 
-                                                                       class="{{ request()->routeIs($subitem['route']) ? 'active' : '' }}">
-                                                                        {{ $subitem['name'] }}
-                                                                    </a>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    @else
-                                                        <a wire:navigate href="{{ route($item['route'], ['locale' => app()->getLocale()]) }}" 
-                                                           class="{{ request()->routeIs($item['route']) ? 'active' : '' }}">
-                                                        {{ $item['name'] }}
-                                                        </a>
-                                                    @endif
-                                                </li>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                                @else
+                                                <a wire:navigate href="{{ route($item['route'], ['locale' => app()->getLocale()]) }}"
+                                                    class="{{ request()->routeIs($item['route']) ? 'active' : '' }}">
+                                                    {{ $item['name'] }}
+                                                </a>
+                                                @endif
+                                            </li>
                                             @endforeach
                                         </ul>
                                     </nav>
@@ -89,27 +89,34 @@
                         <div class="col-xl-4 col-lg-5 col-md-6 col-6">
                             <div class="header-right-widget d-flex align-items-center justify-content-end">
                                 <!-- Language Switcher -->
-                                <div class="language-switcher dropdown">
-                                    <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div x-data="{ open: false }" class="dropdown language-switcher position-relative">
+                                    <button @click="open = !open" class="btn btn-light d-flex align-items-center">
                                         {{ __('header.languages')[app()->getLocale()] ?? strtoupper(app()->getLocale()) }}
+                                        <i class="ti ti-chevron-down ms-1"></i>
                                     </button>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-                                        <ul class="ct-language_dropdown">
-                                            @foreach(__('header.languages') as $code => $name)
-                                                <li>
-                                                    <a wire:navigate href="{{ \App\Helpers\LocaleHelper::getLocalizedUrl($code) }}" 
-                                                       class="{{ app()->getLocale() === $code ? 'active' : '' }}">
-                                                        {{ $name }}
-                                                    </a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
+
+                                    <ul x-show="open"
+                                        @click.away="open = false"
+                                        class="dropdown-menu show position-absolute mt-2 start-0  border rounded bg-white"
+                                        style="display: none; min-width: 80px; left:-50px;">
+                                        @foreach(__('header.languages') as $code => $name)
+                                        <li>
+                                            <a @click="open = false"
+                                                wire:navigate
+                                                href="{{ \App\Helpers\LocaleHelper::getLocalizedUrl($code) }}"
+                                                class="dropdown-item">
+                                                {{ $name }}
+                                            </a>
+                                        </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
+
+
 
                                 <!-- Quote Button -->
                                 <div class="quote-btn d-none d-md-block ml-20">
-                                    <a  wire:navigate href="{{ route('contact', ['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">
+                                    <a wire:navigate href="{{ route('contact', ['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">
                                         Contact Us<i class="far fa-chevron-right"></i>
                                     </a>
                                 </div>
@@ -129,7 +136,7 @@
 
         <div class="offset-sidebar">
             <div class="offset-widget offset-logo mb-30">
-                <a  wire:navigate href="{{ route('home', ['locale' => app()->getLocale()]) }}">
+                <a wire:navigate href="{{ route('home', ['locale' => app()->getLocale()]) }}">
                     <img src="" alt="logo">
                 </a>
             </div>
@@ -141,7 +148,7 @@
                         was born and will give you a complete account of the system and expound the actual teachings of
                         the great explore.
                     </p>
-                    <a class="theme_btn theme_btn_bg"  wire:navigate href="{{ route('contact', ['locale' => app()->getLocale()]) }}">Contact Us</a>
+                    <a class="theme_btn theme_btn_bg" wire:navigate href="{{ route('contact', ['locale' => app()->getLocale()]) }}">Contact Us</a>
                 </div>
             </div>
             <div class="offset-widget mb-30 pr-10">
@@ -158,26 +165,26 @@
         <nav class="side-mobile-menu">
             <ul id="mobile-menu-active">
                 @foreach(__('header.main') as $item)
-                    <li @if(isset($item['submenu'])) class="has-dropdown" @endif>
-                        @if(isset($item['submenu']))
-                            <a wire:navigate href="javascript:void(0);">{{ $item['name'] }}</a>
-                            <ul class="submenu">
-                                @foreach($item['submenu'] as $subitem)
-                                    <li>
-                                        <a wire:navigate href="{{ route($subitem['route'], ['locale' => app()->getLocale()]) }}" 
-                                           class="{{ request()->routeIs($subitem['route']) ? 'active' : '' }}">
-                                            {{ $subitem['name'] }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @else
-                            <a wire:navigate href="{{ route($item['route'], ['locale' => app()->getLocale()]) }}" 
-                               class="{{ request()->routeIs($item['route']) ? 'active' : '' }}">
-                                {{ $item['name'] }}
+                <li @if(isset($item['submenu'])) class="has-dropdown" @endif>
+                    @if(isset($item['submenu']))
+                    <a wire:navigate href="javascript:void(0);">{{ $item['name'] }}</a>
+                    <ul class="submenu">
+                        @foreach($item['submenu'] as $subitem)
+                        <li>
+                            <a wire:navigate href="{{ route($subitem['route'], ['locale' => app()->getLocale()]) }}"
+                                class="{{ request()->routeIs($subitem['route']) ? 'active' : '' }}">
+                                {{ $subitem['name'] }}
                             </a>
-                        @endif
-                    </li>
+                        </li>
+                        @endforeach
+                    </ul>
+                    @else
+                    <a wire:navigate href="{{ route($item['route'], ['locale' => app()->getLocale()]) }}"
+                        class="{{ request()->routeIs($item['route']) ? 'active' : '' }}">
+                        {{ $item['name'] }}
+                    </a>
+                    @endif
+                </li>
                 @endforeach
             </ul>
         </nav>
