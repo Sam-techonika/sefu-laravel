@@ -51,7 +51,7 @@
                                             @foreach(__('header.main') as $item)
                                             <li @if(isset($item['submenu'])) class="has-dropdown" @endif>
                                                 @if(isset($item['submenu']))
-                                                <a wire:navigate href="javascript:void(0);">
+                                                <a href="javascript:void(0);">
                                                     {{ $item['name'] }} <i class="far fa-chevron-down"></i>
                                                 </a>
                                                 <ul class="submenu">
@@ -78,7 +78,7 @@
 
                                 <!-- Mobile Menu Toggle -->
                                 <div class="hamburger-menu d-md-block d-lg-none text-right">
-                                    <a wire:navigate href="javascript:void(0);">
+                                    <a href="javascript:void(0);">
                                         <i class="far fa-bars"></i>
                                     </a>
                                 </div>
@@ -131,7 +131,7 @@
     <!-- Slide-bar / Mobile Menu -->
     <aside class="slide-bar">
         <div class="close-mobile-menu">
-            <a wire:navigate href="javascript:void(0);"><i class="fas fa-times"></i></a>
+            <a href="javascript:void(0);"><i class="fas fa-times"></i></a>
         </div>
 
         <div class="offset-sidebar">
@@ -167,7 +167,7 @@
                 @foreach(__('header.main') as $item)
                 <li @if(isset($item['submenu'])) class="has-dropdown" @endif>
                     @if(isset($item['submenu']))
-                    <a wire:navigate href="javascript:void(0);">{{ $item['name'] }}</a>
+                    <a  href="javascript:void(0);">{{ $item['name'] }}</a>
                     <ul class="submenu">
                         @foreach($item['submenu'] as $subitem)
                         <li>

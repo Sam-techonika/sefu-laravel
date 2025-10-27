@@ -249,40 +249,88 @@
                               <div class="widget-categories-content">
                                   <h3 class="widget-title mb-20">Categories</h3>
                                   <ul class="categories-list">
-                                      <li><a href="#">Web Design <span class="f-right">(13)</span></a></li>
-                                      <li><a href="#">Graphics <span class="f-right">(05)</span></a></li>
-                                      <li><a href="#">Web Development <span class="f-right">(24)</span></a></li>
-                                      <li><a href="#">IOS/Android Development <span class="f-right">(08)</span></a></li>
-                                      <li><a href="#">others <span class="f-right">(09)</span></a></li>
+                                      @if(!empty($categories) && (is_array($categories) || $categories instanceof \Illuminate\Support\Collection) && count($categories))
+                                          @foreach($categories as $category)
+                                              @php
+                                                  $catSlug = $category->slug ?? ($category['slug'] ?? null);
+                                                  $catId = $category->id ?? ($category['id'] ?? null);
+                                                  $catName = $category->name ?? ($category['name'] ?? ($category['title'] ?? 'Category'));
+                                                  // Counts: prefer eager loaded withCount keys like posts_count or blogs_count, else try count
+                                                  $catCount = $category->posts_count ?? $category->blogs_count ?? $category->count ?? ($category['count'] ?? 0);
+                                                  $catUrl = url('/'.app()->getLocale().'/blog') . ($catSlug ? '?category='.$catSlug : ($catId ? '?category_id='.$catId : ''));
+                                              @endphp
+                                              <li>
+                                                  <a href="{{ $catUrl }}">{{ $catName }} <span class="f-right">({{ $catCount }})</span></a>
+                                              </li>
+                                          @endforeach
+                                      @else
+                                          {{-- fallback to static markup if no categories provided --}}
+                                          <li><a href="#">Web Design <span class="f-right">(13)</span></a></li>
+                                          <li><a href="#">Graphics <span class="f-right">(05)</span></a></li>
+                                          <li><a href="#">Web Development <span class="f-right">(24)</span></a></li>
+                                          <li><a href="#">IOS/Android Development <span class="f-right">(08)</span></a></li>
+                                          <li><a href="#">others <span class="f-right">(09)</span></a></li>
+                                      @endif
                                   </ul>
                               </div>
                           </div>
+
                           <div class="widget mb-90">
                               <div class="widget-post-content">
-                                  <h3 class="widget-title mb-20">Recent News</h3>
-                                  <div class="post-box">
-                                      <h4 class="sub-title"><a href="blog-details.html">10 days quick challange for boost visitors.</a></h4>
-                                      <h5>23 July, 2018</h5>
-                                  </div>
-                                  <div class="post-box">
-                                      <h4 class="sub-title"><a href="blog-details.html">10 days quick challange for boost visitors.</a></h4>
-                                      <h5>23 July, 2018</h5>
-                                  </div>
-                                  <div class="post-box">
-                                      <h4 class="sub-title"><a href="blog-details.html">10 days quick challange for boost visitors.</a></h4>
-                                      <h5>23 July, 2018</h5>
-                                  </div>
+                                  <h3 class="widget-title mb-20">Recent Blogs</h3>
+                                  @if(!empty($recentBlogs) && (is_array($recentBlogs) || $recentBlogs instanceof \Illuminate\Support\Collection) && count($recentBlogs))
+                                      @foreach($recentBlogs as $rblog)
+                                          @php
+                                              $rTitle = $rblog->title ?? ($rblog['title'] ?? 'Blog Title');
+                                              $rSlug = $rblog->slug ?? ($rblog['slug'] ?? null);
+                                              $rId = $rblog->id ?? ($rblog['id'] ?? null);
+                                              $rUrl = $rSlug ? url('/'.app()->getLocale().'/blog/'.$rSlug) : ($rId ? url('/'.app()->getLocale().'/blog?id='.$rId) : '#');
+                                              $rDate = optional($rblog->published_at ?? $rblog->created_at)->format('d M, Y');
+                                          @endphp
+                                          <div class="post-box">
+                                              <h4 class="sub-title"><a href="{{ $rUrl }}">{{ $rTitle }}</a></h4>
+                                              <h5>{{ $rDate }}</h5>
+                                          </div>
+                                      @endforeach
+                                  @else
+                                      <div class="post-box">
+                                          <h4 class="sub-title"><a href="blog-details.html">10 days quick challange for boost visitors.</a></h4>
+                                          <h5>23 July, 2018</h5>
+                                      </div>
+                                      <div class="post-box">
+                                          <h4 class="sub-title"><a href="blog-details.html">10 days quick challange for boost visitors.</a></h4>
+                                          <h5>23 July, 2018</h5>
+                                      </div>
+                                      <div class="post-box">
+                                          <h4 class="sub-title"><a href="blog-details.html">10 days quick challange for boost visitors.</a></h4>
+                                          <h5>23 July, 2018</h5>
+                                      </div>
+                                  @endif
                               </div>
                           </div>
+
                           <div class="widget mb-90">
                               <div class="widget-tags-content">
-                                  <h3 class="widget-title mb-20">Recent News</h3>
+                                  <h3 class="widget-title mb-20">Tags</h3>
                                   <div class="tag-list">
-                                      <a class="tags" href="#">Ideas</a>
-                                      <a class="tags" href="#">Education</a>
-                                      <a class="tags" href="#">Design</a>
-                                      <a class="tags" href="#">Development</a>
-                                      <a class="tags" href="#">Branding</a>
+                                      @if(!empty($tags) && (is_array($tags) || $tags instanceof \Illuminate\Support\Collection) && count($tags))
+                                          @foreach($tags as $tag)
+                                              @php
+                                                  $tagName = $tag->name ?? ($tag['name'] ?? 'Tag');
+                                                  $tagSlug = $tag->slug ?? ($tag['slug'] ?? null);
+                                                  $tagId = $tag->id ?? ($tag['id'] ?? null);
+                                                  $tagCount = $tag->posts_count ?? $tag->blogs_count ?? $tag->count ?? ($tag['count'] ?? null);
+                                                  $tagUrl = url('/'.app()->getLocale().'/blog') . ($tagSlug ? '?tag='.$tagSlug : ($tagId ? '?tag_id='.$tagId : ''));
+                                              @endphp
+                                              <a class="tags" href="{{ $tagUrl }}">{{ $tagName }}@if($tagCount) <small class="ml-1">({{ $tagCount }})</small>@endif</a>
+                                          @endforeach
+                                      @else
+                                          <a class="tags" href="#">Ideas</a>
+                                          <a class="tags" href="#">Education</a>
+                                          <a class="tags" href="#">Design</a>
+                                          <a class="tags" href="#">Development</a>
+                                          <a class="tags" href="#">Branding</a>
+                                      @endif
                                   </div>
                               </div>
                           </div>

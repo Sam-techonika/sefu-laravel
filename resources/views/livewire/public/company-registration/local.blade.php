@@ -713,7 +713,7 @@
                         <div class="feedback-item-wrapper">
                             <div class="feedback-box fb-box-3 text-center">
                                 <div class="quote-icon">
-                                    <img src="assets/img/icon/quote-gray.svg" alt="">
+                                    <img src="{{ asset('assets/img/icon/quote-gray.svg') }}" alt="">
                                 </div>
                                 <h4 class="sub-title mb-25">We’v agents around occae cat the country, Find agents your neighborhood.Lorem ipsum dolor sit amet consectetur, omnis. voluptate velit esse cillum dolore eu fugiat nulla</h4>
                                 <h5 class="mb-10">Rashed Ka</h5>
@@ -723,7 +723,7 @@
                         <div class="feedback-item-wrapper">
                             <div class="feedback-box fb-box-3 text-center">
                                 <div class="quote-icon">
-                                    <img src="assets/img/icon/quote-gray.svg" alt="">
+                                    <img src="{{ asset('assets/img/icon/quote-gray.svg') }}" alt="">
                                 </div>
                                 <h4 class="sub-title mb-25">ommodo consequat. Duis aute irure dolor in reprehendert
                                     voluptate velit esse cillum dolore eu fugiat nulla
@@ -736,7 +736,7 @@
                         <div class="feedback-item-wrapper">
                             <div class="feedback-box fb-box-3 text-center">
                                 <div class="quote-icon">
-                                    <img src="assets/img/icon/quote-gray.svg" alt="">
+                                    <img src="{{ asset('assets/img/icon/quote-gray.svg') }}" alt="">
                                 </div>
                                 <h4 class="sub-title mb-25">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, cumque id! Nulla vero nam ipsa quae ut, ullam, ad repudiandae, tenetur facilis impedit velit maiores ipsum. Quos, sequi. Quod amet voluptatibus repellat veritatis.</h4>
                                 <h5 class="mb-10">Rashed Ka</h5>
