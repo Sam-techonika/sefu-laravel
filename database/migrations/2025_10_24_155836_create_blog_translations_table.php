@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->foreignId('category_id')->nullable()->constrained()->cascadeOnDelete();
             $table->string('title');
-            $table->text('at_glance')->nullable();
-            $table->text('introduction')->nullable();
+            $table->longText('at_glance')->nullable();
+            $table->longText('introduction')->nullable();
             $table->json('main_content')->nullable();
-            $table->text('key_takeaways')->nullable();
+            $table->longText('key_takeaways')->nullable();
             $table->json('faqs')->nullable();
             $table->timestamps();
         });

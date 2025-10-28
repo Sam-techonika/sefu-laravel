@@ -8,6 +8,7 @@ use App\Livewire\Admin\Category\CategoryList;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Faq\FaqList;
 use App\Livewire\Admin\Tag\TagList;
+use App\Livewire\Admin\Testimonial\TestimonialList;
 use App\Livewire\Admin\UserList;
 use App\Livewire\Auth\Login as AuthLogin;
 use App\Livewire\Public\About;
@@ -94,6 +95,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::get('/blogs', BlogList::class)->name('blogs');
     Route::get('/blog/add/{id}', AddBlog::class)->name('blog.add');
     Route::get('/faq', FaqList::class)->name('faq');
+    Route::get('/testimonials', TestimonialList::class)->name('testimonials');
     Route::get('/blog/edit/{id}/{locale}', UpdateBlog::class)->name('blog.edit');
     Route::get('blog/languages/{id}', BlogLangList::class)->name('blog.languages');
 });

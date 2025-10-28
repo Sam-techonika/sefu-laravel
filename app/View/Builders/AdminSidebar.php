@@ -45,6 +45,13 @@ class AdminSidebar
     
             ],
             (object)[
+                'title' => 'Testimonials Management',
+                'icon' => 'ti ti-users',
+                'url' => route('admin.testimonials'),
+                'hasSubmenu' => false,
+    
+            ],
+            (object)[
                 'title' => 'Blogs',
                 'icon' => 'ti ti-file-text',
                 'url' => '#',
