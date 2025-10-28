@@ -38,6 +38,13 @@ class AdminSidebar
                 ],
             ],
             (object)[
+                'title' => 'Faq Management',
+                'icon' => 'ti ti-users',
+                'url' => route('admin.faq'),
+                'hasSubmenu' => false,
+    
+            ],
+            (object)[
                 'title' => 'Blogs',
                 'icon' => 'ti ti-file-text',
                 'url' => '#',

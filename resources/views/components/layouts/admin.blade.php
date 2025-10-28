@@ -223,6 +223,23 @@ if (window.Livewire) {
   });
 }
 
+    // Listen for component-dispatched events to show/hide Bootstrap modals
+    document.addEventListener('open-faq-modal', () => {
+        const modalEl = document.getElementById('faqModal');
+        if (modalEl) {
+            const instance = bootstrap.Modal.getOrCreateInstance(modalEl);
+            instance.show();
+        }
+    });
+
+    document.addEventListener('close-faq-modal', () => {
+        const modalEl = document.getElementById('faqModal');
+        if (modalEl) {
+            const instance = bootstrap.Modal.getOrCreateInstance(modalEl);
+            instance.hide();
+        }
+    });
+
     </script>
 
     @stack('scripts')

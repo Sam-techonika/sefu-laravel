@@ -110,7 +110,7 @@
                                             <td>
                                                 <div class="btn-list flex-nowrap">
                                                     <a href="{{ route('admin.blog.edit', ['id' => $blogId, 'locale' => $locale]) }}" class="btn btn-sm btn-primary">Edit</a>
-                                                    <a href="#" class="btn btn-sm btn-outline-secondary">Preview</a>
+                                                    <!-- <a href="#" class="btn btn-sm btn-outline-secondary">Preview</a> -->
                                                 </div>
                                             </td>
                                         </tr>
