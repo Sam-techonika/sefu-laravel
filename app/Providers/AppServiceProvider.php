@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Enums\LocaleType;
+use App\Models\Setting;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -29,5 +30,11 @@ class AppServiceProvider extends ServiceProvider
         // Share current locale with all views
         view()->share('currentLocale', app()->getLocale());
         view()->share('supportedLocales', config('app.supported_locales'));
+        // Share settings (key => value) with all views
+        try {
+            view()->share('settings', Setting::allAsArray());
+        } catch (\Throwable $e) {
+            // in case migrations haven't run yet or DB not available, ignore
+        }
     }
 }

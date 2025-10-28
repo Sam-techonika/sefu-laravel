@@ -39,17 +39,24 @@ class AdminSidebar
             ],
             (object)[
                 'title' => 'Faq Management',
-                'icon' => 'ti ti-users',
+                'icon' => 'ti ti-help-circle',
                 'url' => route('admin.faq'),
                 'hasSubmenu' => false,
-    
+
             ],
             (object)[
                 'title' => 'Testimonials Management',
-                'icon' => 'ti ti-users',
+                'icon' => 'ti ti-message',
                 'url' => route('admin.testimonials'),
                 'hasSubmenu' => false,
-    
+
+            ],
+            (object)[
+                'title' => 'Settings Management',
+                'icon' => 'ti ti-settings',
+                'url' => route('admin.settings'),
+                'hasSubmenu' => false,
+
             ],
             (object)[
                 'title' => 'Blogs',
@@ -62,10 +69,7 @@ class AdminSidebar
                     (object)['title' => 'Blogs', 'url' => route('admin.blogs')],
                 ],
             ],
-            // Add more menus here as needed
         ]);
-
-        // Since we don't care about permissions, return the menu as-is
         return $menu;
     }
 }
