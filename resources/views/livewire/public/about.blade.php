@@ -1,5 +1,5 @@
     <div>
-        <section class="page-title-area page-t-height" data-bg="{{ asset('assets/img/slider/slider1.jpg') }}" style="color: #f5f5f5;">
+        <section class="page-title-area page-t-height" data-bg="{{ asset('assets/img/about/slider1.jpg') }}" style="color: #f5f5f5;">
             <div class="page-title-img about-page-title" data-bg="{{ asset('assets/img/page-title/p-bg1.jpg') }}">
                 <h1 class="title-text d-none d-lg-inline-block">About Us</h1>
             </div>
@@ -7,11 +7,10 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-12 pad-bottom-sm">
                         <div class="page-title-wrapper page-wrapper-white pt-240 pr-50 pt-md-200 pt-xs-150 pr-xs-0">
-                            <h1 class="page-title mb-35">Where <span class="round-line">Law</span>Meets Business</h1>
-                            <h4 class="sub-title mb-35">India’s legal landscape can be complex but with the right partner, it becomes your biggest advantage.</h4>
-                            <h4 class="sub-title mb-55 mb-xs-25">That’s what we deliver every day.</h4>
+                            <h1 class="page-title mb-35"><span class="round-line"> Law</span> Meets Business</h1>
+                            <h4 class="sub-title mb-35">India’s legal landscape can be complex but with the right partner.</h4>
+                            <h4 class="sub-title mb-55 mb-xs-25">It becomes your biggest advantage That’s what we deliver every day.</h4>
                             <h5 class="mb-15">Prashant Kumar <span>Partner, Pratham Legal</span></h5>
-                            <img class="d-none d-md-inline-block" src="{{ asset('assets/img/shape/signature.png') }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -31,7 +30,7 @@
                                 <img src="{{ asset('assets/img/icon/icon3.svg') }}" alt="">
                             </div>
                             <h5>Expert-Led Services</h5>
-                            <h3>Handled by qualified professionals not agents.</h3>
+                            <h3>Handled by professionals not agents.</h3>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
@@ -48,8 +47,8 @@
                             <div class="icon mb-50">
                                 <img src="{{ asset('assets/img/icon/icon4.svg') }}" alt="">
                             </div>
-                            <h5>Trusted by Businesses/h5>
-                                <h3>100% professional. Clear scope. Transparent pricing.</h3>
+                            <h5>Trusted by Businesses</h5>
+                            <h3>100% Professional. Clear & Transparent.</h3>
                         </div>
                     </div>
                 </div><!-- /.row -->
@@ -71,12 +70,9 @@
                     <div class="col-lg-6">
                         <div class="about-single-box mb-100">
                             <h5>Who we are</h5>
-                            <h4 class="sub-title">Pratham Legal is a corporate and commercial law firm helping businesses navigate India’s legal, regulatory, and strategic landscape.</h4>
+                            <h4 class="sub-title">Pratham Legal is a corporate and commercial law firm helping businesses navigate India’s legal, regulatory, and strategic landscape.We work with startups, growing companies, and global investors to ensure every stage from setup to expansion is legally structured and future-ready. Our team of qualified professionals blends law and business to deliver what matters most: clarity, compliance, and confidence.</h4>
                         </div>
-                        <div class="about-single-box">
-                            <h5>Who we are</h5>
-                            <h4 class="sub-title">We work with startups, growing companies, and global investors to ensure every stage from entry to expansion is structured, compliant, and future ready.Our expertise spans business setup, FEMA and foreign investment, governance, IPR, and M&A. Every engagement is led by qualified professionals who understand both law and business, delivering what clients need most clarity, compliance, and confidence.</h4>
-                        </div>
+
                     </div>
                 </div><!-- /.row -->
             </div><!-- /.container -->
@@ -109,45 +105,60 @@
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </section>
-        <section class="plan-coverage-area pos-rel about-style-1 pt-90 pb-95 pt-lg-50 pt-md-10 pb-md-30 pt-xs-10 pb-xs-30">
-            <div class="about-img-wrapper" data-bg="{{ asset('assets/img/about/01.jpg') }}">
-                <h1 class="title-text">Our Commitment</h1>
+        @php
+        $commitmentImage = asset('assets/img/about/commitment.jpg');
+        @endphp
+
+        <section
+            class="plan-coverage-area pos-rel about-style-1 pt-90 pb-95 pt-lg-50 pt-md-10 pb-md-30 pt-xs-10 pb-xs-30">
+            <div class="about-img-wrapper" data-bg="{{ $commitmentImage }}">
+                <h1 class="title-text">Commitment</h1>
                 <div class="authors-quote">
                     <div class="a-icon">
                         <img src="{{ asset('assets/img/icon/icon20.svg') }}" alt="">
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('[data-bg]').forEach(function (el) {
-                var url = el.getAttribute('data-bg');
-                if (url) el.style.backgroundImage = 'url(' + url + ')';
-            });
-        });
-    </script>
                     </div>
-                    <h5>- Prashant Kumar <span>Partner</span></h5>
-                    <h5 class="a-text">We aim to respond to every client query quickly and clearly with professional guidance that turns complex legal issues into confident business action</h5>
+                    <h5>Prashant Kumar <span>Partner</span></h5>
+                    <h5 class="a-text">Turning complex law into confident business moves.</h5>
                 </div>
             </div>
+
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 offset-lg-6">
                         <div class="plan-title-wrapper mb-30 pl-95 pl-lg-0 pl-md-0 pl-xs-0">
                             <div class="section-title mb-55">
                                 <h3 class="mb-45">Our Areas of <span class="round-line">Expertise</span></h3>
-                                <h4 class="sub-title">At Pratham Legal, we provide strategic and compliant legal support to businesses at every stage of their growth. Our key practice areas include:</h4>
+                                <h4 class="sub-title">
+                                    At Pratham Legal, we provide strategic and compliant legal support to businesses at every stage of their growth. Our key practice areas include:
+                                </h4>
                             </div>
                             <ul class="chose-text-list plan-list">
-                                <li>Business Setup & India Entry Incorporation of Companies, LLPs, and Subsidiaries.</li>
-                                <li>FEMA & Regulatory Advisory FDI Structuring, RBI Filings, and Cross-border Compliance.</li>
-                                <li>Corporate Governance Annual ROC Filings, Board Documentation, and Secretarial Audits.</li>
-                                <li>Intellectual Property Rights (IPR) Trademark, Copyright, and Design Registrations.</li>
-                                <li>Legal Drafting & Transactions Agreements, Due Diligence, and M&A Support</li>
+                                <li>Business Setup & India Entry — Incorporation of Companies, LLPs, and Subsidiaries.</li>
+                                <li>FEMA & Regulatory Advisory — FDI Structuring, RBI Filings, and Cross-border Compliance.</li>
+                                <li>Corporate Governance — Annual ROC Filings, Board Documentation, and Secretarial Audits.</li>
+                                <li>Intellectual Property Rights (IPR) — Trademark, Copyright, and Design Registrations.</li>
+                                <li>Legal Drafting & Transactions — Agreements, Due Diligence, and M&A Support.</li>
                             </ul>
                         </div>
                     </div>
-                </div><!-- /.row -->
-            </div><!-- /.container -->
+                </div>
+            </div>
         </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('[data-bg]').forEach(function(el) {
+                    var url = el.getAttribute('data-bg');
+                    if (url) {
+                        el.style.backgroundImage = 'url(' + url + ')';
+                        el.style.backgroundSize = 'cover';
+                        el.style.backgroundPosition = 'center';
+                        el.style.backgroundRepeat = 'no-repeat';
+                    }
+                });
+            });
+        </script>
+
 
 
 

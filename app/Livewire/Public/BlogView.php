@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class BlogView extends Component
 {
- 
+
     public $blogTitle = '5 Common Trademark Filing Mistakes in India - and How to Avoid Them';
     public $authorName = 'John Smith';
     public $authorTitle = 'Partner at Example Legal';
@@ -17,63 +17,66 @@ class BlogView extends Component
     public $publishDate;
     public $category = 'Business Guide';
     public $featuredImage;
-    
-  
+
+
     public $atGlanceContent = '<p>At a glance not found</p>';
-    
+
     public $introductionContent = '<p>Introduction about trademark identity, whether mistaken is priceful or protecting brand identity. Trademark registration is a crucial step for businesses to protect their brand identity and prevent unauthorized use by competitors.</p>';
-    
+
     public $mainContent = '
         <h2>1. Choosing a Weak Name</h2>
         <p>No content available.</p>
 
     ';
-    
+
     public $keyTakeawaysContent = '<p><strong>No key takeaways available.</strong></p>';
-    
+
     public $quoteText = 'A brand for company is like reputation for a person. You earn reputation trying to do hard things well.';
-    
+
 
     public $faq1Question = 'How long does a trademark registration take?';
     public $faq1Answer = 'The trademark registration process in India typically takes 18-24 months, depending on objections and the workload of the trademark office.';
-    
+
     public $faq2Question = 'Can I file a trademark on my own?';
     public $faq2Answer = 'Yes, you can file a trademark application on your own, but it\'s recommended to consult with a trademark attorney to avoid common mistakes and ensure proper protection.';
-    
+
     public $faq3Question = 'What if my application is opposed?';
     public $faq3Answer = 'If your trademark application is opposed, you will need to file a counter-statement and may need to attend hearings. Legal assistance is highly recommended in such cases.';
-    
+
     public $faq4Question = 'How long does a trademark last?';
     public $faq4Answer = 'A registered trademark in India is valid for 10 years from the date of application and can be renewed indefinitely for successive 10-year periods.';
-    
+
     public $faq5Question = 'What classes should I register my trademark in?';
     public $faq5Answer = 'Choose classes based on your business activities. For example, Class 25 for clothing, Class 35 for retail services, etc. Consult an expert for proper class selection.';
-    
+
     public $faq6Question = 'Can I trademark a logo?';
     public $faq6Answer = 'Yes, logos can be registered as device marks or combination marks. Ensure your logo is distinctive and not similar to existing trademarks.';
-    
+
     // dynamic FAQs array (normalized from DB)
     public $faqs = [];
 
     public function mount($slug = null)
     {
-        $locale = app()->getLocale() ?? redirect(404);
-        
+        $locale = app()->getLocale() ?? abort(404);
 
-        
-        // Load translation by slug and hydrate view properties
+
+
         if ($slug) {
-            
+
             $translation = BlogTranslation::where('slug', $slug)
                 ->with(['blog.user', 'category.translations'])
                 ->firstOrFail();
 
-                if($locale !== $translation->locale) {
-                    $translation = BlogTranslation::where('blog_id', $translation->blog_id)
-                        ->where('locale', $locale)
-                        ->first();
+            if ($locale !== $translation->locale) {
+                $translation = BlogTranslation::where('blog_id', $translation->blog_id)
+                    ->where('locale', $locale)
+                    ->first();
+                if (!$translation) {
+                    return abort(404);
+                } else {
                     return redirect()->route('blog.view', ['slug' => $translation->slug, 'locale' => $locale]);
                 }
+            }
 
             // Basic fields
             $this->blogTitle = $translation->title ?? $this->blogTitle;

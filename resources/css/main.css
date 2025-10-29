@@ -405,7 +405,7 @@ section-title
   }
 }
 .section-title-3 .highlight-text {
-  color: #ff6324;
+  color: #ff1f1f;
   position: relative;
   z-index: 1;
   display: inline-block;
@@ -413,8 +413,8 @@ section-title
 .section-title-3 .highlight-text::before {
   content: '';
   position: absolute;
-  color: #ff6324;
-  background: #ff6324;
+  color: #ff1f1f;
+  background: #ff1f1f;
   height: 5px;
   width: 100%;
   left: 0;
@@ -1009,7 +1009,7 @@ section-title
   color: black;
 }
 .main-head-two .main-menu li:hover > a, .main-head-two .main-menu li.active > a {
-  color: #ff6324;
+  color: #ff1f1f;
 }
 .main-head-two.sticky .main-menu li a {
   color: white;
@@ -1018,7 +1018,7 @@ section-title
   color: black;
 }
 .main-head-two.sticky .main-menu li ul.submenu li:hover > a {
-  color: #ff6324;
+  color: #ff1f1f;
 }
 
 .main-head-three {
@@ -2955,11 +2955,11 @@ input.main-search-input:-ms-input-placeholder {
   font-weight: 400;
   text-transform: initial;
   border-radius: 5px;
-  background: #4c5ce1;
+  background: #ff1f1f;
   padding: 16px 34px !important;
 }
 .theme_btn2:hover {
-  background: #3744b6;
+  background: #c70808;
 }
 
 .theme_btn3 {
@@ -3645,7 +3645,7 @@ input.main-search-input:-ms-input-placeholder {
 .slider-height-2::before {
   content: '';
   position: absolute;
-  background: url(../img/line-shape/line_1.svg) no-repeat;
+  /* background: url(../img/line-shape/line_1.svg) no-repeat; */
   width: 792px;
   height: 827px;
   right: 0;
@@ -3705,7 +3705,7 @@ input.main-search-input:-ms-input-placeholder {
 }
 .slider-card .icon {
   display: inline-block;
-  background: #ff6324;
+  background: #ff1f1f;
   width: 40px;
   height: 40px;
   text-align: center;
@@ -3731,7 +3731,7 @@ input.main-search-input:-ms-input-placeholder {
 .card-2 .icon {
   float: left;
   margin-right: 20px;
-  background: #4c5ce1;
+  background: #ff1f1f;
 }
 .card-2 .slider-text h5 {
   color: rgba(0, 0, 0, 0.8);
@@ -3767,9 +3767,9 @@ input.main-search-input:-ms-input-placeholder {
   }
 }
 .slider__content-2 .main-title span {
-  color: #ff6324;
+  color: #ff1f1f;
   padding-bottom: 9px;
-  border-bottom: 7px solid #ff6324;
+  border-bottom: 7px solid #ff1f1f;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .slider__content-2 .main-title span {
@@ -4479,7 +4479,7 @@ input.main-search-input:-ms-input-placeholder {
   display: none;
 }
 .about-img-wrapper-2 .authors-quote .a-icon {
-  background: #4c5ce1;
+  background: #ff1f1f;
   right: -26px !important;
   left: auto;
   top: -26px !important;
@@ -5369,7 +5369,7 @@ input.main-search-input:-ms-input-placeholder {
   background: rgba(255, 255, 255, 0.8);
 }
 .form-box-2 .quote-form .q-btn-lg {
-  background: #4c5ce1;
+  background: #ff1f1f;
   border-radius: 5px;
 }
 .form-box-2 .quote-form .review-text a {
@@ -5403,7 +5403,7 @@ input.main-search-input:-ms-input-placeholder {
   }
 }
 .search-input input:focus {
-  border-bottom: 1px solid #ff6324;
+  border-bottom: 1px solid #ff1f1f;
 }
 
 .quote-wrapper-bg {
@@ -6067,7 +6067,7 @@ input.main-search-input:-ms-input-placeholder {
 }
 
 .blogs-2 .tag {
-  background: #ff6324;
+  background: #ff1f1f;
   border-radius: 12.5px;
 }
 .blogs-2 .blogs__thumb {
@@ -6126,7 +6126,7 @@ input.main-search-input:-ms-input-placeholder {
   transform: scale(1.1);
 }
 .blogs-2:hover .blog-title {
-  color: #ff6324;
+  color: #ff1f1f;
 }
 
 .blog-title-wrapper .section-title-4 h6 {
@@ -8117,8 +8117,8 @@ input.main-search-input:-ms-input-placeholder {
   background: transparent;
 }
 .dark-home-two .do-box-2 .more-btn {
-  color: #ff6324;
-  border-bottom-color: #ff6324;
+  color: #ff1f1f;
+  border-bottom-color: #ff1f1f;
 }
 .dark-home-two .chose-box {
   background: rgba(255, 255, 255, 0.05);
@@ -8136,7 +8136,7 @@ input.main-search-input:-ms-input-placeholder {
   background: linear-gradient(rgba(47, 50, 51, 0) 0%, rgba(47, 50, 51, 0.84) 48.54%, #2f3233 100%) !important;
 }
 .dark-home-two .quote-wrapper .section-title-3 .number {
-  color: #ff6324;
+  color: #ff1f1f;
   font-size: 32px;
 }
 .dark-home-two .form-box-2 {
@@ -8155,8 +8155,8 @@ input.main-search-input:-ms-input-placeholder {
   color: white;
 }
 .dark-home-two .form-box-2 .review-text a {
-  color: #ff6324;
-  border-color: #ff6324;
+  color: #ff1f1f;
+  border-color: #ff1f1f;
 }
 .dark-home-two .feedback-box {
   background: #2F3233;
@@ -8530,7 +8530,7 @@ input.main-search-input:-ms-input-placeholder {
 }
 .fot_widget_2 .subscribe-form button.theme_btn {
   border-radius: 5px;
-  background: #ff6324;
+  background: #ff1f1f;
   transform: translateY(-2px);
 }
 
@@ -8575,3 +8575,6 @@ input.main-search-input:-ms-input-placeholder {
 }
 
 /*# sourceMappingURL=main.css.map */
+
+
+

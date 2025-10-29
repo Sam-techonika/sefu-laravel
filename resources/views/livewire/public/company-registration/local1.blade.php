@@ -1,93 +1,167 @@
 <div>
-      <main>
-            <!--slider-area start-->
-            <section class="slider-area slider-bg pos-rel">
-                <div class="slider-active">
-                    <div class="single-slider slider-height-2 pos-rel pt-275 pb-190 pt-md-200 pt-xs-50 pb-md-50 pb-xs-50">
-                        <div class="slider__img-two d-none d-lg-block" style="background: url({{ asset('assets/img/registrations/slider4.png') }});">
-                            <div class="slider-card">
-                                <div class="icon">
-                                    <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
-                                </div>
-                                <p>Quick, easy and hassle free</p>
-                            </div>
-                            <div class="slider-card card-2">
-                                <div class="icon">
-                                    <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
-                                </div>
-                                <div class="slider-text">
-                                    <h5>Save up to 50% in our all policy.</h5>
-                                    <span>Learn MORE</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-xl-6 col-lg-8">
-                                    <div class="slider__content slider__content-2 text-left">
-                                        <h1 class="main-title mb-35" data-animation="fadeInUp2" data-delay=".2s">Find your secure <span style="color:#ff1f1f">future</span> in sefu.</h1>
-                                        <h3>Helping you prepare times of uncertainty is at the heart of what we do.</h3>
-                                        <ul class="input-box mt-70">
-                                            <li>
-                                                <form class="hero-form">
-                                                    <label>Email address</label>
-                                                    <input type="email" name="email" placeholder="ihidago@ujufidnan.gov">
-                                                </form>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html" class="theme_btn quote-btn theme_btn2 ">Get a quote</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div><!-- .col/ -->
-                            </div><!-- .row/ -->
-                        </div><!-- .container/ -->
-                    </div>
-                    <div class="single-slider slider-height-2 pos-rel pt-275 pb-190 pt-md-200 pt-xs-50 pb-md-50 pb-xs-50">
-                        <div class="slider__img-two d-none d-lg-block" style="background: url({{ asset('assets/img/registrations/slider3.png') }});">
-                            <div class="slider-card">
-                                <div class="icon">
-                                    <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
-                                </div>
-                                <p>Quick, easy and hassle free</p>
-                            </div>
-                            <div class="slider-card card-2">
-                                <div class="icon">
-                                    <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
-                                </div>
-                            <div class="slider-text">
-                                    <h5>Save up to 50% in our all policy.</h5>
-                                    <span>Learn MORE</span>
-                                </div>
+    <section class="slider-area pos-rel light-home-one" style="background-color:#f9f9f9; color:#222; padding:120px 0; position:relative; overflow:hidden;">
+        <div class="slider-actives">
+            <div class="single-slider pos-rel d-flex align-items-center" style="color:#222;">
+                <div class="slider-img-one" data-bg="{{ asset('assets/img/slider/slider1a.jpg') }}" style="background-size:cover; background-position:center; position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1;"></div>
+
+                <div class="container" style="max-width:1200px; margin:0 auto;">
+                    <div class="row align-items-center" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+
+                        <!-- LEFT CONTENT -->
+                        <div class="col-xl-6 col-lg-8" style="flex:1 1 55%; color:#222;">
+                            <div class="slider__content text-left" style="padding-top:60px;">
+                                <h2 class="main-title mb-40" style="color:#111;" data-animation="fadeInUp2" data-delay=".2s">Incorporate. <span class="round-line"> Grow. Comply</span>With Confidence.</h2>
+                                <h4 style="color:#111; font-weight:200;">Led by experienced Company Secretaries who make business setup, compliance, and filings seamless and stress-free.</h4>
+                                <a class="pt-20" href="https://wa.me/919821008011"
+                                    target="_blank"
+                                    style="color:#fff; background:#ff1f1f; border:none; padding:12px 25px; margin-top:20px; border-radius:4px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
+                                    <i class="fab fa-whatsapp" style="font-size:18px;"></i>
+                                    Consult an Expert →
+                                </a>
+
                             </div>
                         </div>
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-xl-6 col-lg-8">
-                                    <div class="slider__content slider__content-2 text-left">
-                                        <h1 class="main-title mb-35" data-animation="fadeInUp2" data-delay=".2s">Find your secure <span style="color:#ff1f1f">future</span> in sefu.</h1>
-                                        <h3>Helping you prepare times of uncertainty is at the heart of what we do.</h3>
-                                        <ul class="input-box mt-70">
-                                            <li>
-                                                <form class="hero-form">
-                                                    <label>Email address</label>
-                                                    <input type="email" name="email" placeholder="ihidago@ujufidnan.gov">
-                                                </form>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html" class="theme_btn quote-btn theme_btn2 ">Get a quote</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div><!-- .col/ -->
-                            </div><!-- .row/ -->
-                        </div><!-- .container/ -->
+
+                        <!-- RIGHT TEXT ANIMATION -->
+                        <div style="flex:1 1 35%; text-align:right; color:#111;">
+                            <div class="cd-intro" style="color:#111;">
+                                <h1 class="cd-headline clip is-full-width" style="color:#111; font-size:42px; font-weight:700;">
+                                    <span class="cd-words-wrapper" style="color:#111;">
+                                        <b class="is-visible" style="color:#111;">Incorporate</b>
+                                        <b style="color:#111;">Comply</b>
+                                        <b style="color:#111;">Confidence</b>
+                                        <b style="color:#111;">Growth</b>
+                                    </span>
+                                </h1>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </section>
-            <!--slider-area end-->
+            </div>
+        </div>
+    </section>
+    <section class="plan-area pb-70 pt-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="price-tab-button d-flex justify-content-center mb-120 mb-xs-60">
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Yearly</a>
+                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Monthly</a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="row no-gutters">
+                        <div class="col-lg-4 col-md-6 mt-50 mt-md-0 mt-xs-0">
+                            <div class="plan mb-30">
+                                <span class="plan-tag">Starter Plan</span>
+                                <div class="plan__header text-center pb-45 mb-50">
+                                    <h4 class="sub-title">Kickstart your business with all essentials for incorporation.
+                                    </h4>
+                                    </h4>
+                                    <h1 class="mb-35">₹8,999 </sup></h1>
+                                    <h5>(Includes ₹6,500 Govt. Fees + ₹2,499 Professional Fees)</h5>
+                                </div>
+                                <div class="plan__body">
+                                    <ul class="chose-text-list pb-10 mb-30">
+                                        <li>Company Incorporation under MCA V3 (Private Limited / LLP / OPC)</li>
+                                        <li>DIN & DSC for Two Directors Digital Signatures and Director Identification Numbers</li>
+                                        <li>Name Reservation SPICe+ RUN Form under MCA V3</li>
+                                        <li>Drafting and filing under Companies Act, 2013</li>
+                                    </ul>
+                                </div>
+                                <div class="plan__footer text-center">
+                                    <a href="#" class="theme_btn border-btn mb-10">Start Registration →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="plan plan-2 active mb-30">
+                                <span class="plan-tag">Complete Setup Plan</span>
+                                <div class="plan__header text-center pb-35 mb-60">
+                                    <h4 class="sub-title">Incorporate with confidence full compliance, filings, and legal protection for your first year.
 
-            
+                                    </h4>
+                                    <h1 class="mb-35">₹24,999</sup></h1>
+                                    <h5>(Includes ₹11,000 Govt. Fees + ₹13,999 Professional Fees)</h5>
+                                </div>
+                                <div class="plan__body">
+                                    <ul class="chose-text-list pb-35 mb-30">
+                                        <li>Trademark Registration (Filing of one trademark application under one class – company name or logo)</li>
+                                        <li>Startup India Recognition (Guidance and support for DPIIT registration and certification)</li>
+                                        <li>1-Year CS Compliance Package (Full compliance management under the Companies Act, 2013)</li>
+                                        <li>Annual ROC Filings for First Financial Year (AOC-4, MGT-7A, and all linked forms under MCA V3)</li>
+                                        <li>AGM & Board Meeting Documentation (Notices, Minutes, Attendance Registers & Director’s Report)</li>
+                                        <li>1-Year Complete Secretarial Records (Maintenance of Statutory Registers, Share Certificates, and Minutes Book)</li>
+                                    </ul>
+                                </div>
+                                <div class="plan__footer text-center">
+                                    <a href="#" class="theme_btn border-btn mb-10">Get Complete Setup →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mt-50 mt-md-0 mt-xs-0">
+                            <div class="plan mb-30">
+                                <span class="plan-tag">Compliance Plan</span>
+                                <div class="plan__header text-center pb-45 mb-50">
+                                    <h4 class="sub-title">Register with confidence full legal and secretarial compliance handled.</h4>
+                                    <h1 class="mb-35">₹12,999</h1>
+                                    <h5>(Includes ₹6,500 Govt. Fees + ₹6,499 Professional Fees)</h5>
+                                </div>
+                                <div class="plan__body">
+                                    <ul class="chose-text-list pb-10 mb-30">
+                                        <li>GST Registration (Complete filing & approval support with documentation)</li>
+                                        <li>MSME (Udyam) Registration (For small & medium enterprise recognition and benefits)</li>
+                                        <li>First Year Compliance Guidance (Initial due dates, filing roadmap & compliance checklist)</li>
+                                        <li>Compliance Calendar Setup (Personalized reminder and advisory schedule for your company)</li>
+                                        <li>AGM & Board Meeting Documentation (Notices, Minutes, Attendance Registers & Director’s Report)</li>
+                                        <li>Professional Consultation Session (30-minute CS consultation to plan your company’s compliance structure)</li>
+                                    </ul>
+                                </div>
+                                <div class="plan__footer text-center">
+                                    <a href="#" class="theme_btn border-btn mb-10">Get Compliance Setup →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row pink-bg align-items-center mt-90 pt-15 pb-10">
+                <div class="col-md-8">
+                    <h5 class="plan-info-text text-center text-md-left"><span>Need help choosing the right plan?</span>Our team will guide you based on your business goals and compliance needs..</h5>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-btn text-center text-md-right">
+                        <a href="contact.html" class="theme_btn">Talk to an Expert →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <section class="subscribe-letter-area pt-80 pb-115 pt-xs-115">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <div class="subscribe-wrapper">
+                            <div class="section-title text-center">
+                                <h3 class="mb-25">Need help choosing the right plan?</span></h3>
+                                <h4 class="sub-title mb-50">Our team will guide you based on your business goals and compliance needs.</h4>
+                                <a href="contact.html" class="theme_btn sub-btn">Talk to an Expert →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        </div>
+    </section>
+
     <!-- Comparison Table Section -->
       <section class="comparison-area pt-30 pb-90">
         <div class="container">
@@ -400,386 +474,304 @@
             </div>
         </div>
     </section>
-            <!--what-we-do-area start-->
-            <section class="what-we-do-area pt-140 pb-100 pb-md-20 pt-md-60 pt-xs-60 pb-xs-20">
-                <div class="container">
-                    <div class="row mb-85">
-                        <div class="col-lg-6">
-                            <div class="do-wrapper mb-30">
-                                <div class="section-title section-title-3 text-center text-md-left">
-                                    <h3>300k+ trusted user & they <span class="highlight-text" style="color:#ff1f1f">love us.</span></h3>
-                                </div>
-                            </div>
+
+    <section class="subscribe-letter-area pt-80 pb-115 pt-xs-115 pb-xs-115" style="background: #f6f3f1;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <div class="subscribe-wrapper">
+                        <div class="section-title text-center">
+                            <h3 class="mb-25">Ready to Get Started? It’s Just One Click.</span></h3>
+                            <h4 class="sub-title mb-50">Incorporate your company with expert-led guidance — transparent, compliant, and hassle-free.</h4>
+                            <a href="contact.html" class="theme_btn sub-btn">Start Registration →</a>
                         </div>
-                        <div class="col-lg-6 text-center text-md-left">
-                            <div class="what-text pt-10 pl-155 pl-lg-0 pl-md-0 pl-xs-0">
-                                <h3>Helping you pre times of
-                                uncertainty is at the what we do. lorem finding.</h3>
-                            </div>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                    <div class="row align-items-center">
-                        <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.1s">
-                            <div class="do-box do-box-2 active mb-30">
-                                <div class="icon mb-25">
-                                    <img src="{{ asset('assets/img/icon/icon17.svg') }}" alt="">
-                                </div>
-                                <h5>User Friendly </h5>
-                                <h3>Make your car secure with our scheme.</h3>
-                                <a class="more-btn" href="case-one.html">Check more details</a>
-                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="what-we-do-area pt-200 pb-100 pt-md-100 pb-md-85 pt-xs-100 pb-xs-85">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.2s">
+                    <div class="do-box active skew-bg mb-30">
+                        <div class="icon mb-50">
+                            <img src="{{ asset('assets/img/icon/icon3.svg') }}" alt="">
                         </div>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.3s">
-                            <div class="do-box do-box-2 mb-30">
-                                <div class="icon mb-25">
-                                    <img src="{{ asset('assets/img/icon/icon18.svg') }}" alt="">
-                                </div>
-                                <h5>100% Trsuted</h5>
-                                <h3>50+ insurers with the lowest prices</h3>
-                                <a class="more-btn" href="case-one.html">Check more details</a>
-                            </div>
+                        <h5>Expert-Led Process</h5>
+                        <h3>Handled by qualified Company Secretaries and legal professionals.</h3>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.4s">
+                    <div class="do-box skew-bg mb-30">
+                        <div class="icon mb-50">
+                            <img src="{{ asset('assets/img/icon/icon2.svg') }}" alt="">
                         </div>
-                        <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.5s">
-                            <div class="do-box do-box-2 mb-30">
-                                <div class="icon mb-25">
-                                    <img src="{{ asset('assets/img/icon/icon19.svg') }}" alt="">
-                                </div>
-                                <h5>Lowest Price</h5>
-                                <h3>Save up to 50% in our all policy.</h3>
-                                <a class="more-btn" href="case-one.html">Check more details</a>
-                            </div>
+                        <h5>Transparent Pricing</h5>
+                        <h3>All-inclusive plans with clear breakup of government and professional fees.</h3>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.6s">
+                    <div class="do-box skew-bg mb-30">
+                        <div class="icon mb-50">
+                            <img src="{{ asset('assets/img/icon/icon4.svg') }}" alt="">
                         </div>
-                    </div><!-- /.row -->
-                </div><!-- /.container -->
-            </section>
-            <!--what-we-do-area end-->
-            <!--about-us-area start-->
-            <section class="about-us-area pos-rel about-style-1 pt-100 pb-100 pt-md-60 pb-md-40 pt-xs-60 pb-xs-40">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6">
-                        <div class="about-img-wrapper-2">
-                            <div class="line-shape d-none d-xl-inline-block">
-                                <!-- <img src="{{ asset('assets/img/line-shape/line_2.svg') }}" alt=""> -->
-                            </div>
-                            <img class="img-2" src="{{ asset('assets/img/about/02.png') }}" alt="">
-                                <div class="authors-quote at-quote-2">
-                                        <div class="a-icon">
-                                        <img src="{{ asset('assets/img/icon/icon20.svg') }}" alt="">
-                                    </div>
-                                    <h5 class="mb-25">- Rashed Ka, <span>CEO</span></h5>
-                                    <h5 class="a-text">We aim to answer any quis query in less than</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="about-wrapper pl-70">
-                                <div class="section-title section-title-3 text-center text-md-left mb-30">
-                                    <h3 class="mb-35">Surprisingly great ratese <span class="highlight-text" style="color:#ff1f1f">provider</span></h3>
-                                    <h4 class="sub-title mb-40">Things go wrong. You have questions. We understand. So we have people, not bots quis hand to help.</h4>
-                                    <h4 class="sub-title mb-65">We’ll answer any query in less tha a quis 10 minutes create.</h4>
-                                    <a href="about.html" class="theme_btn theme_btn2">More about us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- /.row -->
-                </div><!-- /.container -->
-            </section>
-            <!--about-us-area end-->
-            <!--customer-fact-area start-->
-            <section class="customer-fact-area pt-100 pb-125 pt-md-40 pb-md-40 pt-xs-40 pb-xs-40">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                            <div class="fact-one text-center mb-30">
-                                <h3><span class="counter mb-25">750</span>+</h3>
-                                <h4 class="sub-title">Billion Covarage</h4>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                            <div class="fact-one text-center mb-30">
-                                <h3><span class="mb-25">13m</span></h3>
-                                <h4 class="sub-title">Worldwide Customers</h4>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                            <div class="fact-one text-center mb-30">
-                                <h3><span class="mb-25">24/7</span></h3>
-                                <h4 class="sub-title">Support</h4>
-                            </div>
-                        </div>
-                    </div><!-- /.row -->
-                </div><!-- /.container -->
-            </section>
-            <!--customer-fact-area end-->
-            <!--why-chose-us-area start-->
-            <section class="why-chose-us-area pt-100 pb-110 pt-md-45 pb-md-40 pt-xs-45 pb-xs-40">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="section-title section-title-3 text-center text-md-left mb-30 pr-80 pr-xs-0">
-                                <h3 class="mb-50">You have challenges. Sefu has <span class="highlight-text" style="color:#ff1f1f">solutions</span></h3>
-                                <h4 class="sub-title mb-65">Things go wrong. you haven't questions. We understand. So we've pople don't hand with to help amet.</h4>
-                                <a href="contact.html" class="theme_btn theme_btn2">Get a quote now</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="chose-list">
-                                <li>
-                                    <div class="chose-box wow fadeInUp2 animated" data-wow-delay="0.1s">
-                                        <div class="chose-box-icon">
-                                            <img src="{{ asset('assets/img/icon/icon21.svg') }}" alt="">
-                                        </div>
-                                        <div class="chose-box-text">
-                                            <h5>Quick & Faster</h5>
-                                            <h3>Get quick and faster support ever.</h3>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="chose-box wow fadeInUp2 animated" data-wow-delay="0.3s">
-                                        <div class="chose-box-icon">
-                                            <img src="{{ asset('assets/img/icon/icon22.svg') }}" alt="">
-                                        </div>
-                                        <div class="chose-box-text">
-                                            <h5>Trusted & Proffessional</h5>
-                                            <h3>Trusted & handle by proffessional.</h3>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="chose-box wow fadeInUp2 animated" data-wow-delay="0.5s">
-                                        <div class="chose-box-icon">
-                                            <img src="{{ asset('assets/img/icon/icon23.svg') }}" alt="">
-                                        </div>
-                                        <div class="chose-box-text">
-                                            <h5>Discount & savings</h5>
-                                            <h3>Save your money and get discount.</h3>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!-- /.row -->
-                </div><!-- /.container -->
-            </section>
-            <!--why-chose-us-area end-->
-       
-            <!--download-our-app end-->
-            <!--get-quote-area start-->
-            <section class="get-quote-area pos-rel pt-85 pb-115 pt-md-50 pt-xs-50 pb-md-40 pb-xs-40">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-6 col-lg-6 col-md-12">
-                            <div class="quote-wrapper mb-30">
-                                <div class="section-title section-title-3 text-center text-md-left pr-70 pr-lg-0 pr-md-0 pr-xs-0">
-                                    <h3 class="mb-45">Get start & find your <span class="highlight-text" style="color:#ff1f1f">plan</span></h3>
-                                    <h4 class="sub-title mb-60">Things go wrong. you haven't questions & we understand we've pople.</h4>
-                                    <h5 class="mb-25">Facing any problem to get a quote! call us now.</h5>
-                                    <span class="number">1.888.255.4364</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-12">
-                            <div class="form-box form-box-2 white-bg">
-                                <h4 class="sub-title mb-45">Get a quote</h4>
-                                <form class="quote-form mb-20" action="#">
-                                    <div class="choice-list mb-20">
-                                        <span class="input-title pl-20">Product</span>
-                                        <select class="select-product" name="select-value" id="select-area">
-                                            <option value="Life Insurance">Life Insurance</option>
-                                            <option value="Car Insurance">Car Insurance</option>
-                                            <option value="House Insurance">House Insurance</option>
-                                            <option value="Accident Insurance">Accident Insurance</option>
-                                        </select>
-                                    </div>
-                                    <div class="email-input">
-                                        <label class="input-title">Email</label>
-                                        <input type="text" placeholder="uhenilezu@upu.com">
-                                    </div>
-                                    <button class="q-btn-lg">Start a quote</button>
-                                </form>
-                                <p class="review-text">Been here before? <a href="#">Review your quotes.</a></p>
+                        <h5>End-to-End Support</h5>
+                        <h3>From incorporation to compliance we manage the complete legal lifecycle.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="subscribe-letter-area pt-50 pb-115">
+        <div class="container">
+            <div class="subs-letter-bg grey-bg-soft pt-65 pb-55">
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <div class="subscribe-wrapper">
+                            <div class="section-title text-center">
+                                <h3 class="mb-25">Ready to take plan? It’s just a matter of one <span class="round-line">clike</span></h3>
+                                <h4 class="sub-title mb-50">Try it risk free — we don’t charge cancellation fees.</h4>
+                                <a href="contact.html" class="theme_btn sub-btn">Get your free quote</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <!--get-quote-area end-->
-            <!--client-feedback-area start-->
-            <section class="client-feedback-area testimonial-two pt-120 pb-55 pt-md-90 pb-md-15 pt-xs-90 pb-xs-15">
-                <div class="line-shape d-none d-lg-inline-block">
-                    <!-- <img class="img-fluid" src="{{ asset('assets/img/line-shape/line_4.svg') }}" alt=""> -->
-                </div>
-                <div class="client-feedback-wrapper-content pos-rel">
-                    <div class="container custom-container-feedback">
-                        <div class="row justify-content-center">
-                            <div class="col-xl-6">
-                                <div class="testimonial-text-wrapper mb-30">
-                                    <div class="section-title section-title-3 text-center">
-                                        <h3 class="mb-25">Check what's client say <span class="highlight-text" style="color:#ff1f1f">about us</span></h3>
-                                    </div>
-                                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- <section class="company-status-area">
+        <div class="container">
+            <div class="status-bg pr-50 pl-50 pt-50 pb-15">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="status-box pr-50 mb-30">
+                            <div class="status-icon">
+                                <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
+                            </div>
+                            <div class="status-content">
+                                <span>Expert-Led Process</span>
+                                <h4 class="sub-title">Handled by qualified Company Secretaries and legal professionals.</h4>
                             </div>
                         </div>
-                        <div class="feedback-active2 owl-carousel">
-                            <div class="feedback-item">
-                                <div class="feedback-box d-sm-flex align-items-center">
-                                        <div class="client-img mr-45 mr-xs-0 mb-xs-20">
-                                        <img class="test-img" src="{{ asset('assets/img/testimonial/06.jpg') }}" alt="">
-                                    </div>
-                                    <div class="feedback-inner-content mb-30">
-                                        <div class="slide-video-area mb-35">
-                                            <a href="https://www.youtube.com/watch?v=wFZXSdI9gu8" class="popup-video slide-video">
-                                                <img src="{{ asset('assets/img/icon/play.svg') }}" alt="">
-                                            </a>
-                                            <span><b>Watch</b> THE VIDEO</span>
-                                        </div>
-                                        <h3>Very solid, 8.3 out 10</h3>
-                                        <h4 class="sub-title mb-40">We’v 9,000 agents across around lore the country, Find agents near your neighborhood.</h4>
-                                        <h5>Martin Jonas, <span>USA</span></h5>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="status-box pr-50 mb-30">
+                            <div class="status-icon ic-2">
+                                <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
                             </div>
-                            <div class="feedback-item">
-                                <div class="feedback-box d-sm-flex align-items-center">
-                                        <div class="client-img mr-45 mr-xs-0 mb-xs-20">
-                                        <img class="test-img" src="{{ asset('assets/img/testimonial/05.jpg') }}" alt="">
-                                    </div>
-                                    <div class="feedback-inner-content mb-30">
-                                        <div class="slide-video-area mb-35">
-                                            <a href="https://www.youtube.com/watch?v=wFZXSdI9gu8" class="popup-video slide-video">
-                                                <img src="{{ asset('assets/img/icon/play.svg') }}" alt="">
-                                            </a>
-                                            <span><b>Watch</b> THE VIDEO</span>
-                                        </div>
-                                        <h3>Very solid, 7.3 out 10</h3>
-                                        <h4 class="sub-title mb-40">Where are you across around world the country, Find agents near your Vaccations.</h4>
-                                        <h5>Hasan Mahmud, <span>USA</span></h5>
-                                    </div>
-                                </div>
+                            <div class="status-content">
+                                <span>Transparent Pricing</span>
+                                <h4 class="sub-title">All-inclusive plans with clear breakup of government and professional fees</h4>
                             </div>
-                            <div class="feedback-item">
-                                <div class="feedback-box d-sm-flex align-items-center">
-                                        <div class="client-img mr-45 mr-xs-0 mb-xs-20">
-                                        <img class="test-img" src="{{ asset('assets/img/testimonial/06.jpg') }}" alt="">
-                                    </div>
-                                    <div class="feedback-inner-content mb-30">
-                                        <div class="slide-video-area mb-35">
-                                            <a href="https://www.youtube.com/watch?v=wFZXSdI9gu8" class="popup-video slide-video">
-                                                <img src="{{ asset('assets/img/icon/play.svg') }}" alt="">
-                                            </a>
-                                            <span><b>Watch</b> THE VIDEO</span>
-                                        </div>
-                                        <h3>Very solid, 9.3 out 10</h3>
-                                        <h4 class="sub-title mb-40">We’v 8,000 booth across around lore the worlds, Find booth near your Tourismarea.</h4>
-                                        <h5>Hasan Mahmud, <span>USA</span></h5>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="status-box pr-50 mb-30">
+                            <div class="status-icon ic-3">
+                                <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
                             </div>
-                            <div class="feedback-item">
-                                <div class="feedback-box d-sm-flex align-items-center">
-                                    <div class="client-img mr-45 mb-xs-20">
-                                        <img class="test-img" src="{{ asset('assets/img/testimonial/05.jpg') }}" alt="">
-                                    </div>
-                                    <div class="feedback-inner-content mb-30">
-                                        <div class="slide-video-area mb-35">
-                                            <a href="https://www.youtube.com/watch?v=wFZXSdI9gu8" class="popup-video slide-video">
-                                                <img src="{{ asset('assets/img/icon/play.svg') }}" alt="">
-                                            </a>
-                                            <span><b>Watch</b> THE VIDEO</span>
-                                        </div>
-                                        <h3>Very solid, 8.3 out 10</h3>
-                                        <h4 class="sub-title mb-40">We’v 9,000 agents across around lore the country, Find agents near your neighborhood.</h4>
-                                        <h5>Rashed Kabir, <span>USA</span></h5>
-                                    </div>
-                                </div>
+                            <div class="status-content">
+                                <span>End-to-End Support</span>
+                                <h4 class="sub-title">From incorporation to compliance we manage the complete legal lifecycle.</h4>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <!--client-feedback-area end-->
-            <!--blog-area start-->
-            <section class="blog-area pt-100 pb-180 pt-md-20 pb-md-20 pt-xs-20 pb-xs-20">
-                <div class="container">
-                    <div class="row align-items-center mb-70">
-                        <div class="col-lg-6 col-md-8">
-                            <div class="section-title section-title-3 text-center text-md-left mb-30">
-                                <h3>Get latesest news from <span class="highlight-text" style="color:#ff1f1f">sefu.</span></h3>
-                            </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="plan-coverage-area pos-rel about-style-1 pt-90 pb-100 pt-lg-50 pt-md-10 pb-md-30 pt-xs-10 pb-xs-30">
+        <div class="about-img-wrapper" data-bg="{{ asset('assets/img/about/01.jpg') }}" style="background-size: cover; background-position: center;">
+            <h1 class="title-text">We'r Pratham Legal</h1>
+            <div class="authors-quote">
+                <div class="a-icon">
+                    <img src="{{ asset('assets/img/icon/icon20.svg') }}" alt="">
+                </div>
+                <h5>- Prashant Kumar,<span> Partner, Pratham Legal</span></h5>
+                <h5 class="a-text">Legal compliance isn’t just about ticking boxes it’s about building confidence in every business decision.</h5>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 offset-lg-6">
+                    <div class="plan-title-wrapper mb-30 pl-95 pl-lg-0 pl-md-0 pl-xs-0">
+                        <div class="section-title mb-55">
+                            <h3 class="mb-45">Where Law Meets Business<span class="round-line"> Clarity</span></h3>
+                            <h4 class="sub-title">We help founders and companies navigate India’s legal and regulatory landscape with simplicity, precision, and personal attention. Every mandate is led by qualified professionals — not agents — ensuring accountability at every step.</h4>
                         </div>
-                        <div class="col-lg-6 col-md-4">
-                            <div class="view-more text-center text-md-right mb-30">
-                                <a href="blog-details.html" class="theme_btn theme_btn2">Go to Blog</a>
-                            </div>
+                        <div class="section-title mb-55">
+                            <a href="contact.html" class="theme_btn sub-btn">More About Us →</a>
                         </div>
+                        <!-- <ul class="chose-text-list plan-list">
+                            <li>Business Setup & India Entry Incorporation of Companies, LLPs, and Subsidiaries.</li>
+                            <li>FEMA & Regulatory Advisory FDI Structuring, RBI Filings, and Cross-border Compliance.</li>
+                            <li>Corporate Governance Annual ROC Filings, Board Documentation, and Secretarial Audits.</li>
+                            <li>Intellectual Property Rights (IPR) Trademark, Copyright, and Design Registrations.</li>
+                            <li>Legal Drafting & Transactions Agreements, Due Diligence, and M&A Support</li>
+                        </ul> -->
                     </div>
-                    <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-4">
-                            <div class="blogs blogs-2 mb-30 wow fadeInUp2 animated" data-wow-delay="0.1s">
-                                <div class="blogs__thumb mb-30">
-                                    <img class="img-fluid" src="{{ asset('assets/img/blog/01.jpg') }}" alt="">
-                                </div>
-                                <div class="blogs__content">
-                                    <span class="tag mb-25">Business</span>
-                                    <h3 class="blog-title mb-15"><a href="blog-details.html">Challange yourself and win the future.</a></h3>
-                                    <a class="blog-btn" href="blog-details.html">Continue Reading <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4">
-                            <div class="blogs blogs-2 mb-30 wow fadeInUp2 animated" data-wow-delay="0.3s">
-                                <div class="blogs__thumb mb-30">
-                                    <img class="img-fluid" src="{{ asset('assets/img/blog/02.jpg') }}" alt="">
-                                </div>
-                                <div class="blogs__content">
-                                    <span class="tag mb-25">Support</span>
-                                    <h3 class="blog-title mb-15"><a href="blog-details.html">Cosmetic surgery in a nutshell.</a></h3>
-                                    <a class="blog-btn" href="blog-details.html">Continue Reading <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4">
-                            <div class="blogs blogs-2 mb-30">
-                                <div class="blogs__thumb mb-30 wow fadeInUp2 animated" data-wow-delay="0.5s">
-                                    <img class="img-fluid" src="{{ asset('assets/img/blog/03.jpg') }}" alt="">
-                                </div>
-                                <div class="blogs__content">
-                                    <span class="tag mb-25">Travel</span>
-                                    <h3 class="blog-title mb-15"><a href="blog-details.html">Newideas for a low cost vacation.</a></h3>
-                                    <a class="blog-btn" href="blog-details.html">Continue Reading <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
-                                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="subscribe-letter-area pt-50 pb-115">
+        <div class="container">
+            <div class="subs-letter-bg grey-bg-soft pt-65 pb-55">
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <div class="subscribe-wrapper">
+                            <div class="section-title text-center">
+                                <h3 class="mb-25">You Have Goals. We Bring <span class="round-line">Clarity.</span></h3>
+                                <h4 class="sub-title mb-50">Building a business shouldn’t be complicated. We simplify every step from incorporation to compliance with clear, professional guidance.</h4>
+                                <a href="contact.html" class="theme_btn sub-btn">Get a Consultation →</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <!--blog-area end-->
-            <!--subscribe-letter-area start-->
-            <section class="subscribe-letter-area pt-50 pb-80">
-                <div class="line-shape d-none d-lg-inline-block">
-                    <!-- <img class="img-fluid" src="{{ asset('assets/img/line-shape/line_5.svg') }}" alt=""> -->
+            </div>
+        </div>
+    </section>
+    <section class="why-chose-us-area pt-65 pb-115 pb-lg-15 pt-md-45 pb-md-20 pt-xs-45 pb-xs-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="chose-title-wrapper mb-30 pr-40 pr-lg-0 pr-md-0 pr-xs-0">
+                        <div class="section-title">
+                            <h3 class="mb-40">Start Now & Choose Your Plan</h3>
+                            <h5 class="sub-title">Have questions about registration or compliance? We’re here to help — talk directly to a professional. <span style="font-weight:bold">Facing any issue while getting a quote?</span>
+
+                            </h5>
+                        </div>
+                        <div class="section-title">
+                            <a href="contact.html" class="theme_btn sub-btn">Start Registration →</a>
+
+                        </div>
+                    </div>
                 </div>
-                <div class="container custom-container-subs">
-                    <div class="sub-bg pt-85 pb-75 pr-150 pl-150 pr-md-50 pl-md-50 pr-xs-0 pl-xs-0">
-                        <div class="row justify-content-center">
-                            <div class="col-xl-10">
-                                <div class="subscribe-wrapper">
-                                    <div class="section-title section-title-3 text-center">
-                                        <h3 class="mb-25 wow fadeInUp2 animated" data-wow-delay="0.1s">Ready to take plan? It's just a matter of <span class="highlight-text" style="color:#ff1f1f">one clike</span></h3>
-                                        <h4 class="sub-title mb-40 wow fadeInUp2 animated" data-wow-delay="0.3s">Try it risk free — we don't charge cancellation fees.</h4>
-                                        <a href="contact.html" class="theme_btn theme_btn2 sub-btn wow fadeInUp2 animated" data-wow-delay="0.5s">Get your free quote</a>
-                                    </div>
+                <div class="col-lg-6">
+                    <h4 class="pl-65 pl-lg-0 pl-md-0 pl-xs-0 pb-25">LONG-TERM SUPPORT
+                        From setup to success.
+                    </h4>
+                    <ul class="chose-text-list pl-65 pl-lg-0 pl-md-0 pl-xs-0">
+                        <li>Business Setup & India Entry
+                            Corporate Secretarial & Compliance Management
+                        </li>
+                        <li>Regulatory & FEMA Advisory
+                            Intellectual Property Rights (IPR)
+                        </li>
+                        <li>Corporate Transactions & Legal Documentation</li>
+
+                        <li><a href="#">and more..</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="subscribe-letter-area pt-80 pb-115 pt-xs-115 pb-xs-115" style="background: #f6f3f1;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <div class="subscribe-wrapper">
+                        <div class="section-title text-center">
+                            <h3 class="mb-25">Start Now & Choose Your Plan? It’s Just One Click.</span></h3>
+                            <h4 class="sub-title mb-50">Have questions about registration or compliance? We’re here to help talk directly to a professional. <span style="font-weight: bold;">Facing any issue while getting a quote?
+                                    Call us now.
+                                </span></h4>
+                            <a href="tel:+919821008011" class="theme_btn sub-btn">
+                                <i class="fa fa-phone"></i> +91 9821008011
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="client-feedback-area cf-area-three pos-rel pt-100 pb-100 pt-md-85 pb-mb-60 pt-xs-85 pb-xs-100">
+        <img class="test test_01 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/10.png') }}" alt="">
+        <img class="test test_02 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/11.png') }}" alt="">
+        <img class="test test_03 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/12.png') }}" alt="">
+        <img class="test test_04 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/13.png') }}" alt="">
+        <img class="test test_05 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/14.png') }}" alt="">
+        <img class="test test_06 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/15.png') }}" alt="">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="testimonial-text-wrapper">
+                        <div class="section-title text-center mb-10">
+                            <h3 class="mb-25">What’s <span class="round-line">Client</span> Think About Us.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters justify-content-center">
+                <div class="col-lg-9">
+                    <div class="feedback-active4 owl-carousel">
+                        <div class="feedback-item-wrapper">
+                            <div class="feedback-box fb-box-3 text-center">
+                                <div class="quote-icon">
+                                    <img src="{{ asset('assets/img/icon/quote-gray.svg') }}" alt="">
                                 </div>
+                                <h4 class="sub-title mb-25">We’v agents around occae cat the country, Find agents your neighborhood.Lorem ipsum dolor sit amet consectetur, omnis. voluptate velit esse cillum dolore eu fugiat nulla</h4>
+                                <h5 class="mb-10">Rashed Ka</h5>
+                                <h6>Senior Designer, Squre.</h6>
+                            </div>
+                        </div>
+                        <div class="feedback-item-wrapper">
+                            <div class="feedback-box fb-box-3 text-center">
+                                <div class="quote-icon">
+                                    <img src="{{ asset('assets/img/icon/quote-gray.svg') }}" alt="">
+                                </div>
+                                <h4 class="sub-title mb-25">ommodo consequat. Duis aute irure dolor in reprehendert
+                                    voluptate velit esse cillum dolore eu fugiat nulla
+                                    Excepteu sint occaecat cupidat non proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est lrum.</h4>
+                                <h5 class="mb-10">Hasan Mahmud</h5>
+                                <h6>Senior Developer, Squre.</h6>
+                            </div>
+                        </div>
+                        <div class="feedback-item-wrapper">
+                            <div class="feedback-box fb-box-3 text-center">
+                                <div class="quote-icon">
+                                    <img src="{{ asset('assets/img/icon/quote-gray.svg') }}" alt="">
+                                </div>
+                                <h4 class="sub-title mb-25">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, cumque id! Nulla vero nam ipsa quae ut, ullam, ad repudiandae, tenetur facilis impedit velit maiores ipsum. Quos, sequi. Quod amet voluptatibus repellat veritatis.</h4>
+                                <h5 class="mb-10">Rashed Ka</h5>
+                                <h6>Senior Designer, Squre.</h6>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <!--subscribe-letter-area end-->
-        </main>
-         <style>
+
+                <div class="col-lg-9">
+                    <div class="d-flex justify-content-center pt-5 text-center mt-4">
+                        <a href="contact.html" class="theme_btn sub-btn">Go to Blog →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="subscribe-letter-area pt-80 pb-115 pt-xs-115 pb-xs-115" style="background: #f6f3f1;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <div class="subscribe-wrapper">
+                        <div class="section-title text-center">
+                            <h3 class="mb-25">Ready to Get Started? It’s Just One Click.</span></h3>
+                            <h4 class="sub-title mb-50">Incorporate your company with expert-led guidance — transparent, compliant, and hassle-free.</h4>
+                            <a href="contact.html" class="theme_btn sub-btn">Start Registration →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
         /* Modern Comparison Table Styles */
         .comparison-area {
             background: #f6f3f1;
@@ -1255,4 +1247,5 @@
             });
         });
     </script>
+
 </div>

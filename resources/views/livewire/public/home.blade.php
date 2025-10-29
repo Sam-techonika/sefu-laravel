@@ -157,7 +157,7 @@
                     <div class="col-lg-9">
                         <div class="row-title text-center wow fadeInUp2 animated mb-30" data-wow-delay='.1s'>
                             <h3 class="mb-20">Complete legal and regulatory support for foreign investors.</h3>
-                                            <a href="contact.html" class="theme_btn theme_btn3">{{ __('button.book_consultation') }}</a>
+                            <a href="contact.html" class="theme_btn theme_btn3">{{ __('button.book_consultation') }}</a>
                         </div>
                     </div>
                 </div>
@@ -171,7 +171,7 @@
                     <div class="col-lg-7">
                         <div class="do-wrapper text-center text-md-left mb-30">
                             <div class="section-title section-title-4 pr-70 pr-lg-0 pr-md-0 pr-xs-0">
-                                <h3>Trusted by <span class="round-line">founders</span> across India.</h3>
+                                <h3> <span class="round-line">Trusted </span> <span>by founders</span> across India.</h3>
                             </div>
                         </div>
                     </div>
@@ -251,7 +251,7 @@
                     <div class="col-lg-6 col-md-12">
                         <div class="fact-wrapper mb-30">
                             <div class="section-title section-title-4 text-center text-md-left">
-                                <h3 class="mb-20">Clarity <span class="round-line"> Compliance.</span> Confidence. </h3>
+                                <h3 class="mb-20">Clear. <span class="round-line"> Clarity.</span> Confidence. </h3>
                                 <h4 class="sub-title-2 mb-40">Things change fast in business — laws, rules, and markets. At Pratham Legal, you’ll always find real professionals, not bots, guiding you through every compliance, investment, or regulatory challenge.</h4>
                                 <h4 class="sub-title-2 mb-55">We aim to respond to every query in under 15 minutes — because expert advice should never keep you waiting.</h4>
                                 <a href="contact.html" class="theme_btn theme_btn3">{{ __('button.book_consultation') }}</a>
@@ -331,7 +331,7 @@
                     <div class="col-lg-6">
                         <div class="faq-title-wrapper mb-30 pr-40 pr-xs-0">
                             <div class="section-title section-title-4 text-center text-md-left">
-                                <h3 class="mb-25">Find Answers to All <span class="round-line"> Your Legal </span> & Compliance Questions</h3>
+                                <h3 class="mb-25">Find your all<span class="round-line"> All Legal </span> & Questions</h3>
                                 <h5>For more information, please visit our <a href="contact.html">Help Center.</a> or browse common queries in our FAQs section.</h5>
                                 <a href="faq.html" class="theme_btn theme_btn3">Go to Faq’s</a>
                             </div>
@@ -421,18 +421,7 @@
                                             Yes. We assist with FDI structuring, ODI, ECB, and RBI filings through the FIRMS portal — ensuring complete FEMA compliance. </div>
                                     </div>
                                 </div>
-                                <div class="card">
-                                    <div class="card-header" id="headingSix">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                                Ready to start? Let’s build your business the right way.
-                                        </h5>
-                                    </div>
-                                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
-                                        <div class="card-body">
-                                            We understand how complex laws can be — that’s why real professionals, not bots, handle every query personally. </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -462,19 +451,20 @@
                                         <label class="input-title">Email</label>
                                         <input type="text" placeholder="uhenilezu@upu.com">
                                     </div>
-                                        <button class="theme_btn3 q-btn-lg mb-10">{{ __('button.send_message') }}</button>
+                                    <button class="theme_btn3 q-btn-lg mb-10">{{ __('button.send_message') }}</button>
                                 </form>
-                                <p class="review-text">Been here before? <a href="#">View your previous requests or continue your consultation</a></p>
-                                <p class="review-text">Need help? <a href="#">Speak with our team — real professionals, not bots. 📞 Call: +91-9821008011 </a></p>
+                                <p class="review-text">Been here before?</p>
+                                <p class="review-text">Questions? <a href="#">Call our team at +91-9821008011</a></p>
+
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-12">
                             <div class="quote-wrapper mb-30">
                                 <div class="section-title section-title-4 text-center text-md-left">
-                                    <h3 class="mb-20">Ready to start? Let’s build your <span class="round-line">business</span> the right way.</h3>
-                                        <h5 class="mb-45">We understand how complex laws can be — that’s why real professionals, not bots, handle every query personally.</h5>
-                                        <p>Need quick help? </p>
-                                        <span class="number"><b>call:</b> +91-9821008011</span>
+                                    <h3 class="mb-20">Let’s build your <span class="round-line">business</span> the right way.</h3>
+                                    <h5 class="mb-45">We understand how complex laws can be — that’s why real professionals, not bots, handle every query personally.</h5>
+                                    <p>Need quick help? </p>
+                                    <span class="number"><b>call:</b> +91-9821008011</span>
                                 </div>
                             </div>
                         </div>

@@ -13,15 +13,12 @@ class Setting extends Model
         'type',
     ];
 
-    /**
-     * Get all settings as an associative array (values JSON-decoded when possible).
-     */
+   
     public static function allAsArray(): array
     {
         return static::all()->mapWithKeys(function ($item) {
             $val = $item->value;
 
-            // try to decode JSON
             $decoded = null;
             if (is_string($val)) {
                 $try = json_decode($val, true);
