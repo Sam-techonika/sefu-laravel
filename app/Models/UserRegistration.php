@@ -15,4 +15,14 @@ class UserRegistration extends Model
         'phone',
         'is_processed',
     ];
+
+    public function registration()
+    {
+        return $this->belongsTo(Registration::class, 'registration_id');
+    }
+
+    public function plan()
+    {
+        return $this->belongsTo(RegistrationPlan::class, 'registration_plan_id');
+    }
 }

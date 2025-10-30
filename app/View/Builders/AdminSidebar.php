@@ -59,6 +59,13 @@ class AdminSidebar
 
             ],
             (object)[
+                'title' => 'Registrations',
+                'icon' => 'ti ti-settings',
+                'url' => route('admin.registrations'),
+                'hasSubmenu' => false,
+
+            ],
+            (object)[
                 'title' => 'Blogs',
                 'icon' => 'ti ti-file-text',
                 'url' => '#',
