@@ -76,6 +76,15 @@ class AdminSidebar
                     (object)['title' => 'Blogs', 'url' => route('admin.blogs')],
                 ],
             ],
+            (object)[
+                'title' => 'Case Study',
+                'icon' => 'ti ti-file-text',
+                'url' => '#',
+                'hasSubmenu' => true,
+                'submenu' => [
+                    (object)['title' => 'Case Categories', 'url' => route('admin.casecategories')],
+                ],
+            ],
         ]);
         return $menu;
     }
