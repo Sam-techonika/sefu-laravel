@@ -39,8 +39,9 @@
                     <div class="col-md-4">
                         <label class="form-label">Locale</label>
                         <select class="form-select" wire:model.live="locale">
-                            <option value="en">English</option>
-                            <option value="hi">Hindi</option>
+                            @foreach(\App\Enums\LocaleType::options() as $code => $label)
+                            <option value="{{ $code }}">{{ $label }}</option>
+                            @endforeach
                         </select>
                         @error('locale') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>

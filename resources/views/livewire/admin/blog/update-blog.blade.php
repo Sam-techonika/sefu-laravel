@@ -13,17 +13,17 @@
                 <div class="btn-list">
                     <a href="{{ route('admin.blogs') }}" class="btn btn-outline-secondary">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1"/>
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1" />
                         </svg>
                         Back to Blogs
                     </a>
                     <a href="{{ route('admin.blog.languages', $blogId) }}" class="btn btn-outline-primary">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <path d="M4 5h3l3 3h7l-3 -3h3a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-8a2 2 0 0 1 2 -2z"/>
-                            <path d="M9 13v-1a1 1 0 0 1 1 -1h1m2 1v1a1 1 0 0 1 -1 1h-1"/>
-                            <path d="M11 10h1"/>
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M4 5h3l3 3h7l-3 -3h3a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-8a2 2 0 0 1 2 -2z" />
+                            <path d="M9 13v-1a1 1 0 0 1 1 -1h1m2 1v1a1 1 0 0 1 -1 1h-1" />
+                            <path d="M11 10h1" />
                         </svg>
                         View Languages
                     </a>
@@ -32,13 +32,6 @@
         </div>
     </div>
 
-    @if (session()->has('message'))
-        <div class="alert alert-success mt-2">{{ session('message') }}</div>
-    @endif
-
-    @if (session()->has('error'))
-        <div class="alert alert-danger mt-2">{{ session('error') }}</div>
-    @endif
 
     <div class="card mt-3">
         <div class="card-body">
@@ -48,12 +41,13 @@
                     <div class="col-md-4">
                         <label class="form-label">Locale</label>
                         <select class="form-select" wire:model.live="locale">
-                            <option value="en">English</option>
-                            <option value="hi">Hindi</option>
+                            @foreach(\App\Enums\LocaleType::options() as $code => $label)
+                            <option value="{{ $code }}">{{ $label }}</option>
+                            @endforeach
                         </select>
                         @error('locale') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 mt-5">
                         <div class="d-flex gap-3">
                             @if($blog && $blog->category)
                             <div>
@@ -77,48 +71,6 @@
                         </div>
                     </div>
                 </div>
-
-                {{-- Category and Tags for editing --}}
-                <div class="row mb-3">
-                    {{-- Category with TomSelect --}}
-                    <div class="col-md-6" wire:ignore x-data x-init="
-                        let categorySelect = new TomSelect($refs.categorySelect,{ placeholder:'Select Category' });
-                        $refs.categorySelect.addEventListener('change',()=>{ $wire.set('category_id',$refs.categorySelect.value); });
-                    ">
-                        <label class="form-label">Category</label>
-                        <select x-ref="categorySelect" class="form-select">
-                            <option value="">Select Category</option>
-                            @foreach($categories as $category)
-                                <option value="{{ $category['id'] }}" @selected($category['id'] == $category_id)>
-                                    {{ $category['name'] }}
-                                </option>
-                            @endforeach
-                        </select>
-                        @error('category_id') <span class="text-danger">{{ $message }}</span> @enderror
-                    </div>
-
-                    {{-- Tags with TomSelect --}}
-                    <div class="col-md-6" wire:ignore x-data x-init="
-                        let tagSelect = new TomSelect($refs.tagSelect,{
-                            plugins:['remove_button'], placeholder:'Select Tags'
-                        });
-                        $refs.tagSelect.addEventListener('change',()=>{
-                            let selected=[...$refs.tagSelect.selectedOptions].map(o=>o.value);
-                            $wire.set('selectedTags',selected);
-                        });
-                    ">
-                        <label class="form-label">Tags</label>
-                        <select x-ref="tagSelect" multiple class="form-select">
-                            @foreach($tags as $tag)
-                                <option value="{{ $tag['id'] }}" @selected(in_array($tag['id'],$selectedTags))>
-                                    {{ $tag['name'] }}
-                                </option>
-                            @endforeach
-                        </select>
-                        @error('selectedTags') <span class="text-danger">{{ $message }}</span> @enderror
-                    </div>
-                </div>
-
                 {{-- Title --}}
                 <div class="mb-3">
                     <label class="form-label">Title</label>
