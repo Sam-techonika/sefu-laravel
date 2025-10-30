@@ -27,12 +27,12 @@ class BlogList extends Component
     public $is_active = true;
 
     public $isModalOpen = false;
-    public $blogId = null; 
+    public $blogId = null;
 
-   
+
     public $featured_image;
     public $author;
-    public $selectedTags = []; 
+    public $selectedTags = [];
     public $nextBlogName;
 
     protected $paginationTheme = 'bootstrap';
@@ -42,7 +42,7 @@ class BlogList extends Component
     {
         $this->users = User::all();
         $locale = LocaleType::EN->value;
-         $this->categories = Category::with('translations')->get()
+        $this->categories = Category::with('translations')->get()
             ->map(fn($category) => [
                 'id' => $category->id,
                 'name' => optional($category->translations->firstWhere('locale', $locale))->name ?? 'N/A'
@@ -80,10 +80,10 @@ class BlogList extends Component
         $this->nextBlogName = 'BlogPost ' . $number;
     }
 
-   
+
     public function openModal()
     {
-    
+
         $this->dispatch('openBlogForm');
     }
 
@@ -96,7 +96,7 @@ class BlogList extends Component
 
     public function edit($id)
     {
-        
+
         $this->dispatch('openBlogForm', $id);
     }
 
@@ -106,25 +106,23 @@ class BlogList extends Component
         if ($blog) {
             $blog->delete();
             session()->flash('message', 'Blog "' . $blog->name . '" deleted successfully!', 'blogId');
-        $this->is_active = true;
+            $this->is_active = true;
         }
-                $this->dispatch('refreshBlogs');
-
-        
+        $this->dispatch('refreshBlogs');
     }
 
 
     public function resetForm()
     {
-      
+
         $this->reset(['featured_image', 'author', 'selectedTags', 'category_id']);
         $this->is_active = true;
     }
 
-   
+
     public function resetCreateForm()
     {
-       
+
         $this->reset(['featured_image', 'author', 'selectedTags', 'category_id', 'blogId', 'nextBlogName']);
         $this->is_active = true;
     }
@@ -133,7 +131,7 @@ class BlogList extends Component
     #[Layout('components.layouts.admin')]
     public function render()
     {
-       
+
         $query = Blog::with([
             'tags.translations',
             'category.translations',

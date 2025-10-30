@@ -118,6 +118,7 @@ h1, h2, h3, h4, h5, h6, strong, b {
     <script src="{{ asset('assets/js/animate-headline.js') }}" defer></script>
     <script src="{{ asset('assets/js/plugins.js') }}" defer></script>
     <script src="{{ asset('assets/js/main.js') }}" defer></script>
+    
 
     {{-- Livewire Scripts --}}
     @livewireScripts

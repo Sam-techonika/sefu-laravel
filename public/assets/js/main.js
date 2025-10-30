@@ -178,7 +178,7 @@
 		items: 1,
 		autoplay: true,
 		autoplaySpeed: 2000,
-		navText: ['<img src="public/assets/img/icon/left.svg" alt="" />', '<img src="public/assets/img/icon/right.svg" alt="" />'],
+		navText: ['<img src="assets/img/icon/left.svg" alt="" />', '<img src="assets/img/icon/right.svg" alt="" />'],
 		nav: true,
 		dots: false,
 		stagePadding: 385,
@@ -218,8 +218,8 @@
 		autoplaySpeed: 3000,
 		slidesToShow: 1,
 		slidesToScroll: 2,
-		prevArrow: '<button type="button" class="slick-prev"><img src="public/assets/img/icon/left.svg" alt="" /></button>',
-		nextArrow: '<button type="button" class="slick-next"><img src="public/assets/img/icon/right.svg" alt="" /></button>',
+		prevArrow: '<button type="button" class="slick-prev"><img src="assets/img/icon/left.svg" alt="" /></button>',
+		nextArrow: '<button type="button" class="slick-next"><img src="assets/img/icon/right.svg" alt="" /></button>',
 		responsive: [
 			{
 				breakpoint: 960,
@@ -253,7 +253,7 @@
 		items: 1,
 		autoplay: true,
 		autoplaySpeed: 2000,
-		navText: ['<img src="public/assets/img/icon/left.svg" alt="" />', '<img src="public/assets/img/icon/right.svg" alt="" />'],
+		navText: ['<img src="assets/img/icon/left.svg" alt="" />', '<img src="assets/img/icon/right.svg" alt="" />'],
 		nav: true,
 		dots: false,
 		stagePadding: 415,
