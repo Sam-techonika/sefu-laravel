@@ -15,4 +15,9 @@ class Category extends Model
     {
         return $this->hasMany(CategoryTranslation::class);
     }
+    
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class, 'category_id');
+    }
 }

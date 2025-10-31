@@ -281,11 +281,11 @@
                                   @if(!empty($recentBlogs) && (is_array($recentBlogs) || $recentBlogs instanceof \Illuminate\Support\Collection) && count($recentBlogs))
                                       @foreach($recentBlogs as $rblog)
                                           @php
-                                              $rTitle = $rblog->title ?? ($rblog['title'] ?? 'Blog Title');
-                                              $rSlug = $rblog->slug ?? ($rblog['slug'] ?? null);
-                                              $rId = $rblog->id ?? ($rblog['id'] ?? null);
+                                              $rTitle = $rblog['title'] ?? 'Blog Title';
+                                              $rSlug = $rblog['slug'] ?? null;
+                                              $rId = $rblog['id'] ?? null;
                                               $rUrl = $rSlug ? url('/'.app()->getLocale().'/blog/'.$rSlug) : ($rId ? url('/'.app()->getLocale().'/blog?id='.$rId) : '#');
-                                              $rDate = optional($rblog->published_at ?? $rblog->created_at)->format('d M, Y');
+                                              $rDate = isset($rblog['created_at']) ? $rblog['created_at']->format('d M, Y') : now()->format('d M, Y');
                                           @endphp
                                           <div class="post-box">
                                               <h4 class="sub-title"><a href="{{ $rUrl }}">{{ $rTitle }}</a></h4>
@@ -316,13 +316,10 @@
                                       @if(!empty($tags) && (is_array($tags) || $tags instanceof \Illuminate\Support\Collection) && count($tags))
                                           @foreach($tags as $tag)
                                               @php
-                                                  $tagName = $tag->name ?? ($tag['name'] ?? 'Tag');
-                                                  $tagSlug = $tag->slug ?? ($tag['slug'] ?? null);
-                                                  $tagId = $tag->id ?? ($tag['id'] ?? null);
-                                                  $tagCount = $tag->posts_count ?? $tag->blogs_count ?? $tag->count ?? ($tag['count'] ?? null);
-                                                  $tagUrl = url('/'.app()->getLocale().'/blog') . ($tagSlug ? '?tag='.$tagSlug : ($tagId ? '?tag_id='.$tagId : ''));
+                                                  $tagName = $tag['name'] ?? 'Tag';
+                                                  $tagUrl = route('blogs', ['locale' => app()->getLocale(), 'tag' => $tagName]);
                                               @endphp
-                                              <a class="tags" href="{{ $tagUrl }}">{{ $tagName }}@if($tagCount) <small class="ml-1">({{ $tagCount }})</small>@endif</a>
+                                              <a class="tags" href="{{ $tagUrl }}">{{ $tagName }}</a>
                                           @endforeach
                                       @else
                                           <a class="tags" href="#">Ideas</a>

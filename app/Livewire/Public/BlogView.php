@@ -3,6 +3,9 @@
 namespace App\Livewire\Public;
 
 use App\Models\BlogTranslation;
+use App\Models\Category;
+use App\Models\Tag;
+use App\Models\Blog;
 use Livewire\Component;
 
 class BlogView extends Component
@@ -54,17 +57,27 @@ class BlogView extends Component
 
     // dynamic FAQs array (normalized from DB)
     public $faqs = [];
+    
+    // Categories and Tags for sidebar
+    public $categories = [];
+    public $tags = [];
+    public $recentBlogs = [];
+    public $currentBlogId = null;
 
     public function mount($slug = null)
     {
         $locale = app()->getLocale() ?? abort(404);
 
-
+        // Load categories with translations and blog counts
+        $this->loadCategories($locale);
+        
+        // Load recent blogs
+        $this->loadRecentBlogs($locale);
 
         if ($slug) {
 
             $translation = BlogTranslation::where('slug', $slug)
-                ->with(['blog.user', 'category.translations'])
+                ->with(['blog.user', 'blog.tags.translations', 'category.translations'])
                 ->firstOrFail();
 
             if ($locale !== $translation->locale) {
@@ -77,6 +90,12 @@ class BlogView extends Component
                     return redirect()->route('blog.view', ['slug' => $translation->slug, 'locale' => $locale]);
                 }
             }
+
+            // Store current blog ID
+            $this->currentBlogId = $translation->blog_id;
+            
+            // Load tags specific to this blog post
+            $this->loadBlogTags($translation->blog, $locale);
 
             // Basic fields
             $this->blogTitle = $translation->title ?? $this->blogTitle;
@@ -119,6 +138,117 @@ class BlogView extends Component
         if (!$this->publishDate) {
             $this->publishDate = now()->format('F d, Y');
         }
+    }
+    
+    /**
+     * Load categories with localized names and blog counts
+     */
+    protected function loadCategories($locale)
+    {
+        $categories = Category::whereHas('translations', function ($query) use ($locale) {
+            $query->where('locale', $locale);
+        })
+        ->with(['translations' => function ($query) use ($locale) {
+            $query->where('locale', $locale);
+        }])
+        ->withCount(['blogs' => function ($query) {
+            $query->where('is_active', true)
+                ->whereNull('deleted_at');
+        }])
+        ->get();
+        
+        $this->categories = $categories->map(function ($category) use ($locale) {
+            $translation = $category->translations->where('locale', $locale)->first();
+            return [
+                'id' => $category->id,
+                'name' => $translation->name ?? 'N/A',
+                'slug' => $translation->slug ?? null,
+                'count' => $category->blogs_count ?? 0,
+            ];
+        })->filter(function ($cat) {
+            return $cat['count'] > 0; // Only show categories with blogs
+        })->values()->toArray();
+    }
+    
+    /**
+     * Load tags specific to the current blog post
+     */
+    protected function loadBlogTags($blog, $locale)
+    {
+        if (!$blog || !$blog->tags) {
+            $this->tags = [];
+            return;
+        }
+        
+        $this->tags = $blog->tags->map(function ($tag) use ($locale) {
+            $translation = $tag->translations->where('locale', $locale)->first();
+            $name = $translation->name ?? null;
+            
+            if (!$name) {
+                return null;
+            }
+            
+            return [
+                'id' => $tag->id,
+                'name' => $name,
+            ];
+        })->filter()->values()->toArray();
+    }
+    
+    /**
+     * Load tags with localized names and blog counts
+     */
+    protected function loadTags($locale)
+    {
+        $tags = Tag::whereHas('translations', function ($query) use ($locale) {
+            $query->where('locale', $locale);
+        })
+        ->with(['translations' => function ($query) use ($locale) {
+            $query->where('locale', $locale);
+        }])
+        ->withCount(['blogs' => function ($query) {
+            $query->where('blogs.is_active', true)
+                ->whereNull('blogs.deleted_at');
+        }])
+        ->get();
+        
+        $this->tags = $tags->map(function ($tag) use ($locale) {
+            $translation = $tag->translations->where('locale', $locale)->first();
+            return [
+                'id' => $tag->id,
+                'name' => $translation->name ?? 'N/A',
+                'slug' => $translation->slug ?? null,
+                'count' => $tag->blogs_count ?? 0,
+            ];
+        })->filter(function ($tag) {
+            return $tag['count'] > 0; // Only show tags with blogs
+        })->values()->toArray();
+    }
+    
+    /**
+     * Load recent blogs with translations
+     */
+    protected function loadRecentBlogs($locale)
+    {
+        $this->recentBlogs = Blog::where('is_active', true)
+            ->whereHas('translations', function ($query) use ($locale) {
+                $query->where('locale', $locale);
+            })
+            ->with(['translations' => function ($query) use ($locale) {
+                $query->where('locale', $locale);
+            }])
+            ->orderBy('created_at', 'desc')
+            ->take(5)
+            ->get()
+            ->map(function ($blog) use ($locale) {
+                $translation = $blog->translations->where('locale', $locale)->first();
+                return [
+                    'id' => $blog->id,
+                    'title' => $translation->title ?? 'Blog Title',
+                    'slug' => $translation->slug ?? null,
+                    'created_at' => $blog->created_at,
+                ];
+            })->toArray();
     }
 
     /**
