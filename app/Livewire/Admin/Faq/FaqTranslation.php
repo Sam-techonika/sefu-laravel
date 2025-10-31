@@ -18,6 +18,9 @@ class FaqTranslation extends Component
     public $translations = [];
     public $showModal = false;
 
+    protected $paginationTheme = 'bootstrap';
+
+
     protected $rules = [
         'locale' => 'required|string|max:10',
         'question' => 'required|string',

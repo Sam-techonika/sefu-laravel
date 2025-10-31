@@ -19,17 +19,19 @@ class TestimonialTranslation extends Component
     public $gender;
     public $position;
     public $company;
-    public $photo; // stored photo path (string)
-    public $photoFile; // temporary uploaded file
+    public $photo;
+    public $photoFile; 
     public $address;
     public $editingTranslationId = null;
     public $translations = [];
     public $showModal = false;
 
+    protected $paginationTheme = 'bootstrap';
+
     protected $rules = [
         'locale' => 'required|string|max:10',
         'content' => 'required|string',
-        'photoFile' => 'nullable|image|max:5120', // max 5MB
+        'photoFile' => 'nullable|image|max:5120', 
     ];
 
     #[Layout('components.layouts.admin')]
@@ -60,9 +62,7 @@ class TestimonialTranslation extends Component
             'address' => $this->address,
         ];
 
-        // Handle photo upload and replacement
         if ($this->photoFile) {
-            // store in storage/app/public/testimonials
             $path = $this->photoFile->store('testimonials', 'public');
             $data['photo'] = $path;
         } elseif ($this->photo) {
@@ -70,17 +70,14 @@ class TestimonialTranslation extends Component
         }
 
         if ($this->editingTranslationId) {
-            // update existing translation
             $existing = TT::findOrFail($this->editingTranslationId);
 
-            // if new file uploaded and old exists, delete old
             if ($this->photoFile && $existing->photo) {
                 Storage::disk('public')->delete($existing->photo);
             }
 
             $existing->update(array_merge($data, ['locale' => $this->locale]));
         } else {
-            // create or update by testimonial_id + locale
             TT::updateOrCreate(
                 ['testimonial_id' => $this->testimonialId, 'locale' => $this->locale],
                 $data
@@ -108,7 +105,7 @@ class TestimonialTranslation extends Component
         $this->gender = $t->gender;
         $this->position = $t->position;
         $this->company = $t->company;
-        $this->photo = $t->photo; // stored path
+        $this->photo = $t->photo; 
         $this->photoFile = null;
         $this->address = $t->address;
         $this->showModal = true;

@@ -21,6 +21,7 @@ class FaqList extends Component
 
     public $showForm = false;
     public $showDeleteModal = false;
+    protected $paginationTheme = 'bootstrap';
 
     protected $rules = [
         'name' => 'required|string|max:255',
