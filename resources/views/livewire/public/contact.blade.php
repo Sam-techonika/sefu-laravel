@@ -61,20 +61,33 @@
                     <div class="col-lg-6 offset-lg-6 col-md-6 offset-md-6">
                         <div class="contact-form pl-40 pl-lg-0 pl-md-0 pl-xs-0">
                             <h3 class="blog-details-title mb-45">Don’t hesitate to drop a line to us.</h3>
-                            <form class="quote-form" action="#">
+
+                            @if (session()->has('success'))
+                                <div class="text-success">{{ session('success') }}</div>
+                            @endif
+
+                            <form class="quote-form" wire:submit.prevent="submit">
                                 <div class="email-input">
                                     <label class="input-title">Your Name</label>
-                                    <input type="text" placeholder="Rashedul kabir">
+                                    <input type="text" wire:model.defer="name" placeholder="Enter your name">
+                                    @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
                                 <div class="email-input">
                                     <label class="input-title">Email</label>
-                                    <input type="text" placeholder="uhenilezu@upu.com">
+                                    <input type="text" wire:model.defer="email" placeholder="Enter your email">
+                                    @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                                <div class="email-input">
+                                    <label class="input-title">Phone</label>
+                                    <input type="text" wire:model.defer="phone" placeholder="Enter your phone number">
+                                    @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
                                 <div class="email-input">
                                     <label class="input-title">Your Message</label>
-                                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Hi, This is rashed, I need some urgen help abou the recent pur…"></textarea>
+                                    <textarea wire:model.defer="message" cols="30" rows="10" placeholder="Enter your message"></textarea>
+                                    @error('message') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
-                                <button class="theme_btn comments-btn">{{ __('button.send') }}</button>
+                                <button type="submit" class="theme_btn comments-btn">{{ __('button.send') }}</button>
                             </form>
                         </div>
                     </div>

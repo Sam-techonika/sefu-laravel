@@ -45,6 +45,13 @@ class AdminSidebar
 
             ],
             (object)[
+                'title' => 'Contacts',
+                'icon' => 'ti ti-mail',
+                'url' => route('admin.contacts'),
+                'hasSubmenu' => false,
+
+            ],
+            (object)[
                 'title' => 'Testimonials Management',
                 'icon' => 'ti ti-message',
                 'url' => route('admin.testimonials'),
@@ -60,7 +67,7 @@ class AdminSidebar
             ],
             (object)[
                 'title' => 'Registrations',
-                'icon' => 'ti ti-settings',
+                'icon' => 'ti ti-clipboard',
                 'url' => route('admin.registrations'),
                 'hasSubmenu' => false,
 
