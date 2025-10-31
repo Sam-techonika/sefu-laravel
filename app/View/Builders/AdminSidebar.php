@@ -90,6 +90,7 @@ class AdminSidebar
                 'hasSubmenu' => true,
                 'submenu' => [
                     (object)['title' => 'Case Categories', 'url' => route('admin.casecategories')],
+                    (object)['title' => 'Case Studies', 'url' => route('admin.case-studies')],
                 ],
             ],
         ]);

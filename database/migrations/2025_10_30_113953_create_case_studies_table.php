@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('client_name')->nullable();
             $table->string('project_name')->nullable();
             $table->boolean('is_active')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
