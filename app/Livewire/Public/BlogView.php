@@ -63,15 +63,17 @@ class BlogView extends Component
     public $tags = [];
     public $recentBlogs = [];
     public $currentBlogId = null;
+    
+    public $search = '';
+    public $searchResults = [];
+    public $showDropdown = false;
 
     public function mount($slug = null)
     {
         $locale = app()->getLocale() ?? abort(404);
 
-        // Load categories with translations and blog counts
         $this->loadCategories($locale);
         
-        // Load recent blogs
         $this->loadRecentBlogs($locale);
 
         if ($slug) {
@@ -91,39 +93,30 @@ class BlogView extends Component
                 }
             }
 
-            // Store current blog ID
             $this->currentBlogId = $translation->blog_id;
             
-            // Load tags specific to this blog post
             $this->loadBlogTags($translation->blog, $locale);
 
-            // Basic fields
             $this->blogTitle = $translation->title ?? $this->blogTitle;
             $this->featuredImage = $translation->blog->featured_image ?? $this->featuredImage;
             $this->publishDate = optional($translation->created_at)->format('F d, Y') ?? $this->publishDate;
 
-            // Content fields (some are stored as JSON / arrays)
             $this->atGlanceContent = $translation->at_glance ?? $this->atGlanceContent;
             $this->introductionContent = $translation->introduction ?? $this->introductionContent;
             $this->keyTakeawaysContent = $translation->key_takeaways ?? $this->keyTakeawaysContent;
 
-            // Normalize main content: it may be stored as JSON (array of {title,content}) or as HTML string
             $rawMain = $translation->main_content ?? $this->mainContent;
             $this->mainContent = $this->normalizeMainContent($rawMain);
 
-            // Normalize faqs: may be JSON string or array
             $rawFaqs = $translation->faqs ?? [];
             $this->faqs = $this->normalizeFaqs($rawFaqs);
 
-            // Category (try to use category translation for the current locale)
             if ($translation->category) {
-                // category_translations table uses `name` for the translated label
                 $catTitle = $translation->category->translations()->where('locale', $translation->locale)->value('name')
                     ?? $translation->category->translations()->value('name');
                 $this->category = $catTitle ?? $this->category;
             }
 
-            // Author (if blog.user exists)
             if (!empty($translation->blog) && !empty($translation->blog->user)) {
                 $user = $translation->blog->user;
                 $this->authorName = $user->name ?? $this->authorName;
@@ -134,7 +127,6 @@ class BlogView extends Component
             }
         }
 
-        // Ensure publish date is set
         if (!$this->publishDate) {
             $this->publishDate = now()->format('F d, Y');
         }
@@ -250,6 +242,51 @@ class BlogView extends Component
                 ];
             })->toArray();
     }
+    
+    /**
+     * Update search results when user types
+     */
+    public function updatedSearch()
+    {
+        if (strlen($this->search) >= 2) {
+            $locale = app()->getLocale();
+            
+            $this->searchResults = BlogTranslation::where('locale', $locale)
+                ->where(function($q) {
+                    $q->where('title', 'like', '%' . $this->search . '%')
+                      ->orWhere('introduction', 'like', '%' . $this->search . '%');
+                })
+                ->whereHas('blog', function($q) {
+                    $q->where('is_active', true);
+                })
+                ->with('blog')
+                ->limit(5)
+                ->get()
+                ->map(function($translation) {
+                    return [
+                        'title' => $translation->title,
+                        'slug' => $translation->slug,
+                        'introduction' => \Illuminate\Support\Str::limit(strip_tags($translation->introduction ?? ''), 80),
+                    ];
+                })
+                ->toArray();
+                
+            $this->showDropdown = true;
+        } else {
+            $this->searchResults = [];
+            $this->showDropdown = false;
+        }
+    }
+    
+    /**
+     * Clear search
+     */
+    public function clearSearch()
+    {
+        $this->search = '';
+        $this->searchResults = [];
+        $this->showDropdown = false;
+    }
 
     /**
      * Normalize main content which might be JSON or HTML string.
@@ -257,7 +294,6 @@ class BlogView extends Component
      */
     protected function normalizeMainContent($raw)
     {
-        // If already an array, try to map to HTML blocks
         if (is_array($raw)) {
             $blocks = [];
             foreach ($raw as $item) {

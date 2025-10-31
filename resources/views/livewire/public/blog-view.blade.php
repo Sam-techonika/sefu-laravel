@@ -1,4 +1,4 @@
-  <main>
+  <main x-data="{ searchOpen: @entangle('showDropdown') }" @click.away="searchOpen = false">
       <!--blog-area start-->
       <section class="blog-details-area fix pt-240 pb-50 pt-md-200 pb-md-60 pt-xs-150">
           <div class="container">
@@ -238,11 +238,51 @@
                   <div class="col-xl-4 col-lg-4">
                       <div class="blog-widget-area">
                           <div class="widget mb-80">
-                              <div class="widget-search-content">
-                                  <form class="subscribe-form" action="form.php">
-                                      <input type="text" placeholder="Search">
-                                      <button class="search-icon"><i class="far fa-search"></i></button>
-                                  </form>
+                              <div class="widget-search-content" style="position: relative;">
+                                  <div class="subscribe-form">
+                                      <input 
+                                          type="text" 
+                                          placeholder="Search blogs..." 
+                                          wire:model.live.debounce.300ms="search"
+                                          wire:click="$set('showDropdown', true)"
+                                          autocomplete="off">
+                                      @if($search)
+                                          <button type="button" class="search-icon" wire:click="clearSearch" style="cursor: pointer;">
+                                              <i class="far fa-times"></i>
+                                          </button>
+                                      @else
+                                          <button type="button" class="search-icon">
+                                              <i class="far fa-search"></i>
+                                          </button>
+                                      @endif
+                                  </div>
+                                  
+                                  {{-- Search Dropdown --}}
+                                  @if($showDropdown && count($searchResults) > 0)
+                                      <div class="search-dropdown" style="position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #e8e8e8; border-radius: 5px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; max-height: 400px; overflow-y: auto; margin-top: 5px;">
+                                          @foreach($searchResults as $result)
+                                              <a href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $result['slug']]) }}" 
+                                                 wire:navigate
+                                                 class="search-result-item" 
+                                                 style="display: block; padding: 15px; border-bottom: 1px solid #f0f0f0; text-decoration: none; transition: background 0.2s;"
+                                                 onmouseover="this.style.background='#f8f9fa'" 
+                                                 onmouseout="this.style.background='white'">
+                                                  <div style="font-weight: 600; color: #1a1a1a; margin-bottom: 5px;">
+                                                      {{ $result['title'] }}
+                                                  </div>
+                                                  @if($result['introduction'])
+                                                      <div style="font-size: 13px; color: #666; line-height: 1.4;">
+                                                          {{ $result['introduction'] }}
+                                                      </div>
+                                                  @endif
+                                              </a>
+                                          @endforeach
+                                      </div>
+                                  @elseif($showDropdown && $search && count($searchResults) == 0)
+                                      <div class="search-dropdown" style="position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #e8e8e8; border-radius: 5px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; padding: 20px; text-align: center; margin-top: 5px;">
+                                          <p style="color: #999; margin: 0;">No results found</p>
+                                      </div>
+                                  @endif
                               </div>
                           </div>
                           <div class="widget mb-90">
