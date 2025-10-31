@@ -20,6 +20,11 @@ class CaseStudyList extends Component
 
     public $isModalOpen = false;
     public $caseStudyId = null;
+    
+    // Delete confirmation modal
+    public $showDeleteModal = false;
+    public $deleteId = null;
+    public $deleteName = '';
 
     public $image;
     public $client_name;
@@ -71,16 +76,35 @@ class CaseStudyList extends Component
     {
         $this->dispatch('openCaseStudyForm', $id);
     }
-
-    public function delete($id)
+    
+    public function confirmDelete($id)
     {
         $caseStudy = CaseStudy::find($id);
         if ($caseStudy) {
-            $caseStudy->delete();
-            session()->flash('message', 'Case Study "' . $caseStudy->name . '" deleted successfully!');
-            $this->is_active = true;
+            $this->deleteId = $id;
+            $this->deleteName = $caseStudy->name;
+            $this->showDeleteModal = true;
         }
-        $this->dispatch('refreshCaseStudies');
+    }
+    
+    public function cancelDelete()
+    {
+        $this->showDeleteModal = false;
+        $this->deleteId = null;
+        $this->deleteName = '';
+    }
+
+    public function delete()
+    {
+        if ($this->deleteId) {
+            $caseStudy = CaseStudy::find($this->deleteId);
+            if ($caseStudy) {
+                $caseStudy->delete();
+                $this->dispatch('success', 'Case Study "' . $caseStudy->name . '" deleted successfully!');
+            }
+            $this->cancelDelete();
+            $this->dispatch('refreshCaseStudies');
+        }
     }
 
     public function resetForm()

@@ -43,7 +43,7 @@
                                 @php
                                     $categoryTranslation = $caseStudy->category->translations->where('locale', app()->getLocale())->first();
                                 @endphp
-                                <span class="badge bg-info">{{ $categoryTranslation?->name ?? 'N/A' }}</span>
+                                <span class="badge bg-info-lt">{{ $categoryTranslation?->name ?? 'N/A' }}</span>
                             @else
                                 <span class="text-muted">N/A</span>
                             @endif
@@ -65,8 +65,7 @@
                             <button class="btn btn-sm btn-outline-primary" wire:click="edit({{ $caseStudy->id }})">
                                 <i class="ti ti-edit"></i>
                             </button>
-                            <button class="btn btn-sm btn-outline-danger" wire:click="delete({{ $caseStudy->id }})"
-                                onclick="confirm('Are you sure?') || event.stopImmediatePropagation()">
+                            <button class="btn btn-sm btn-outline-danger" wire:click="confirmDelete({{ $caseStudy->id }})">
                                 <i class="ti ti-trash"></i>
                             </button>
                         </td>
@@ -86,4 +85,36 @@
     <div class="mt-3">{{ $caseStudies->links() }}</div>
 
     <livewire:admin.casestudy.case-study-form />
+    
+    {{-- Delete Confirmation Modal --}}
+    @if($showDeleteModal)
+    <div class="modal fade show" style="display: block; background: rgba(0,0,0,0.5);" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">Confirm Delete</h5>
+                    <button type="button" class="btn-close" wire:click="cancelDelete"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center py-3">
+                        <i class="ti ti-alert-circle text-danger" style="font-size: 64px;"></i>
+                        <h5 class="mt-3">Are you sure you want to delete this case study?</h5>
+                        <p class="text-muted mb-0">
+                            <strong>{{ $deleteName }}</strong>
+                        </p>
+                        <p class="text-danger mt-2 mb-0">This action cannot be undone!</p>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" wire:click="cancelDelete">
+                        <i class="ti ti-x">Cancel</i> 
+                    </button>
+                    <button type="button" class="btn btn-danger" wire:click="delete">
+                        <i class="ti ti-trash">Delete</i> 
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
 </div>
