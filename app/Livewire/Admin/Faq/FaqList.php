@@ -19,7 +19,6 @@ class FaqList extends Component
     public $perPage = 10;
     public $confirmingDeleteId = null;
 
-    // Modal states
     public $showForm = false;
     public $showDeleteModal = false;
 

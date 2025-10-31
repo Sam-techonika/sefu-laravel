@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->nullable();
             $table->text('description')->nullable();
-            $table->longText('Goals')->nullable();
-            $table->longText('Challenges')->nullable();
-            $table->json('Our Results')->nullable();
+            $table->longText('goals')->nullable();
+            $table->longText('challenges')->nullable();
+            $table->json('results')->nullable();
             $table->timestamps();
         });
     }

@@ -614,7 +614,7 @@
                             <form class="quote-form mb-20" action="#">
                                 <div class="choice-list mb-20">
                                     <span class="input-title pl-20">Service</span>
-                                    <select  class="select-product" name="select-value" id="select-area">
+                                    <select class="select-product" name="select-value" id="select-area">
                                         <option value="Business Setup & India Entry">Business Setup & India Entry</option>
                                         <option value="Regulatory & FEMA Advisory">Regulatory & FEMA Advisory</option>
                                         <option value="Intellectual Property Rights (IPR)">Intellectual Property Rights (IPR)</option>
@@ -766,8 +766,7 @@
                 </div>
             </div>
         </section>
-        <!--blog-area end-->
-        <!--subscribe-letter-area start-->
+      
         <section class="subscribe-letter-area pt-50 pb-80">
             <div class="line-shape d-none d-lg-inline-block">
                 <!-- <img class="img-fluid" src="{{ asset('assets/img/line-shape/line_5.svg') }}" alt=""> -->
@@ -791,116 +790,256 @@
         <!--subscribe-letter-area end-->
     </main>
     @if($showModal)
-        <div class="custom-modal" role="dialog" aria-modal="true">
-            <div class="custom-modal-backdrop" wire:click="$set('showModal', false)"></div>
-            <div class="custom-modal-card">
-                <div class="custom-modal-header">
-                    <div class="modal-title">
-                        <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="icon" style="height:28px;margin-right:10px;"/>
-                        <div>
-                            <h4>Get Started</h4>
-                            <small class="muted">{{ $planName ?? 'Plan' }}</small>
-                        </div>
-                    </div>
-                    <button type="button" class="modal-close" wire:click="$set('showModal', false)">×</button>
-                </div>
-                <div class="custom-modal-body">
-                    @if(session()->has('success'))
-                        <div class="alert alert-success">{{ session('success') }}</div>
-                    @endif
-                    <div class="form-row">
-                        <label class="input-label">Name</label>
-                        <input type="text" wire:model.defer="name" class="custom-form-control" placeholder="Enter Your full name" />
-                        @error('name') <div class="text-danger small">{{ $message }}</div> @enderror
-                    </div>
-                    <div class="form-row">
-                        <label class="input-label">Email</label>
-                        <input type="email" wire:model.defer="email" class="custom-form-control" placeholder="Enter your Email" />
-                        @error('email') <div class="text-danger small">{{ $message }}</div> @enderror
-                    </div>
-                       <div class="form-row">
-                        <label class="input-label">Selected Plan</label>
-                        <input type="text" wire:model.defer="planName" class="custom-form-control" style="font-weight:bold" placeholder="Selected Plan" readonly />
-                        @error('planName') <div class="text-danger small">{{ $message }}</div> @enderror
-                    </div>
-                    <div class="form-row">
-                        <label class="input-label">Phone</label>
-                        <input type="text" wire:model.defer="phone" class="custom-form-control" placeholder="Enter Your Phone Number" />
-                        @error('phone') <div class="text-danger small">{{ $message }}</div> @enderror
+    <div class="custom-modal" role="dialog" aria-modal="true">
+        <div class="custom-modal-backdrop" wire:click="$set('showModal', false)"></div>
+        <div class="custom-modal-card">
+            <div class="custom-modal-header">
+                <div class="modal-title">
+                    <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="icon" style="height:28px;margin-right:10px;" />
+                    <div>
+                        <h4>Get Started</h4>
+                        <small class="muted">{{ $planName ?? 'Plan' }}</small>
                     </div>
                 </div>
-                <div class="custom-modal-footer">
-                    <button type="button" wire:click="saveRegistration" class="theme_btn">Get Started</button>
-                    <button type="button" wire:click="$set('showModal', false)" class="theme_btn border-btn">Cancel</button>
+                <button type="button" class="modal-close" wire:click="$set('showModal', false)">×</button>
+            </div>
+            <div class="custom-modal-body">
+                @if(session()->has('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                <div class="form-row">
+                    <label class="input-label">Name</label>
+                    <input type="text" wire:model.defer="name" class="custom-form-control" placeholder="Enter Your full name" />
+                    @error('name') <div class="text-danger small">{{ $message }}</div> @enderror
+                </div>
+                <div class="form-row">
+                    <label class="input-label">Email</label>
+                    <input type="email" wire:model.defer="email" class="custom-form-control" placeholder="Enter your Email" />
+                    @error('email') <div class="text-danger small">{{ $message }}</div> @enderror
+                </div>
+                <div class="form-row">
+                    <label class="input-label">Selected Plan</label>
+                    <input type="text" wire:model.defer="planName" class="custom-form-control" style="font-weight:bold" placeholder="Selected Plan" readonly />
+                    @error('planName') <div class="text-danger small">{{ $message }}</div> @enderror
+                </div>
+                <div class="form-row">
+                    <label class="input-label">Phone</label>
+                    <input type="text" wire:model.defer="phone" class="custom-form-control" placeholder="Enter Your Phone Number" />
+                    @error('phone') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
             </div>
+            <div class="custom-modal-footer">
+                <button type="button" wire:click="saveRegistration" class="theme_btn">Get Started</button>
+                <button type="button" wire:click="$set('showModal', false)" class="theme_btn border-btn">Cancel</button>
+            </div>
         </div>
+    </div>
     @endif
 
     @if($showThanksModal)
-        <div class="custom-modal" role="dialog" aria-modal="true">
-            <div class="custom-modal-backdrop" wire:click="$set('showThanksModal', false)"></div>
-            <div class="custom-modal-card small">
-                <div class="thanks-icon">✓</div>
-                <h4 class="thanks-title">Thanks we will contact you shortly.</h4>
-                <p class="muted">Our team will reach out to the email or phone you provided.</p>
-                <div style="margin-top:14px;">
-                    <button type="button" wire:click="$set('showThanksModal', false)" class="theme_btn">Close</button>
-                </div>
+    <div class="custom-modal" role="dialog" aria-modal="true">
+        <div class="custom-modal-backdrop" wire:click="$set('showThanksModal', false)"></div>
+        <div class="custom-modal-card small">
+            <div class="thanks-icon">✓</div>
+            <h4 class="thanks-title">Thanks we will contact you shortly.</h4>
+            <p class="muted">Our team will reach out to the email or phone you provided.</p>
+            <div style="margin-top:14px;">
+                <button type="button" wire:click="$set('showThanksModal', false)" class="theme_btn">Close</button>
             </div>
         </div>
+    </div>
     @endif
 
     @if($showPendingModal)
-        <div class="custom-modal" role="dialog" aria-modal="true">
-            <div class="custom-modal-backdrop" wire:click="$set('showPendingModal', false)"></div>
-            <div class="custom-modal-card small">
-                <div class="thanks-icon" style="background:#fff4e8;color:#ff8a1f">…</div>
-                <h4 class="thanks-title">We are working on your request</h4>
-                <p class="muted">It looks like you already submitted a request for <strong>Your Selected Plan </strong> and it's being processed. Please be patient; we'll notify you once it's complete.</p>
-                <div style="margin-top:14px;">
-                    <button type="button" wire:click="$set('showPendingModal', false)" class="theme_btn">Okay</button>
-                </div>
+    <div class="custom-modal" role="dialog" aria-modal="true">
+        <div class="custom-modal-backdrop" wire:click="$set('showPendingModal', false)"></div>
+        <div class="custom-modal-card small">
+            <div class="thanks-icon" style="background:#fff4e8;color:#ff8a1f">…</div>
+            <h4 class="thanks-title">We are working on your request</h4>
+            <p class="muted">It looks like you already submitted a request for <strong>Your Selected Plan </strong> and it's being processed. Please be patient; we'll notify you once it's complete.</p>
+            <div style="margin-top:14px;">
+                <button type="button" wire:click="$set('showPendingModal', false)" class="theme_btn">Okay</button>
             </div>
         </div>
+    </div>
     @endif
 
     <style>
         /* Themed modal styles to match site */
-        .custom-modal{
-            position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:1050;
+        .custom-modal {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1050;
         }
-        .custom-modal-backdrop{
-            position:absolute;inset:0;background:rgba(0,0,0,0.5);
+
+        .custom-modal-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
         }
-        .custom-modal-card{
-            position:relative;z-index:1060;background:#fff;max-width:520px;width:92%;border-radius:10px;box-shadow:0 8px 30px rgba(5,0,32,0.12);overflow:hidden;animation:modal-pop .18s ease-out;
+
+        .custom-modal-card {
+            position: relative;
+            z-index: 1060;
+            background: #fff;
+            max-width: 520px;
+            width: 92%;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(5, 0, 32, 0.12);
+            overflow: hidden;
+            animation: modal-pop .18s ease-out;
         }
-        .custom-modal-card.small{max-width:420px;padding:34px 28px;text-align:center}
+
+        .custom-modal-card.small {
+            max-width: 420px;
+            padding: 34px 28px;
+            text-align: center
+        }
+
         /* simplified header: solid color, reduced padding */
-        .custom-modal-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#050020;color:#fff}
-        .custom-modal-header .modal-title{display:flex;align-items:center;gap:10px}
-        .custom-modal-header h4{margin:0;font-size:16px;font-weight:600}
-        .custom-modal-header .muted{color:rgba(255,255,255,0.9);font-size:12px}
-        .custom-modal-header .modal-title img{height:20px}
-        .modal-close{background:transparent;border:0;color:rgba(255,255,255,0.9);font-size:26px;line-height:1;cursor:pointer}
-        .custom-modal-body{padding:20px 24px;background:#fff}
-        .form-row{margin-bottom:12px}
-        .input-label{display:block;font-size:13px;color:#222;margin-bottom:6px}
-        .custom-form-control{width:100%;padding:11px 14px;border:1px solid #e6e6e6;border-radius:8px;font-size:14px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.6)}
-        .custom-form-control:focus{outline:none;border-color:#ff1f1f;box-shadow:0 4px 18px rgba(255,31,31,0.08)}
-        .custom-modal-footer{padding:12px 20px;background:#fff;display:flex;justify-content:flex-end;gap:10px}
+        .custom-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            background: #050020;
+            color: #fff
+        }
+
+        .custom-modal-header .modal-title {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .custom-modal-header h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600
+        }
+
+        .custom-modal-header .muted {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 12px
+        }
+
+        .custom-modal-header .modal-title img {
+            height: 20px
+        }
+
+        .modal-close {
+            background: transparent;
+            border: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 26px;
+            line-height: 1;
+            cursor: pointer
+        }
+
+        .custom-modal-body {
+            padding: 20px 24px;
+            background: #fff
+        }
+
+        .form-row {
+            margin-bottom: 12px
+        }
+
+        .input-label {
+            display: block;
+            font-size: 13px;
+            color: #222;
+            margin-bottom: 6px
+        }
+
+        .custom-form-control {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid #e6e6e6;
+            border-radius: 8px;
+            font-size: 14px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6)
+        }
+
+        .custom-form-control:focus {
+            outline: none;
+            border-color: #ff1f1f;
+            box-shadow: 0 4px 18px rgba(255, 31, 31, 0.08)
+        }
+
+        .custom-modal-footer {
+            padding: 12px 20px;
+            background: #fff;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px
+        }
 
         /* modal button refinements - clean & professional */
-        .custom-modal .theme_btn{
-            background:#ff1f1f;color:#fff;padding:9px 16px;border-radius:8px;border:none;font-weight:600;font-size:14px;box-shadow:none;transition:transform .12s ease,box-shadow .12s ease;
+        .custom-modal .theme_btn {
+            background: #ff1f1f;
+            color: #fff;
+            padding: 9px 16px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: none;
+            transition: transform .12s ease, box-shadow .12s ease;
         }
-        .custom-modal .theme_btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(255,31,31,0.09)}
-        .custom-modal .theme_btn.border-btn{background:transparent;color:#050020;border:1px solid #e6e6e6;padding:8px 14px;border-radius:8px;font-weight:600}
-        .thanks-icon{width:64px;height:64px;border-radius:50%;background:#e8f8f1;color:#0aa06a;font-size:36px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;box-shadow:0 6px 18px rgba(10,160,106,0.12)}
-        .thanks-title{font-size:20px;margin:6px 0 0;color:#050020}
-        .muted{color:#6c6c6c}
-        @keyframes modal-pop{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+        .custom-modal .theme_btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(255, 31, 31, 0.09)
+        }
+
+        .custom-modal .theme_btn.border-btn {
+            background: transparent;
+            color: #050020;
+            border: 1px solid #e6e6e6;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 600
+        }
+
+        .thanks-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #e8f8f1;
+            color: #0aa06a;
+            font-size: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            box-shadow: 0 6px 18px rgba(10, 160, 106, 0.12)
+        }
+
+        .thanks-title {
+            font-size: 20px;
+            margin: 6px 0 0;
+            color: #050020
+        }
+
+        .muted {
+            color: #6c6c6c
+        }
+
+        @keyframes modal-pop {
+            from {
+                opacity: 0;
+                transform: translateY(6px) scale(.98)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1)
+            }
+        }
 
         /* Modern Comparison Table Styles */
         .comparison-area {
