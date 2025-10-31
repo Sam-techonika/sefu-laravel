@@ -14,6 +14,7 @@ class CaseStudy extends Model
         'image',
         'client_name',
         'project_name',
+        'case_category_id',
         'is_active',
     ];
 

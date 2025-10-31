@@ -16,6 +16,7 @@
                         <th>Name</th>
                         <th>Client Name</th>
                         <th>Project Name</th>
+                        <th>Category</th>
                         <th>Status</th>
                         <th>Created At</th>
                         <th class="text-end">Actions</th>
@@ -37,6 +38,16 @@
                         <td>{{ $caseStudy->name }}</td>
                         <td>{{ $caseStudy->client_name ?? 'N/A' }}</td>
                         <td>{{ $caseStudy->project_name ?? 'N/A' }}</td>
+                        <td>
+                            @if($caseStudy->category)
+                                @php
+                                    $categoryTranslation = $caseStudy->category->translations->where('locale', app()->getLocale())->first();
+                                @endphp
+                                <span class="badge bg-info">{{ $categoryTranslation?->name ?? 'N/A' }}</span>
+                            @else
+                                <span class="text-muted">N/A</span>
+                            @endif
+                        </td>
                         <td class="text-center">
                             <label class="form-check form-switch m-0">
                                 <input
@@ -62,7 +73,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="8" class="text-center text-muted py-4">
+                        <td colspan="9" class="text-center text-muted py-4">
                             No case studies found.
                         </td>
                     </tr>

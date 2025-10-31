@@ -130,96 +130,45 @@
     <section class="case-area pt-120 pb-80 pt-md-80 pt-xs-60 pb-md-50 pb-xs-30">
         <div class="container">
             <div class="row">
-                <!-- Case Study 1 -->
+                @forelse($caseStudies as $caseStudy)
                 <div class="col-lg-4 col-md-6 mb-40">
                     <div class="case-wrapper">
                         <div class="case-img">
-                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}"><img class="img-fluid" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Business Expansion"></a>
-                            <span class="case-icon"><img src="/assets/img/icon/icon3.svg" alt="Business Setup"></span>
+                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale(), 'slug' => $caseStudy['slug']]) }}">
+                                @if($caseStudy['image'])
+                                    <img class="img-fluid" src="{{ asset('storage/' . $caseStudy['image']) }}" alt="{{ $caseStudy['title'] }}">
+                                @else
+                                    <img class="img-fluid" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="{{ $caseStudy['title'] }}">
+                                @endif
+                            </a>
+                            <span class="case-icon"><img src="/assets/img/icon/icon3.svg" alt="Case Study"></span>
                         </div>
                         <div class="case-text">
-                            <span class="case-tag">Business Setup</span>
-                            <h3 class="case-title"><a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}">Business Expansion in India</a></h3>
-                            <p>How we helped a global tech company set up operations, navigate regulations, and achieve rapid growth in the Indian market.</p>
-                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Read More <i class="far fa-chevron-right"></i></a>
+                            @if($caseStudy['category_name'])
+                                <span class="case-tag">{{ $caseStudy['category_name'] }}</span>
+                            @elseif($caseStudy['client_name'])
+                                <span class="case-tag">{{ $caseStudy['client_name'] }}</span>
+                            @endif
+                            <h3 class="case-title">
+                                <a href="{{ route('case.study.view', ['locale' => app()->getLocale(), 'slug' => $caseStudy['slug']]) }}">
+                                    {{ $caseStudy['title'] }}
+                                </a>
+                            </h3>
+                            @if($caseStudy['description'])
+                                <p>{{ \Illuminate\Support\Str::limit(strip_tags($caseStudy['description']), 120) }}</p>
+                            @endif
+                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale(), 'slug' => $caseStudy['slug']]) }}" class="theme_btn theme_btn3">Read More <i class="far fa-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <!-- Case Study 2 -->
-                <div class="col-lg-4 col-md-6 mb-40">
-                    <div class="case-wrapper">
-                        <div class="case-img">
-                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}"><img class="img-fluid" src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Trademark Registration"></a>
-                            <span class="case-icon"><img src="/assets/img/icon/icon9.svg" alt="IPR"></span>
-                        </div>
-                        <div class="case-text">
-                            <span class="case-tag">IPR Services</span>
-                            <h3 class="case-title"><a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}">Trademark Registration Success</a></h3>
-                            <p>Securing intellectual property for a fashion brand, including trademark registration and protection against infringement.</p>
-                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Read More <i class="far fa-chevron-right"></i></a>
-                        </div>
+                @empty
+                <div class="col-12">
+                    <div class="text-center py-5">
+                        <h3 class="mb-3">No Case Studies Available</h3>
+                        <p class="text-muted">Check back soon for inspiring success stories!</p>
                     </div>
                 </div>
-                <!-- Case Study 3 -->
-                <div class="col-lg-4 col-md-6 mb-40">
-                    <div class="case-wrapper">
-                        <div class="case-img">
-                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}"><img class="img-fluid" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Foreign National Entry"></a>
-                            <span class="case-icon"><img src="/assets/img/icon/icon7.svg" alt="Foreign Investment"></span>
-                        </div>
-                        <div class="case-text">
-                            <span class="case-tag">Foreign Investment</span>
-                            <h3 class="case-title"><a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}">Foreign National Entry</a></h3>
-                            <p>Guiding a foreign entrepreneur through the process of starting a business in India, including regulatory and financial advisory.</p>
-                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Read More <i class="far fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Case Study 4 -->
-                <div class="col-lg-4 col-md-6 mb-40">
-                    <div class="case-wrapper">
-                        <div class="case-img">
-                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}"><img class="img-fluid" src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=600&q=80" alt="Corporate Compliance"></a>
-                            <span class="case-icon"><img src="/assets/img/icon/icon4.svg" alt="Compliance"></span>
-                        </div>
-                        <div class="case-text">
-                            <span class="case-tag">Compliance</span>
-                            <h3 class="case-title"><a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}">Corporate Compliance Management</a></h3>
-                            <p>Helping a manufacturing firm streamline compliance and reporting, reducing risk and improving efficiency.</p>
-                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Read More <i class="far fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Case Study 5 -->
-                <div class="col-lg-4 col-md-6 mb-40">
-                    <div class="case-wrapper">
-                        <div class="case-img">
-                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}"><img class="img-fluid" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Legal Documentation"></a>
-                            <span class="case-icon"><img src="/assets/img/icon/icon21.svg" alt="Legal Services"></span>
-                        </div>
-                        <div class="case-text">
-                            <span class="case-tag">Legal Services</span>
-                            <h3 class="case-title"><a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}">Legal Documentation & Transactions</a></h3>
-                            <p>Drafting and managing legal documents for a real estate company, ensuring smooth transactions and regulatory compliance.</p>
-                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Read More <i class="far fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Case Study 6 -->
-                <div class="col-lg-4 col-md-6 mb-40">
-                    <div class="case-wrapper">
-                        <div class="case-img">
-                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}"><img class="img-fluid" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Regulatory Advisory"></a>
-                            <span class="case-icon"><img src="/assets/img/icon/tick2.svg" alt="FEMA Advisory"></span>
-                        </div>
-                        <div class="case-text">
-                            <span class="case-tag">FEMA Advisory</span>
-                            <h3 class="case-title"><a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}">Regulatory & FEMA Advisory</a></h3>
-                            <p>Advising a fintech startup on FEMA regulations, helping them launch new products and stay compliant.</p>
-                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Read More <i class="far fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </section>

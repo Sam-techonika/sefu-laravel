@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image')->nullable();
+            $table->foreignId('case_category_id')->nullable()->constrained()->onDelete('set null');
             $table->string('client_name')->nullable();
             $table->string('project_name')->nullable();
             $table->boolean('is_active')->default(true);

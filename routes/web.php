@@ -54,8 +54,8 @@ Route::group([
     Route::get('/blogs', Blog::class)->name('blogs');
     Route::get('/blog/{slug}', BlogView::class)->name('blog.view');
     Route::get('/case-study', CaseStudy::class)->name('case.study');
+    Route::get('/case-study/{slug}', CaseStudyView::class)->name('case.study.view');
     Route::get('/service-view', ServiceView::class)->name('service.view');
-    Route::get('/case-study-view', CaseStudyView::class)->name('case.study.view');
     Route::get('/testimonials', Testimonial::class)->name('testimonials');
     Route::get('/faq', Faq::class)->name('faq');
 

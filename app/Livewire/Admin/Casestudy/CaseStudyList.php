@@ -99,7 +99,7 @@ class CaseStudyList extends Component
     #[Layout('components.layouts.admin')]
     public function render()
     {
-        $query = CaseStudy::with(['translations']);
+        $query = CaseStudy::with(['translations', 'category.translations']);
 
         if ($this->search) {
             $query->where('name', 'like', '%' . $this->search . '%')

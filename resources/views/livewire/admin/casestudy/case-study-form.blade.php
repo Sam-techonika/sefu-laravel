@@ -38,6 +38,18 @@
                             @error('project_name') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 
+                        {{-- Category --}}
+                        <div class="mb-3">
+                            <label>Category</label>
+                            <select class="form-select" wire:model="case_category_id">
+                                <option value="">Select Category</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+                                @endforeach
+                            </select>
+                            @error('case_category_id') <span class="text-danger">{{ $message }}</span> @enderror
+                        </div>
+
                         {{-- Image --}}
                         <div class="mb-3" x-data="{ isUploading: false, progress: 0 }"
                             x-on:livewire-upload-start="isUploading = true"
