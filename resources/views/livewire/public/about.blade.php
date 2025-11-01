@@ -146,7 +146,7 @@
         </section>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('livewire:navigated', function() {
                 document.querySelectorAll('[data-bg]').forEach(function(el) {
                     var url = el.getAttribute('data-bg');
                     if (url) {

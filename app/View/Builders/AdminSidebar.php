@@ -59,6 +59,13 @@ class AdminSidebar
 
             ],
             (object)[
+                'title' => 'Service Requests',
+                'icon' => 'ti ti-message',
+                'url' => route('admin.service-requests'),
+                'hasSubmenu' => false,
+
+            ],
+            (object)[
                 'title' => 'Settings Management',
                 'icon' => 'ti ti-settings',
                 'url' => route('admin.settings'),

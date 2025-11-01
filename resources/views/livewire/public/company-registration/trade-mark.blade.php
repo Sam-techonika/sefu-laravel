@@ -609,24 +609,41 @@
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-12">
-                        <div class="form-box form-box-2 white-bg">
-                            <h4 class="sub-title mb-45">Send Query</h4>
-                            <form class="quote-form mb-20" action="#">
-                                <div class="choice-list mb-20">
-                                    <span class="input-title pl-20">Service</span>
-                                    <select class="select-product" name="select-value" id="select-area">
-                                        <option value="Business Setup & India Entry">Business Setup & India Entry</option>
-                                        <option value="Regulatory & FEMA Advisory">Regulatory & FEMA Advisory</option>
-                                        <option value="Intellectual Property Rights (IPR)">Intellectual Property Rights (IPR)</option>
-                                        <option value="Corporate Secretarial & Compliance Management">Corporate Secretarial & Compliance Management</option>
-                                        <option value="Corporate Transactions & Legal Documentation">Corporate Transactions & Legal Documentation</option>
-                                    </select>
+                        <div class="form-box form-box-2 white-bg" wire:key="service-quote-form">
+                            <h4 class="sub-title mb-45">Get Service Quote</h4>
+                            @if($showServiceThanks)
+                                <div class="alert alert-success" role="alert" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 5000); $wire.set('showServiceThanks', false, false)">
+                                    <strong>Thank you!</strong> We'll get back to you shortly.
+                                </div>
+                            @endif
+                            <form class="quote-form mb-20" wire:submit.prevent="submitServiceRequest">                  
+                                <div class="email-input">
+                                    <label class="input-title">Phone Number</label>
+                                    <input type="text" wire:model.live="servicePhone" placeholder="enter your phone number" required>
+                                    @error('servicePhone') <span class="text-danger small">{{ $message }}</span> @enderror
                                 </div>
                                 <div class="email-input">
                                     <label class="input-title">Email</label>
-                                    <input type="text" placeholder="uhenilezu@upu.com">
+                                    <input type="email" wire:model.live="serviceEmail" placeholder="enter your email">
+                                    @error('serviceEmail') <span class="text-danger small">{{ $message }}</span> @enderror
                                 </div>
-                                <button class="q-btn-lg">Send Query</button>
+                                  <div class="choice-list mb-20">
+                                    <div class="row">
+                                        <div class="col-12 row">
+                                            <span class="input-title pl-20">Service</span>
+                                            <select class="select-product" wire:model="serviceType" required>
+                                                <option value="">Select a service</option>
+                                                <option value="Business Setup & India Entry">Business Setup & India Entry</option>
+                                                <option value="Regulatory & FEMA Advisory">Regulatory & FEMA Advisory</option>
+                                                <option value="Intellectual Property Rights (IPR)">Intellectual Property Rights (IPR)</option>
+                                                <option value="Corporate Secretarial & Compliance Management">Corporate Secretarial & Compliance Management</option>
+                                                <option value="Corporate Transactions & Legal Documentation">Corporate Transactions & Legal Documentation</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    @error('serviceType') <span class="text-danger small">{{ $message }}</span> @enderror
+                                </div>
+                                <button type="submit" class="q-btn-lg">Send Query</button>
                             </form>
                         </div>
                     </div>
@@ -644,7 +661,7 @@
                 <img class="test test_01 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/10.png') }}" alt="">
                 <img class="test test_02 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/11.png') }}" alt="">
                 <img class="test test_03 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/12.png') }}" alt="">
-                <img class="test test_04 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/13.png') }}" alt="">
+                <img class="test test_04 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/10.png') }}" alt="">
                 <img class="test test_05 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/14.png') }}" alt="">
                 <img class="test test_06 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/15.png') }}" alt="">
                 <div class="container">

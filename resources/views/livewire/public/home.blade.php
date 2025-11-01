@@ -443,8 +443,11 @@
                                     <div class="choice-list">
                                         <span class="input-title">Service</span>
                                         <select class="select-product" name="select-value" id="select-area">
-                                            <option value="Life Insurance">Company Registration</option>
-                                            <option value="Car Insurance">Trademark Registration</option>
+   <option value="Life Insurance">Business Setup & India Entry</option>
+                                        <option value="Car Insurance">Regulatory & FEMA Advisory</option>
+                                        <option value="House Insurance">Intellectual Property Rights (IPR)</option>
+                                        <option value="House Insurance">Corporate Secretarial & Compliance Management</option>
+                                        <option value="Accident Insurance">Corporate Transactions & Legal Documentation</option>
                                         </select>
                                     </div>
                                     <div class="email-input">
