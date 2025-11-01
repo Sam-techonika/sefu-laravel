@@ -18,119 +18,51 @@
   <section class="services-area pt-80 pb-80 pt-md-60 pb-md-50 pt-xs-40 pb-xs-40">
     <div class="container">
       <div class="row">
-        <!-- Service 1 -->
-        <div class="col-xl-4 col-lg-4 col-md-6">
-          <div class="service-card mb-30 wow fadeInUp2 animated" data-wow-delay=".1s">
-
-            <div class="service-cover">
-              <img src="{{ asset('assets/img/ai/ai1.svg') }}" alt="Business Setup & India Entry">
-            </div>
-            <h3 class="service-title">Business Setup & India Entry</h3>
-            <ul class="service-list">
-              <li>Pvt Ltd / LLP / Branch / Liaison setup</li>
-              <li>Name reservation, MOA/AOA, DIN, DSC</li>
-              <li>PAN, TAN, GST, IEC, Shops & Establishment</li>
-            </ul>
-            <div class="service-cta">
-              <a wire:navigate href="{{  route('service.view',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Learn More <i class="far fa-chevron-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 2 -->
-        <div class="col-xl-4 col-lg-4 col-md-6">
-          <div class="service-card mb-30 wow fadeInUp2 animated" data-wow-delay=".2s">
-            <div class="service-cover">
-              <img src="{{ asset('assets/img/ai/ai2.svg') }}" alt="Corporate Secretarial & Compliance">
-            </div>
-
-            <h3 class="service-title">Corporate Secretarial & Compliance Management</h3>
-            <ul class="service-list">
-              <li>Board/AGM minutes, statutory registers</li>
-              <li>ROC e-filings (AOC-4, MGT-7), XBRL</li>
-              <li>Event compliances: allotment, ESOP, charges</li>
-            </ul>
-            <div class="service-cta">
-              <a wire:navigate href="{{  route('service.view',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Learn More <i class="far fa-chevron-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="col-xl-4 col-lg-4 col-md-6">
-          <div class="service-card mb-30 wow fadeInUp2 animated" data-wow-delay=".3s">
-            <div class="service-cover">
-              <img src="{{ asset('assets/img/ai/ai3.svg') }}" alt="Regulatory & FEMA Advisory">
-            </div>
-
-            <h3 class="service-title">Regulatory & FEMA Advisory</h3>
-            <ul class="service-list">
-              <li>FDI, ODI, ECB structuring and compliance</li>
-              <li>FC-GPR, FLA, SMF filings on FIRMS</li>
-              <li>RBI approvals, compounding, downstream</li>
-            </ul>
-            <div class="service-cta">
-              <a wire:navigate href="{{  route('service.view',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Learn More <i class="far fa-chevron-right"></i></a>
+        @forelse($services as $index => $service)
+          @php
+            $translation = $service->translations->where('locale', app()->getLocale())->first();
+            $delay = '.'. (($index % 6) + 1) . 's';
+            $defaultImage = 'ai' . (($index % 6) + 1) . '.svg';
+          @endphp
+          
+          @if($translation)
+          <div class="col-xl-4 col-lg-4 col-md-6">
+            <div class="service-card mb-30 wow fadeInUp2 animated" data-wow-delay="{{ $delay }}">
+              <div class="service-cover">
+                @if($service->image)
+                  <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $translation->title }}">
+                @else
+                  <img src="{{ asset('assets/img/ai/' . $defaultImage) }}" alt="{{ $translation->title }}">
+                @endif
+              </div>
+              <h3 class="service-title">{{ $translation->title }}</h3>
+              
+              @if($translation->service_highlights && count($translation->service_highlights) > 0)
+              <ul class="service-list">
+                @foreach($translation->service_highlights as $highlight)
+                  <li>{{ $highlight['title'] ?? $highlight }}</li>
+                @endforeach
+              </ul>
+              @elseif($translation->description)
+              <p class="service-desc">{{ Str::limit(strip_tags($translation->description), 120) }}</p>
+              @endif
+              
+              <div class="service-cta">
+                <a wire:navigate href="{{ route('service.view', ['locale' => app()->getLocale(), 'slug' => $translation->slug]) }}" class="theme_btn theme_btn3">
+                  Learn More <i class="far fa-chevron-right"></i>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-
-        <!-- Service 4 -->
-        <div class="col-xl-4 col-lg-4 col-md-6">
-          <div class="service-card mb-30 wow fadeInUp2 animated" data-wow-delay=".4s">
-            <div class="service-cover">
-              <img src="{{ asset('assets/img/ai/ai4.svg') }}" alt="Intellectual Property Rights">
-            </div>
-
-            <h3 class="service-title">Intellectual Property Rights (IPR)</h3>
-            <ul class="service-list">
-              <li>Trademark search, filing, prosecution, renewals</li>
-              <li>Copyrights, designs, assignments & licensing</li>
-              <li>Watch services, oppositions, rectifications</li>
-            </ul>
-            <div class="service-cta">
-              <a wire:navigate href="{{  route('service.view',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Learn More <i class="far fa-chevron-right"></i></a>
+          @endif
+        @empty
+          <div class="col-12">
+            <div class="text-center py-5">
+              <h4>No services available at the moment.</h4>
+              <p class="text-muted">Please check back later.</p>
             </div>
           </div>
-        </div>
-
-        <!-- Service 5 -->
-        <div class="col-xl-4 col-lg-4 col-md-6">
-          <div class="service-card mb-30 wow fadeInUp2 animated" data-wow-delay=".5s">
-            <div class="service-cover">
-              <img src="{{ asset('assets/img/ai/ai5.svg') }}" alt="Corporate Transactions & Legal Docs">
-            </div>
-
-            <h3 class="service-title">Corporate Transactions & Legal Documentation</h3>
-            <ul class="service-list">
-              <li>SHA, SSA, ESOP, Founder/Co-founder docs</li>
-              <li>Term sheets, JV, M&A, due diligence</li>
-              <li>Vendor, employment, NDAs, SaaS/MSA contracts</li>
-            </ul>
-            <div class="service-cta">
-              <a wire:navigate href="{{  route('service.view',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Learn More <i class="far fa-chevron-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 6 (Optional CTA Card) -->
-        <div class="col-xl-4 col-lg-4 col-md-6">
-          <div class="service-card mb-30 wow fadeInUp2 animated" data-wow-delay=".6s">
-            <div class="service-cover">
-              <img src="{{ asset('assets/img/ai/ai6.svg') }}" alt="Custom Packages">
-            </div>
-
-            <h3 class="service-title">Custom Packages</h3>
-            <ul class="service-list">
-              <li>Tailored retainers for fast-growth teams</li>
-              <li>Dedicated compliance and filings support</li>
-              <li>Priority SLAs and expert reviews</li>
-            </ul>
-            <div class="service-cta">
-              <a wire:navigate href="{{  route('service.view',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Learn More <i class="far fa-chevron-right"></i></a>
-            </div>
-          </div>
-        </div>
+        @endforelse
       </div>
 
       <!-- Bottom CTA -->
