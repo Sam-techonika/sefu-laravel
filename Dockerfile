@@ -1,9 +1,12 @@
 # Stage 1: Build Composer dependencies
 FROM composer:2 AS build
 WORKDIR /app
+
+# Copy composer files first
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
-COPY . .
+
+# Ignore platform requirements (e.g., php extensions mismatch)
+RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs
 
 # Stage 2: Production PHP image
 FROM php:8.2-apache
