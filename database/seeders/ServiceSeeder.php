@@ -400,3 +400,4 @@ class ServiceSeeder extends Seeder
         $this->command->info('Services seeded successfully!');
     }
 }
+ 
