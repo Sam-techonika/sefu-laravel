@@ -1,34 +1,44 @@
-# Stage 1: Build Composer dependencies
-FROM composer:2 AS build
+# Stage 1: Build stage with Composer
+FROM composer:2.7 AS build
 WORKDIR /app
 
-# Copy composer files first
+# Set environment variables to avoid artisan errors during build
+ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV APP_ENV=production
+ENV APP_DEBUG=false
+ENV SKIP_COMPOSER_SCRIPT=1
+
+# Copy composer files first for caching
 COPY composer.json composer.lock ./
 
-# Ignore platform requirements (e.g., php extensions mismatch)
-RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs
+# Install dependencies without running post scripts
+RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs --no-scripts
 
-# Stage 2: Production PHP image
-FROM php:8.2-apache
+# Copy all application files
+COPY . .
 
-# Enable Apache mod_rewrite
+# Stage 2: PHP 8.3 + Apache
+FROM php:8.3-apache
+
+# Enable Apache rewrite
 RUN a2enmod rewrite
 
-# Install system dependencies and PHP extensions
+# Install required system libraries and PHP extensions
 RUN apt-get update && apt-get install -y \
-    libzip-dev unzip libpng-dev libonig-dev libxml2-dev git curl \
-    && docker-php-ext-install pdo_mysql zip gd mbstring exif pcntl bcmath
+    git unzip libzip-dev libpng-dev libonig-dev libxml2-dev libicu-dev libssl-dev curl \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install pdo_mysql zip gd intl bcmath opcache
 
-# Copy Laravel files from build stage
+# Copy application from build stage
 COPY --from=build /app /var/www/html
 
 # Set working directory
 WORKDIR /var/www/html
 
-# Set correct permissions
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+# Set permissions
+RUN chown -R www-data:www-data storage bootstrap/cache
 
-# Expose port 80
+# Expose port
 EXPOSE 80
 
 # Start Apache
