@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('service_translations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('service_id')->constrained()->onDelete('cascade');
-            $table->json('service_highlights')->nullable();
             $table->string('locale')->index();
             $table->string('title');
             $table->string('slug')->nullable();
             $table->string('subtitle')->nullable();
             $table->text('description')->nullable();
             $table->longText('overview')->nullable();
+            $table->json('service_highlights')->nullable();
             $table->json('how_it_works')->nullable();
             $table->json('deliverables')->nullable();
             $table->json('faqs')->nullable();

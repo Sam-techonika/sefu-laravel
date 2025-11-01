@@ -14,6 +14,10 @@ use App\Livewire\Admin\Contact\ContactList;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Faq\FaqList;
 use App\Livewire\Admin\Registration\RegistrationList;
+use App\Livewire\Admin\Service\AddService;
+use App\Livewire\Admin\Service\ServiceLangList;
+use App\Livewire\Admin\Service\ServiceList;
+use App\Livewire\Admin\Service\UpdateService;
 use App\Livewire\Admin\ServiceRequest\ServiceRequest;
 use App\Livewire\Admin\Setting\SettingManagement;
 use App\Livewire\Admin\Tag\TagList;
@@ -56,7 +60,7 @@ Route::group([
     Route::get('/blog/{slug}', BlogView::class)->name('blog.view');
     Route::get('/case-study', CaseStudy::class)->name('case.study');
     Route::get('/case-study/{slug}', CaseStudyView::class)->name('case.study.view');
-    Route::get('/service-view', ServiceView::class)->name('service.view');
+    Route::get('/service/{slug}', ServiceView::class)->name('service.view');
     Route::get('/testimonials', Testimonial::class)->name('testimonials');
     Route::get('/faq', Faq::class)->name('faq');
 
@@ -109,6 +113,10 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::get('/case-study/add/{id}', AddCaseStudy::class)->name('case-studies.add');
     Route::get('/case-study/edit/{id}/{locale}', UpdateCaseStudy::class)->name('case-studies.edit');
     Route::get('/case-study/languages/{id}', CaseStudyLangList::class)->name('case-studies.translations');
+        Route::get('/services', ServiceList::class)->name('services');
+    Route::get('/service/add/{id}', AddService::class)->name('service.add');
+    Route::get('/service/edit/{id}/{locale}', UpdateService::class)->name('service.edit');
+    Route::get('service/languages/{id}', ServiceLangList::class)->name('service.languages');
     Route::get('/faq', FaqList::class)->name('faq');
     Route::get('/service-requests', ServiceRequest::class)->name('service-requests');
     Route::get('/contacts', ContactList::class)->name('contacts');
