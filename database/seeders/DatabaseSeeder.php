@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             FaqSeeder::class,
             ServiceSeeder::class,
             TestimonialSeeder::class,
+            RegistrationSeeder::class,
             BlogSeeder::class,
             // BlogSeeder::class,
         ]);
