@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>{{ $title ?? 'Sefu - Insurance & Finance HTML5 Template' }}</title>
+    <title> {{ config('settings.brand_name', 'Panel') }} | {{ $title ?? 'Page Title' }} </title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">

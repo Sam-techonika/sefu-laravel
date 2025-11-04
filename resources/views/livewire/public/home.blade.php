@@ -452,35 +452,50 @@
                             <div class="quote-form-left mb-30 pr-80 mr-65 pr-lg-20 mr-lg-0 pr-md-0 pl-md-0">
                                 <h3 class="mb-20">Get Started with Pratham Legal</h3>
                                 <h5 class="mb-30">Select a service to begin your legal journey — our experts will guide you every step of the way.</h5>
-                                <form class="quote-form mb-15" action="#">
+                                
+                                @if (session('service_request_success'))
+                                    <div class="alert alert-success mb-15">
+                                        {{ session('service_request_success') }}
+                                    </div>
+                                @endif
+
+                                <form class="quote-form mb-15" wire:submit.prevent="submitServiceRequest">
                                     <div class="choice-list">
                                         <span class="input-title">Service</span>
-                                        <select class="select-product" name="select-value" id="select-area">
-   <option value="Life Insurance">Business Setup & India Entry</option>
-                                        <option value="Car Insurance">Regulatory & FEMA Advisory</option>
-                                        <option value="House Insurance">Intellectual Property Rights (IPR)</option>
-                                        <option value="House Insurance">Corporate Secretarial & Compliance Management</option>
-                                        <option value="Accident Insurance">Corporate Transactions & Legal Documentation</option>
+                                        <select class="select-product" wire:model="service" name="select-value" id="select-area">
+                                            <option value="">Select a service</option>
+                                            <option value="Business Setup & India Entry">Business Setup & India Entry</option>
+                                            <option value="Regulatory & FEMA Advisory">Regulatory & FEMA Advisory</option>
+                                            <option value="Intellectual Property Rights (IPR)">Intellectual Property Rights (IPR)</option>
+                                            <option value="Corporate Secretarial & Compliance Management">Corporate Secretarial & Compliance Management</option>
+                                            <option value="Corporate Transactions & Legal Documentation">Corporate Transactions & Legal Documentation</option>
                                         </select>
+                                        @error('service') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                     <div class="email-input">
                                         <label class="input-title">Email</label>
-                                        <input type="text" placeholder="uhenilezu@upu.com">
+                                        <input type="email" wire:model="email" placeholder="youremail@example.com">
+                                        @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
-                                    <button class="theme_btn3 q-btn-lg mb-10">{{ __('button.send_message') }}</button>
+                                    <div class="email-input">
+                                        <label class="input-title">Phone (Optional)</label>
+                                        <input type="text" wire:model="phone" placeholder="+91-XXXXXXXXXX">
+                                        @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
+                                    </div>
+                                    <button type="submit" class="theme_btn3 q-btn-lg mb-10">{{ __('button.send_message') }}</button>
                                 </form>
                                 <p class="review-text">Been here before?</p>
-                                <p class="review-text">Questions? <a href="#">Call our team at +91-9821008011</a></p>
+                                <p class="review-text">Questions? <a href="tel:{{ setting('phone_number', '+91-9821008011') }}">Call our team at {{ setting('phone_number', '+91-9821008011') }}</a></p>
 
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-12">
                             <div class="quote-wrapper mb-30">
                                 <div class="section-title section-title-4 text-center text-md-left">
-                                    <h3 class="mb-20">Let’s build your <span class="round-line">business</span> the right way.</h3>
-                                    <h5 class="mb-45">We understand how complex laws can be — that’s why real professionals, not bots, handle every query personally.</h5>
+                                    <h3 class="mb-20">Let's build your <span class="round-line">business</span> the right way.</h3>
+                                    <h5 class="mb-45">We understand how complex laws can be — that's why real professionals, not bots, handle every query personally.</h5>
                                     <p>Need quick help? </p>
-                                    <span class="number"><b>call:</b> +91-9821008011</span>
+                                    <span class="number"><b>call:</b> <a href="tel:{{ setting('phone_number', '+91-9821008011') }}">{{ setting('phone_number', '+91-9821008011') }}</a></span>
                                 </div>
                             </div>
                         </div>
@@ -503,42 +518,24 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-4">
-                        <div class="blogs-2 blogs-3 mb-30 wow fadeInUp2 animated" data-wow-delay="0.1s">
-                            <div class="blogs__thumb mb-20">
-                                <img class="img-fluid" src="{{ asset('assets/img/blog/04.jpg') }}" alt="">
-                            </div>
-                            <div class="blogs__content">
-                                <span class="date-tag mb-15">24 Feb, 2021</span>
-                                <h3 class="blog-title mb-20"><a href="blog-details.html">7 reasons ensure is far better than...</a></h3>
-                                <a class="blog-btn" href="blog-details.html">Read More <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4">
-                        <div class="blogs-2 blogs-3 mb-30 wow fadeInUp2 animated" data-wow-delay="0.3s">
-                            <div class="blogs__thumb mb-20">
-                                <img class="img-fluid" src="{{ asset('assets/img/blog/05.jpg') }}" alt="">
-                            </div>
-                            <div class="blogs__content">
-                                <span class="date-tag mb-15">24 Feb, 2021</span>
-                                <h3 class="blog-title mb-20"><a href="blog-details.html">Lorem ipsum dolor sit a met consectetur ...</a></h3>
-                                <a class="blog-btn" href="blog-details.html">Read More <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
+                    @forelse($blogs as $index => $blog)
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <div class="blogs-2 blogs-3 mb-30 wow fadeInUp2 animated" data-wow-delay="{{ ($index + 1) * 0.2 }}s">
+                                <div class="blogs__thumb mb-20">
+                                    <img class="img-fluid" src="{{ $blog['featured_image'] ? asset('storage/'.$blog['featured_image']) : asset('assets/img/blog/04.jpg') }}" alt="{{ $blog['title'] }}">
+                                </div>
+                                <div class="blogs__content">
+                                    <span class="date-tag mb-15">{{ $blog['created_at']->format('d M, Y') }}</span>
+                                    <h3 class="blog-title mb-20"><a href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">{{ Str::limit($blog['title'], 50) }}</a></h3>
+                                    <a class="blog-btn" href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">Read More <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4">
-                        <div class="blogs-2 blogs-3 mb-30 wow fadeInUp2 animated" data-wow-delay="0.5s">
-                            <div class="blogs__thumb mb-20">
-                                <img class="img-fluid" src="{{ asset('assets/img/blog/06.jpg') }}" alt="">
-                            </div>
-                            <div class="blogs__content">
-                                <span class="date-tag mb-15">24 Feb, 2021</span>
-                                <h3 class="blog-title mb-20"><a href="blog-details.html">There is no place where u found us...</a></h3>
-                                <a class="blog-btn" href="blog-details.html">Read More <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
-                            </div>
+                    @empty
+                        <div class="col-12">
+                            <p class="text-center">No blogs available at the moment.</p>
                         </div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
         </section>
