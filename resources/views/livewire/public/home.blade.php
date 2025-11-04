@@ -554,7 +554,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="get-quote-btn text-center text-md-right mb-30">
-                                <a href="contact.html" class="theme_btn theme_btn3 sub-btn">{{ __('button.start_your_consultation') }}</a>
+                                <a href="{{route('contact',['locale' => app()->getLocale()])}}" class="theme_btn theme_btn3 sub-btn">{{ __('button.start_your_consultation') }}</a>
                             </div>
                         </div>
                     </div>
