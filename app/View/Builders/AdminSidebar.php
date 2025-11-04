@@ -38,6 +38,57 @@ class AdminSidebar
                 ],
             ],
             (object)[
+                'title' => 'Service',
+                'icon' => 'ti ti-tools',
+                'url' => '#',
+                'hasSubmenu' => true,
+                'submenu' => [
+                    (object)['title' => 'Service', 'url' => route('admin.services')],
+                ],
+            ],
+            (object)[
+                'title' => 'Service Requests',
+                'icon' => 'ti ti-inbox',
+                'url' => route('admin.service-requests'),
+                'hasSubmenu' => false,
+
+            ],
+            (object)[
+                'title' => 'Registrations',
+                'icon' => 'ti ti-clipboard-list',
+                'url' => route('admin.registrations'),
+                'hasSubmenu' => false,
+
+            ],
+            (object)[
+                'title' => 'Case Study',
+                'icon' => 'ti ti-briefcase',
+                'url' => '#',
+                'hasSubmenu' => true,
+                'submenu' => [
+                    (object)['title' => 'Case Categories', 'url' => route('admin.casecategories')],
+                    (object)['title' => 'Case Studies', 'url' => route('admin.case-studies')],
+                ],
+            ],
+            (object)[
+                'title' => 'Blogs',
+                'icon' => 'ti ti-article',
+                'url' => '#',
+                'hasSubmenu' => true,
+                'submenu' => [
+                    (object)['title' => 'Categories', 'url' => route('admin.categories')],
+                    (object)['title' => 'Tags', 'url' => route('admin.tags')],
+                    (object)['title' => 'Blogs', 'url' => route('admin.blogs')],
+                ],
+            ],
+            (object)[
+                'title' => 'Testimonials Management',
+                'icon' => 'ti ti-star',
+                'url' => route('admin.testimonials'),
+                'hasSubmenu' => false,
+
+            ],
+            (object)[
                 'title' => 'Faq Management',
                 'icon' => 'ti ti-help-circle',
                 'url' => route('admin.faq'),
@@ -52,62 +103,11 @@ class AdminSidebar
 
             ],
             (object)[
-                'title' => 'Testimonials Management',
-                'icon' => 'ti ti-message',
-                'url' => route('admin.testimonials'),
-                'hasSubmenu' => false,
-
-            ],
-            (object)[
-                'title' => 'Service Requests',
-                'icon' => 'ti ti-message',
-                'url' => route('admin.service-requests'),
-                'hasSubmenu' => false,
-
-            ],
-            (object)[
                 'title' => 'Settings Management',
                 'icon' => 'ti ti-settings',
                 'url' => route('admin.settings'),
                 'hasSubmenu' => false,
 
-            ],
-            (object)[
-                'title' => 'Registrations',
-                'icon' => 'ti ti-clipboard',
-                'url' => route('admin.registrations'),
-                'hasSubmenu' => false,
-
-            ],
-            (object)[
-                'title' => 'Blogs',
-                'icon' => 'ti ti-file-text',
-                'url' => '#',
-                'hasSubmenu' => true,
-                'submenu' => [
-                    (object)['title' => 'Categories', 'url' => route('admin.categories')],
-                    (object)['title' => 'Tags', 'url' => route('admin.tags')],
-                    (object)['title' => 'Blogs', 'url' => route('admin.blogs')],
-                ],
-            ],
-            (object)[
-                'title' => 'Case Study',
-                'icon' => 'ti ti-file-text',
-                'url' => '#',
-                'hasSubmenu' => true,
-                'submenu' => [
-                    (object)['title' => 'Case Categories', 'url' => route('admin.casecategories')],
-                    (object)['title' => 'Case Studies', 'url' => route('admin.case-studies')],
-                ],
-            ],
-            (object)[
-                'title' => 'Service',
-                'icon' => 'ti ti-file-text',
-                'url' => '#',
-                'hasSubmenu' => true,
-                'submenu' => [
-                    (object)['title' => 'Service', 'url' => route('admin.services')],
-                ],
             ],
         ]);
         return $menu;

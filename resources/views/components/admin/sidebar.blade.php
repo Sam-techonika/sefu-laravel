@@ -11,15 +11,15 @@
             <a href="{{ route('admin.dashboard') }}"
                 class="d-flex align-items-center justify-content-center gap-2 text-decoration-none">
 
-                <img src="{{ asset('tabler/theme/img/logo.png') }}"
-                    alt="{{ config('settings.brand_name', 'Admin') }}"
+                <img src="{{ setting('logo') ? asset('storage/'.setting('logo')) : asset('tabler/theme/img/logo.png') }}"
+                    alt="{{ setting('site_name', config('settings.brand_name', 'Admin')) }}"
                     height="20"
 
                     class="align-middle mt-4"
                     style="margin-top: 4px;">
 
                 <span class="fw-bold fs-4 text-dark">
-                    {{ config('settings.brand_name', 'Admin') }}
+                    {{ setting('site_name', config('settings.brand_name', 'Admin')) }}
                 </span>
             </a>
 

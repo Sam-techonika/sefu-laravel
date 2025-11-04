@@ -9,8 +9,8 @@
                             <a class="logo-img" wire:navigate href="{{ route('home', ['locale' => app()->getLocale()]) }}">
                                 <img
                                     class="logo-1 mt-1"
-                                    src="{{ asset('assets/img/logo/logo2.png') }}"
-                                    alt="Logo"
+                                    src="{{ setting('logo') ? asset('storage/'.setting('logo')) : asset('assets/img/logo/logo2.png') }}"
+                                    alt="{{ setting('site_name', 'Logo') }}"
                                     style="height: 40px; width: auto;">
                             </a>
                         </div>
@@ -25,10 +25,10 @@
                                     </form>
                                 </li>
                                 <li class="d-none d-lg-inline-block">
-                                    <span><img src="{{ asset('assets/img/icon/at.svg') }}" alt=""> ensure@inc.com</span>
+                                    <span><img src="{{ asset('assets/img/icon/at.svg') }}" alt=""> {{ setting('email', 'info@example.com') }}</span>
                                 </li>
                                 <li class="d-none d-lg-inline-block">
-                                    <span><img src="{{ asset('assets/img/icon/telephone.svg') }}" alt=""> (479) 421-6814</span>
+                                    <span><img src="{{ asset('assets/img/icon/telephone.svg') }}" alt=""> {{ setting('phone_number', '(000) 000-0000') }}</span>
                                 </li>
                             </ul>
                         </div>
@@ -137,16 +137,14 @@
         <div class="offset-sidebar">
             <div class="offset-widget offset-logo mb-30">
                 <a wire:navigate href="{{ route('home', ['locale' => app()->getLocale()]) }}">
-                    <img src="" alt="logo">
+                    <img src="{{ setting('logo') ? asset('storage/'.setting('logo')) : asset('assets/img/logo/logo2.png') }}" alt="{{ setting('site_name', 'logo') }}" style="max-height: 60px; width: auto;">
                 </a>
             </div>
             <div class="offset-widget mb-40">
                 <div class="info-widget">
                     <h4 class="offset-title mb-20">About Us</h4>
                     <p class="mb-30">
-                        But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain
-                        was born and will give you a complete account of the system and expound the actual teachings of
-                        the great explore.
+                        {{ setting('about_text', 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and will give you a complete account of the system and expound the actual teachings of the great explore.') }}
                     </p>
                     <a class="theme_btn theme_btn_bg" wire:navigate href="{{ route('contact', ['locale' => app()->getLocale()]) }}">{{ __('button.contact_us') }}</a>
                 </div>
@@ -154,9 +152,9 @@
             <div class="offset-widget mb-30 pr-10">
                 <div class="info-widget info-widget2">
                     <h4 class="offset-title mb-20">Contact Info</h4>
-                    <p><i class="fal fa-address-book"></i> 23/A, Miranda City Likaoli Prikano, Dope</p>
-                    <p><i class="fal fa-phone"></i> +0989 7876 9865 9</p>
-                    <p><i class="fal fa-envelope-open"></i> info@example.com</p>
+                    <p><i class="fal fa-address-book"></i> {{ setting('address', 'Address not set') }}</p>
+                    <p><i class="fal fa-phone"></i> {{ setting('phone_number', 'Phone not set') }}</p>
+                    <p><i class="fal fa-envelope-open"></i> {{ setting('email', 'info@example.com') }}</p>
                 </div>
             </div>
         </div>

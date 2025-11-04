@@ -5,16 +5,16 @@
                     <div class="col-xl-3 col-lg-3 col-md-6  wow fadeInUp2 animated" data-wow-delay='.1s'>
                         <div class="footer__widget fot_widget_h3 text-center text-md-left pos-rel mb-30">
                             <div class="footer-log mb-40">
-                                <a href="index.html" class="logo">
-                                    <img src="" alt="">
+                                <a href="{{ route('home', ['locale' => app()->getLocale()]) }}" class="logo">
+                                    <img width="100" src="{{ setting('logo') ? asset('storage/'.setting('logo')) : asset('assets/img/logo/logo2.png') }}" alt="{{ setting('site_name', 'Logo') }}">
                                 </a>
                             </div>
                             <ul class="contact-list">
                                 <li>
-                                    <h5>{{ __('footer.contact_email') }}</h5>
+                                    <h5>{{ setting('email', __('footer.contact_email')) }}</h5>
                                 </li>
                                 <li>
-                                    <h5>{{ __('footer.contact_phone') }}</h5>
+                                    <h5>{{ setting('phone_number', __('footer.contact_phone')) }}</h5>
                                 </li>
                             </ul>
                             <img class="f-shapes shape_1 d-none d-lg-inline-block" src="{{ asset('assets/img/shape/ball2.svg') }}" alt="">
@@ -65,7 +65,7 @@
                     <div class="col-xl-4 col-lg-6 col-md-6  wow fadeInUp2 animated" data-wow-delay='.7s'>
                         <div class="footer__widget fot_widget_h3 text-center text-md-left mb-30 pl-30">
                             <h4 class="widget-title mb-40">{{ __('footer.address_title') }}</h4>
-                            <p class="mb-15">{{ __('footer.address_text') }}</p>
+                            <p class="mb-15">{{ setting('address', __('footer.address_text')) }}</p>
                             <div class="footer-social mb-40">
                                 @foreach(['facebook','twitter','linkedin','google'] as $net)
                                     @if(config('services.social.'.$net))
