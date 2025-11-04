@@ -218,7 +218,7 @@
                         <path d="M19 7l-3 3l-3 -3" />
                         <path d="M16 10v9a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1v-12a1 1 0 0 1 1 -1h8m4 0l2 2l-8 8l-2.5 -2.5" />
                     </svg>
-                    {{ __('button.update_translation') }}
+                   Add Blog Translation
                 </button>
             </form>
         </div>
