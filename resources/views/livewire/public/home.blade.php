@@ -279,6 +279,18 @@
                 </div>
                 <div class="feedback-slick-wrapper">
                     <div class="feedback-active3">
+                        @forelse($testimonials as $testimonial)
+                        <div class="feedback-item">
+                            <div class="feedback-box fb-box2 text-center">
+                                <div class="test-img-round">
+                                    <img src="{{ $testimonial['photo'] ? asset('storage/' . $testimonial['photo']) : asset('assets/img/testimonial/07.png') }}" alt="{{ $testimonial['name'] }}">
+                                </div>
+                                <h4 class="sub-title-3">{{ $testimonial['name'] }}</h4>
+                                <h6>{{ $testimonial['position'] }}@if($testimonial['position'] && $testimonial['company']) – @endif{{ $testimonial['company'] }}</h6>
+                                <h4 class="sub-title-3">"{{ $testimonial['content'] }}"</h4>
+                            </div>
+                        </div>
+                        @empty
                         <div class="feedback-item">
                             <div class="feedback-box fb-box2 text-center">
                                 <div class="test-img-round">
@@ -316,9 +328,10 @@
                                 </div>
                                 <h4 class="sub-title-3">Rina Mehta</h4>
                                 <h6>VentureSeed Capital, New Delhi</h6>
-                                <h4 class="sub-title-3">“Pratham Legal supported us during an acquisition and their due diligence was exceptionally thorough. They understand both the law and the commercial realities — a rare combination.”</h4>
+                                <h4 class="sub-title-3">"Pratham Legal supported us during an acquisition and their due diligence was exceptionally thorough. They understand both the law and the commercial realities — a rare combination."</h4>
                             </div>
                         </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
