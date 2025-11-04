@@ -44,15 +44,15 @@ class Home extends Component
 
         // Load latest blogs with localization
         $this->blogs = Blog::where('is_active', true)
+            ->whereHas('translations', function ($query) use ($locale) {
+                $query->where('locale', $locale);
+            })
             ->with(['translations' => function ($query) use ($locale) {
                 $query->where('locale', $locale);
             }])
             ->latest()
             ->take(3)
             ->get()
-            ->filter(function ($blog) {
-                return $blog->translations->isNotEmpty();
-            })
             ->map(function ($blog) {
                 $translation = $blog->translations->first();
                 return [
