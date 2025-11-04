@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Public\CompanyRegistration;
 
+use Livewire\Attributes\Title;
 use App\Models\Registration;
 use App\Models\RegistrationPlan;
 use App\Models\UserRegistration;
@@ -110,6 +111,7 @@ class TradeMark extends Component
         $this->dispatch('success', 'Service request submitted successfully!');
     }
     
+    #[Title('Trademark Registration')]
     public function render()
     {
         return view('livewire.public.company-registration.trade-mark');

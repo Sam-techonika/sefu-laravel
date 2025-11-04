@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Service;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Attributes\On;
 
 class ServiceList extends Component
@@ -94,6 +95,7 @@ class ServiceList extends Component
 
     #[On('refreshServices')]
     #[Layout('components.layouts.admin')]
+    #[Title('Services')]
     public function render()
     {
         $query = Service::query();

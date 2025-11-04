@@ -8,6 +8,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Enums\LocaleType;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 
 class CategoryList extends Component
 {
@@ -37,6 +38,7 @@ class CategoryList extends Component
     }
 
     #[Layout('components.layouts.admin')]
+    #[Title('Categories')]
     public function render()
     {
         $categories = Category::with('translations')

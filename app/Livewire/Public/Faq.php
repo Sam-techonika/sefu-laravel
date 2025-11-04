@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Public;
 
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use App\Models\Faq as FaqModel;
 use App\Helpers\LocaleHelper;
@@ -57,6 +58,7 @@ class Faq extends Component
         $this->loadFaqs();
     }
 
+    #[Title('FAQ')]
     public function render()
     {
         return view('livewire.public.faq');

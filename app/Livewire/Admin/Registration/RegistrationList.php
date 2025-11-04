@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\UserRegistration;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 
 class RegistrationList extends Component
 {
@@ -28,6 +29,7 @@ class RegistrationList extends Component
         $this->resetPage();
     }
     #[Layout('components.layouts.admin')]
+    #[Title('Registrations')]
     public function render()
     {
         $registrations = UserRegistration::with(['registration','plan'])

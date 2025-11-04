@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\ServiceRequest;
 
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\ServiceRequest as ServiceRequestModel;
@@ -37,6 +38,7 @@ class ServiceRequest extends Component
     }
 
     #[Layout('components.layouts.admin')]
+    #[Title('Service Requests')]
     public function render()
     {
         $requests = ServiceRequestModel::when($this->search, function ($q) {

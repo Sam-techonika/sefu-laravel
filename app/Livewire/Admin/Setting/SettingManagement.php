@@ -5,6 +5,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Setting;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 
 class SettingManagement extends Component
 {
@@ -89,6 +90,7 @@ class SettingManagement extends Component
     }
 
     #[Layout('components.layouts.admin')]
+    #[Title('Settings')]
     public function render()
     {
         return view('livewire.admin.setting.setting-management');

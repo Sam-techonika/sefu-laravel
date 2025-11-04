@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Public;
 
+use Livewire\Attributes\Title;
 use App\Models\CaseStudy as CaseStudyModel;
 use Livewire\Component;
 
@@ -47,6 +48,7 @@ class CaseStudy extends Component
             });
     }
 
+    #[Title('Case Studies')]
     public function render()
     {
         return view('livewire.public.case-study');

@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin;
 
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use App\Models\Service;
 use App\Models\Blog;
@@ -80,6 +81,7 @@ class Dashboard extends Component
     }
 
     #[Layout('components.layouts.admin')]
+    #[Title('Dashboard')]
     public function render()
     {
         // Get statistics

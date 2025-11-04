@@ -2,11 +2,13 @@
 
 namespace App\Livewire\Public;
 
+use Livewire\Attributes\Title;
 use App\Models\Testimonial as TestimonialModel;
 use Livewire\Component;
 
 class Testimonial extends Component
 {
+    #[Title('Testimonials')]
     public function render()
     {
         // Get all active testimonials with their translations, ordered randomly

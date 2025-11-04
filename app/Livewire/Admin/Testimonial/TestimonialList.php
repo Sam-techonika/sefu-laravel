@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Testimonial;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 
 class TestimonialList extends Component
 {
@@ -36,6 +37,7 @@ class TestimonialList extends Component
     protected $queryString = ['search' => ['except' => ''], 'perPage' => ['except' => 10]];
 
     #[Layout('components.layouts.admin')]
+    #[Title('Testimonials')]
     public function render()
     {
         $query = Testimonial::query();

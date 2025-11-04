@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\Tag;
 use App\Models\User;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Attributes\On;
 
 class BlogList extends Component
@@ -129,6 +130,7 @@ class BlogList extends Component
 
     #[On('refreshBlogs')]
     #[Layout('components.layouts.admin')]
+    #[Title('Blogs')]
     public function render()
     {
 

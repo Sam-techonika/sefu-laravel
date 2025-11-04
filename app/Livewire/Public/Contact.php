@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Public;
 
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use App\Models\UserContact;
 
@@ -32,6 +33,8 @@ class Contact extends Component
 
         session()->flash('success', __('Your message has been sent.'));
     }
+
+    #[Title('Contact Us')]
     public function render()
     {
         return view('livewire.public.contact');

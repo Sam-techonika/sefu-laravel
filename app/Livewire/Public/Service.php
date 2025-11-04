@@ -2,12 +2,14 @@
 
 namespace App\Livewire\Public;
 
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use App\Models\Service as ServiceModel;
 use App\Enums\LocaleType;
 
 class Service extends Component
 {
+    #[Title('Our Services')]
     public function render()
     {
         $locale = app()->getLocale() ?? LocaleType::EN->value;

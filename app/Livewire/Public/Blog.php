@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Public;
 
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Blog as BlogModel;
@@ -54,5 +55,11 @@ class Blog extends Component
         $blogs = $query->latest()->paginate($this->perPage);
 
         return view('livewire.public.blog', compact('blogs'));
+    }
+
+    #[Title('Blogs')]
+    public function getTitle()
+    {
+        return 'Blogs';
     }
 }

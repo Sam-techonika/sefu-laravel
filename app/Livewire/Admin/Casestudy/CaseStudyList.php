@@ -8,6 +8,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Attributes\On;
 
 class CaseStudyList extends Component
@@ -121,6 +122,7 @@ class CaseStudyList extends Component
 
     #[On('refreshCaseStudies')]
     #[Layout('components.layouts.admin')]
+    #[Title('Case Studies')]
     public function render()
     {
         $query = CaseStudy::with(['translations', 'category.translations']);

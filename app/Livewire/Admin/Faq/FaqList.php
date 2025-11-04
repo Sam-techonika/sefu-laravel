@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Faq;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 
 class FaqList extends Component
 {
@@ -33,6 +34,7 @@ class FaqList extends Component
     protected $queryString = ['search' => ['except' => ''], 'perPage' => ['except' => 10]];
 
     #[Layout('components.layouts.admin')]
+    #[Title('FAQ Management')]
     public function render()
     {
         $query = Faq::query();

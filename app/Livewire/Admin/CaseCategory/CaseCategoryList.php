@@ -8,6 +8,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Enums\LocaleType;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 
 class CaseCategoryList extends Component
 {
@@ -37,6 +38,7 @@ class CaseCategoryList extends Component
     }
 
     #[Layout('components.layouts.admin')]
+    #[Title('Case Categories')]
     public function render()
     {
         $caseCategories = CaseCategory::with('translations')

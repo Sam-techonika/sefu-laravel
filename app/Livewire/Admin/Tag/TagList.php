@@ -8,6 +8,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Enums\LocaleType;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 
 class TagList extends Component
 {
@@ -37,6 +38,7 @@ class TagList extends Component
     }
 
     #[Layout('components.layouts.admin')]
+    #[Title('Tags')]
     public function render()
     {
         $tags = Tag::with('translations')

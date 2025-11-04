@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Contact;
 
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\UserContact;
@@ -29,6 +30,7 @@ class ContactList extends Component
     }
 
     #[Layout('components.layouts.admin')]
+    #[Title('Contacts')]
     public function render()
     {
         $contacts = UserContact::when($this->search, function ($q) {
