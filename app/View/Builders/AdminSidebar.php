@@ -29,22 +29,16 @@ class AdminSidebar
                 'submenu' => [],
             ],
             (object)[
-                'title' => 'User Management',
+                'title' => 'Users',
                 'icon' => 'ti ti-users',
-                'url' => '#',
-                'hasSubmenu' => true,
-                'submenu' => [
-                    (object)['title' => 'Users', 'url' => route('admin.users')],
-                ],
+                'url' => route('admin.users'),
+                'hasSubmenu' => false,
             ],
             (object)[
-                'title' => 'Service',
+                'title' => 'Services',
                 'icon' => 'ti ti-tools',
-                'url' => '#',
-                'hasSubmenu' => true,
-                'submenu' => [
-                    (object)['title' => 'Service', 'url' => route('admin.services')],
-                ],
+                'url' => route('admin.services'),
+                'hasSubmenu' => false,
             ],
             (object)[
                 'title' => 'Service Requests',
@@ -82,14 +76,14 @@ class AdminSidebar
                 ],
             ],
             (object)[
-                'title' => 'Testimonials Management',
+                'title' => 'Testimonials',
                 'icon' => 'ti ti-star',
                 'url' => route('admin.testimonials'),
                 'hasSubmenu' => false,
 
             ],
             (object)[
-                'title' => 'Faq Management',
+                'title' => 'Faq',
                 'icon' => 'ti ti-help-circle',
                 'url' => route('admin.faq'),
                 'hasSubmenu' => false,
@@ -103,7 +97,7 @@ class AdminSidebar
 
             ],
             (object)[
-                'title' => 'Settings Management',
+                'title' => 'Settings',
                 'icon' => 'ti ti-settings',
                 'url' => route('admin.settings'),
                 'hasSubmenu' => false,
