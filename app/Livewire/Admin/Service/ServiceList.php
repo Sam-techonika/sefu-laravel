@@ -14,6 +14,8 @@ class ServiceList extends Component
 
     public $search = '';
     public $is_active = '';
+    public $deleteId = null;
+    public $showDeleteModal = false;
 
     protected $paginationTheme = 'bootstrap';
 
@@ -48,6 +50,36 @@ class ServiceList extends Component
             $service->save();
             $this->dispatch('success', $service->is_active ? 'Service Enabled!' : 'Service Disabled!');
         }
+    }
+
+    public function confirmDelete($id)
+    {
+        $this->deleteId = $id;
+        $this->showDeleteModal = true;
+    }
+
+    public function closeDeleteModal()
+    {
+        $this->showDeleteModal = false;
+        $this->deleteId = null;
+    }
+
+    public function deleteConfirmed()
+    {
+        if (!$this->deleteId) {
+            return;
+        }
+
+        $service = Service::find($this->deleteId);
+        if ($service) {
+            $name = $service->name;
+            $service->delete();
+            session()->flash('message', 'Service "' . $name . '" deleted successfully!');
+        }
+
+        $this->showDeleteModal = false;
+        $this->deleteId = null;
+        $this->dispatch('refreshServices');
     }
 
     public function delete($id)

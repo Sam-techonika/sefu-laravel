@@ -50,8 +50,7 @@
                             <button class="btn btn-sm btn-outline-primary" wire:click="edit({{ $service->id }})">
                                 <i class="ti ti-edit"></i>
                             </button>
-                            <button class="btn btn-sm btn-outline-danger" wire:click="delete({{ $service->id }})"
-                                onclick="confirm('Are you sure?') || event.stopImmediatePropagation()">
+                            <button class="btn btn-sm btn-outline-danger" wire:click="confirmDelete({{ $service->id }})">
                                 <i class="ti ti-trash"></i>
                             </button>
                         </td>
@@ -71,4 +70,34 @@
     <div class="mt-3">{{ $services->links() }}</div>
 
     <livewire:admin.service.service-form />
+
+    <!-- Delete confirmation modal (Tabler style) -->
+    @if($showDeleteModal)
+    <div class="modal modal-blur fade show" style="display: block;" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <button type="button" class="btn-close" wire:click="closeDeleteModal" aria-label="Close"></button>
+                <div class="modal-body py-4">
+                    <div class="text-center mb-2">
+                        <i class="ti ti-alert-triangle ti-3x text-danger"></i>
+                    </div>
+                    <h3 class="modal-title text-center">Delete service</h3>
+                    <div class="text-muted text-center mt-2">
+                        Are you sure you want to delete this service? This action cannot be undone.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="w-100 d-flex justify-content-between">
+                        <button type="button" class="btn btn-link link-secondary" wire:click="closeDeleteModal">Cancel</button>
+                        <button type="button" class="btn btn-danger" wire:click="deleteConfirmed" wire:loading.attr="disabled">
+                            <span wire:loading.remove wire:target="deleteConfirmed">Delete</span>
+                            <span wire:loading wire:target="deleteConfirmed">Deleting...</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>
+    @endif
 </div>
