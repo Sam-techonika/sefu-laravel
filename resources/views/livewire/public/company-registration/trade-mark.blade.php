@@ -1,7 +1,7 @@
 <div>
     <main>
         <!--slider-area start-->
-        <section class="slider-area slider-bg pos-rel">
+        <section class="slider-area slider-bg pos-rel" wire:ignore>
             <div class="slider-active">
                 <div class="single-slider slider-height-2 pos-rel pt-275 pb-190 pt-md-200 pt-xs-50 pb-md-50 pb-xs-50">
                     <div class="slider__img-two d-none d-lg-block" style="background: url({{ asset('assets/img/registrations/slider4.png') }});">
@@ -86,7 +86,643 @@
             </div>
         </section>
         <!--slider-area end-->
-        <section class="plan-area pb-70 pt-100">
+
+        <!-- Pricing Comparison Section -->
+        <section class="pricing-comparison-section py-5" x-data="{ showComparison: false }">
+            <div class="container">
+                {{-- Section Header --}}
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-10 text-center">
+                        <h2 class="section-title mb-3">Trademark Registration Plans</h2>
+                        <p class="section-subtitle">Protect your brand identity with professional trademark services</p>
+                    </div>
+                </div>
+
+                {{-- Pricing Cards --}}
+                <div class="row g-4 mb-5">
+                    {{-- Basic Plan --}}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="card-header">
+                                <h3 class="plan-name">Basic Plan</h3>
+                                <p class="plan-tagline">Essential trademark registration for one class with government filing.</p>
+                            </div>
+
+                            <div class="card-pricing">
+                                <div class="price-amount">₹6,000</div>
+                                <div class="price-note">Includes ₹4,500 Govt. Fee + ₹1,500 Professional Fee</div>
+                            </div>
+
+                            <button class="btn-cta btn-outline" wire:click="selectPlan('Basic Plan')">
+                                Start Registration →
+                            </button>
+
+                            <div class="card-features">
+                                <p class="features-title">Perfect for startups:</p>
+                                <ul class="features-list">
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Trademark Filing (1 Class – Name or Logo)
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Preliminary Search Report
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Government Fee Filing
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Email Support
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Standard Plan (Featured) --}}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-card featured">
+                            <div class="popular-badge">Most Popular</div>
+                            
+                            <div class="card-header">
+                                <h3 class="plan-name">Standard Plan</h3>
+                                <p class="plan-tagline">Complete trademark registration with comprehensive search and expert consultation.</p>
+                            </div>
+
+                            <div class="card-pricing">
+                                <div class="price-amount">₹9,999</div>
+                                <div class="price-note">Includes ₹4,500 Govt. Fee + ₹5,499 Professional Fee</div>
+                            </div>
+
+                            <button class="btn-cta btn-primary" wire:click="selectPlan('Standard Plan')">
+                                Get Standard Setup →
+                            </button>
+
+                            <div class="card-features">
+                                <p class="features-title">Everything in Basic, plus:</p>
+                                <ul class="features-list">
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Comprehensive Trademark Search & Analysis
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Professional Filing & Documentation
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Response to Examination Report (if required)
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        30-Minute IP Consultation
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Application Status Updates
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Priority Email & Phone Support
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Premium Plan --}}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="card-header">
+                                <h3 class="plan-name">Premium Plan</h3>
+                                <p class="plan-tagline">Full trademark protection with opposition handling and renewal reminders.</p>
+                            </div>
+
+                            <div class="card-pricing">
+                                <div class="price-amount">₹17,999</div>
+                                <div class="price-note">Includes ₹4,500 Govt. Fee + ₹13,499 Professional Fee</div>
+                            </div>
+
+                            <button class="btn-cta btn-outline" wire:click="selectPlan('Premium Plan')">
+                                Get Premium Setup →
+                            </button>
+
+                            <div class="card-features">
+                                <p class="features-title">Everything in Standard, plus:</p>
+                                <ul class="features-list">
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Opposition Handling (Up to 1st hearing)
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Watch Service for Similar Trademark Applications
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Renewal Reminders for 10 Years
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        1-Hour IP Strategy Consultation
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Brand Protection Advisory
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Dedicated IP Support Manager
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Comparison Link --}}
+                <div class="row mb-4">
+                    <div class="col-12 text-center">
+                        <a @click.prevent="showComparison = !showComparison" class="compare-link" style="cursor: pointer;">
+                            <span x-show="!showComparison">Compare plan features</span>
+                            <span x-show="showComparison">Hide comparison</span>
+                            <svg x-show="!showComparison" width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; margin-left: 4px;">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <svg x-show="showComparison" width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; margin-left: 4px;">
+                                <path d="M12 10L8 6L4 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                {{-- Comparison Table --}}
+                <div class="row" id="comparison-table" x-show="showComparison" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-4" style="display: none;">
+                    <div class="col-12">
+                        <div class="comparison-table-wrapper">
+                            {{-- Table Header --}}
+                            <div class="comparison-header">
+                                <div class="header-row">
+                                    <div class="feature-column header-title">
+                                        <a @click.prevent="showComparison = false" class="compare-features-link" style="cursor: pointer;">Hide comparison</a>
+                                    </div>
+                                    {{-- Basic Plan Header --}}
+                                    <div class="plan-column plan-header-box">
+                                        <div class="plan-header-content">
+                                            <h4 class="plan-name-header">Basic Plan</h4>
+                                            <div class="plan-price-header">₹6,000</div>
+                                            <button class="btn-header-cta btn-default" wire:click="selectPlan('Basic Plan')">
+                                                Buy Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                    {{-- Standard Plan Header (Featured) --}}
+                                    <div class="plan-column plan-header-box featured-header">
+                                        <div class="plan-header-content">
+                                            <h4 class="plan-name-header">Standard Plan</h4>
+                                            <div class="plan-price-header">₹9,999</div>
+                                            <button class="btn-header-cta btn-featured" wire:click="selectPlan('Standard Plan')">
+                                                Buy Now
+                                            </button>
+                                            <div class="checkmark-below">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                    <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- Premium Plan Header --}}
+                                    <div class="plan-column plan-header-box">
+                                        <div class="plan-header-content">
+                                            <h4 class="plan-name-header">Premium Plan</h4>
+                                            <div class="plan-price-header">₹17,999</div>
+                                            <button class="btn-header-cta btn-default" wire:click="selectPlan('Premium Plan')">
+                                                Buy Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- Table Body --}}
+                            <div class="comparison-body">
+                                {{-- Core Services Section --}}
+                                <div class="category-section">
+                                    <div class="category-header">
+                                        <h5>Core Trademark Services</h5>
+                                    </div>
+                                    
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Trademark Filing (1 Class)</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Preliminary Search Report</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Government Fee Filing</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Comprehensive Trademark Search & Analysis</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Professional Filing & Documentation</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Response to Examination Report</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- Advanced Protection Section --}}
+                                <div class="category-section">
+                                    <div class="category-header">
+                                        <h5>Advanced Protection & Monitoring</h5>
+                                    </div>
+                                    
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Opposition Handling (Up to 1st hearing)</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Watch Service for Similar Applications</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Renewal Reminders for 10 Years</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Brand Protection Advisory</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- Support & Consultation Section --}}
+                                <div class="category-section">
+                                    <div class="category-header">
+                                        <h5>Support & Consultation</h5>
+                                    </div>
+                                    
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Application Status Updates</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">30-Minute IP Consultation</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">1-Hour IP Strategy Consultation</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Dedicated IP Support Manager</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Email Support</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Priority Email & Phone Support</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- Footer --}}
+                            <div class="comparison-footer">
+                                <div class="footer-row">
+                                    <div class="feature-column">
+                                        <div class="help-section">
+                                            <strong>Need help choosing the right plan?</strong>
+                                            <p>Our IP experts will guide you through trademark selection and brand protection strategy.</p>
+                                        </div>
+                                    </div>
+                                    <div class="plan-column"></div>
+                                    <div class="plan-column"></div>
+                                    <div class="plan-column"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-summary-area pt-40 pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="quick-summary-card">
+                            <div class="d-flex align-items-center justify-content-between mb-20">
+                                <h4 class="quick-summary-title mb-0">Quick Summary</h4>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="quick-summary-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Plan Name</th>
+                                            <th>Ideal For</th>
+                                            <th class="text-right">All-Inclusive Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-label="Plan Name">Basic Plan</td>
+                                            <td data-label="Ideal For">Startups looking for basic trademark filing with minimal support</td>
+                                            <td data-label="All-Inclusive Price" class="text-right price-cell">₹6,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-label="Plan Name">Standard Plan</td>
+                                            <td data-label="Ideal For">Growing businesses needing comprehensive search and consultation</td>
+                                            <td data-label="All-Inclusive Price" class="text-right price-cell">₹9,999</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-label="Plan Name">Premium Plan</td>
+                                            <td data-label="Ideal For">Established brands requiring complete protection and ongoing support</td>
+                                            <td data-label="All-Inclusive Price" class="text-right price-cell">₹17,999</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="plan-area pb-70 pt-100" style="display: none;">
             <div class="container">
 
                 <div class="tab-content" id="nav-tabContent">
@@ -192,7 +828,7 @@
             </div>
         </section>
         <!-- Comparison Table Section -->
-        <section class="comparison-area pt-30 pb-90">
+        <section class="comparison-area pt-30 pb-90" style="display: none;">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
@@ -1508,6 +2144,416 @@
         @media (max-width: 767px) {
             .quick-summary-table {
                 min-width: 640px;
+            }
+        }
+
+        .pricing-comparison-section {
+            background: #fff;
+            font-family: 'Circular Std', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #050020;
+            margin-bottom: 0;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: #6b7280;
+            margin-top: 12px;
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 32px 24px;
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            background: #fff5f5;
+            border: 2px solid #ff1f1f;
+            transform: scale(1.02);
+        }
+
+        .pricing-card:hover {
+            box-shadow: 0 8px 24px rgba(5, 0, 32, 0.1);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff1f1f;
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .card-header {
+            margin-bottom: 24px;
+        }
+
+        .plan-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #050020;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .plan-tagline {
+            font-size: 14px;
+            color: #4b5563;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        .card-pricing {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .price-amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: #050020;
+            margin-bottom: 4px;
+        }
+
+        .price-note {
+            font-size: 13px;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+
+        .btn-cta {
+            width: 100%;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 24px;
+        }
+
+        .btn-primary {
+            background: #ff1f1f;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #e01b1b;
+        }
+
+        .btn-outline {
+            background: #fff;
+            color: #ff1f1f;
+            border: 2px solid #ff1f1f;
+        }
+
+        .btn-outline:hover {
+            background: #fff5f5;
+        }
+
+        .card-features {
+            text-align: left;
+        }
+
+        .features-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #050020;
+            margin-bottom: 16px;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        .features-list li svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+            color: #ff1f1f;
+        }
+
+        .compare-link {
+            color: #ff1f1f;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .compare-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Comparison Table */
+        .comparison-table-wrapper {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 40px;
+        }
+
+        .comparison-header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-title {
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            padding: 20px !important;
+        }
+
+        .compare-features-link {
+            color: #ff1f1f;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .compare-features-link:hover {
+            text-decoration: underline;
+        }
+
+        .plan-header-box {
+            background: #ffffff !important;
+            padding: 24px 20px !important;
+            border-left: 1px solid #e5e7eb;
+        }
+
+        .plan-header-box.featured-header {
+            background: #fff5f5 !important;
+            border-left: 1px solid #ffdddd;
+            border-right: 1px solid #ffdddd;
+        }
+
+        .plan-name-header {
+            font-size: 18px;
+            font-weight: 600;
+            color: #050020 !important;
+            margin-bottom: 10px;
+        }
+
+        .plan-price-header {
+            font-size: 30px;
+            font-weight: 700;
+            color: #050020 !important;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .btn-header-cta {
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            border: 2px solid;
+        }
+
+        .btn-default {
+            background: #ffffff;
+            color: #ff1f1f;
+            border-color: #ff1f1f;
+        }
+
+        .btn-default:hover {
+            background: #fff5f5;
+        }
+
+        .btn-featured {
+            background: #ff1f1f;
+            color: #ffffff;
+            border-color: #ff1f1f;
+        }
+
+        .btn-featured:hover {
+            background: #e01b1b;
+        }
+
+        .checkmark-below {
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-row,
+        .feature-row,
+        .footer-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 0;
+            align-items: center;
+        }
+
+        .feature-column,
+        .plan-column {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-right: 1px solid #e5e7eb;
+        }
+
+        .feature-column {
+            justify-content: flex-start;
+            text-align: left;
+        }
+
+        .plan-column:last-child {
+            border-right: none;
+        }
+
+        .plan-column.featured {
+            background: #fff5f5;
+            border-left: 1px solid #ffdddd;
+            border-right: 1px solid #ffdddd;
+        }
+
+        .plan-header-content {
+            width: 100%;
+        }
+
+        .category-section {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .category-section:last-child {
+            border-bottom: none;
+        }
+
+        .category-header {
+            background: #f9fafb;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .category-header h5 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #050020;
+            margin: 0;
+        }
+
+        .feature-row {
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .feature-row:last-child {
+            border-bottom: none;
+        }
+
+        .feature-row:hover {
+            background: #fafafa;
+        }
+
+        .feature-name {
+            font-size: 14px;
+            color: #1f2937;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .check-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .no-feature {
+            color: #d1d5db;
+            font-size: 20px;
+        }
+
+        .comparison-footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .help-section {
+            text-align: left;
+            padding: 8px 0;
+        }
+
+        .help-section strong {
+            color: #050020;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .help-section p {
+            color: #4b5563;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .comparison-table-wrapper {
+                overflow-x: auto;
+            }
+
+            .header-row,
+            .feature-row,
+            .footer-row {
+                min-width: 800px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .plan-name {
+                font-size: 20px;
+            }
+
+            .price-amount {
+                font-size: 28px;
             }
         }
     </style>

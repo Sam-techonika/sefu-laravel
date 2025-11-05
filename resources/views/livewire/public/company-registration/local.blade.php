@@ -1,7 +1,8 @@
 <div>
     <main>
         <!--slider-area start-->
-        <section class="slider-area slider-bg pos-rel">
+       <div wire:ignore>
+         <section class="slider-area slider-bg pos-rel">
             <div class="slider-active">
                 <div class="single-slider slider-height-2 pos-rel pt-275 pb-190 pt-md-200 pt-xs-50 pb-md-50 pb-xs-50">
                     <div class="slider__img-two d-none d-lg-block" style="background: url({{ asset('assets/img/registrations/slider4.png') }});">
@@ -85,382 +86,661 @@
                 </div>
             </div>
         </section>
+       </div>
         <!--slider-area end-->
 
-        <section class="plan-area pb-70 pt-40">
+        <!-- Pricing Comparison Section -->
+        <section class="pricing-comparison-section py-5" x-data="{ showComparison: false }">
             <div class="container">
+                {{-- Section Header --}}
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-10 text-center">
+                        <h2 class="section-title mb-3">Choose a plan that best suits your needs</h2>
+                        <p class="section-subtitle">Simple, transparent pricing for your company registration</p>
+                    </div>
+                </div>
 
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <div class="row no-gutters">
-                            <div class="col-lg-4 col-md-6 mt-50 mt-md-0 mt-xs-0">
-                                <div class="plan mb-30">
-                                    <span class="plan-tag">Starter Plan</span>
-                                    <div class="plan__header text-center pb-45 mb-50">
-                                        <h4 class="sub-title">Kickstart your business with all essentials for incorporation.
-                                        </h4>
-                                        </h4>
-                                        <h1 class="mb-35">₹8,999 </sup></h1>
-                                        <h5>(Includes ₹6,500 Govt. Fees + ₹2,499 Professional Fees)</h5>
-                                    </div>
-                                    <div class="plan__body">
-                                        <ul class="chose-text-list pb-10 mb-30">
-                                            <li>Company Incorporation under MCA V3 (Private Limited / LLP / OPC)</li>
-                                            <li>DIN & DSC for Two Directors Digital Signatures and Director Identification Numbers</li>
-                                            <li>Name Reservation SPICe+ RUN Form under MCA V3</li>
-                                            <li>Drafting and filing under Companies Act, 2013</li>
-                                        </ul>
-                                    </div>
-                                    <div class="plan__footer text-center">
-                                        <a href="#" class="theme_btn border-btn mb-10">Start Registration →</a>
-                                    </div>
-                                </div>
+                {{-- Pricing Cards --}}
+                <div class="row g-4 mb-5">
+                    {{-- Starter Plan --}}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="card-header">
+                                <h3 class="plan-name">Starter Plan</h3>
+                                <p class="plan-tagline">Kickstart your business with all essentials for incorporation.</p>
                             </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="plan plan-2 active mb-30">
-                                    <span class="plan-tag">Complete Setup Plan</span>
-                                    <div class="plan__header text-center pb-35 mb-60">
-                                        <h4 class="sub-title">Incorporate with confidence full compliance, filings, and legal protection for your first year.
 
-                                        </h4>
-                                        <h1 class="mb-35">₹24,999</sup></h1>
-                                        <h5>(Includes ₹11,000 Govt. Fees + ₹13,999 Professional Fees)</h5>
-                                    </div>
-                                    <div class="plan__body">
-                                        <ul class="chose-text-list pb-35 mb-30">
-                                            <li>Trademark Registration (Filing of one trademark application under one class – company name or logo)</li>
-                                            <li>Startup India Recognition (Guidance and support for DPIIT registration and certification)</li>
-                                            <li>1-Year CS Compliance Package (Full compliance management under the Companies Act, 2013)</li>
-                                            <li>Annual ROC Filings for First Financial Year (AOC-4, MGT-7A, and all linked forms under MCA V3)</li>
-                                            <li>AGM & Board Meeting Documentation (Notices, Minutes, Attendance Registers & Director’s Report)</li>
-                                            <li>1-Year Complete Secretarial Records (Maintenance of Statutory Registers, Share Certificates, and Minutes Book)</li>
-                                        </ul>
-                                    </div>
-                                    <div class="plan__footer text-center">
-                                        <a href="#" class="theme_btn border-btn mb-10">Get Complete Setup →</a>
-                                    </div>
-                                </div>
+                            <div class="card-pricing">
+                                <div class="price-amount">₹8,999</div>
+                                <div class="price-note">Includes ₹6,500 Govt. Fees + ₹2,499 Professional Fees</div>
                             </div>
-                            <div class="col-lg-4 col-md-6 mt-50 mt-md-0 mt-xs-0">
-                                <div class="plan mb-30">
-                                    <span class="plan-tag">Compliance Plan</span>
-                                    <div class="plan__header text-center pb-45 mb-50">
-                                        <h4 class="sub-title">Register with confidence full legal and secretarial compliance handled.</h4>
-                                        <h1 class="mb-35">₹12,999</h1>
-                                        <h5>(Includes ₹6,500 Govt. Fees + ₹6,499 Professional Fees)</h5>
-                                    </div>
-                                    <div class="plan__body">
-                                        <ul class="chose-text-list pb-10 mb-30">
-                                            <li>GST Registration (Complete filing & approval support with documentation)</li>
-                                            <li>MSME (Udyam) Registration (For small & medium enterprise recognition and benefits)</li>
-                                            <li>First Year Compliance Guidance (Initial due dates, filing roadmap & compliance checklist)</li>
-                                            <li>Compliance Calendar Setup (Personalized reminder and advisory schedule for your company)</li>
-                                            <li>AGM & Board Meeting Documentation (Notices, Minutes, Attendance Registers & Director’s Report)</li>
-                                            <li>Professional Consultation Session (30-minute CS consultation to plan your company’s compliance structure)</li>
-                                        </ul>
-                                    </div>
-                                    <div class="plan__footer text-center">
-                                        <a href="#" class="theme_btn border-btn mb-10">Get Compliance Setup →</a>
-                                    </div>
-                                </div>
+
+                            <button class="btn-cta btn-outline" wire:click="selectPlan('Starter Plan')">
+                                Start Registration →
+                            </button>
+
+                            <div class="card-features">
+                                <p class="features-title">Perfect for new business setup:</p>
+                                <ul class="features-list">
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Company Incorporation under MCA V3 (Private Limited / LLP / OPC)
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        DIN & DSC for Two Directors
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Name Reservation SPICe+ RUN Form
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Drafting and filing under Companies Act, 2013
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
 
-                </div>
-                <div class="row pink-bg align-items-center mt-90 pt-15 pb-10">
-                    <div class="col-md-8">
-                        <h5 class="plan-info-text text-center text-md-left"><span>Need help choosing the right plan?</span>Our team will guide you based on your business goals and compliance needs..</h5>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="contact-btn text-center text-md-right">
-                            <a href="contact.html" class="theme_btn">Talk to an Expert →</a>
+                    {{-- Compliance Plan (Featured) --}}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-card featured">
+                            <div class="popular-badge">Most Popular</div>
+                            
+                            <div class="card-header">
+                                <h3 class="plan-name">Compliance Plan</h3>
+                                <p class="plan-tagline">Register with confidence full legal and secretarial compliance handled.</p>
+                            </div>
+
+                            <div class="card-pricing">
+                                <div class="price-amount">₹12,999</div>
+                                <div class="price-note">Includes ₹6,500 Govt. Fees + ₹6,499 Professional Fees</div>
+                            </div>
+
+                            <button class="btn-cta btn-primary" wire:click="selectPlan('Compliance Plan')">
+                                Get Compliance Setup →
+                            </button>
+
+                            <div class="card-features">
+                                <p class="features-title">Everything in Starter, plus:</p>
+                                <ul class="features-list">
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        GST Registration (Complete filing & approval support)
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        MSME (Udyam) Registration
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        First Year Compliance Guidance
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Compliance Calendar Setup
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        AGM & Board Meeting Documentation
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Professional Consultation Session (30-minute CS consultation)
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- <section class="subscribe-letter-area pt-80 pb-115 pt-xs-115">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-10">
-                        <div class="subscribe-wrapper">
-                            <div class="section-title text-center">
-                                <h3 class="mb-25">Need help choosing the right plan?</span></h3>
-                                <h4 class="sub-title mb-50">Our team will guide you based on your business goals and compliance needs.</h4>
-                                <a href="contact.html" class="theme_btn sub-btn">Talk to an Expert →</a>
+                    {{-- Complete Setup Plan --}}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pricing-card">
+                            <div class="card-header">
+                                <h3 class="plan-name">Complete Setup Plan</h3>
+                                <p class="plan-tagline">Incorporate with confidence full compliance, filings, and legal protection for your first year.</p>
+                            </div>
+
+                            <div class="card-pricing">
+                                <div class="price-amount">₹24,999</div>
+                                <div class="price-note">Includes ₹11,000 Govt. Fees + ₹13,999 Professional Fees</div>
+                            </div>
+
+                            <button class="btn-cta btn-outline" wire:click="selectPlan('Complete Setup Plan')">
+                                Get Complete Setup →
+                            </button>
+
+                            <div class="card-features">
+                                <p class="features-title">Everything in Compliance, plus:</p>
+                                <ul class="features-list">
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Trademark Registration (Filing of one trademark application)
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Startup India Recognition (DPIIT registration)
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        1-Year CS Compliance Package
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Annual ROC Filings for First Financial Year (AOC-4, MGT-7A)
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        AGM & Board Meeting Documentation
+                                    </li>
+                                    <li>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        1-Year Complete Secretarial Records
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section> -->
-            </div>
-        </section>
 
-
-        <!-- Comparison Table Section -->
-        <section class="comparison-area pt-30 pb-90">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="section-title text-center mb-70">
-                            <h3>Compare Our Plans</h3>
-                            <p class="sub-title mt-30">Choose the perfect plan that fits your business needs</p>
-                        </div>
+                {{-- Comparison Link --}}
+                <div class="row mb-4">
+                    <div class="col-12 text-center">
+                        <a @click.prevent="showComparison = !showComparison" class="compare-link" style="cursor: pointer;">
+                            <span x-show="!showComparison">Compare plan features</span>
+                            <span x-show="showComparison">Hide comparison</span>
+                            <svg x-show="!showComparison" width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; margin-left: 4px;">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <svg x-show="showComparison" width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; margin-left: 4px;">
+                                <path d="M12 10L8 6L4 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
 
-                <div class="row">
+                {{-- Comparison Table --}}
+                <div class="row" id="comparison-table" x-show="showComparison" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-4" style="display: none;">
                     <div class="col-12">
-                        <div class="modern-comparison-wrapper">
-                            <!-- Header with Plan Names and Prices -->
+                        <div class="comparison-table-wrapper">
+                            {{-- Table Header --}}
                             <div class="comparison-header">
-                                <div class="comparison-row header-row">
-                                    <div class="feature-col header-feature">
-                                        <h4>Plan Features</h4>
+                                <div class="header-row">
+                                    <div class="feature-column header-title">
+                                        <a @click.prevent="showComparison = false" class="compare-features-link" style="cursor: pointer;">Hide comparison</a>
                                     </div>
-                                    <div class="plan-col">
+                                    {{-- Starter Plan Header --}}
+                                    <div class="plan-column plan-header-box">
                                         <div class="plan-header-content">
-                                            <h4>Starter Plan</h4>
-                                            <div class="price-tag">₹8,999</div>
-                                            <p class="price-subtitle">(All Inclusive)</p>
-                                            <small>₹6,500 Govt + ₹2,499 Professional</small>
-                                            <button type="button" wire:click="selectPlan('Starter Plan')" class="get-started-btn">Get Started</button>
+                                            <h4 class="plan-name-header">Starter Plan</h4>
+                                            <div class="plan-price-header">₹8,999</div>
+                                            <button class="btn-header-cta btn-default" wire:click="selectPlan('Starter Plan')">
+                                                Buy Now
+                                            </button>
                                         </div>
                                     </div>
-                                    <div class="plan-col featured-plan">
+                                    {{-- Compliance Plan Header (Featured) --}}
+                                    <div class="plan-column plan-header-box featured-header">
                                         <div class="plan-header-content">
-                                            <h4>Compliance Plan</h4>
-                                            <div class="price-tag">₹12,999</div>
-                                            <p class="price-subtitle">(All Inclusive)</p>
-                                            <small>₹6,500 Govt + ₹6,499 Professional</small>
-                                            <button type="button" wire:click="selectPlan('Compliance Plan')" class="get-started-btn">Get Started</button>
+                                            <h4 class="plan-name-header">Compliance Plan</h4>
+                                            <div class="plan-price-header">₹12,999</div>
+                                            <button class="btn-header-cta btn-featured" wire:click="selectPlan('Compliance Plan')">
+                                                Buy Now
+                                            </button>
+                                            <div class="checkmark-below">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                    <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="plan-col">
+                                    {{-- Complete Setup Header --}}
+                                    <div class="plan-column plan-header-box">
                                         <div class="plan-header-content">
-                                            <h4>Complete Setup</h4>
-                                            <div class="price-tag">₹24,999</div>
-                                            <p class="price-subtitle">(All Inclusive)</p>
-                                            <small>₹11,000 Govt + ₹13,999 Professional</small>
-                                            <button type="button" wire:click="selectPlan('Complete Setup Plan')" class="get-started-btn">Get Started</button>
+                                            <h4 class="plan-name-header">Complete Setup Plan</h4>
+                                            <div class="plan-price-header">₹24,999</div>
+                                            <button class="btn-header-cta btn-default" wire:click="selectPlan('Complete Setup Plan')">
+                                                Buy Now
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Collapsible Sections -->
-                            <div class="comparison-body" x-data="{ 
-                            incorporationOpen: true, 
-                            complianceOpen: false, 
-                            advisoryOpen: false 
-                        }" x-init="$wire.on('livewire:navigated', () => { incorporationOpen = true; complianceOpen = false; advisoryOpen = false; })">
-
-                                <!-- Incorporation Section -->
-                                <div class="feature-section">
-                                    <div class="section-header" @click="incorporationOpen = !incorporationOpen">
-                                        <div class="section-title-content">
-                                            <i class="fas fa-building"></i>
-                                            <span>Incorporation</span>
-                                        </div>
-                                        <i class="fas fa-chevron-down toggle-icon" :class="{ 'rotate': incorporationOpen }"></i>
+                            {{-- Table Body --}}
+                            <div class="comparison-body">
+                                {{-- Incorporation Section --}}
+                                <div class="category-section">
+                                    <div class="category-header">
+                                        <h5>Incorporation</h5>
                                     </div>
-                                    <div class="section-content" :class="{ 'open': incorporationOpen }">
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">Company Incorporation</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col featured"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Company Incorporation under MCA V3</span>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">DIN & DSC for 2 Directors</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col featured"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">Name Reservation SPICe+ RUN</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col featured"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">MOA, AOA & Incorporation Certificate</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col featured"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">PAN & TAN Allotment</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col featured"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">DIN & DSC for Two Directors</span>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">Post-Incorporation Docs (Share Certificates, Registers, Minutes)</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col featured"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">Assistance in Bank Account Opening</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col featured"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">Registrations & Licenses</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col featured"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Name Reservation SPICe+ RUN Form</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">MOA, AOA & Incorporation Certificate</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">PAN & TAN Allotment</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Post-Incorporation Docs (Share Certificates, Registers, Minutes)</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Assistance in Bank Account Opening</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Compliance & Governance Section -->
-                                <div class="feature-section">
-                                    <div class="section-header" @click="complianceOpen = !complianceOpen">
-                                        <div class="section-title-content">
-                                            <i class="fas fa-clipboard-check"></i>
-                                            <span>Compliance & Governance</span>
-                                        </div>
-                                        <i class="fas fa-chevron-down toggle-icon" :class="{ 'rotate': complianceOpen }"></i>
+                                {{-- Compliance & Governance Section --}}
+                                <div class="category-section">
+                                    <div class="category-header">
+                                        <h5>Compliance & Governance</h5>
                                     </div>
-                                    <div class="section-content" :class="{ 'open': complianceOpen }">
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">GST Registration</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col featured"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">GST Registration (Complete filing & approval support)</span>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">MSME (Udyam) Registration</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col featured"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">Startup India (DPIIT) Recognition</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col featured"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">Trademark Filing (1 Class – Name or Logo)</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col featured"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">Compliance Calendar & Due-Date Tracker</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col featured"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">MSME (Udyam) Registration</span>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">30-Minute CS Consultation</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col featured"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">1-Year CS Compliance Package</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col featured"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">Annual ROC Filings (AOC-4, MGT-7A)</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col featured"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Startup India (DPIIT) Recognition</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Trademark Filing (1 Class – Name or Logo)</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Compliance Calendar & Due-Date Tracker</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">30-Minute CS Consultation</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">1-Year CS Compliance Package</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Annual ROC Filings (AOC-4, MGT-7A)</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Advisory & Support Section -->
-                                <div class="feature-section">
-                                    <div class="section-header" @click="advisoryOpen = !advisoryOpen">
-                                        <div class="section-title-content">
-                                            <i class="fas fa-headset"></i>
-                                            <span>Advisory & Support</span>
-                                        </div>
-                                        <i class="fas fa-chevron-down toggle-icon" :class="{ 'rotate': advisoryOpen }"></i>
+                                {{-- Advisory & Support Section --}}
+                                <div class="category-section">
+                                    <div class="category-header">
+                                        <h5>Advisory & Support</h5>
                                     </div>
-                                    <div class="section-content" :class="{ 'open': advisoryOpen }">
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">AGM & Board Meeting Documentation</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col featured"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                    
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">AGM & Board Meeting Documentation</span>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">1-Year Secretarial Record</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col featured"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">Dedicated CS Support (Call, WhatsApp & Email)</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col featured"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
                                         </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">First-Year Compliance Guidance</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-cross">✕</span></div>
-                                            <div class="plan-col featured"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
-                                        </div>
-                                        <div class="comparison-row">
-                                            <div class="feature-col">
-                                                <span class="feature-name">Post-incorporation Advisory (Bank, Accounting, Startup Recognition)</span>
-                                            </div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col featured"><span class="icon-check">✓</span></div>
-                                            <div class="plan-col"><span class="icon-check">✓</span></div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
                                         </div>
                                     </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">1-Year Secretarial Records Maintenance</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Director's Report & Compliance Advisory</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">Email & Phone Support</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- Footer --}}
+                            <div class="comparison-footer">
+                                <div class="footer-row">
+                                    <div class="feature-column">
+                                        <div class="help-section">
+                                            <strong>Need help choosing the right plan?</strong>
+                                            <p>Our team will guide you based on your business goals and compliance needs.</p>
+                                        </div>
+                                    </div>
+                                    <div class="plan-column"></div>
+                                    <div class="plan-column"></div>
+                                    <div class="plan-column"></div>
                                 </div>
                             </div>
                         </div>
@@ -468,6 +748,418 @@
                 </div>
             </div>
         </section>
+
+        <style>
+        .pricing-comparison-section {
+            background: #fff;
+            font-family: 'Circular Std', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #050020;
+            margin-bottom: 0;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: #6b7280;
+            margin-top: 12px;
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 32px 24px;
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            background: #fff5f5;
+            border: 2px solid #ff1f1f;
+            transform: scale(1.02);
+        }
+
+        .pricing-card:hover {
+            box-shadow: 0 8px 24px rgba(5, 0, 32, 0.1);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff1f1f;
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .card-header {
+            margin-bottom: 24px;
+        }
+
+        .plan-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #050020;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .plan-tagline {
+            font-size: 14px;
+            color: #4b5563;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        .card-pricing {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .price-amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: #050020;
+            margin-bottom: 4px;
+        }
+
+        .price-note {
+            font-size: 13px;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+
+        .btn-cta {
+            width: 100%;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 24px;
+        }
+
+        .btn-primary {
+            background: #ff1f1f;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #e01b1b;
+        }
+
+        .btn-outline {
+            background: #fff;
+            color: #ff1f1f;
+            border: 2px solid #ff1f1f;
+        }
+
+        .btn-outline:hover {
+            background: #fff5f5;
+        }
+
+        .card-features {
+            text-align: left;
+        }
+
+        .features-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #050020;
+            margin-bottom: 16px;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        .features-list li svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+            color: #ff1f1f;
+        }
+
+        .compare-link {
+            color: #ff1f1f;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .compare-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Comparison Table */
+        .comparison-table-wrapper {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 40px;
+        }
+
+        .comparison-header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-title {
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            padding: 20px !important;
+        }
+
+        .compare-features-link {
+            color: #ff1f1f;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .compare-features-link:hover {
+            text-decoration: underline;
+        }
+
+        .plan-header-box {
+            background: #ffffff !important;
+            padding: 24px 20px !important;
+            border-left: 1px solid #e5e7eb;
+        }
+
+        .plan-header-box.featured-header {
+            background: #fff5f5 !important;
+            border-left: 1px solid #ffdddd;
+            border-right: 1px solid #ffdddd;
+        }
+
+        .plan-name-header {
+            font-size: 18px;
+            font-weight: 600;
+            color: #050020 !important;
+            margin-bottom: 10px;
+        }
+
+        .plan-price-header {
+            font-size: 30px;
+            font-weight: 700;
+            color: #050020 !important;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .btn-header-cta {
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            border: 2px solid;
+        }
+
+        .btn-default {
+            background: #ffffff;
+            color: #ff1f1f;
+            border-color: #ff1f1f;
+        }
+
+        .btn-default:hover {
+            background: #fff5f5;
+        }
+
+        .btn-featured {
+            background: #ff1f1f;
+            color: #ffffff;
+            border-color: #ff1f1f;
+        }
+
+        .btn-featured:hover {
+            background: #e01b1b;
+        }
+
+        .checkmark-below {
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-row,
+        .feature-row,
+        .footer-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 0;
+            align-items: center;
+        }
+
+        .feature-column,
+        .plan-column {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-right: 1px solid #e5e7eb;
+        }
+
+        .feature-column {
+            justify-content: flex-start;
+            text-align: left;
+        }
+
+        .plan-column:last-child {
+            border-right: none;
+        }
+
+        .plan-column.featured {
+            background: #fff5f5;
+            border-left: 1px solid #ffdddd;
+            border-right: 1px solid #ffdddd;
+        }
+
+        .plan-header-content {
+            width: 100%;
+        }
+
+        .category-section {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .category-section:last-child {
+            border-bottom: none;
+        }
+
+        .category-header {
+            background: #f9fafb;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .category-header h5 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #050020;
+            margin: 0;
+        }
+
+        .feature-row {
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .feature-row:last-child {
+            border-bottom: none;
+        }
+
+        .feature-row:hover {
+            background: #fafafa;
+        }
+
+        .feature-name {
+            font-size: 14px;
+            color: #1f2937;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .check-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .no-feature {
+            color: #d1d5db;
+            font-size: 20px;
+        }
+
+        .comparison-footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .help-section {
+            text-align: left;
+            padding: 8px 0;
+        }
+
+        .help-section strong {
+            color: #050020;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .help-section p {
+            color: #4b5563;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .comparison-table-wrapper {
+                overflow-x: auto;
+            }
+
+            .header-row,
+            .feature-row,
+            .footer-row {
+                min-width: 800px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .plan-name {
+                font-size: 20px;
+            }
+
+            .price-amount {
+                font-size: 28px;
+            }
+        }
+        </style>
 
         <section class="quick-summary-area pt-40 pb-60">
             <div class="container">
