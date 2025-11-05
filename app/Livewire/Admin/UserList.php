@@ -6,15 +6,18 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithFileUploads;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class UserList extends Component
 {
-    use WithPagination;
+    use WithPagination, WithFileUploads;
 
-    public $name, $email, $password, $userId;
+    public $name, $email, $password, $userId, $about, $description, $profile_image, $is_active;
+    public $existingImage;
 
     public $showModal = false;
     public $showDeleteModal = false;
@@ -28,12 +31,17 @@ class UserList extends Component
         'name' => 'required|string|max:255',
         'email' => 'required|email|max:255|unique:users,email',
         'password' => 'required|string|min:6',
+        'about' => 'nullable|string|max:500',
+        'description' => 'nullable|string|max:1000',
+        'profile_image' => 'nullable|image|max:2048',
+        'is_active' => 'boolean',
     ];
 
     public function openCreateModal()
     {
         $this->resetForm();
         $this->editMode = false;
+        $this->is_active = true;
         $this->showModal = true;
     }
 
@@ -47,9 +55,20 @@ class UserList extends Component
         $this->role = $user->role;
         $this->name = $user->name;
         $this->email = $user->email;
+        $this->about = $user->about;
+        $this->description = $user->description;
+        $this->is_active = $user->is_active ?? true;
+        $this->existingImage = $user->profile_photo_path;
         $this->password = '';
 
         $this->showModal = true;
+    }
+
+    public function toggleStatus($userId)
+    {
+        $user = User::findOrFail($userId);
+        $user->update(['is_active' => !$user->is_active]);
+        $this->dispatch('success', 'User status updated successfully');
     }
 
     public function saveUser()
@@ -63,19 +82,43 @@ class UserList extends Component
 
         $this->validate($rules);
 
+        $profileImagePath = null;
+        
+        if ($this->profile_image) {
+            $profileImagePath = $this->profile_image->store('profile-images', 'public');
+            
+            // Delete old image if editing
+            if ($this->editMode && $this->existingImage) {
+                Storage::disk('public')->delete($this->existingImage);
+            }
+        }
+
         if ($this->editMode) {
             $user = User::findOrFail($this->userId);
-            $user->update([
+            $updateData = [
                 'name' => $this->name,
                 'email' => $this->email,
                 'role' => $this->role,
+                'about' => $this->about,
+                'description' => $this->description,
+                'is_active' => $this->is_active ?? true,
                 'password' => $this->password ? Hash::make($this->password) : $user->password,
-            ]);
+            ];
+            
+            if ($profileImagePath) {
+                $updateData['profile_photo_path'] = $profileImagePath;
+            }
+            
+            $user->update($updateData);
         } else {
             User::create([
                 'name' => $this->name,
                 'email' => $this->email,
                 'role' => $this->role,
+                'about' => $this->about,
+                'description' => $this->description,
+                'is_active' => $this->is_active ?? true,
+                'profile_photo_path' => $profileImagePath,
                 'password' => Hash::make($this->password),
             ]);
         }
@@ -101,7 +144,7 @@ class UserList extends Component
 
     private function resetForm()
     {
-        $this->reset(['name', 'email', 'password', 'userId']);
+        $this->reset(['name', 'email', 'password', 'userId', 'about', 'description', 'profile_image', 'existingImage', 'is_active']);
     }
 
     #[Layout('components.layouts.admin')]
