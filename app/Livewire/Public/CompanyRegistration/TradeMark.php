@@ -7,6 +7,7 @@ use App\Models\Registration;
 use App\Models\RegistrationPlan;
 use App\Models\UserRegistration;
 use App\Models\ServiceRequest;
+use App\Models\Blog;
 use Livewire\Component;
 
 class TradeMark extends Component
@@ -20,6 +21,7 @@ class TradeMark extends Component
     public $planName;
     public $showThanksModal = false;
     public $showPendingModal = false;
+    public $blogs = [];
     
     // Service request properties
     public $serviceType = '';
@@ -32,6 +34,30 @@ class TradeMark extends Component
         $getRegistration = Registration::where('name', 'Trademark Registration')->with('Plan')->first();
         $this->registration = $getRegistration->id;
         $this->showServiceThanks = false;
+        
+        // Load latest blogs with localization
+        $locale = app()->getLocale() ?? 'en';
+        $this->blogs = Blog::where('is_active', true)
+            ->whereHas('translations', function ($query) use ($locale) {
+                $query->where('locale', $locale);
+            })
+            ->with(['translations' => function ($query) use ($locale) {
+                $query->where('locale', $locale);
+            }])
+            ->latest()
+            ->take(3)
+            ->get()
+            ->map(function ($blog) {
+                $translation = $blog->translations->first();
+                return [
+                    'id' => $blog->id,
+                    'slug' => $translation->slug ?? '',
+                    'title' => $translation->title ?? '',
+                    'at_glance' => $translation->at_glance ?? '',
+                    'featured_image' => $blog->featured_image ?? 'assets/img/blog/01.jpg',
+                    'created_at' => $blog->created_at,
+                ];
+            });
     }
     public function selectPlan($plan)
     {

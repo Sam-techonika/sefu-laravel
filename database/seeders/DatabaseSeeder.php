@@ -22,8 +22,6 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             TestimonialSeeder::class,
             RegistrationSeeder::class,
-            BlogSeeder::class,
-            // BlogSeeder::class,
         ]);
     }
 }

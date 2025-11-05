@@ -744,42 +744,24 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-4">
-                        <div class="blogs blogs-2 mb-30 wow fadeInUp2 animated" data-wow-delay="0.1s">
-                            <div class="blogs__thumb mb-30">
-                                <img class="img-fluid" src="{{ asset('assets/img/blog/01.jpg') }}" alt="">
-                            </div>
-                            <div class="blogs__content">
-                                <span class="tag mb-25">Business</span>
-                                <h3 class="blog-title mb-15"><a href="blog-details.html">Challange yourself and win the future.</a></h3>
-                                <a class="blog-btn" href="blog-details.html">Continue Reading <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4">
-                        <div class="blogs blogs-2 mb-30 wow fadeInUp2 animated" data-wow-delay="0.3s">
-                            <div class="blogs__thumb mb-30">
-                                <img class="img-fluid" src="{{ asset('assets/img/blog/02.jpg') }}" alt="">
-                            </div>
-                            <div class="blogs__content">
-                                <span class="tag mb-25">Support</span>
-                                <h3 class="blog-title mb-15"><a href="blog-details.html">Cosmetic surgery in a nutshell.</a></h3>
-                                <a class="blog-btn" href="blog-details.html">Continue Reading <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
+                    @forelse($blogs as $index => $blog)
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <div class="blogs blogs-2 mb-30 wow fadeInUp2 animated" data-wow-delay="{{ ($index + 1) * 0.2 }}s">
+                                <div class="blogs__thumb mb-30">
+                                    <img class="img-fluid" src="{{ $blog['featured_image'] ? asset('storage/'.$blog['featured_image']) : asset('assets/img/blog/01.jpg') }}" alt="{{ $blog['title'] }}">
+                                </div>
+                                <div class="blogs__content">
+                                    <span class="date-tag mb-25">{{ $blog['created_at']->format('d M, Y') }}</span>
+                                    <h3 class="blog-title mb-15"><a href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">{{ Str::limit($blog['title'], 60) }}</a></h3>
+                                    <a class="blog-btn" href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">Continue Reading <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4">
-                        <div class="blogs blogs-2 mb-30">
-                            <div class="blogs__thumb mb-30 wow fadeInUp2 animated" data-wow-delay="0.5s">
-                                <img class="img-fluid" src="{{ asset('assets/img/blog/03.jpg') }}" alt="">
-                            </div>
-                            <div class="blogs__content">
-                                <span class="tag mb-25">Travel</span>
-                                <h3 class="blog-title mb-15"><a href="blog-details.html">Newideas for a low cost vacation.</a></h3>
-                                <a class="blog-btn" href="blog-details.html">Continue Reading <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
-                            </div>
+                    @empty
+                        <div class="col-12">
+                            <p class="text-center">No blogs available at the moment.</p>
                         </div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
         </section>
