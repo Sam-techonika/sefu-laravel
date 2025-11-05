@@ -25,17 +25,17 @@
                         <div class="row align-items-center">
                             <div class="col-xl-6 col-lg-8">
                                 <div class="slider__content slider__content-2 text-left">
-                                    <h1 class="main-title mb-35" data-animation="fadeInUp2" data-delay=".2s">Incorporate. Grow.<span style="color:#ff1f1f">comply </span> With Confidence</h1>
-                                    <h3>Led by experienced Company Secretaries who make business setup, compliance, and filings seamless and stress-free.</h3>
+                                    <h1 class="main-title mb-35" data-animation="fadeInUp2" data-delay=".2s">Expand Into <span style="color:#ff1f1f">india </span> With Confidence</h1>
+                                    <h3>Led by experienced Company Secretaries and FEMA experts who make foreign company setup, RBI filings, and compliance completely seamless.</h3>
                                     <ul class="input-box mt-70">
                                         <li>
                                             <form class="hero-form">
                                                 <label>Email address</label>
-                                                <input type="email" name="email" placeholder="ihidago@ujufidnan.gov">
+                                                <input type="email" name="email" placeholder="{{setting('contact_email','ihidago@ujufidnan.gov')}}">
                                             </form>
                                         </li>
                                         <li>
-                                            <a href="https://wa.me/919821008011" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Contact Us</a>
+                                            <a href="{{setting('whatsapp_url', '')}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -65,17 +65,17 @@
                         <div class="row align-items-center">
                             <div class="col-xl-6 col-lg-8">
                                 <div class="slider__content slider__content-2 text-left">
-                                    <h1 class="main-title mb-35" data-animation="fadeInUp2" data-delay=".2s">Incorporate. Grow.<span style="color:#ff1f1f">comply </span> With Confidence</h1>
-                                    <h3>Led by experienced Company Secretaries who make business setup, compliance, and filings seamless and stress-free.</h3>
+                                    <h1 class="main-title mb-35" data-animation="fadeInUp2" data-delay=".2s">Expand Into <span style="color:#ff1f1f">india </span> With Confidence</h1>
+                                    <h3>Led by experienced Company Secretaries and FEMA experts who make foreign company setup, RBI filings, and compliance completely seamless.</h3>
                                     <ul class="input-box mt-70">
                                         <li>
                                             <form class="hero-form">
                                                 <label>Email address</label>
-                                                <input type="email" name="email" placeholder="ihidago@ujufidnan.gov">
+                                                <input type="email" name="email" placeholder="{{setting('contact_email','ihidago@ujufidnan.gov')}}">
                                             </form>
                                         </li>
                                         <li>
-                                            <a href="https://wa.me/919821008011" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Contact Us</a>
+                                            <a href="{{setting('whatsapp_url', 'no number found')}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -86,6 +86,58 @@
             </div>
         </section>
         <!--slider-area end-->
+
+          <section class="what-we-do-area pt-100 pb-100 pb-md-20 pt-md-60 pt-xs-60 pb-xs-20">
+            <div class="container">
+                <div class="row mb-85">
+                    <div class="col-lg-6">
+                        <div class="do-wrapper mb-30">
+                            <div class="section-title section-title-3 text-center text-md-left">
+                                <h3>500+ trusted user & they <span class="highlight-text">love us.</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center text-md-left">
+                        <div class="what-text pt-10 pl-155 pl-lg-0 pl-md-0 pl-xs-0">
+                            <h3>Helping you pre times of
+                                uncertainty is at the what we do. lorem finding.</h3>
+                        </div>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+                <div class="row align-items-center">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.1s">
+                        <div class="do-box do-box-2 active mb-30">
+                            <div class="icon mb-25">
+                                <img src="{{asset('assets/img/icon/icon17.svg')}}" alt="">
+                            </div>
+                            <h5>Expert Led Process</h5>
+                            <h3>Handled by Company Secretaries & FEMA experts.</h3>
+                            <a class="more-btn" href="{{route('contact',['locale' => app()->getLocale()])}}">Check more details</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.3s">
+                        <div class="do-box do-box-2 mb-30">
+                            <div class="icon mb-25">
+                                <img src="{{asset('assets/img/icon/icon18.svg')}}" alt="">
+                            </div>
+                            <h5>Transparent Pricing</h5>
+                            <h3>Government + professional fees clearly shown</h3>
+                            <a class="more-btn" href="{{route('contact',['locale' => app()->getLocale()])}}">Check more details</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.5s">
+                        <div class="do-box do-box-2 mb-30">
+                            <div class="icon mb-25">
+                                <img src="{{asset('assets/img/icon/icon19.svg')}}" alt="">
+                            </div>
+                            <h5>Complete Regulatory Support</h5>
+                            <h3>From incorporation to RBI filings & compliance.</h3>
+                            <a class="more-btn" href="{{route('contact',['locale' => app()->getLocale()])}}">Check more details</a>
+                        </div>
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section>
 
         <!-- Pricing Comparison Section -->
         <section class="pricing-comparison-section py-5" x-data="{ showComparison: false }">
@@ -122,25 +174,25 @@
                                 <ul class="features-list">
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         Company Incorporation under MCA V3 (Private Limited / Branch / LO)
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         DIN & DSC for Two Directors
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         RBI / FEMA Approval Filing Support
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         Foreign Investment Compliance Documentation
                                     </li>
@@ -153,7 +205,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="pricing-card featured">
                             <div class="popular-badge">Most Popular</div>
-                            
+
                             <div class="card-header">
                                 <h3 class="plan-name">Compliance Plan</h3>
                                 <p class="plan-tagline">Complete setup with registered office and resident director support included.</p>
@@ -173,37 +225,37 @@
                                 <ul class="features-list">
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         Registered Office Address (6 Months included — ₹5,000/month)
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         Resident Director Facilitation (6 Months included — ₹15,000/month)
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         GST Registration & Setup
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         Bank Account Opening Assistance
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         Compliance Calendar & Advisory
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         30-Minute CS Consultation
                                     </li>
@@ -234,37 +286,37 @@
                                 <ul class="features-list">
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         Registered Office Address (1 Year included — ₹60,000 value)
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         Resident Director Services (1 Year — ₹180,000 value)
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         1-Year CS Compliance Package (Full secretarial management – ₹35,000 value)
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         Annual ROC Filings (FC-4, AOC-4, MGT-7A, etc.)
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         RBI Annual Return Filing
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         Priority FEMA & FDI Advisory
                                     </li>
@@ -281,10 +333,10 @@
                             <span x-show="!showComparison">Compare plan features</span>
                             <span x-show="showComparison">Hide comparison</span>
                             <svg x-show="!showComparison" width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; margin-left: 4px;">
-                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                             <svg x-show="showComparison" width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; margin-left: 4px;">
-                                <path d="M12 10L8 6L4 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 10L8 6L4 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </a>
                     </div>
@@ -320,7 +372,7 @@
                                             </button>
                                             <div class="checkmark-below">
                                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                                    <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
                                             </div>
                                         </div>
@@ -345,24 +397,24 @@
                                     <div class="category-header">
                                         <h5>Incorporation & Setup</h5>
                                     </div>
-                                    
+
                                     <div class="feature-row">
                                         <div class="feature-column">
                                             <span class="feature-name">Company Incorporation (Private Limited / Branch / LO)</span>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column featured">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -373,17 +425,17 @@
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column featured">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -394,17 +446,17 @@
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column featured">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -415,17 +467,17 @@
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column featured">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -436,17 +488,17 @@
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column featured">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -457,17 +509,17 @@
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column featured">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -478,7 +530,7 @@
                                     <div class="category-header">
                                         <h5>Office & Director Support</h5>
                                     </div>
-                                    
+
                                     <div class="feature-row">
                                         <div class="feature-column">
                                             <span class="feature-name">Registered Office Address (6 Months)</span>
@@ -488,7 +540,7 @@
                                         </div>
                                         <div class="plan-column featured">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column">
@@ -505,7 +557,7 @@
                                         </div>
                                         <div class="plan-column featured">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column">
@@ -525,7 +577,7 @@
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -542,7 +594,7 @@
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -553,7 +605,7 @@
                                     <div class="category-header">
                                         <h5>Compliance & Registrations</h5>
                                     </div>
-                                    
+
                                     <div class="feature-row">
                                         <div class="feature-column">
                                             <span class="feature-name">GST Registration & Setup</span>
@@ -563,12 +615,12 @@
                                         </div>
                                         <div class="plan-column featured">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -582,12 +634,12 @@
                                         </div>
                                         <div class="plan-column featured">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -604,7 +656,7 @@
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -621,7 +673,7 @@
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -638,7 +690,7 @@
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -652,12 +704,12 @@
                                         </div>
                                         <div class="plan-column featured">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -671,12 +723,12 @@
                                         </div>
                                         <div class="plan-column featured">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -693,7 +745,7 @@
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -704,24 +756,24 @@
                                     <div class="category-header">
                                         <h5>Support & Advisory</h5>
                                     </div>
-                                    
+
                                     <div class="feature-row">
                                         <div class="feature-column">
                                             <span class="feature-name">Email & Phone Support</span>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column featured">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </div>
                                     </div>
@@ -748,41 +800,97 @@
             </div>
         </section>
 
-        <section class="quick-summary-area pt-40 pb-60">
+        <section class="quick-summary-area pt-60 pb-60">
             <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="quick-summary-card">
-                            <div class="d-flex align-items-center justify-content-between mb-20">
-                                <h4 class="quick-summary-title mb-0">Quick Summary</h4>
+                <div class="row justify-content-center mb-4">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="summary-main-title">Quick Plan Comparison</h2>
+                        <p class="summary-subtitle">Choose the perfect plan for your business needs</p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    {{-- Starter Plan Summary --}}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="summary-plan-card">
+                            <div class="plan-icon-wrapper starter-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                                </svg>
                             </div>
-                            <div class="table-responsive">
-                                <table class="quick-summary-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Plan Name</th>
-                                            <th>Ideal For</th>
-                                            <th class="text-right">All-Inclusive Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td data-label="Plan Name">Starter Plan</td>
-                                            <td data-label="Ideal For">Foreign entities looking for basic Indian subsidiary incorporation</td>
-                                            <td data-label="All-Inclusive Price" class="text-right price-cell">₹24,999</td>
-                                        </tr>
-                                        <tr>
-                                            <td data-label="Plan Name">Compliance Plan</td>
-                                            <td data-label="Ideal For">Companies needing registered office and resident director for 6 months</td>
-                                            <td data-label="All-Inclusive Price" class="text-right price-cell">₹59,999</td>
-                                        </tr>
-                                        <tr>
-                                            <td data-label="Plan Name">Complete Setup Plan</td>
-                                            <td data-label="Ideal For">Full-year setup with complete compliance and secretarial support</td>
-                                            <td data-label="All-Inclusive Price" class="text-right price-cell">₹149,999</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <h3 class="summary-plan-name">Starter Plan</h3>
+                            <div class="summary-plan-price">₹24,999</div>
+                            <p class="summary-plan-desc">Foreign entities looking for basic Indian subsidiary incorporation</p>
+                            <div class="summary-plan-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">✓</span>
+                                    <span>Foreign Subsidiary Registration</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">✓</span>
+                                    <span>RBI & FEMA Compliance</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">✓</span>
+                                    <span>Complete Documentation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Compliance Plan Summary --}}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="summary-plan-card featured-summary">
+                            <div class="popular-badge-summary">Most Popular</div>
+                            <div class="plan-icon-wrapper compliance-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                            <h3 class="summary-plan-name">Compliance Plan</h3>
+                            <div class="summary-plan-price">₹59,999</div>
+                            <p class="summary-plan-desc">Companies needing registered office and resident director for 6 months</p>
+                            <div class="summary-plan-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">✓</span>
+                                    <span>Everything in Starter</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">✓</span>
+                                    <span>Registered Office (6 Months)</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">✓</span>
+                                    <span>Resident Director Support</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Complete Setup Plan Summary --}}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="summary-plan-card">
+                            <div class="plan-icon-wrapper complete-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                            </div>
+                            <h3 class="summary-plan-name">Complete Setup Plan</h3>
+                            <div class="summary-plan-price">₹149,999</div>
+                            <p class="summary-plan-desc">Full-year setup with complete compliance and secretarial support</p>
+                            <div class="summary-plan-highlights">
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">✓</span>
+                                    <span>Everything in Compliance</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">✓</span>
+                                    <span>1 Year Office & Director</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <span class="highlight-icon">✓</span>
+                                    <span>Full-Year ROC Support</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1176,55 +1284,7 @@
             </div>
         </section>
 
-        <section class="quick-summary-area pt-20 pb-30">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-10">
-                                <div class="section-title text-center mb-70">
-                                    <h3>Quick summary</h3>
-                                </div>
-                                <div class="quick-summary-card">
-                                    <div class="d-flex align-items-center justify-content-between mb-20">
-                                        <h4 class="quick-summary-title mb-0">Quick Summary</h4>
-                                    </div>
-                                    <div class="table-responsive">
-                                        <table class="quick-summary-table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Plan Name</th>
-                                                    <th>Ideal For</th>
-                                                    <th class="text-right">All-Inclusive Price</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td data-label="Plan Name">Starter Plan</td>
-                                                    <td data-label="Ideal For">Foreign entrepreneurs needing quick India incorporation & FEMA compliance</td>
-                                                    <td data-label="All-Inclusive Price" class="text-right price-cell">₹24,999</td>
-                                                </tr>
-                                                <tr>
-                                                    <td data-label="Plan Name">Compliance Plan</td>
-                                                    <td data-label="Ideal For">Foreign investors requiring short-term office &amp; director support</td>
-                                                    <td data-label="All-Inclusive Price" class="text-right price-cell">₹59,999</td>
-                                                </tr>
-                                                <tr>
-                                                    <td data-label="Plan Name">Complete Setup Plan</td>
-                                                    <td data-label="Ideal For">Global founders seeking full-year office, director &amp; compliance package</td>
-                                                    <td data-label="All-Inclusive Price" class="text-right price-cell">₹149,999</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!--about-us-area start-->
         <section class="about-us-area pos-rel about-style-1 pt-100 pb-100 pt-md-60 pb-md-40 pt-xs-60 pb-xs-40">
@@ -1334,11 +1394,11 @@
                         <div class="form-box form-box-2 white-bg" wire:key="service-quote-form">
                             <h4 class="sub-title mb-45">Get Service Quote</h4>
                             @if($showServiceThanks)
-                                <div class="alert alert-success" role="alert" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 5000); $wire.set('showServiceThanks', false, false)">
-                                    <strong>Thank you!</strong> We'll get back to you shortly.
-                                </div>
+                            <div class="alert alert-success" role="alert" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 5000); $wire.set('showServiceThanks', false, false)">
+                                <strong>Thank you!</strong> We'll get back to you shortly.
+                            </div>
                             @endif
-                            <form class="quote-form mb-20" wire:submit.prevent="submitServiceRequest">                          
+                            <form class="quote-form mb-20" wire:submit.prevent="submitServiceRequest">
                                 <div class="email-input">
                                     <label class="input-title">Phone Number</label>
                                     <input type="text" wire:model.live="servicePhone" placeholder="enter your phone number" required>
@@ -1349,7 +1409,7 @@
                                     <input type="email" wire:model.live="serviceEmail" placeholder="enter your email">
                                     @error('serviceEmail') <span class="text-danger small">{{ $message }}</span> @enderror
                                 </div>
-                                    <div class="choice-list mb-20">
+                                <div class="choice-list mb-20">
                                     <div class="row">
                                         <div class="col-12">
                                             <span class="input-title pl-20">Service</span>
@@ -1467,22 +1527,22 @@
                 </div>
                 <div class="row">
                     @forelse($blogs as $index => $blog)
-                        <div class="col-xl-4 col-lg-4 col-md-4">
-                            <div class="blogs blogs-2 mb-30 wow fadeInUp2 animated" data-wow-delay="{{ ($index + 1) * 0.2 }}s">
-                                <div class="blogs__thumb mb-30">
-                                    <img class="img-fluid" src="{{ $blog['featured_image'] ? asset('storage/'.$blog['featured_image']) : asset('assets/img/blog/01.jpg') }}" alt="{{ $blog['title'] }}">
-                                </div>
-                                <div class="blogs__content">
-                                    <span class="date-tag mb-25">{{ $blog['created_at']->format('d M, Y') }}</span>
-                                    <h3 class="blog-title mb-15"><a href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">{{ Str::limit($blog['title'], 60) }}</a></h3>
-                                    <a class="blog-btn" href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">Continue Reading <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
-                                </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="blogs blogs-2 mb-30 wow fadeInUp2 animated" data-wow-delay="{{ ($index + 1) * 0.2 }}s">
+                            <div class="blogs__thumb mb-30">
+                                <img class="img-fluid" src="{{ $blog['featured_image'] ? asset('storage/'.$blog['featured_image']) : asset('assets/img/blog/01.jpg') }}" alt="{{ $blog['title'] }}">
+                            </div>
+                            <div class="blogs__content">
+                                <span class="date-tag mb-25">{{ $blog['created_at']->format('d M, Y') }}</span>
+                                <h3 class="blog-title mb-15"><a href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">{{ Str::limit($blog['title'], 60) }}</a></h3>
+                                <a class="blog-btn" href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">Continue Reading <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
                             </div>
                         </div>
+                    </div>
                     @empty
-                        <div class="col-12">
-                            <p class="text-center">No blogs available at the moment.</p>
-                        </div>
+                    <div class="col-12">
+                        <p class="text-center">No blogs available at the moment.</p>
+                    </div>
                     @endforelse
                 </div>
             </div>
@@ -1512,118 +1572,258 @@
         <!--subscribe-letter-area end-->
     </main>
     @if($showModal)
-        <div class="custom-modal" role="dialog" aria-modal="true">
-            <div class="custom-modal-backdrop" wire:click="$set('showModal', false)"></div>
-            <div class="custom-modal-card">
-                <div class="custom-modal-header">
-                    <div class="modal-title">
-                        <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="icon" style="height:28px;margin-right:10px;"/>
-                        <div>
-                            <h4>Get Started</h4>
-                            <small class="muted">{{ $planName ?? 'Plan' }}</small>
-                        </div>
-                    </div>
-                    <button type="button" class="modal-close" wire:click="$set('showModal', false)">×</button>
-                </div>
-                <div class="custom-modal-body">
-                    @if(session()->has('success'))
-                        <div class="alert alert-success">{{ session('success') }}</div>
-                    @endif
-                    <div class="form-row">
-                        <label class="input-label">Name</label>
-                        <input type="text" wire:model.defer="name" class="custom-form-control" placeholder="Enter Your full name" />
-                        @error('name') <div class="text-danger small">{{ $message }}</div> @enderror
-                    </div>
-                    <div class="form-row">
-                        <label class="input-label">Email</label>
-                        <input type="email" wire:model.defer="email" class="custom-form-control" placeholder="Enter your Email" />
-                        @error('email') <div class="text-danger small">{{ $message }}</div> @enderror
-                    </div>
-                       <div class="form-row">
-                        <label class="input-label">Selected Plan</label>
-                        <input type="text" wire:model.defer="planName" class="custom-form-control" style="font-weight:bold" placeholder="Selected Plan" readonly />
-                        @error('planName') <div class="text-danger small">{{ $message }}</div> @enderror
-                    </div>
-                    <div class="form-row">
-                        <label class="input-label">Phone</label>
-                        <input type="text" wire:model.defer="phone" class="custom-form-control" placeholder="Enter Your Phone Number" />
-                        @error('phone') <div class="text-danger small">{{ $message }}</div> @enderror
+    <div class="custom-modal" role="dialog" aria-modal="true">
+        <div class="custom-modal-backdrop" wire:click="$set('showModal', false)"></div>
+        <div class="custom-modal-card">
+            <div class="custom-modal-header">
+                <div class="modal-title">
+                    <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="icon" style="height:28px;margin-right:10px;" />
+                    <div>
+                        <h4>Get Started</h4>
+                        <small class="muted">{{ $planName ?? 'Plan' }}</small>
                     </div>
                 </div>
-                <div class="custom-modal-footer">
-                    <button type="button" wire:click="saveRegistration" class="theme_btn">Get Started</button>
-                    <button type="button" wire:click="$set('showModal', false)" class="theme_btn border-btn">Cancel</button>
+                <button type="button" class="modal-close" wire:click="$set('showModal', false)">×</button>
+            </div>
+            <div class="custom-modal-body">
+                @if(session()->has('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                <div class="form-row">
+                    <label class="input-label">Name</label>
+                    <input type="text" wire:model.defer="name" class="custom-form-control" placeholder="Enter Your full name" />
+                    @error('name') <div class="text-danger small">{{ $message }}</div> @enderror
+                </div>
+                <div class="form-row">
+                    <label class="input-label">Email</label>
+                    <input type="email" wire:model.defer="email" class="custom-form-control" placeholder="Enter your Email" />
+                    @error('email') <div class="text-danger small">{{ $message }}</div> @enderror
+                </div>
+                <div class="form-row">
+                    <label class="input-label">Selected Plan</label>
+                    <input type="text" wire:model.defer="planName" class="custom-form-control" style="font-weight:bold" placeholder="Selected Plan" readonly />
+                    @error('planName') <div class="text-danger small">{{ $message }}</div> @enderror
+                </div>
+                <div class="form-row">
+                    <label class="input-label">Phone</label>
+                    <input type="text" wire:model.defer="phone" class="custom-form-control" placeholder="Enter Your Phone Number" />
+                    @error('phone') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
             </div>
+            <div class="custom-modal-footer">
+                <button type="button" wire:click="saveRegistration" class="theme_btn">Get Started</button>
+                <button type="button" wire:click="$set('showModal', false)" class="theme_btn border-btn">Cancel</button>
+            </div>
         </div>
+    </div>
     @endif
 
     @if($showThanksModal)
-        <div class="custom-modal" role="dialog" aria-modal="true">
-            <div class="custom-modal-backdrop" wire:click="$set('showThanksModal', false)"></div>
-            <div class="custom-modal-card small">
-                <div class="thanks-icon">✓</div>
-                <h4 class="thanks-title">Thanks we will contact you shortly.</h4>
-                <p class="muted">Our team will reach out to the email or phone you provided.</p>
-                <div style="margin-top:14px;">
-                    <button type="button" wire:click="$set('showThanksModal', false)" class="theme_btn">Close</button>
-                </div>
+    <div class="custom-modal" role="dialog" aria-modal="true">
+        <div class="custom-modal-backdrop" wire:click="$set('showThanksModal', false)"></div>
+        <div class="custom-modal-card small">
+            <div class="thanks-icon">✓</div>
+            <h4 class="thanks-title">Thanks we will contact you shortly.</h4>
+            <p class="muted">Our team will reach out to the email or phone you provided.</p>
+            <div style="margin-top:14px;">
+                <button type="button" wire:click="$set('showThanksModal', false)" class="theme_btn">Close</button>
             </div>
         </div>
+    </div>
     @endif
 
     @if($showPendingModal)
-        <div class="custom-modal" role="dialog" aria-modal="true">
-            <div class="custom-modal-backdrop" wire:click="$set('showPendingModal', false)"></div>
-            <div class="custom-modal-card small">
-                <div class="thanks-icon" style="background:#fff4e8;color:#ff8a1f">…</div>
-                <h4 class="thanks-title">We are working on your request</h4>
-                <p class="muted">It looks like you already submitted a request for <strong>Your Selected Plan </strong> and it's being processed. Please be patient; we'll notify you once it's complete.</p>
-                <div style="margin-top:14px;">
-                    <button type="button" wire:click="$set('showPendingModal', false)" class="theme_btn">Okay</button>
-                </div>
+    <div class="custom-modal" role="dialog" aria-modal="true">
+        <div class="custom-modal-backdrop" wire:click="$set('showPendingModal', false)"></div>
+        <div class="custom-modal-card small">
+            <div class="thanks-icon" style="background:#fff4e8;color:#ff8a1f">…</div>
+            <h4 class="thanks-title">We are working on your request</h4>
+            <p class="muted">It looks like you already submitted a request for <strong>Your Selected Plan </strong> and it's being processed. Please be patient; we'll notify you once it's complete.</p>
+            <div style="margin-top:14px;">
+                <button type="button" wire:click="$set('showPendingModal', false)" class="theme_btn">Okay</button>
             </div>
         </div>
+    </div>
     @endif
 
     <style>
         /* Themed modal styles to match site */
-        .custom-modal{
-            position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:1050;
+        .custom-modal {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1050;
         }
-        .custom-modal-backdrop{
-            position:absolute;inset:0;background:rgba(0,0,0,0.5);
+
+        .custom-modal-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
         }
-        .custom-modal-card{
-            position:relative;z-index:1060;background:#fff;max-width:520px;width:92%;border-radius:10px;box-shadow:0 8px 30px rgba(5,0,32,0.12);overflow:hidden;animation:modal-pop .18s ease-out;
+
+        .custom-modal-card {
+            position: relative;
+            z-index: 1060;
+            background: #fff;
+            max-width: 520px;
+            width: 92%;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(5, 0, 32, 0.12);
+            overflow: hidden;
+            animation: modal-pop .18s ease-out;
         }
-        .custom-modal-card.small{max-width:420px;padding:34px 28px;text-align:center}
+
+        .custom-modal-card.small {
+            max-width: 420px;
+            padding: 34px 28px;
+            text-align: center
+        }
+
         /* simplified header: solid color, reduced padding */
-        .custom-modal-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#050020;color:#fff}
-        .custom-modal-header .modal-title{display:flex;align-items:center;gap:10px}
-        .custom-modal-header h4{margin:0;font-size:16px;font-weight:600}
-        .custom-modal-header .muted{color:rgba(255,255,255,0.9);font-size:12px}
-        .custom-modal-header .modal-title img{height:20px}
-        .modal-close{background:transparent;border:0;color:rgba(255,255,255,0.9);font-size:26px;line-height:1;cursor:pointer}
-        .custom-modal-body{padding:20px 24px;background:#fff}
-        .form-row{margin-bottom:12px}
-        .input-label{display:block;font-size:13px;color:#222;margin-bottom:6px}
-        .custom-form-control{width:100%;padding:11px 14px;border:1px solid #e6e6e6;border-radius:8px;font-size:14px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.6)}
-        .custom-form-control:focus{outline:none;border-color:#ff1f1f;box-shadow:0 4px 18px rgba(255,31,31,0.08)}
-        .custom-modal-footer{padding:12px 20px;background:#fff;display:flex;justify-content:flex-end;gap:10px}
+        .custom-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+            background: #050020;
+            color: #fff
+        }
+
+        .custom-modal-header .modal-title {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .custom-modal-header h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600
+        }
+
+        .custom-modal-header .muted {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 12px
+        }
+
+        .custom-modal-header .modal-title img {
+            height: 20px
+        }
+
+        .modal-close {
+            background: transparent;
+            border: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 26px;
+            line-height: 1;
+            cursor: pointer
+        }
+
+        .custom-modal-body {
+            padding: 20px 24px;
+            background: #fff
+        }
+
+        .form-row {
+            margin-bottom: 12px
+        }
+
+        .input-label {
+            display: block;
+            font-size: 13px;
+            color: #222;
+            margin-bottom: 6px
+        }
+
+        .custom-form-control {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid #e6e6e6;
+            border-radius: 8px;
+            font-size: 14px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6)
+        }
+
+        .custom-form-control:focus {
+            outline: none;
+            border-color: #ff1f1f;
+            box-shadow: 0 4px 18px rgba(255, 31, 31, 0.08)
+        }
+
+        .custom-modal-footer {
+            padding: 12px 20px;
+            background: #fff;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px
+        }
 
         /* modal button refinements - clean & professional */
-        .custom-modal .theme_btn{
-            background:#ff1f1f;color:#fff;padding:9px 16px;border-radius:8px;border:none;font-weight:600;font-size:14px;box-shadow:none;transition:transform .12s ease,box-shadow .12s ease;
+        .custom-modal .theme_btn {
+            background: #ff1f1f;
+            color: #fff;
+            padding: 9px 16px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: none;
+            transition: transform .12s ease, box-shadow .12s ease;
         }
-        .custom-modal .theme_btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(255,31,31,0.09)}
-        .custom-modal .theme_btn.border-btn{background:transparent;color:#050020;border:1px solid #e6e6e6;padding:8px 14px;border-radius:8px;font-weight:600}
-        .thanks-icon{width:64px;height:64px;border-radius:50%;background:#e8f8f1;color:#0aa06a;font-size:36px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;box-shadow:0 6px 18px rgba(10,160,106,0.12)}
-        .thanks-title{font-size:20px;margin:6px 0 0;color:#050020}
-        .muted{color:#6c6c6c}
-        @keyframes modal-pop{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 
-    
+        .custom-modal .theme_btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(255, 31, 31, 0.09)
+        }
+
+        .custom-modal .theme_btn.border-btn {
+            background: transparent;
+            color: #050020;
+            border: 1px solid #e6e6e6;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 600
+        }
+
+        .thanks-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #e8f8f1;
+            color: #0aa06a;
+            font-size: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            box-shadow: 0 6px 18px rgba(10, 160, 106, 0.12)
+        }
+
+        .thanks-title {
+            font-size: 20px;
+            margin: 6px 0 0;
+            color: #050020
+        }
+
+        .muted {
+            color: #6c6c6c
+        }
+
+        @keyframes modal-pop {
+            from {
+                opacity: 0;
+                transform: translateY(6px) scale(.98)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1)
+            }
+        }
+
+
         /* Modern Comparison Table Styles */
         .comparison-area {
             background: #f6f3f1;
@@ -1990,108 +2190,179 @@
 
         /* Quick Summary Styles */
         .quick-summary-area {
-            background: #ffffff;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
         }
 
-        /* Widen quick summary container on large screens */
-        @media (min-width: 1200px) {
-            .quick-summary-area .container {
-                max-width: 1320px;
-            }
-        }
-
-        .quick-summary-card {
-            background: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            padding: 24px;
-        }
-
-        .quick-summary-title {
-            color: #050020;
+        .summary-main-title {
+            font-size: 32px;
             font-weight: 700;
-            font-size: 20px;
-            font-family: "Circular Std", sans-serif;
+            color: #050020;
+            margin-bottom: 12px;
+        }
+
+        .summary-subtitle {
+            font-size: 16px;
+            color: #6b7280;
+        }
+
+        .summary-plan-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 32px 24px;
+            height: 100%;
+            transition: all 0.3s ease;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
-        .quick-summary-title:after {
-            content: "";
-            display: block;
-            width: 56px;
-            height: 3px;
+        .summary-plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(5, 0, 32, 0.12);
+        }
+
+        .summary-plan-card.featured-summary {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+            border: 2px solid #ff1f1f;
+            transform: scale(1.03);
+        }
+
+        .summary-plan-card.featured-summary:hover {
+            transform: scale(1.03) translateY(-5px);
+        }
+
+        .popular-badge-summary {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
             background: #ff1f1f;
-            border-radius: 2px;
-            margin-top: 8px;
-        }
-
-        .table-responsive {
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .quick-summary-table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 720px;
-            /* allow some horizontal scroll on small screens */
-        }
-
-        .quick-summary-table thead th {
-            background: #050020;
-            color: #ffffff;
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 12px;
             font-weight: 600;
-            font-size: 14px;
-            text-align: left;
-            padding: 14px 16px;
-            border: 1px solid #1a1540;
-            font-family: "Circular Std", sans-serif;
-            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(255, 31, 31, 0.3);
         }
 
-        .quick-summary-table td {
-            font-size: 14px;
-            color: #343434;
-            padding: 14px 16px;
-            border: 1px solid #e5e5e5;
-            vertical-align: top;
-            font-family: "Circular Std Book", sans-serif;
+        .plan-icon-wrapper {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
         }
 
-        .quick-summary-table tbody tr:hover {
-            background: #fafafa;
+        .starter-icon {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #d97706;
         }
 
-        .quick-summary-table .price-cell {
+        .compliance-icon {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            color: #dc2626;
+        }
+
+        .complete-icon {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            color: #2563eb;
+        }
+
+        .summary-plan-card:hover .plan-icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .summary-plan-name {
+            font-size: 22px;
             font-weight: 700;
-            font-family: "Circular Std", sans-serif;
             color: #050020;
+            margin-bottom: 12px;
         }
 
-        .text-right {
-            text-align: right;
+        .summary-plan-price {
+            font-size: 36px;
+            font-weight: 800;
+            color: #ff1f1f;
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+
+        .summary-plan-desc {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .summary-plan-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #1f2937;
+        }
+
+        .highlight-icon {
+            width: 20px;
+            height: 20px;
+            background: #ff1f1f;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
         }
 
         @media (max-width: 991px) {
-            .quick-summary-card {
-                padding: 20px;
+            .summary-plan-card.featured-summary {
+                transform: scale(1);
             }
 
-            .quick-summary-title {
-                font-size: 18px;
+            .summary-plan-card.featured-summary:hover {
+                transform: translateY(-5px);
             }
 
-            .quick-summary-table thead th,
-            .quick-summary-table td {
-                font-size: 13px;
-                padding: 12px 14px;
+            .summary-main-title {
+                font-size: 26px;
+            }
+
+            .summary-plan-price {
+                font-size: 30px;
             }
         }
 
         @media (max-width: 767px) {
-            .quick-summary-table {
-                min-width: 640px;
+            .summary-main-title {
+                font-size: 22px;
+            }
+
+            .summary-plan-name {
+                font-size: 20px;
+            }
+
+            .summary-plan-price {
+                font-size: 28px;
+            }
+
+            .plan-icon-wrapper {
+                width: 56px;
+                height: 56px;
             }
         }
 
