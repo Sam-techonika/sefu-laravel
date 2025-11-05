@@ -66,7 +66,7 @@ Route::group([
 
     Route::get('registration/local', Local::class)->name('registration.local');
     Route::get('registration/international', Foreign::class)->name('registration.foreign');
-    Route::get('registration/trade-registration', TradeMark::class)->name('registration.trade-registration');
+    Route::get('registration/trademark-registration', TradeMark::class)->name('registration.trade-registration');
 });
 
 // Route::get('/', function () {
