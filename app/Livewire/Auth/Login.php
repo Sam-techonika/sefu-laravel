@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Auth;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -19,6 +20,18 @@ class Login extends Component
             'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
+
+        $user = User::where('email', $this->email)->first();
+        
+        if (!$user) {
+            $this->errorMessage = 'Invalid email or password.';
+            return;
+        }
+
+        if (!$user->is_active) {
+            $this->errorMessage = 'Your account has been deactivated. Please contact the administrator.';
+            return;
+        }
 
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
             session()->regenerate();
