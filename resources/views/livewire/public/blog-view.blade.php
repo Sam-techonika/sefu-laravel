@@ -149,7 +149,7 @@
                       <div class="author-bio-section mb-75">
                           <div class="author-bio-wrapper">
                               <div class="author-bio-image">
-                                  <img src="{{ $authorImage ?? asset('assets/img/team/author-placeholder.jpg') }}"
+                                  <img src="{{ $authorImage ? asset('storage/'.$authorImage) : asset('assets/img/team/author-placeholder.jpg') }}"
                                       alt="{{ $authorName ?? 'Author' }}">
                               </div>
                               <div class="author-bio-content">
@@ -362,11 +362,7 @@
                                               <a class="tags" href="{{ $tagUrl }}">{{ $tagName }}</a>
                                           @endforeach
                                       @else
-                                          <a class="tags" href="#">Ideas</a>
-                                          <a class="tags" href="#">Education</a>
-                                          <a class="tags" href="#">Design</a>
-                                          <a class="tags" href="#">Development</a>
-                                          <a class="tags" href="#">Branding</a>
+                                          <p>tags not added</p>
                                       @endif
                                   </div>
                               </div>

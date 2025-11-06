@@ -120,10 +120,10 @@ class BlogView extends Component
             if (!empty($translation->blog) && !empty($translation->blog->user)) {
                 $user = $translation->blog->user;
                 $this->authorName = $user->name ?? $this->authorName;
-                $this->authorTitle = $user->title ?? $this->authorTitle;
-                $this->authorBio = $user->bio ?? $this->authorBio;
+                $this->authorTitle = $user->about ?? $this->authorTitle;
+                $this->authorBio = $user->description ?? $this->authorBio;
                 $this->authorPhone = $user->phone ?? $this->authorPhone;
-                $this->authorImage = $user->avatar ?? $this->authorImage;
+                $this->authorImage = $user->profile_photo_path ?? $this->authorImage;
             }
         }
 
