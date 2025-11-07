@@ -27,14 +27,18 @@ class CategoryList extends Component
 
     public $availableLocales = [];
 
-    protected $rules = [
-        'names.en' => 'required|string',
-        'names.hi' => 'required|string',
-    ];
-
     public function mount()
     {
         $this->availableLocales = LocaleType::options();
+    }
+
+    protected function rules()
+    {
+        $rules = [];
+        foreach ($this->availableLocales as $code => $label) {
+            $rules["names.{$code}"] = 'required|string';
+        }
+        return $rules;
     }
 
     #[Layout('components.layouts.admin')]
