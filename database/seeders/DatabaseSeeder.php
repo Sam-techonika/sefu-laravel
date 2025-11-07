@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
         // Run seeders in order due to foreign key constraints
         $this->call([
             AdminUserSeeder::class,
-            CategorySeeder::class,
-            TagSeeder::class,
+            // CategorySeeder::class,
+            // TagSeeder::class,
             FaqSeeder::class,
             ServiceSeeder::class,
             TestimonialSeeder::class,
