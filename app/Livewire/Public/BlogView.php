@@ -289,7 +289,9 @@ class BlogView extends Component
             $this->searchResults = BlogTranslation::where('locale', $locale)
                 ->where(function($q) {
                     $q->where('title', 'like', '%' . $this->search . '%')
-                      ->orWhere('at_glance', 'like', '%' . $this->search . '%');
+                      ->orWhere('at_glance', 'like', '%' . $this->search . '%')
+                      ->orWhere('main_content', 'like', '%' . $this->search . '%')
+                      ->orWhere('tags', 'like', '%' . $this->search . '%');
                 })
                 ->whereHas('blog', function($q) {
                     $q->where('is_active', true);
