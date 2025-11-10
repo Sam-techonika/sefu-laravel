@@ -283,11 +283,12 @@
                                           @foreach($categories as $category)
                                               @php
                                                   $catSlug = $category->slug ?? ($category['slug'] ?? null);
-                                                  $catId = $category->id ?? ($category['id'] ?? null);
                                                   $catName = $category->name ?? ($category['name'] ?? ($category['title'] ?? 'Category'));
                                                   // Counts: prefer eager loaded withCount keys like posts_count or blogs_count, else try count
                                                   $catCount = $category->posts_count ?? $category->blogs_count ?? $category->count ?? ($category['count'] ?? 0);
-                                                  $catUrl = url('/'.app()->getLocale().'/blogs') . ($catSlug ? '?category='.$catSlug : ($catId ? '?category_id='.$catId : ''));
+                                                  // Use slug if available, otherwise use name
+                                                  $categoryParam = $catSlug ?: $catName;
+                                                  $catUrl = $categoryParam ? url('/'.app()->getLocale().'/blogs') . '?category=' . urlencode($categoryParam) : '#';
                                               @endphp
                                               <li>
                                                   <a href="{{ $catUrl }}">{{ $catName }} <span class="f-right">({{ $catCount }})</span></a>

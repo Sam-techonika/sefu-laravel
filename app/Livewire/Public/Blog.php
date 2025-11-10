@@ -51,11 +51,17 @@ class Blog extends Component
 
         // Filter by category if selected (using category slug/name)
         if ($this->selectedCategory) {
-            $query->whereHas('category', function($q) use ($locale) {
-                $q->whereHas('translations', function($cq) use ($locale) {
-                    $cq->where('locale', $locale)
-                       ->where('slug', $this->selectedCategory);
-                });
+            $query->whereHas('translations', function($q) use ($locale) {
+                $q->where('locale', $locale)
+                  ->whereHas('category', function($cq) use ($locale) {
+                      $cq->whereHas('translations', function($ctq) use ($locale) {
+                          $ctq->where('locale', $locale)
+                              ->where(function($nameQuery) {
+                                  $nameQuery->where('slug', $this->selectedCategory)
+                                           ->orWhere('name', 'LIKE', '%' . $this->selectedCategory . '%');
+                              });
+                      });
+                  });
             });
         }
 

@@ -109,6 +109,10 @@ class BlogForm extends Component
         ];
 
         if ($this->featured_image) {
+            if ($this->blogId && $this->existingFeaturedImage) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($this->existingFeaturedImage);
+            }
+            
             $path = $this->featured_image->store('blog_images', 'public');
             $data['featured_image'] = $path;
         }
