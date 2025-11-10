@@ -1,7 +1,7 @@
 <div>
     <header id="top-menu">
         <!-- Header Top CTA -->
-        <div class="header-top-cta pt-20 pb-35">
+        <div class="header-top-cta pt-10 pb-35">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-4 col-lg-3 col-md-6 col-sm-6">
