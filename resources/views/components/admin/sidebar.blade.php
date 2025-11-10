@@ -11,9 +11,9 @@
             <a href="{{ route('admin.dashboard') }}"
                 class="d-flex align-items-center justify-content-center gap-2 text-decoration-none">
 
-                <img src="{{ setting('logo') ? asset('storage/'.setting('logo')) : asset('tabler/theme/img/logo.png') }}"
+                <img src="{{ asset('assets/img/logo/admin_logo.png') }}"
                     alt="{{ setting('site_name', config('settings.brand_name', 'Admin')) }}"
-                    height="20"
+                    height="50"
 
                     class="align-middle mt-4"
                     style="margin-top: 4px;">

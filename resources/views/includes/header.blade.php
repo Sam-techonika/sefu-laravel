@@ -9,9 +9,16 @@
                             <a class="logo-img" wire:navigate href="{{ route('home', ['locale' => app()->getLocale()]) }}">
                                 <img
                                     class="logo-1 mt-1"
-                                    src="{{ setting('logo') ? asset('storage/'.setting('logo')) : asset('assets/img/logo/logo2.png') }}"
+                                    src="{{ setting('logo') ? asset('storage/' . setting('logo')) : asset('assets/img/logo/logo2.png') }}"
                                     alt="{{ setting('site_name', 'Logo') }}"
-                                    style="height: 40px; width: auto;">
+                                    style="
+                                            height: 45px;
+                                            width: auto;
+                                            max-width: 180px;
+                                            object-fit: contain;
+                                            display: block;
+                                        ">
+
                             </a>
                         </div>
                     </div>
@@ -165,7 +172,7 @@
                 @foreach(__('header.main') as $item)
                 <li @if(isset($item['submenu'])) class="has-dropdown" @endif>
                     @if(isset($item['submenu']))
-                    <a  href="javascript:void(0);">{{ $item['name'] }}</a>
+                    <a href="javascript:void(0);">{{ $item['name'] }}</a>
                     <ul class="submenu">
                         @foreach($item['submenu'] as $subitem)
                         <li>
