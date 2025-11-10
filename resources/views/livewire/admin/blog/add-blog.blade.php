@@ -83,6 +83,20 @@
                     @error('slug') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
 
+                {{-- Tags Input --}}
+                <div class="mb-3">
+                    <label class="form-label">Tags</label>
+                    <input type="text" class="form-control" wire:model="tags" 
+                           placeholder="Enter tags separated by commas (e.g., technology, web development, programming)">
+                    <div class="form-text">
+                        <small class="text-muted">
+                            <i class="fas fa-info-circle"></i>
+                            Enter tags separated by commas. These tags will help users filter and find your blog posts.
+                        </small>
+                    </div>
+                    @error('tags') <span class="text-danger">{{ $message }}</span> @enderror
+                </div>
+
                 {{-- TinyMCE Fields --}}
                 @foreach(['at_glance', 'key_takeaways'] as $field)
                 <div class="mb-3" wire:ignore>
@@ -91,68 +105,11 @@
                 </div>
                 @endforeach
 
-                {{-- Simple Introduction Field --}}
-                <div class="mb-3">
-                    <label class="form-label">Introduction</label>
-                    <textarea class="form-control" rows="4" wire:model="introduction" placeholder="Enter introduction..."></textarea>
-                    @error('introduction') <span class="text-danger">{{ $message }}</span> @enderror
-                </div>
-
-                {{-- Dynamic Main Content Sections --}}
-                <div class="mb-3">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <label class="form-label mb-0">Main Content Sections</label>
-                        <button type="button" class="btn btn-sm btn-outline-primary" wire:click="addMainContentSection">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
-                            </svg>
-                            {{ __('button.add_section') }}
-                        </button>
-                    </div>
-
-                    @foreach($main_content_sections as $index => $section)
-                    <div class="card mb-3" wire:key="section-{{ $index }}">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h5 class="card-title mb-0">Section #{{ $index + 1 }}</h5>
-                                @if(count($main_content_sections) > 1)
-                                <button type="button" class="btn btn-sm btn-outline-danger" wire:click="removeMainContentSection({{ $index }})">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <line x1="18" y1="6" x2="6" y2="18" />
-                                        <line x1="6" y1="6" x2="18" y2="18" />
-                                    </svg>
-                                    {{ __('button.remove') }}
-                                </button>
-                                @endif
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12 mb-3">
-                                    <label class="form-label">Section Title</label>
-                                    <input type="text" class="form-control"
-                                        wire:model.live="main_content_sections.{{ $index }}.title"
-                                        placeholder="Enter section title...">
-                                    @error("main_content_sections.{$index}.title")
-                                    <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-
-                                <div class="col-12">
-                                    <label class="form-label">Content</label>
-                                    <textarea class="form-control" rows="6"
-                                        wire:model="main_content_sections.{{ $index }}.content"
-                                        placeholder="Enter section content..."></textarea>
-                                    @error("main_content_sections.{$index}.content")
-                                    <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
+                {{-- Main Content --}}
+                <div class="mb-3" wire:ignore>
+                    <label class="form-label">Main Content</label>
+                    <textarea id="main_content" class="form-control">{{ $main_content ?? '' }}</textarea>
+                    @error('main_content') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
 
                 {{-- FAQs with Dynamic Question-Answer Format --}}
@@ -232,16 +189,16 @@
         let currentLocale = @json($locale);
 
         function initTinyMCE() {
-            // Initialize standard TinyMCE fields (excluding introduction and main content)
-            ['at_glance', 'key_takeaways'].forEach(field => {
+            // Initialize standard TinyMCE fields
+            ['at_glance', 'key_takeaways', 'main_content'].forEach(field => {
                 if (tinymce.get(field)) tinymce.get(field).remove();
 
                 tinymce.init({
                     selector: `#${field}`,
-                    height: 300,
+                    height: field === 'main_content' ? 500 : 300,
                     menubar: false,
-                    plugins: 'lists link image paste help wordcount',
-                    toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image | removeformat',
+                    plugins: 'lists link image paste help wordcount code table',
+                    toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image table | code | removeformat',
                     setup: function(editor) {
                         editor.on('Change KeyUp', function() {
                             Livewire.find(document.querySelector('[wire\\:id]').getAttribute('wire:id'))
@@ -263,8 +220,8 @@
         Livewire.hook('message.processed', (message, component) => {
             currentLocale = component.get('locale');
 
-            // Update standard TinyMCE content (excluding introduction)
-            ['at_glance', 'key_takeaways'].forEach(field => {
+            // Update standard TinyMCE content
+            ['at_glance', 'key_takeaways', 'main_content'].forEach(field => {
                 const editor = tinymce.get(field);
                 if (editor) {
                     const content = component.get(field) || '';

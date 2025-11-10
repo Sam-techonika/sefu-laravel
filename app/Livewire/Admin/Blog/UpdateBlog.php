@@ -7,7 +7,6 @@ use Livewire\Component;
 use App\Models\Blog;
 use App\Models\BlogTranslation;
 use App\Models\Category;
-use App\Models\Tag;
 use Livewire\Attributes\Layout;
 
 class UpdateBlog extends Component
@@ -17,15 +16,13 @@ class UpdateBlog extends Component
     public $title;
     public $slug;
     public $at_glance;
-    public $introduction;
-    public $main_content_sections = [];
+    public $main_content;
     public $key_takeaways;
     public $faqs = [];
     public $category_id;
-    public $selectedTags = [];
+    public $tags = '';
 
     public $categories = [];
-    public $tags = [];
     public $blog;
 
     public function mount($id, $locale = null)
@@ -39,8 +36,7 @@ class UpdateBlog extends Component
             $this->locale = LocaleType::EN->value;
         }
         
-        $this->blog = Blog::with(['tags', 'translations'])->findOrFail($this->blogId);
-        $this->selectedTags = $this->blog->tags->pluck('id')->toArray();
+        $this->blog = Blog::with(['category', 'translations'])->findOrFail($this->blogId);
         
         $this->loadTranslationData();
         $this->loadLocaleData($this->locale);
@@ -60,20 +56,20 @@ class UpdateBlog extends Component
             $this->title = $translation->title;
             $this->slug = $translation->slug;
             $this->at_glance = $translation->at_glance;
-            $this->introduction = $translation->introduction;
             $this->key_takeaways = $translation->key_takeaways;
-            $this->main_content_sections = is_array($translation->main_content) ? $translation->main_content : [];
+            $this->main_content = $this->convertMainContentToString($translation->main_content);
             $this->faqs = is_array($translation->faqs) ? $translation->faqs : [];
             $this->category_id = $translation->category_id;
+            $this->tags = $translation->tags ?? '';
         } else {
             $this->title = '';
             $this->slug = '';
             $this->at_glance = '';
-            $this->introduction = '';
             $this->key_takeaways = '';
-            $this->main_content_sections = [];
+            $this->main_content = '';
             $this->faqs = [];
             $this->category_id = null;
+            $this->tags = '';
         }
     }
     
@@ -83,16 +79,6 @@ class UpdateBlog extends Component
         if (empty($this->faqs) || count($this->faqs) === 0) {
             $this->faqs = [
                 ['question' => '', 'answer' => '']
-            ];
-        }
-        
-        // Always ensure we have at least one main content section
-        if (empty($this->main_content_sections) || count($this->main_content_sections) === 0) {
-            $this->main_content_sections = [
-                [
-                    'title' => '',
-                    'content' => ''
-                ]
             ];
         }
     }
@@ -124,29 +110,35 @@ class UpdateBlog extends Component
         $this->loadLocaleData($locale);
         $this->ensureInitialization();
     }
-
-    public function addMainContentSection()
+    
+    /**
+     * Convert main_content from array format to string format
+     */
+    private function convertMainContentToString($mainContent)
     {
-        if (!is_array($this->main_content_sections)) {
-            $this->main_content_sections = [];
+        if (is_string($mainContent)) {
+            return $mainContent;
         }
         
-        $this->main_content_sections[] = [
-            'title' => '',
-            'content' => ''
-        ];
-    }
-
-    public function removeMainContentSection($index)
-    {
-        if (isset($this->main_content_sections[$index])) {
-            unset($this->main_content_sections[$index]);
-            $this->main_content_sections = array_values($this->main_content_sections);
+        if (is_array($mainContent)) {
+            $html = '';
+            foreach ($mainContent as $section) {
+                if (is_array($section) && isset($section['title']) && isset($section['content'])) {
+                    $title = trim($section['title']);
+                    $content = trim($section['content']);
+                    
+                    if (!empty($title)) {
+                        $html .= '<h2>' . htmlspecialchars($title) . '</h2>' . "\n";
+                    }
+                    if (!empty($content)) {
+                        $html .= '<p>' . nl2br(htmlspecialchars($content)) . '</p>' . "\n";
+                    }
+                }
+            }
+            return $html;
         }
         
-        if (empty($this->main_content_sections)) {
-            $this->addMainContentSection();
-        }
+        return '';
     }
 
     private function loadLocaleData($locale)
@@ -155,12 +147,6 @@ class UpdateBlog extends Component
             ->map(fn($category) => [
                 'id' => $category->id,
                 'name' => optional($category->translations->firstWhere('locale', $locale))->name ?? 'N/A'
-            ])->toArray();
-
-        $this->tags = Tag::with('translations')->get()
-            ->map(fn($tag) => [
-                'id' => $tag->id,
-                'name' => optional($tag->translations->firstWhere('locale', $locale))->name ?? 'N/A'
             ])->toArray();
     }
 
@@ -171,17 +157,13 @@ class UpdateBlog extends Component
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
             'at_glance' => 'nullable|string|max:1000',
-            'introduction' => 'nullable|string|max:5000',
-            'main_content_sections' => 'nullable|array',
-            'main_content_sections.*.title' => 'required|string|max:255',
-            'main_content_sections.*.content' => 'nullable|string',
+            'main_content' => 'nullable|string',
             'key_takeaways' => 'nullable|string|max:5000',
             'faqs' => 'nullable|array',
             'faqs.*.question' => 'required_with:faqs.*.answer|string|max:500',
             'faqs.*.answer' => 'required_with:faqs.*.question|string|max:2000',
             'category_id' => 'nullable|exists:categories,id',
-            'selectedTags' => 'nullable|array',
-            'selectedTags.*' => 'exists:tags,id',
+            'tags' => 'nullable|string|max:1000',
         ];
     }
 
@@ -206,13 +188,6 @@ class UpdateBlog extends Component
                 }))
                 : [];
             
-            // Clean and prepare main content sections
-            $cleanMainContentSections = !empty($this->main_content_sections)
-                ? array_values(array_filter($this->main_content_sections, function($section) {
-                    return !empty(trim($section['title'] ?? ''));
-                }))
-                : [];
-            
             // Prepare translation data
             $translationData = [
                 'blog_id' => $this->blogId,
@@ -221,10 +196,10 @@ class UpdateBlog extends Component
                 'category_id' => $this->category_id,
                 'title' => trim($this->title ?? ''),
                 'at_glance' => !empty($this->at_glance) ? trim($this->at_glance) : null,
-                'introduction' => !empty($this->introduction) ? trim($this->introduction) : null,
-                'main_content' => !empty($cleanMainContentSections) ? $cleanMainContentSections : null,
+                'main_content' => !empty($this->main_content) ? trim($this->main_content) : null,
                 'key_takeaways' => !empty($this->key_takeaways) ? trim($this->key_takeaways) : null,
                 'faqs' => !empty($cleanFaqs) ? $cleanFaqs : null,
+                'tags' => !empty($this->tags) ? trim($this->tags) : null,
             ];
             
             // Update or create translation
@@ -232,11 +207,6 @@ class UpdateBlog extends Component
                 ['blog_id' => $this->blogId, 'locale' => $this->locale],
                 $translationData
             );
-            
-            // Sync tags (only if tags are provided, otherwise keep existing)
-            if (!empty($this->selectedTags)) {
-                $this->blog->tags()->sync($this->selectedTags);
-            }
             
             \Illuminate\Support\Facades\DB::commit();
             

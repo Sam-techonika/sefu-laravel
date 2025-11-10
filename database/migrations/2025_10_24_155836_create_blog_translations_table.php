@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->longText('at_glance')->nullable();
             $table->longText('introduction')->nullable();
-            $table->json('main_content')->nullable();
+            $table->longText('main_content')->nullable();
             $table->longText('key_takeaways')->nullable();
             $table->json('faqs')->nullable();
             $table->timestamps();

@@ -24,8 +24,6 @@ class BlogView extends Component
 
     public $atGlanceContent = '<p>At a glance not found</p>';
 
-    public $introductionContent = '<p>Introduction about trademark identity, whether mistaken is priceful or protecting brand identity. Trademark registration is a crucial step for businesses to protect their brand identity and prevent unauthorized use by competitors.</p>';
-
     public $mainContent = '
         <h2>1. Choosing a Weak Name</h2>
         <p>No content available.</p>
@@ -60,7 +58,8 @@ class BlogView extends Component
     
     // Categories and Tags for sidebar
     public $categories = [];
-    public $tags = [];
+    public $tags = []; // Tags for current blog post
+    public $allTagsForSidebar = []; // All tags for sidebar
     public $recentBlogs = [];
     public $currentBlogId = null;
     
@@ -75,6 +74,9 @@ class BlogView extends Component
         $this->loadCategories($locale);
         
         $this->loadRecentBlogs($locale);
+        
+        // Load all tags for sidebar (exclude current blog if viewing one)
+        $this->loadAllTagsForSidebar($locale);
 
         if ($slug) {
 
@@ -102,11 +104,11 @@ class BlogView extends Component
             $this->publishDate = optional($translation->created_at)->format('F d, Y') ?? $this->publishDate;
 
             $this->atGlanceContent = $translation->at_glance ?? $this->atGlanceContent;
-            $this->introductionContent = $translation->introduction ?? $this->introductionContent;
             $this->keyTakeawaysContent = $translation->key_takeaways ?? $this->keyTakeawaysContent;
 
+            // Handle both old array format and new string format for main content
             $rawMain = $translation->main_content ?? $this->mainContent;
-            $this->mainContent = $this->normalizeMainContent($rawMain);
+            $this->mainContent = $this->convertMainContentToString($rawMain);
 
             $rawFaqs = $translation->faqs ?? [];
             $this->faqs = $this->normalizeFaqs($rawFaqs);
@@ -163,58 +165,78 @@ class BlogView extends Component
     }
     
     /**
-     * Load tags specific to the current blog post
+     * Load tags specific to the current blog post from blog_translations
      */
     protected function loadBlogTags($blog, $locale)
     {
-        if (!$blog || !$blog->tags) {
+        if (!$blog) {
             $this->tags = [];
             return;
         }
         
-        $this->tags = $blog->tags->map(function ($tag) use ($locale) {
-            $translation = $tag->translations->where('locale', $locale)->first();
-            $name = $translation->name ?? null;
-            
-            if (!$name) {
-                return null;
-            }
-            
+        $translation = $blog->translations->where('locale', $locale)->first();
+        
+        if (!$translation || !$translation->tags) {
+            $this->tags = [];
+            return;
+        }
+        
+        // Convert comma-separated tags to array
+        $tagNames = array_map('trim', explode(',', $translation->tags));
+        $this->tags = array_map(function($name, $index) {
             return [
-                'id' => $tag->id,
+                'id' => $index + 1, // Simple numeric ID
                 'name' => $name,
             ];
-        })->filter()->values()->toArray();
+        }, $tagNames, array_keys($tagNames));
     }
     
     /**
-     * Load tags with localized names and blog counts
+     * Get all unique tags from blog_translations for sidebar display
      */
-    protected function loadTags($locale)
+    public static function getAllTagsFromTranslations($locale = null, $excludeBlogId = null)
     {
-        $tags = Tag::whereHas('translations', function ($query) use ($locale) {
-            $query->where('locale', $locale);
-        })
-        ->with(['translations' => function ($query) use ($locale) {
-            $query->where('locale', $locale);
-        }])
-        ->withCount(['blogs' => function ($query) {
-            $query->where('blogs.is_active', true)
-                ->whereNull('blogs.deleted_at');
-        }])
-        ->get();
+        $locale = $locale ?? app()->getLocale();
         
-        $this->tags = $tags->map(function ($tag) use ($locale) {
-            $translation = $tag->translations->where('locale', $locale)->first();
-            return [
-                'id' => $tag->id,
-                'name' => $translation->name ?? 'N/A',
-                'slug' => $translation->slug ?? null,
-                'count' => $tag->blogs_count ?? 0,
-            ];
-        })->filter(function ($tag) {
-            return $tag['count'] > 0; // Only show tags with blogs
-        })->values()->toArray();
+        $query = \App\Models\BlogTranslation::where('locale', $locale)
+            ->whereNotNull('tags')
+            ->where('tags', '!=', '')
+            ->whereHas('blog', function($q) {
+                $q->where('is_active', true)->whereNull('deleted_at');
+            });
+            
+        if ($excludeBlogId) {
+            $query->where('blog_id', '!=', $excludeBlogId);
+        }
+            
+        $translations = $query->pluck('tags');
+        
+        $allTags = [];
+        foreach ($translations as $tagString) {
+            if (!empty($tagString)) {
+                $tags = array_map('trim', explode(',', $tagString));
+                $allTags = array_merge($allTags, $tags);
+            }
+        }
+        
+        // Count occurrences and return unique tags with counts
+        $tagCounts = array_count_values($allTags);
+        $result = [];
+        foreach ($tagCounts as $name => $count) {
+            if (!empty($name)) {
+                $result[] = [
+                    'name' => $name,
+                    'count' => $count
+                ];
+            }
+        }
+        
+        // Sort by count descending
+        usort($result, function($a, $b) {
+            return $b['count'] - $a['count'];
+        });
+        
+        return array_slice($result, 0, 10); // Return top 10 tags
     }
     
     /**
@@ -244,6 +266,19 @@ class BlogView extends Component
     }
     
     /**
+     * Load all tags for sidebar display
+     */
+    protected function loadAllTagsForSidebar($locale)
+    {
+        // Don't include tags from current blog to avoid duplication
+        $excludeBlogId = $this->currentBlogId;
+        $allTags = self::getAllTagsFromTranslations($locale, $excludeBlogId);
+        
+        // Set to a different property to distinguish from current blog tags
+        $this->allTagsForSidebar = $allTags;
+    }
+    
+    /**
      * Update search results when user types
      */
     public function updatedSearch()
@@ -254,7 +289,7 @@ class BlogView extends Component
             $this->searchResults = BlogTranslation::where('locale', $locale)
                 ->where(function($q) {
                     $q->where('title', 'like', '%' . $this->search . '%')
-                      ->orWhere('introduction', 'like', '%' . $this->search . '%');
+                      ->orWhere('at_glance', 'like', '%' . $this->search . '%');
                 })
                 ->whereHas('blog', function($q) {
                     $q->where('is_active', true);
@@ -266,7 +301,7 @@ class BlogView extends Component
                     return [
                         'title' => $translation->title,
                         'slug' => $translation->slug,
-                        'introduction' => \Illuminate\Support\Str::limit(strip_tags($translation->introduction ?? ''), 80),
+                        'introduction' => \Illuminate\Support\Str::limit(strip_tags($translation->at_glance ?? ''), 80),
                     ];
                 })
                 ->toArray();
@@ -355,6 +390,36 @@ class BlogView extends Component
         }
 
         return [];
+    }
+    
+    /**
+     * Convert main_content from array format to string format
+     */
+    private function convertMainContentToString($mainContent)
+    {
+        if (is_string($mainContent)) {
+            return $mainContent;
+        }
+        
+        if (is_array($mainContent)) {
+            $html = '';
+            foreach ($mainContent as $section) {
+                if (is_array($section) && isset($section['title']) && isset($section['content'])) {
+                    $title = trim($section['title']);
+                    $content = trim($section['content']);
+                    
+                    if (!empty($title)) {
+                        $html .= '<h2>' . htmlspecialchars($title) . '</h2>' . "\n";
+                    }
+                    if (!empty($content)) {
+                        $html .= '<div>' . $content . '</div>' . "\n";
+                    }
+                }
+            }
+            return $html;
+        }
+        
+        return '';
     }
 
     public function render()

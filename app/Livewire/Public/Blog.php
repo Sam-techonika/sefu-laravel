@@ -17,11 +17,19 @@ class Blog extends Component
     public $perPage = 9; 
     public $selectedTag = null;
     public $selectedCategory = null;
+    public $availableTags = [];
 
     protected $queryString = [
         'selectedTag' => ['except' => null, 'as' => 'tag'],
         'selectedCategory' => ['except' => null, 'as' => 'category'],
     ];
+
+    public function mount()
+    {
+        // Initialize from query parameters
+        $this->selectedTag = request()->get('tag');
+        $this->selectedCategory = request()->get('category');
+    }
    
     public function render()
     {
@@ -32,13 +40,12 @@ class Blog extends Component
                 $q->where('locale', $locale)->with('category.translations');
             }, 'user']);
 
-        // Filter by tag if selected (using tag name)
+        // Filter by tag if selected (using tags from blog_translations)
         if ($this->selectedTag) {
-            $query->whereHas('tags', function($q) use ($locale) {
-                $q->whereHas('translations', function($tq) use ($locale) {
-                    $tq->where('locale', $locale)
-                       ->where('name', $this->selectedTag);
-                });
+            $tagToSearch = trim($this->selectedTag);
+            $query->whereHas('translations', function($q) use ($locale, $tagToSearch) {
+                $q->where('locale', $locale)
+                  ->where('tags', 'LIKE', '%' . $tagToSearch . '%');
             });
         }
 
@@ -54,7 +61,70 @@ class Blog extends Component
 
         $blogs = $query->latest()->paginate($this->perPage);
 
+        // Get available tags for filter
+        $this->loadAvailableTags($locale);
+
         return view('livewire.public.blog', compact('blogs'));
+    }
+
+    /**
+     * Load available tags from blog_translations for filtering
+     */
+    protected function loadAvailableTags($locale)
+    {
+        $translations = \App\Models\BlogTranslation::where('locale', $locale)
+            ->whereNotNull('tags')
+            ->where('tags', '!=', '')
+            ->whereHas('blog', function($q) {
+                $q->where('is_active', true)->whereNull('deleted_at');
+            })
+            ->pluck('tags');
+            
+        $allTags = [];
+        foreach ($translations as $tagString) {
+            if (!empty($tagString)) {
+                $tags = array_map('trim', explode(',', $tagString));
+                $allTags = array_merge($allTags, $tags);
+            }
+        }
+        
+        // Get unique tags with counts
+        $tagCounts = array_count_values($allTags);
+        $this->availableTags = [];
+        foreach ($tagCounts as $name => $count) {
+            if (!empty($name)) {
+                $this->availableTags[] = [
+                    'name' => $name,
+                    'count' => $count
+                ];
+            }
+        }
+        
+        // Sort by name
+        usort($this->availableTags, function($a, $b) {
+            return strcmp($a['name'], $b['name']);
+        });
+    }
+    
+    /**
+     * Clear tag filter
+     */
+    public function clearTagFilter()
+    {
+        $this->selectedTag = null;
+        $this->resetPage(); // Reset pagination when clearing filter
+        
+        // Optionally redirect to clean URL without query parameters
+        return redirect()->route('blogs', app()->getLocale());
+    }
+    
+    /**
+     * Set tag filter
+     */
+    public function setTagFilter($tag)
+    {
+        $this->selectedTag = $tag;
+        $this->resetPage(); // Reset pagination when setting new filter
     }
 
     #[Title('Blogs')]

@@ -17,6 +17,7 @@ class BlogTranslation extends Model
         'main_content',
         'key_takeaways',
         'faqs',
+        'tags',
     ];
 
     protected $casts = [
@@ -32,5 +33,33 @@ class BlogTranslation extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Get tags as an array
+     */
+    public function getTagsArray()
+    {
+        if (empty($this->tags)) {
+            return [];
+        }
+        
+        return array_map('trim', explode(',', $this->tags));
+    }
+
+    /**
+     * Set tags from an array
+     */
+    public function setTagsFromArray(array $tags)
+    {
+        $this->tags = implode(', ', array_filter(array_map('trim', $tags)));
+    }
+
+    /**
+     * Check if translation has a specific tag
+     */
+    public function hasTag($tag)
+    {
+        return in_array(trim($tag), $this->getTagsArray());
     }
 }

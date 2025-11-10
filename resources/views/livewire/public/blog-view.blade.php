@@ -8,6 +8,20 @@
                           <div class="blogs__content section-title">
                                   <span class="tag mb-25">{{ $publishDate ?? now()->format('F d, Y') }}</span>
                                   <h3 class="mb-20">{{ $blogTitle ?? 'Blog Title' }}</h3>
+                                  
+                                  {{-- Display current blog tags --}}
+                                  @if(!empty($tags) && count($tags))
+                                  <div class="blog-tags mb-25">
+                                      <span class="text-muted me-2">Tags:</span>
+                                      @foreach($tags as $tag)
+                                          <a href="{{ url('/'.app()->getLocale().'/blogs?tag='.urlencode($tag['name'])) }}" 
+                                             class="badge bg-primary text-decoration-none me-2"
+                                             style="font-size: 12px;">
+                                              {{ $tag['name'] }}
+                                          </a>
+                                      @endforeach
+                                  </div>
+                                  @endif
                           </div>
                       </div>
                   </div>
@@ -36,23 +50,9 @@
                           </div>
                           @endif
 
-                          {{-- Introduction Content --}}
-                          @if($introductionContent)
-                          <div class="blog-introduction mb-50 ck-content">
-                              {!! $introductionContent !!}
-                          </div>
-                          @endif
-
                           {{-- Main Content --}}
-                          <div class="blog-main-content mb-50 ck-content">
-                              {{-- mainContent may be an array of HTML blocks (created from JSON) or a raw HTML string --}}
-                              @if(is_array($mainContent))
-                                  @foreach($mainContent as $block)
-                                      {!! $block !!}
-                                  @endforeach
-                              @else
-                                  {!! $mainContent ?? '' !!}
-                              @endif
+                          <div class=\"blog-main-content mb-50 ck-content\">
+                              {!! $mainContent ?? '' !!}
                           </div>
                       </div>
                       {{-- Key Takeaways Section --}}
@@ -297,7 +297,7 @@
                                                   $catName = $category->name ?? ($category['name'] ?? ($category['title'] ?? 'Category'));
                                                   // Counts: prefer eager loaded withCount keys like posts_count or blogs_count, else try count
                                                   $catCount = $category->posts_count ?? $category->blogs_count ?? $category->count ?? ($category['count'] ?? 0);
-                                                  $catUrl = url('/'.app()->getLocale().'/blog') . ($catSlug ? '?category='.$catSlug : ($catId ? '?category_id='.$catId : ''));
+                                                  $catUrl = url('/'.app()->getLocale().'/blogs') . ($catSlug ? '?category='.$catSlug : ($catId ? '?category_id='.$catId : ''));
                                               @endphp
                                               <li>
                                                   <a href="{{ $catUrl }}">{{ $catName }} <span class="f-right">({{ $catCount }})</span></a>
@@ -353,16 +353,19 @@
                               <div class="widget-tags-content">
                                   <h3 class="widget-title mb-20">Tags</h3>
                                   <div class="tag-list">
-                                      @if(!empty($tags) && (is_array($tags) || $tags instanceof \Illuminate\Support\Collection) && count($tags))
-                                          @foreach($tags as $tag)
+                                      @if(!empty($allTagsForSidebar) && count($allTagsForSidebar))
+                                          @foreach($allTagsForSidebar as $tag)
                                               @php
                                                   $tagName = $tag['name'] ?? 'Tag';
-                                                  $tagUrl = route('blogs', ['locale' => app()->getLocale(), 'tag' => $tagName]);
+                                                  $tagCount = $tag['count'] ?? 0;
+                                                  $tagUrl = url('/'.app()->getLocale().'/blogs?tag='.urlencode($tagName));
                                               @endphp
-                                              <a class="tags" href="{{ $tagUrl }}">{{ $tagName }}</a>
+                                              <a class="tags" href="{{ $tagUrl }}" title="{{ $tagCount }} posts">
+                                                  {{ $tagName }} ({{ $tagCount }})
+                                              </a>
                                           @endforeach
                                       @else
-                                          <p>tags not added</p>
+                                          <p class="text-muted">No tags available</p>
                                       @endif
                                   </div>
                               </div>
