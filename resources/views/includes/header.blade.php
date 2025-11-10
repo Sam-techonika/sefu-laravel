@@ -12,9 +12,8 @@
                                     src="{{ setting('logo') ? asset('storage/' . setting('logo')) : asset('assets/img/logo/logo2.png') }}"
                                     alt="{{ setting('site_name', 'Logo') }}"
                                     style="
-                                            height: 45px;
+                                            height: 55px;
                                             width: auto;
-                                            max-width: 180px;
                                             object-fit: contain;
                                             display: block;
                                         ">
