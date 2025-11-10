@@ -75,6 +75,14 @@
 
 
                       {{-- FAQ Section --}}
+                      @php
+                          $validFaqs = !empty($faqs) && is_array($faqs) 
+                              ? array_filter($faqs, function($faq) {
+                                  return !empty($faq['question']) && !empty($faq['answer']);
+                              })
+                              : [];
+                      @endphp
+                      @if(count($validFaqs) > 0)
                       <section class="faq-area pt-20 pb-20 pt-md-95 pt-xs-95">
                           <div class="">
                               <div class="row">
@@ -91,47 +99,29 @@
                                   <div class="col-lg-12">
                                       <div class="faq-que faq-que-2 mb-30">
                                           <div id="accordion">
-                                              @if(!empty($faqs) && is_array($faqs))
-                                                  @foreach($faqs as $i => $faq)
-                                                      @php
-                                                          $idx = $i + 1;
-                                                          $headingId = "heading{$idx}";
-                                                          $collapseId = "collapse{$idx}";
-                                                          $isOpen = $i === 0 ? 'show' : '';
-                                                          $ariaExpanded = $i === 0 ? 'true' : 'false';
-                                                      @endphp
-                                                      <div class="card">
-                                                          <div class="card-header" id="{{ $headingId }}">
-                                                              <h5 class="mb-0">
-                                                                  <button class="btn btn-link {{ $i !== 0 ? 'collapsed' : '' }}" data-toggle="collapse" data-target="#{{ $collapseId }}" aria-expanded="{{ $ariaExpanded }}" aria-controls="{{ $collapseId }}">
-                                                                      {{ $faq['question'] ?? 'Question' }}
-                                                                  </button>
-                                                              </h5>
-                                                          </div>
-                                                          <div id="{{ $collapseId }}" class="collapse {{ $isOpen }}" aria-labelledby="{{ $headingId }}" data-parent="#accordion">
-                                                              <div class="card-body">
-                                                                  {!! $faq['answer'] ?? '' !!}
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                  @endforeach
-                                              @else
-                                                  {{-- fallback: keep original static FAQs if no dynamic faqs available --}}
+                                              @foreach($validFaqs as $i => $faq)
+                                                  @php
+                                                      $idx = $i + 1;
+                                                      $headingId = "heading{$idx}";
+                                                      $collapseId = "collapse{$idx}";
+                                                      $isOpen = $i === 0 ? 'show' : '';
+                                                      $ariaExpanded = $i === 0 ? 'true' : 'false';
+                                                  @endphp
                                                   <div class="card">
-                                                      <div class="card-header" id="headingOne">
+                                                      <div class="card-header" id="{{ $headingId }}">
                                                           <h5 class="mb-0">
-                                                              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                                  {{ $faq1Question ?? 'How long does a trademark registration take?' }}
+                                                              <button class="btn btn-link {{ $i !== 0 ? 'collapsed' : '' }}" data-toggle="collapse" data-target="#{{ $collapseId }}" aria-expanded="{{ $ariaExpanded }}" aria-controls="{{ $collapseId }}">
+                                                                  {{ $faq['question'] ?? 'Question' }}
                                                               </button>
                                                           </h5>
                                                       </div>
-                                                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                                      <div id="{{ $collapseId }}" class="collapse {{ $isOpen }}" aria-labelledby="{{ $headingId }}" data-parent="#accordion">
                                                           <div class="card-body">
-                                                              {{ $faq1Answer ?? 'The trademark registration process in India typically takes 18-24 months, depending on objections and the workload of the trademark office.' }}
+                                                              {!! $faq['answer'] ?? '' !!}
                                                           </div>
                                                       </div>
                                                   </div>
-                                              @endif
+                                              @endforeach
                                           </div>
                                       </div>
                                   </div>
@@ -144,6 +134,7 @@
                               </div>
                           </div>
                       </section>
+                      @endif
                       {{-- Author Bio Section --}}
                       <div class="author-bio-section mb-75">
                           <div class="author-bio-wrapper">
@@ -303,12 +294,7 @@
                                               </li>
                                           @endforeach
                                       @else
-                                          {{-- fallback to static markup if no categories provided --}}
-                                          <li><a href="#">Web Design <span class="f-right">(13)</span></a></li>
-                                          <li><a href="#">Graphics <span class="f-right">(05)</span></a></li>
-                                          <li><a href="#">Web Development <span class="f-right">(24)</span></a></li>
-                                          <li><a href="#">IOS/Android Development <span class="f-right">(08)</span></a></li>
-                                          <li><a href="#">others <span class="f-right">(09)</span></a></li>
+                                            <li>No categories available</li>
                                       @endif
                                   </ul>
                               </div>

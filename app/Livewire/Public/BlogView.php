@@ -185,7 +185,7 @@ class BlogView extends Component
         $tagNames = array_map('trim', explode(',', $translation->tags));
         $this->tags = array_map(function($name, $index) {
             return [
-                'id' => $index + 1, // Simple numeric ID
+                'id' => $index + 1, 
                 'name' => $name,
             ];
         }, $tagNames, array_keys($tagNames));

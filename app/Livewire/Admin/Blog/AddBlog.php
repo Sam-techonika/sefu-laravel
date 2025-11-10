@@ -147,8 +147,8 @@ class AddBlog extends Component
             'main_content' => 'nullable|string',
             'key_takeaways' => 'nullable|string|max:5000',
             'faqs' => 'nullable|array',
-            'faqs.*.question' => 'required_with:faqs.*.answer|string|max:500',
-            'faqs.*.answer' => 'required_with:faqs.*.question|string|max:2000',
+            'faqs.*.question' => 'nullable|string|max:500',
+            'faqs.*.answer' => 'nullable|string|max:2000',
             'tags' => 'nullable|string|max:1000',
         ];
     }
@@ -156,8 +156,6 @@ class AddBlog extends Component
     protected $messages = [
         'title.required' => 'Title is required.',
         'slug.required' => 'Slug is required.',
-        'faqs.*.question.required_with' => 'Question is required when answer is provided.',
-        'faqs.*.answer.required_with' => 'Answer is required when question is provided.',
     ];
 
     public function save()
@@ -167,12 +165,8 @@ class AddBlog extends Component
         try {
             DB::beginTransaction();
             
-            // Clean and filter FAQs
-            $cleanFaqs = !empty($this->faqs) 
-                ? array_values(array_filter($this->faqs, function($faq) {
-                    return !empty(trim($faq['question'] ?? '')) && !empty(trim($faq['answer'] ?? ''));
-                }))
-                : [];
+            // Clean FAQs (allow empty fields)
+            $cleanFaqs = !empty($this->faqs) ? array_values($this->faqs) : [];
             
             // Prepare translation data
             $translationData = [

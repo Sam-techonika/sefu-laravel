@@ -48,57 +48,6 @@
                             @error('category_id') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 
-                        {{-- Tags --}}
-                        <div class="mb-3"
-                            x-data="{
-        tagSelect: null,
-        selected: @entangle('selectedTags'),
-        init() {
-            this.$nextTick(() => this.initSelect());
-        },
-        initSelect() {
-            if (this.tagSelect) this.tagSelect.destroy();
-            this.tagSelect = new TomSelect(this.$refs.tagSelect, {
-                plugins: ['remove_button'],
-                persist: false,
-                closeAfterSelect: true,
-                maxOptions: 100,
-                placeholder: 'Select Tags',
-                onItemAdd: () => this.sync(),
-                onItemRemove: () => this.sync(),
-            });
-            this.refreshSelect();
-        },
-        refreshSelect() {
-            if (!this.tagSelect) return;
-            this.tagSelect.clear(true);
-            (this.selected || []).forEach(id => {
-                this.tagSelect.addItem(id, true);
-            });
-        },
-        sync() {
-            let values = this.tagSelect.getValue();
-
-    
-            // so we ensure it's always an array
-            if (!Array.isArray(values)) {
-                values = values ? values.split(',') : [];
-            }
-
-            
-            this.selected = values.map(v => parseInt(v));
-        }
-    }"
-                            wire:ignore>
-                            <label>Tags</label>
-                            <select x-ref="tagSelect" multiple class="form-select">
-                                @foreach($tags as $tag)
-                                <option value="{{ $tag['id'] }}">{{ $tag['name'] }}</option>
-                                @endforeach
-                            </select>
-                            @error('selectedTags') <span class="text-danger">{{ $message }}</span> @enderror
-                        </div>
-
                         {{-- Featured Image --}}
                         <div class="mb-3" x-data="{ isUploading: false, progress: 0 }"
                             x-on:livewire-upload-start="isUploading = true"

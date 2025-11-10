@@ -104,7 +104,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::get('/', Dashboard::class)->name('dashboard');
     Route::get('/users', UserList::class)->name('users');
     Route::get('/categories', CategoryList::class)->name('categories');
-    Route::get('/tags', TagList::class)->name('tags');
+    // Route::get('/tags', TagList::class)->name('tags');
     Route::get('/blogs', BlogList::class)->name('blogs');
     Route::get('/blog/add/{id}', AddBlog::class)->name('blog.add');
     Route::get('/blog/edit/{id}/{locale}', UpdateBlog::class)->name('blog.edit');

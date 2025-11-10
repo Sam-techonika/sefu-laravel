@@ -7,7 +7,6 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Blog;
 use App\Models\Category;
-use App\Models\Tag;
 use App\Models\User;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
@@ -23,21 +22,17 @@ class BlogForm extends Component
     public $featured_image;
     public $existingFeaturedImage = null;
     public $author;
-    public $selectedTags = [];
     public $category_id;
     public $is_active = true;
     public $description;
 
     public $users = [];
-    public $tags = [];
     public $categories = [];
 
     protected $rules = [
         'nextBlogName' => 'required|string|max:255',
         'author' => 'required|exists:users,id',
         'featured_image' => 'nullable|image|max:2048',
-        'selectedTags' => 'nullable|array',
-        'selectedTags.*' => 'exists:tags,id',
         'category_id' => 'nullable|exists:categories,id',
     ];
 
@@ -45,12 +40,12 @@ class BlogForm extends Component
     public function open($id = null)
     {
         $this->resetValidation();
-        $this->reset(['featured_image', 'existingFeaturedImage', 'author', 'selectedTags', 'category_id', 'nextBlogName']);
+        $this->reset(['featured_image', 'existingFeaturedImage', 'author', 'category_id', 'nextBlogName']);
         $this->is_active = true;
         $this->blogId = null;
 
         if ($id) {
-            $blog = Blog::with('tags')->find($id);
+            $blog = Blog::find($id);
             if (!$blog) {
                 session()->flash('error', 'Blog not found!');
                 return;
@@ -60,7 +55,6 @@ class BlogForm extends Component
             $this->author = $blog->author;
             $this->category_id = $blog->category_id;
             $this->is_active = $blog->is_active;
-            $this->selectedTags = $blog->tags->pluck('id')->toArray();
             $this->nextBlogName = $blog->name;
             $this->description = $blog->description;
             // keep the stored featured image path so we can preview it when editing
@@ -88,12 +82,6 @@ class BlogForm extends Component
             ->map(fn($category) => [
                 'id' => $category->id,
                 'name' => optional($category->translations->firstWhere('locale', $locale))->name ?? 'N/A'
-            ])->toArray();
-
-        $this->tags = Tag::with('translations')->get()
-            ->map(fn($tag) => [
-                'id' => $tag->id,
-                'name' => optional($tag->translations->firstWhere('locale', $locale))->name ?? 'N/A'
             ])->toArray();
     }
 
@@ -131,8 +119,6 @@ class BlogForm extends Component
         } else {
             $blog = Blog::create($data);
         }
-
-        $blog->tags()->sync($this->selectedTags ?? []);
 
         $this->dispatch('refreshBlogs');
         $this->isModalOpen = false;

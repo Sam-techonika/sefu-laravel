@@ -16,7 +16,6 @@
                         <th>Name</th>
                         <th>Author</th>
                         <th>Category</th>
-                        <th>Tags</th>
                         <th>Status</th>
                         <th>Created At</th>
                         <th class="text-end">Actions</th>
@@ -38,14 +37,7 @@
                         <td>{{ $blog->name }}</td>
                         <td>{{ $blog->author ? \App\Models\User::find($blog->author)?->name : 'N/A' }}</td>
                         <td>{{ optional($blog?->category?->translations->firstWhere('locale', 'en'))->name ?? 'N/A' }}</td>
-                        <td>
-                            {{
-                                    $blog->tags->map(function($tag) use ($locale) {
-                                        $tr = $tag?->translations?->firstWhere('locale', 'en');
-                                        return $tr?->name ?? $tag->name;
-                                    })->join(', ')
-                                }}
-                        </td>
+                  
                         <td class="text-center">
                             <label class="form-check form-switch m-0">
                                 <input
