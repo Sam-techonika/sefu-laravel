@@ -192,7 +192,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Activity Overview</h3>
+                    <h3 class="card-title">Activity Overview</h3>&nbsp;&nbsp;
                     <div class="card-subtitle">Service requests and contact messages over time</div>
                 </div>
                 <div class="card-body">
