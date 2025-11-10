@@ -30,40 +30,6 @@
                 </div>
                 @endif
 
-                {{-- Show filter indicator if tag is selected --}}
-                @if($selectedTag)
-                <div class="row mb-4">
-                    <div class="col-12">
-                        <div class="alert alert-info d-flex justify-content-between align-items-center">
-                            <span>Showing blogs tagged with: <strong>"{{ $selectedTag }}"</strong></span>
-                            <button type="button" wire:click="clearTagFilter" class="btn btn-sm btn-outline-secondary">Clear Filter</button>
-                        </div>
-                    </div>
-                </div>
-                @endif
-                
-                {{-- Show available tags for filtering --}}
-                @if(!empty($availableTags) && count($availableTags) > 0)
-                <div class="row mb-4">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title mb-3">Filter by Tags</h5>
-                                <div class="tag-filter-list">
-                                    @foreach($availableTags as $tag)
-                                        <button type="button" 
-                                                wire:click="setTagFilter('{{ $tag['name'] }}')"
-                                                class="btn btn-sm {{ $selectedTag === $tag['name'] ? 'btn-primary' : 'btn-outline-primary' }} me-2 mb-2">
-                                            {{ $tag['name'] }} ({{ $tag['count'] }})
-                                        </button>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endif
-
                 <div class="row">
                     @forelse($blogs as $blog)
                     @php
@@ -74,11 +40,6 @@
                     $categoryName = $trans && $trans->category
                         ? optional($trans->category->translations->firstWhere('locale', app()->getLocale()))->name
                         : 'General';
-                    // Extract tags from blog_translations
-                    $blogTags = [];
-                    if ($trans && !empty($trans->tags)) {
-                        $blogTags = array_map('trim', explode(',', $trans->tags));
-                    }
                     // Use route() if slug exists, otherwise use #
                     $link = $slug
                         ? route('blog.view', ['locale' => app()->getLocale(), 'slug' => $slug])
@@ -105,25 +66,6 @@
                                                 {{ \Illuminate\Support\Str::limit($title, 80) }}
                                             </a>
                                         </h3>
-                                        
-                                        {{-- Display blog tags --}}
-                                        @if(!empty($blogTags))
-                                        <div class="blog-tags mb-20">
-                                            @foreach(array_slice($blogTags, 0, 3) as $tag)
-                                                <button type="button" 
-                                                        wire:click="setTagFilter('{{ $tag }}')"
-                                                        class="badge bg-secondary text-decoration-none me-1 mb-1"
-                                                        style="font-size: 10px; cursor: pointer; border: none;">
-                                                    {{ $tag }}
-                                                </button>
-                                            @endforeach
-                                            @if(count($blogTags) > 3)
-                                                <span class="badge bg-light text-dark" style="font-size: 10px;">
-                                                    +{{ count($blogTags) - 3 }} more
-                                                </span>
-                                            @endif
-                                        </div>
-                                        @endif
 
                                         <a class="blog-btn" href="{{ $link }}">
                                             <img src="{{ asset('assets/img/icon/icon12.svg') }}" alt="">

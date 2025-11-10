@@ -14,11 +14,10 @@
                                   <div class="blog-tags mb-25">
                                       <span class="text-muted me-2">Tags:</span>
                                       @foreach($tags as $tag)
-                                          <a href="{{ url('/'.app()->getLocale().'/blogs?tag='.urlencode($tag['name'])) }}" 
-                                             class="badge bg-primary text-decoration-none me-2"
+                                          <span class="badge bg-primary text-decoration-none me-2"
                                              style="font-size: 12px;">
                                               {{ $tag['name'] }}
-                                          </a>
+                                          </span>
                                       @endforeach
                                   </div>
                                   @endif
@@ -358,7 +357,7 @@
                                               @php
                                                   $tagName = $tag['name'] ?? 'Tag';
                                                   $tagCount = $tag['count'] ?? 0;
-                                                  $tagUrl = url('/'.app()->getLocale().'/blogs?tag='.urlencode($tagName));
+                                                  $tagUrl = route('blogs', app()->getLocale()) . '?tag=' . urlencode($tagName);
                                               @endphp
                                               <a class="tags" href="{{ $tagUrl }}" title="{{ $tagCount }} posts">
                                                   {{ $tagName }} ({{ $tagCount }})
