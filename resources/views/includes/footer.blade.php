@@ -27,7 +27,7 @@
                             <ul class="fot-list">
                                 @php
                                     $links = [
-                                        'home', 'service', 'about', 'blogs', 'contact', 'testimonials', 'faq', 'case.study'
+                                        'home', 'service', 'about',  'testimonials', 'case.study'
                                     ];
                                 @endphp
                                 @foreach($links as $name)
@@ -65,7 +65,7 @@
                     <div class="col-xl-4 col-lg-6 col-md-6  wow fadeInUp2 animated" data-wow-delay='.7s'>
                         <div class="footer__widget fot_widget_h3 text-center text-md-left mb-30 pl-30">
                             <h4 class="widget-title mb-40">{{ __('footer.address_title') }}</h4>
-                            <p class="mb-15">{{ setting('address', __('footer.address_text')) }}</p>
+                            <!-- <p class="mb-15">{{ setting('address', __('footer.address_text')) }}</p> -->
                             <div class="footer-social mb-40">
                                 @foreach(['facebook','twitter','linkedin','google'] as $net)
                                     @if(config('services.social.'.$net))

@@ -6,14 +6,11 @@ return [
 		'home' => 'Home',
 		'service' => 'Services',
 		'about' => 'About Us',
-		'blogs' => 'Blog',
-		'contact' => 'Contact',
 		'testimonials' => 'Testimonials',
-		'faq' => 'FAQ',
 		'case.study' => 'Case Studies',
 	],
 
-	'help_title' => 'Help & Support',
+	'help_title' => 'Explore',
 	'help' => [
 		'faq' => 'FAQ',
 		'blogs' => 'Blog',
@@ -21,7 +18,7 @@ return [
 		'support' => 'Support',
 	],
 
-	'address_title' => 'Our Address',
+	'address_title' => 'Social Links',
 	'address_text' => '2190 Lojiho Terrace, Mirpur, Equal Licensed in 50 states.',
 
 	'newsletter_title' => 'SIGN UP FOR NEWSLETTER',

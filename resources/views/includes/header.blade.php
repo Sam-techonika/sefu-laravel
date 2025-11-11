@@ -31,10 +31,15 @@
                                     </form>
                                 </li>
                                 <li class="d-none d-lg-inline-block">
-                                    <span><img src="{{ asset('assets/img/icon/at.svg') }}" alt=""> {{ setting('email', 'info@example.com') }}</span>
+                                    <a href="mailto:{{ setting('email', 'info@example.com') }}">
+                                        {{ setting('email', 'info@example.com') }}
+                                    </a>
                                 </li>
                                 <li class="d-none d-lg-inline-block">
-                                    <span><img src="{{ asset('assets/img/icon/telephone.svg') }}" alt=""> {{ setting('phone_number', '(000) 000-0000') }}</span>
+                                    <a class="pl-2" href="tel:{{ setting('phone_number', '(000) 000-0000') }}">
+                                        <img src="{{ asset('assets/img/icon/telephone.svg') }}">
+                                        {{ setting('phone_number', '(000) 000-0000') }}
+                                    </a>
                                 </li>
                             </ul>
                         </div>
