@@ -1,18 +1,18 @@
 <div>
-    <header id="top-menu">
+    <header id="top-menu mb-10">
         <!-- Header Top CTA -->
-        <div class="header-top-cta pt-20 pb-35">
+        <div class="header-top-cta  pb-35">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-4 col-lg-3 col-md-6 col-sm-6">
                         <div class="logo">
                             <a class="logo-img" wire:navigate href="{{ route('home', ['locale' => app()->getLocale()]) }}">
                                 <img
-                                    class="logo-1 mt-1"
+                                    class="logo-1 pt-6"
                                     src="{{ setting('logo') ? asset('storage/' . setting('logo')) : asset('assets/img/logo/logo2.png') }}"
                                     alt="{{ setting('site_name', 'Logo') }}"
                                     style="
-                                            height: 55px;
+                                            height: 60px;
                                             width: auto;
                                             object-fit: contain;
                                             display: block;
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-9 col-md-6 col-sm-6 d-none d-sm-inline-block">
-                        <div class="header-top-nav">
+                        <div class="header-top-nav pt-20">
                             <ul class="d-flex align-items-center justify-content-end">
                                 <li>
                                     <form class="search-input mr-10" action="#">
