@@ -9,7 +9,7 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="page-title-wrapper pl-45 pl-md-0 pl-xs-0">
-                           <h4 class="sub-title mb-35">Excepteur sint occaecat cupidat non sunt in culpa qui officia desrunt molli test laborum.</h4>
+                            <h4 class="sub-title mb-35">Contact us for inquiries, technical support, or partnership opportunities. Our team is here to assist you.</h4>
                         </div>
                     </div>
                 </div>
@@ -21,25 +21,41 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="address-box text-center mb-50 pl-45 pr-45">
-                            <img class="loc-icon mb-25" src="{{ asset('assets/img/icon/location.svg') }}" alt="">
+                        <!-- <div class="address-box text-center mb-50 pl-45 pr-45">
+                            <span class="loc-icon mb-25" style="display:inline-block;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="var(--theme-color, #ff1f1f)" viewBox="0 0 24 24">
+                                    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.01-.24c1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.46.57 3.58.13.34.05.73-.24 1.01l-2.2 2.2z"/>
+                                </svg>
+                            </span>
                             <h4 class="sub-title mb-25">Our Location</h4>
                             <p>Danmondi, 7563 King Meadow Suite 896, USA</p>
+                        </div> -->
+                        <div class="address-box text-center mb-50 pl-45 pr-45">
+                            <svg class="loc-icon mb-25" xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="var(--theme-color, #ff1f1f)" viewBox="0 0 24 24" style="margin-right:7px;">
+                                <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.01-.24c1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.46.57 3.58.13.34.05.73-.24 1.01l-2.2 2.2z" />
+                            </svg>
+                            <h4 class="sub-title mb-25">Phone</h4>
+                            <p>
+                                <a href="tel:{{ setting('phone_number', '879546213') }}" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;">
+
+                                    {{ setting('phone_number', '879546213') }}
+                                </a>
+                            </p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="address-box text-center mb-50 pl-45 pr-45">
                             <img class="loc-icon mb-25" src="{{ asset('assets/img/icon/mail.svg') }}" alt="">
-                            <h4 class="sub-title mb-25">Email & Phone</h4>
-                            <p>weberrindia@gmail.com 880 1723801729</p>
+                            <h4 class="sub-title mb-25">Email</h4>
+                            <p><a href="mailto:{{ setting('email', 'example@example.com') }}">{{ setting('email', 'example@example.com') }}</a></p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <div class="address-box text-center mb-50 pl-45 pr-45">
                             <img class="loc-icon mb-25" src="{{ asset('assets/img/icon/chain.svg') }}" alt="">
                             <h4 class="sub-title mb-25">Get In Touch</h4>
-                            <p>DAlso find us social media below</p>
-                             <div class="footer-social">
+                            <!-- <p>DAlso find us social media below</p> -->
+                            <div class="footer-social">
                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
                                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -63,7 +79,7 @@
                             <h3 class="blog-details-title mb-45">Don’t hesitate to drop a line to us.</h3>
 
                             @if (session()->has('success'))
-                                <div class="text-success">{{ session('success') }}</div>
+                            <div class="text-success">{{ session('success') }}</div>
                             @endif
 
                             <form class="quote-form" wire:submit.prevent="submit">
@@ -95,4 +111,3 @@
             </div>
         </section>
     </div>
-

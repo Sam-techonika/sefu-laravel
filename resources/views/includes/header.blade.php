@@ -36,7 +36,7 @@
                                     </a>
                                 </li>
                                 <li class="d-none d-lg-inline-block">
-                                    <a class="pl-2" href="tel:{{ setting('phone_number', '(000) 000-0000') }}">
+                                    <a class="pl-4" href="tel:{{ setting('phone_number', '(000) 000-0000') }}">
                                         <img src="{{ asset('assets/img/icon/telephone.svg') }}">
                                         {{ setting('phone_number', '(000) 000-0000') }}
                                     </a>
