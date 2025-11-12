@@ -1,16 +1,60 @@
-  <main x-data="{ searchOpen: @entangle('showDropdown') }" @click.away="searchOpen = false">
-      <!--blog-area start-->
-      <section class="blog-details-area fix pt-240 pb-50 pt-md-200 pb-md-60 pt-xs-150">
-          <div class="container">
-              <div class="row">
-                  <div class="col-xl-12">
-                      <div class="blogs mb-75">
-                          <div class="blogs__content section-title">
-                              <span class="tag mb-25">{{ $publishDate ?? now()->format('F d, Y') }}</span>
-                              <h3 class="mb-20">{{ $blogTitle ?? 'Blog Title' }}</h3>
+@php
+$sectionMetaTitle = $meta_title ?? $blogTitle ?? config('settings.brand_name', 'Panel');
+$sectionMetaDescription = $meta_description ?? '';
+$sectionMetaKeywords = $meta_keywords ?? '';
+
+if (empty($sectionMetaKeywords) && !empty($tags) && is_array($tags)) {
+$names = array_map(function($t) { return is_array($t) ? ($t['name'] ?? '') : $t; }, $tags);
+$names = array_filter($names);
+if (!empty($names)) {
+$sectionMetaKeywords = implode(', ', $names);
+}
+}
+@endphp
+
+@push('meta')
+
+<meta name="title" content="{{ $sectionMetaTitle }}">
+<meta name="description" content="{{ $sectionMetaDescription }}">
+<meta name="keywords" content="{{ $sectionMetaKeywords }}">
+<link rel="canonical" href="{{ url()->current() }}">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ $sectionMetaTitle }}">
+<meta property="og:description" content="{{ $sectionMetaDescription }}">
+<meta property="og:url" content="{{ url()->current() }}">
+@if(!empty($featuredImage))
+<meta property="og:image" content="{{ asset('storage/'.$featuredImage) }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+@endif
+
+{{-- Twitter --}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $sectionMetaTitle }}">
+<meta name="twitter:description" content="{{ $sectionMetaDescription }}">
+@if(!empty($featuredImage))
+<meta name="twitter:image" content="{{ asset('storage/'.$featuredImage) }}">
+@endif
 
 
-                              {{-- Display current blog tags 
+@endpush
+
+
+
+<main x-data="{ searchOpen: @entangle('showDropdown') }" @click.away="searchOpen = false">
+    <!--blog-area start-->
+    <section class="blog-details-area fix pt-240 pb-50 pt-md-200 pb-md-60 pt-xs-150">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="blogs mb-75">
+                        <div class="blogs__content section-title">
+                            <span class="tag mb-25">{{ $publishDate ?? now()->format('F d, Y') }}</span>
+                            <h3 class="mb-20">{{ $blogTitle ?? 'Blog Title' }}</h3>
+
+
+                            {{-- Display current blog tags 
                                 @if(!empty($tags) && count($tags))
                                     <div class="blog-tags mb-25">
                                         <span class="text-muted me-2">Tags:</span>
@@ -18,151 +62,151 @@
                                             <span class="badge bg-primary text-decoration-none me-2"
                                                 style="font-size: 12px;">
                                                 {{ $tag['name'] }}
-                                        </span>
+                            </span>
+                            @endforeach
+                        </div>
+                        @endif
+                        --}}
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-8">
+                <div class="blogs-std mb-75">
+                    <div class="blogs__thumb mb-60">
+                        <img class="img-fluid" src="{{ $featuredImage ? asset('storage/'.$featuredImage) : asset('assets/img/blog/16.jpg') }}" alt="{{ $blogTitle ?? 'Blog Image' }}">
+                    </div>
+
+                    {{-- At a Glance Section --}}
+                    @if($atGlanceContent)
+                    <div class="at-glance-box mb-50" style="background: linear-gradient(135deg, #fff0f0 0%, #ffeded 100%); border-left: 5px solid #ff1f1f; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                        <div class="d-flex align-items-start">
+                            <div class="at-glance-icon mr-20 mr-md-15" style="flex-shrink: 0; background: #ff1f1f; width: 50px; height: 50px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-bolt" style="font-size: 24px; color: #fff;"></i>
+                            </div>
+                            <div class="at-glance-content" style="flex: 1;">
+                                <h3 class="mb-20" style="font-size: 24px; font-weight: 700; color: #1a1a1a;">
+                                    At a Glance
+                                </h3>
+                                <div class="at-glance-text ck-content" style="color: #555; line-height: 1.8; font-size: 15px;">
+                                    {!! $atGlanceContent !!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+
+                    {{-- Main Content --}}
+                    <div class=\"blog-main-content mb-50 ck-content\">
+                        {!! $mainContent ?? '' !!}
+                    </div>
+                </div>
+                {{-- Key Takeaways Section --}}
+                @if($keyTakeawaysContent)
+                <div class="key-takeaways-box mb-50" style="background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%); border-left: 5px solid #4a90e2; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                    <div class="d-flex align-items-start">
+                        <div class="key-takeaways-icon mr-20 mr-md-15" style="flex-shrink: 0; background: #4a90e2; width: 50px; height: 50px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-check-circle" style="font-size: 24px; color: #fff;"></i>
+                        </div>
+                        <div class="key-takeaways-content" style="flex: 1;">
+                            <h3 class="mb-20" style="font-size: 24px; font-weight: 700; color: #1a1a1a;">
+                                Key Takeaway
+                            </h3>
+                            <div class="key-takeaways-text ck-content" style="color: #555; line-height: 1.8; font-size: 15px;">
+                                {!! $keyTakeawaysContent !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+
+                {{-- FAQ Section --}}
+                @php
+                $validFaqs = !empty($faqs) && is_array($faqs)
+                ? array_filter($faqs, function($faq) {
+                return !empty($faq['question']) && !empty($faq['answer']);
+                })
+                : [];
+                @endphp
+                @if(count($validFaqs) > 0)
+                <section class="faq-area pt-20 pb-20 pt-md-95 pt-xs-95">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="faq-title-wrapper faq-title-2a mb-10 pr-40 pr-xs-0">
+                                    <div class="section-title">
+                                        <h6 class="mb-25">FAQ’s</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-lg-12">
+                                <div class="faq-que faq-que-2 mb-30">
+                                    <div id="accordion">
+                                        @foreach($validFaqs as $i => $faq)
+                                        @php
+                                        $idx = $i + 1;
+                                        $headingId = "heading{$idx}";
+                                        $collapseId = "collapse{$idx}";
+                                        $isOpen = $i === 0 ? 'show' : '';
+                                        $ariaExpanded = $i === 0 ? 'true' : 'false';
+                                        @endphp
+                                        <div class="card">
+                                            <div class="card-header" id="{{ $headingId }}">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link {{ $i !== 0 ? 'collapsed' : '' }}" data-toggle="collapse" data-target="#{{ $collapseId }}" aria-expanded="{{ $ariaExpanded }}" aria-controls="{{ $collapseId }}">
+                                                        {{ $faq['question'] ?? 'Question' }}
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="{{ $collapseId }}" class="collapse {{ $isOpen }}" aria-labelledby="{{ $headingId }}" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    {!! $faq['answer'] ?? '' !!}
+                                                </div>
+                                            </div>
+                                        </div>
                                         @endforeach
                                     </div>
-                                    @endif
-                          --}}
-
-                      </div>
-                  </div>
-              </div>
-              <div class="col-xl-8 col-lg-8">
-                  <div class="blogs-std mb-75">
-                      <div class="blogs__thumb mb-60">
-                          <img class="img-fluid" src="{{ $featuredImage ? asset('storage/'.$featuredImage) : asset('assets/img/blog/16.jpg') }}" alt="{{ $blogTitle ?? 'Blog Image' }}">
-                      </div>
-
-                      {{-- At a Glance Section --}}
-                      @if($atGlanceContent)
-                      <div class="at-glance-box mb-50" style="background: linear-gradient(135deg, #fff0f0 0%, #ffeded 100%); border-left: 5px solid #ff1f1f; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                          <div class="d-flex align-items-start">
-                              <div class="at-glance-icon mr-20 mr-md-15" style="flex-shrink: 0; background: #ff1f1f; width: 50px; height: 50px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                                  <i class="fas fa-bolt" style="font-size: 24px; color: #fff;"></i>
-                              </div>
-                              <div class="at-glance-content" style="flex: 1;">
-                                  <h3 class="mb-20" style="font-size: 24px; font-weight: 700; color: #1a1a1a;">
-                                      At a Glance
-                                  </h3>
-                                  <div class="at-glance-text ck-content" style="color: #555; line-height: 1.8; font-size: 15px;">
-                                      {!! $atGlanceContent !!}
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      @endif
-
-                      {{-- Main Content --}}
-                      <div class=\"blog-main-content mb-50 ck-content\">
-                          {!! $mainContent ?? '' !!}
-                      </div>
-                  </div>
-                  {{-- Key Takeaways Section --}}
-                  @if($keyTakeawaysContent)
-                  <div class="key-takeaways-box mb-50" style="background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%); border-left: 5px solid #4a90e2; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                      <div class="d-flex align-items-start">
-                          <div class="key-takeaways-icon mr-20 mr-md-15" style="flex-shrink: 0; background: #4a90e2; width: 50px; height: 50px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                              <i class="fas fa-check-circle" style="font-size: 24px; color: #fff;"></i>
-                          </div>
-                          <div class="key-takeaways-content" style="flex: 1;">
-                              <h3 class="mb-20" style="font-size: 24px; font-weight: 700; color: #1a1a1a;">
-                                  Key Takeaway
-                              </h3>
-                              <div class="key-takeaways-text ck-content" style="color: #555; line-height: 1.8; font-size: 15px;">
-                                  {!! $keyTakeawaysContent !!}
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  @endif
-
-
-                  {{-- FAQ Section --}}
-                  @php
-                  $validFaqs = !empty($faqs) && is_array($faqs)
-                  ? array_filter($faqs, function($faq) {
-                  return !empty($faq['question']) && !empty($faq['answer']);
-                  })
-                  : [];
-                  @endphp
-                  @if(count($validFaqs) > 0)
-                  <section class="faq-area pt-20 pb-20 pt-md-95 pt-xs-95">
-                      <div class="">
-                          <div class="row">
-                              <div class="col-lg-12">
-                                  <div class="faq-title-wrapper faq-title-2a mb-10 pr-40 pr-xs-0">
-                                      <div class="section-title">
-                                          <h6 class="mb-25">FAQ’s</h6>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="row justify-content-center">
-                              <div class="col-lg-12">
-                                  <div class="faq-que faq-que-2 mb-30">
-                                      <div id="accordion">
-                                          @foreach($validFaqs as $i => $faq)
-                                          @php
-                                          $idx = $i + 1;
-                                          $headingId = "heading{$idx}";
-                                          $collapseId = "collapse{$idx}";
-                                          $isOpen = $i === 0 ? 'show' : '';
-                                          $ariaExpanded = $i === 0 ? 'true' : 'false';
-                                          @endphp
-                                          <div class="card">
-                                              <div class="card-header" id="{{ $headingId }}">
-                                                  <h5 class="mb-0">
-                                                      <button class="btn btn-link {{ $i !== 0 ? 'collapsed' : '' }}" data-toggle="collapse" data-target="#{{ $collapseId }}" aria-expanded="{{ $ariaExpanded }}" aria-controls="{{ $collapseId }}">
-                                                          {{ $faq['question'] ?? 'Question' }}
-                                                      </button>
-                                                  </h5>
-                                              </div>
-                                              <div id="{{ $collapseId }}" class="collapse {{ $isOpen }}" aria-labelledby="{{ $headingId }}" data-parent="#accordion">
-                                                  <div class="card-body">
-                                                      {!! $faq['answer'] ?? '' !!}
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          @endforeach
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="col-lg-12">
-                                  <div class="get-answer text-center mt-50">
-                                      <h3>Don't find your answer?</h3>
-                                      <a href="{{ route('contact',app()->getLocale()) }}" class="theme_btn faq-btn">{{ __('button.contact_us') }}</a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </section>
-                  @endif
-                  {{-- Author Bio Section --}}
-                  <div class="author-bio-section mb-75">
-                      <div class="author-bio-wrapper">
-                          <div class="author-bio-image">
-                              <img src="{{ $authorImage ? asset('storage/'.$authorImage) : asset('assets/img/team/author-placeholder.jpg') }}"
-                                  alt="{{ $authorName ?? 'Author' }}">
-                          </div>
-                          <div class="author-bio-content">
-                              <h3 class="author-name">{{ $authorName ?? 'John Smith' }}</h3>
-                              <p class="author-position">{{ $authorTitle ?? 'Partner at Example Legal' }}</p>
-                              <p class="author-description">
-                                  {{ $authorBio ?? 'John has over 13 years of experience in intellectual property law, helping startups and established businesses' }}
-                              </p>
-                              <p class="author-phone">
-                                  <i class="fas fa-phone-alt"></i>
-                                  <span>{{ $authorPhone ?? '+91-1234567880' }}</span>
-                              </p>
-                          </div>
-                      </div>
-                  </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="get-answer text-center mt-50">
+                                    <h3>Don't find your answer?</h3>
+                                    <a href="{{ route('contact',app()->getLocale()) }}" class="theme_btn faq-btn">{{ __('button.contact_us') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                @endif
+                {{-- Author Bio Section --}}
+                <div class="author-bio-section mb-75">
+                    <div class="author-bio-wrapper">
+                        <div class="author-bio-image">
+                            <img src="{{ $authorImage ? asset('storage/'.$authorImage) : asset('assets/img/team/author-placeholder.jpg') }}"
+                                alt="{{ $authorName ?? 'Author' }}">
+                        </div>
+                        <div class="author-bio-content">
+                            <h3 class="author-name">{{ $authorName ?? 'John Smith' }}</h3>
+                            <p class="author-position">{{ $authorTitle ?? 'Partner at Example Legal' }}</p>
+                            <p class="author-description">
+                                {{ $authorBio ?? 'John has over 13 years of experience in intellectual property law, helping startups and established businesses' }}
+                            </p>
+                            <p class="author-phone">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>{{ $authorPhone ?? '+91-1234567880' }}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
 
 
-                  {{-- Comments Section (Commented Out) --}}
-                  {{--
+                {{-- Comments Section (Commented Out) --}}
+                {{--
                         <div class="blog-comments mt-105 mb-105">
                             <h3 class="blog-details-title mb-45">2 Comments</h3>
                             <ul class="latest-comments">
@@ -224,511 +268,511 @@
                                     <textarea name="message" id="message" cols="30" rows="10" placeholder="Hi, I am julia I nee some…."></textarea>
                                 </div>
                                 <button class="theme_btn comments-btn">{{ __('button.send') }}</button>
-                  </form>
-              </div>
-              --}}
-          </div>
-          <div class="col-xl-4 col-lg-4">
-              <div class="blog-widget-area">
-                  <div class="widget mb-80">
-                      <div class="widget-search-content" style="position: relative;">
-                          <div class="subscribe-form">
-                              <input
-                                  type="text"
-                                  placeholder="Search blogs..."
-                                  wire:model.live.debounce.300ms="search"
-                                  wire:click="$set('showDropdown', true)"
-                                  autocomplete="off">
-                              @if($search)
-                              <button type="button" class="search-icon" wire:click="clearSearch" style="cursor: pointer;">
-                                  <i class="far fa-times"></i>
-                              </button>
-                              @else
-                              <button type="button" class="search-icon">
-                                  <i class="far fa-search"></i>
-                              </button>
-                              @endif
-                          </div>
+                </form>
+            </div>
+            --}}
+        </div>
+        <div class="col-xl-4 col-lg-4">
+            <div class="blog-widget-area">
+                <div class="widget mb-80">
+                    <div class="widget-search-content" style="position: relative;">
+                        <div class="subscribe-form">
+                            <input
+                                type="text"
+                                placeholder="Search blogs..."
+                                wire:model.live.debounce.300ms="search"
+                                wire:click="$set('showDropdown', true)"
+                                autocomplete="off">
+                            @if($search)
+                            <button type="button" class="search-icon" wire:click="clearSearch" style="cursor: pointer;">
+                                <i class="far fa-times"></i>
+                            </button>
+                            @else
+                            <button type="button" class="search-icon">
+                                <i class="far fa-search"></i>
+                            </button>
+                            @endif
+                        </div>
 
-                          {{-- Search Dropdown --}}
-                          @if($showDropdown && count($searchResults) > 0)
-                          <div class="search-dropdown" style="position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #e8e8e8; border-radius: 5px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; max-height: 400px; overflow-y: auto; margin-top: 5px;">
-                              @foreach($searchResults as $result)
-                              <a href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $result['slug']]) }}"
-                                  wire:navigate
-                                  class="search-result-item"
-                                  style="display: block; padding: 15px; border-bottom: 1px solid #f0f0f0; text-decoration: none; transition: background 0.2s;"
-                                  onmouseover="this.style.background='#f8f9fa'"
-                                  onmouseout="this.style.background='white'">
-                                  <div style="font-weight: 600; color: #1a1a1a; margin-bottom: 5px;">
-                                      {{ $result['title'] }}
-                                  </div>
-                                  @if($result['introduction'])
-                                  <div style="font-size: 13px; color: #666; line-height: 1.4;">
-                                      {{ $result['introduction'] }}
-                                  </div>
-                                  @endif
-                              </a>
-                              @endforeach
-                          </div>
-                          @elseif($showDropdown && $search && count($searchResults) == 0)
-                          <div class="search-dropdown" style="position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #e8e8e8; border-radius: 5px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; padding: 20px; text-align: center; margin-top: 5px;">
-                              <p style="color: #999; margin: 0;">No results found</p>
-                          </div>
-                          @endif
-                      </div>
-                  </div>
-                  <div class="widget mb-90">
-                      <div class="widget-categories-content">
-                          <h3 class="widget-title mb-20">Categories</h3>
-                          <ul class="categories-list">
-                              @if(!empty($categories) && (is_array($categories) || $categories instanceof \Illuminate\Support\Collection) && count($categories))
-                              @foreach($categories as $category)
-                              @php
-                              $catSlug = $category->slug ?? ($category['slug'] ?? null);
-                              $catName = $category->name ?? ($category['name'] ?? ($category['title'] ?? 'Category'));
-                              // Counts: prefer eager loaded withCount keys like posts_count or blogs_count, else try count
-                              $catCount = $category->posts_count ?? $category->blogs_count ?? $category->count ?? ($category['count'] ?? 0);
-                              // Use slug if available, otherwise use name
-                              $categoryParam = $catSlug ?: $catName;
-                              $catUrl = $categoryParam ? url('/'.app()->getLocale().'/blogs') . '?category=' . urlencode($categoryParam) : '#';
-                              @endphp
-                              <li>
-                                  <a href="{{ $catUrl }}">{{ $catName }} <span class="f-right">({{ $catCount }})</span></a>
-                              </li>
-                              @endforeach
-                              @else
-                              <li>No categories available</li>
-                              @endif
-                          </ul>
-                      </div>
-                  </div>
+                        {{-- Search Dropdown --}}
+                        @if($showDropdown && count($searchResults) > 0)
+                        <div class="search-dropdown" style="position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #e8e8e8; border-radius: 5px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; max-height: 400px; overflow-y: auto; margin-top: 5px;">
+                            @foreach($searchResults as $result)
+                            <a href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $result['slug']]) }}"
+                                wire:navigate
+                                class="search-result-item"
+                                style="display: block; padding: 15px; border-bottom: 1px solid #f0f0f0; text-decoration: none; transition: background 0.2s;"
+                                onmouseover="this.style.background='#f8f9fa'"
+                                onmouseout="this.style.background='white'">
+                                <div style="font-weight: 600; color: #1a1a1a; margin-bottom: 5px;">
+                                    {{ $result['title'] }}
+                                </div>
+                                @if($result['introduction'])
+                                <div style="font-size: 13px; color: #666; line-height: 1.4;">
+                                    {{ $result['introduction'] }}
+                                </div>
+                                @endif
+                            </a>
+                            @endforeach
+                        </div>
+                        @elseif($showDropdown && $search && count($searchResults) == 0)
+                        <div class="search-dropdown" style="position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #e8e8e8; border-radius: 5px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 1000; padding: 20px; text-align: center; margin-top: 5px;">
+                            <p style="color: #999; margin: 0;">No results found</p>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+                <div class="widget mb-90">
+                    <div class="widget-categories-content">
+                        <h3 class="widget-title mb-20">Categories</h3>
+                        <ul class="categories-list">
+                            @if(!empty($categories) && (is_array($categories) || $categories instanceof \Illuminate\Support\Collection) && count($categories))
+                            @foreach($categories as $category)
+                            @php
+                            $catSlug = $category->slug ?? ($category['slug'] ?? null);
+                            $catName = $category->name ?? ($category['name'] ?? ($category['title'] ?? 'Category'));
+                            // Counts: prefer eager loaded withCount keys like posts_count or blogs_count, else try count
+                            $catCount = $category->posts_count ?? $category->blogs_count ?? $category->count ?? ($category['count'] ?? 0);
+                            // Use slug if available, otherwise use name
+                            $categoryParam = $catSlug ?: $catName;
+                            $catUrl = $categoryParam ? url('/'.app()->getLocale().'/blogs') . '?category=' . urlencode($categoryParam) : '#';
+                            @endphp
+                            <li>
+                                <a href="{{ $catUrl }}">{{ $catName }} <span class="f-right">({{ $catCount }})</span></a>
+                            </li>
+                            @endforeach
+                            @else
+                            <li>No categories available</li>
+                            @endif
+                        </ul>
+                    </div>
+                </div>
 
-                  <div class="widget mb-90">
-                      <div class="widget-post-content">
-                          <h3 class="widget-title mb-20">Recent Blogs</h3>
-                          @if(!empty($recentBlogs) && (is_array($recentBlogs) || $recentBlogs instanceof \Illuminate\Support\Collection) && count($recentBlogs))
-                          @foreach($recentBlogs as $rblog)
-                          @php
-                          $rTitle = $rblog['title'] ?? 'Blog Title';
-                          $rSlug = $rblog['slug'] ?? null;
-                          $rId = $rblog['id'] ?? null;
-                          $rUrl = $rSlug ? url('/'.app()->getLocale().'/blog/'.$rSlug) : ($rId ? url('/'.app()->getLocale().'/blog?id='.$rId) : '#');
-                          $rDate = isset($rblog['created_at']) ? $rblog['created_at']->format('d M, Y') : now()->format('d M, Y');
-                          @endphp
-                          <div class="post-box">
-                              <h4 class="sub-title"><a href="{{ $rUrl }}">{{ $rTitle }}</a></h4>
-                              <h5>{{ $rDate }}</h5>
-                          </div>
-                          @endforeach
-                          @else
-                          <div class="post-box">
-                              <h4 class="sub-title"><a href="blog-details.html">10 days quick challange for boost visitors.</a></h4>
-                              <h5>23 July, 2018</h5>
-                          </div>
-                          <div class="post-box">
-                              <h4 class="sub-title"><a href="blog-details.html">10 days quick challange for boost visitors.</a></h4>
-                              <h5>23 July, 2018</h5>
-                          </div>
-                          <div class="post-box">
-                              <h4 class="sub-title"><a href="blog-details.html">10 days quick challange for boost visitors.</a></h4>
-                              <h5>23 July, 2018</h5>
-                          </div>
-                          @endif
-                      </div>
-                  </div>
+                <div class="widget mb-90">
+                    <div class="widget-post-content">
+                        <h3 class="widget-title mb-20">Recent Blogs</h3>
+                        @if(!empty($recentBlogs) && (is_array($recentBlogs) || $recentBlogs instanceof \Illuminate\Support\Collection) && count($recentBlogs))
+                        @foreach($recentBlogs as $rblog)
+                        @php
+                        $rTitle = $rblog['title'] ?? 'Blog Title';
+                        $rSlug = $rblog['slug'] ?? null;
+                        $rId = $rblog['id'] ?? null;
+                        $rUrl = $rSlug ? url('/'.app()->getLocale().'/blog/'.$rSlug) : ($rId ? url('/'.app()->getLocale().'/blog?id='.$rId) : '#');
+                        $rDate = isset($rblog['created_at']) ? $rblog['created_at']->format('d M, Y') : now()->format('d M, Y');
+                        @endphp
+                        <div class="post-box">
+                            <h4 class="sub-title"><a href="{{ $rUrl }}">{{ $rTitle }}</a></h4>
+                            <h5>{{ $rDate }}</h5>
+                        </div>
+                        @endforeach
+                        @else
+                        <div class="post-box">
+                            <h4 class="sub-title"><a href="blog-details.html">10 days quick challange for boost visitors.</a></h4>
+                            <h5>23 July, 2018</h5>
+                        </div>
+                        <div class="post-box">
+                            <h4 class="sub-title"><a href="blog-details.html">10 days quick challange for boost visitors.</a></h4>
+                            <h5>23 July, 2018</h5>
+                        </div>
+                        <div class="post-box">
+                            <h4 class="sub-title"><a href="blog-details.html">10 days quick challange for boost visitors.</a></h4>
+                            <h5>23 July, 2018</h5>
+                        </div>
+                        @endif
+                    </div>
+                </div>
 
-                  <div class="widget mb-90">
-                      <div class="widget-tags-content">
-                          <h3 class="widget-title mb-20">Tags</h3>
-                          <div class="tag-list">
-                              @if(!empty($allTagsForSidebar) && count($allTagsForSidebar))
-                              @foreach($allTagsForSidebar as $tag)
-                              @php
-                              $tagName = $tag['name'] ?? 'Tag';
-                              $tagCount = $tag['count'] ?? 0;
-                              $tagUrl = route('blogs', app()->getLocale()) . '?tag=' . urlencode($tagName);
-                              @endphp
-                              <a class="tags" href="{{ $tagUrl }}" title="{{ $tagCount }} posts">
-                                  {{ $tagName }} ({{ $tagCount }})
-                              </a>
-                              @endforeach
-                              @else
-                              <p class="text-muted">No tags available</p>
-                              @endif
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          </div>
-          </div>
-      </section>
-      <!--blog-area end-->
-  </main>
+                <div class="widget mb-90">
+                    <div class="widget-tags-content">
+                        <h3 class="widget-title mb-20">Tags</h3>
+                        <div class="tag-list">
+                            @if(!empty($allTagsForSidebar) && count($allTagsForSidebar))
+                            @foreach($allTagsForSidebar as $tag)
+                            @php
+                            $tagName = $tag['name'] ?? 'Tag';
+                            $tagCount = $tag['count'] ?? 0;
+                            $tagUrl = route('blogs', app()->getLocale()) . '?tag=' . urlencode($tagName);
+                            @endphp
+                            <a class="tags" href="{{ $tagUrl }}" title="{{ $tagCount }} posts">
+                                {{ $tagName }} ({{ $tagCount }})
+                            </a>
+                            @endforeach
+                            @else
+                            <p class="text-muted">No tags available</p>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+    <!--blog-area end-->
+</main>
 
-  @push('styles')
-  <style>
-      /* CKEditor Content Styles */
-      .ck-content {
-          font-size: 16px;
-          line-height: 1.8;
-          color: #555;
-      }
+@push('styles')
+<style>
+    /* CKEditor Content Styles */
+    .ck-content {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #555;
+    }
 
-      .ck-content h2 {
-          font-size: 28px;
-          font-weight: 700;
-          color: #1a1a1a;
-          margin-top: 30px;
-          margin-bottom: 20px;
-      }
+    .ck-content h2 {
+        font-size: 28px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
 
-      .ck-content h3 {
-          font-size: 24px;
-          font-weight: 700;
-          color: #1a1a1a;
-          margin-top: 25px;
-          margin-bottom: 15px;
-      }
+    .ck-content h3 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
 
-      .ck-content h4 {
-          font-size: 20px;
-          font-weight: 600;
-          color: #1a1a1a;
-          margin-top: 20px;
-          margin-bottom: 12px;
-      }
+    .ck-content h4 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-top: 20px;
+        margin-bottom: 12px;
+    }
 
-      .ck-content p {
-          margin-bottom: 20px;
-          color: #555;
-          line-height: 1.9;
-      }
+    .ck-content p {
+        margin-bottom: 20px;
+        color: #555;
+        line-height: 1.9;
+    }
 
-      .ck-content ul,
-      .ck-content ol {
-          margin-bottom: 20px;
-          padding-left: 30px;
-      }
+    .ck-content ul,
+    .ck-content ol {
+        margin-bottom: 20px;
+        padding-left: 30px;
+    }
 
-      .ck-content li {
-          margin-bottom: 10px;
-          color: #555;
-          line-height: 1.8;
-      }
+    .ck-content li {
+        margin-bottom: 10px;
+        color: #555;
+        line-height: 1.8;
+    }
 
-      .ck-content strong,
-      .ck-content b {
-          font-weight: 700;
-          color: #1a1a1a;
-      }
+    .ck-content strong,
+    .ck-content b {
+        font-weight: 700;
+        color: #1a1a1a;
+    }
 
-      .ck-content a {
-          color: #ff1f1f;
-          text-decoration: underline;
-          transition: color 0.3s;
-      }
+    .ck-content a {
+        color: #ff1f1f;
+        text-decoration: underline;
+        transition: color 0.3s;
+    }
 
-      .ck-content a:hover {
-          color: #cc0000;
-      }
+    .ck-content a:hover {
+        color: #cc0000;
+    }
 
-      .ck-content blockquote {
-          border-left: 4px solid #ff1f1f;
-          padding-left: 20px;
-          margin: 25px 0;
-          font-style: italic;
-          color: #666;
-          background: #f8f9fa;
-          padding: 20px;
-          border-radius: 5px;
-      }
+    .ck-content blockquote {
+        border-left: 4px solid #ff1f1f;
+        padding-left: 20px;
+        margin: 25px 0;
+        font-style: italic;
+        color: #666;
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 5px;
+    }
 
-      .ck-content img {
-          max-width: 100%;
-          height: auto;
-          border-radius: 8px;
-          margin: 20px 0;
-      }
+    .ck-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
 
-      .ck-content table {
-          width: 100%;
-          margin: 20px 0;
-          border-collapse: collapse;
-      }
+    .ck-content table {
+        width: 100%;
+        margin: 20px 0;
+        border-collapse: collapse;
+    }
 
-      .ck-content table td,
-      .ck-content table th {
-          border: 1px solid #e0e0e0;
-          padding: 12px;
-      }
+    .ck-content table td,
+    .ck-content table th {
+        border: 1px solid #e0e0e0;
+        padding: 12px;
+    }
 
-      .ck-content table th {
-          background: #f8f9fa;
-          font-weight: 600;
-          color: #1a1a1a;
-      }
+    .ck-content table th {
+        background: #f8f9fa;
+        font-weight: 600;
+        color: #1a1a1a;
+    }
 
-      /* At a Glance & Key Takeaways Responsive */
-      @media (max-width: 768px) {
+    /* At a Glance & Key Takeaways Responsive */
+    @media (max-width: 768px) {
 
-          .at-glance-box,
-          .key-takeaways-box {
-              padding: 20px !important;
-          }
+        .at-glance-box,
+        .key-takeaways-box {
+            padding: 20px !important;
+        }
 
-          .at-glance-icon,
-          .key-takeaways-icon {
-              width: 40px !important;
-              height: 40px !important;
-              margin-right: 15px !important;
-          }
+        .at-glance-icon,
+        .key-takeaways-icon {
+            width: 40px !important;
+            height: 40px !important;
+            margin-right: 15px !important;
+        }
 
-          .at-glance-icon i,
-          .key-takeaways-icon i {
-              font-size: 20px !important;
-          }
+        .at-glance-icon i,
+        .key-takeaways-icon i {
+            font-size: 20px !important;
+        }
 
-          .at-glance-content h3,
-          .key-takeaways-content h3 {
-              font-size: 20px !important;
-          }
+        .at-glance-content h3,
+        .key-takeaways-content h3 {
+            font-size: 20px !important;
+        }
 
-          .at-glance-text,
-          .key-takeaways-text {
-              font-size: 14px !important;
-          }
-      }
+        .at-glance-text,
+        .key-takeaways-text {
+            font-size: 14px !important;
+        }
+    }
 
-      @media (max-width: 576px) {
+    @media (max-width: 576px) {
 
-          .at-glance-box,
-          .key-takeaways-box {
-              padding: 15px !important;
-          }
+        .at-glance-box,
+        .key-takeaways-box {
+            padding: 15px !important;
+        }
 
-          .at-glance-content h3,
-          .key-takeaways-content h3 {
-              font-size: 18px !important;
-              margin-bottom: 15px !important;
-          }
-      }
+        .at-glance-content h3,
+        .key-takeaways-content h3 {
+            font-size: 18px !important;
+            margin-bottom: 15px !important;
+        }
+    }
 
-      /* Author Bio Responsive Styles */
-      .author-bio-section {
-          background: #ffffff;
-          border-radius: 0;
-          padding: 0;
-          border-left: 4px solid #ff1f1f;
-          background: #fafafa;
-      }
+    /* Author Bio Responsive Styles */
+    .author-bio-section {
+        background: #ffffff;
+        border-radius: 0;
+        padding: 0;
+        border-left: 4px solid #ff1f1f;
+        background: #fafafa;
+    }
 
-      .author-bio-wrapper {
-          display: flex;
-          align-items: flex-start;
-          gap: 25px;
-          padding: 30px;
-      }
+    .author-bio-wrapper {
+        display: flex;
+        align-items: flex-start;
+        gap: 25px;
+        padding: 30px;
+    }
 
-      .author-bio-image {
-          flex-shrink: 0;
-      }
+    .author-bio-image {
+        flex-shrink: 0;
+    }
 
-      .author-bio-image img {
-          width: 80px;
-          height: 80px;
-          border-radius: 50%;
-          object-fit: cover;
-          border: 2px solid #e0e0e0;
-      }
+    .author-bio-image img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #e0e0e0;
+    }
 
-      .author-bio-content {
-          flex: 1;
-      }
+    .author-bio-content {
+        flex: 1;
+    }
 
-      .author-bio-content .author-name {
-          font-size: 18px;
-          font-weight: 700;
-          color: #1a1a1a;
-          margin: 0 0 5px 0;
-          line-height: 1.3;
-      }
+    .author-bio-content .author-name {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin: 0 0 5px 0;
+        line-height: 1.3;
+    }
 
-      .author-bio-content .author-position {
-          font-size: 14px;
-          color: #ff1f1f;
-          font-weight: 600;
-          margin: 0 0 12px 0;
-          line-height: 1.3;
-      }
+    .author-bio-content .author-position {
+        font-size: 14px;
+        color: #ff1f1f;
+        font-weight: 600;
+        margin: 0 0 12px 0;
+        line-height: 1.3;
+    }
 
-      .author-bio-content .author-description {
-          font-size: 14px;
-          color: #555;
-          line-height: 1.7;
-          margin: 0 0 12px 0;
-      }
+    .author-bio-content .author-description {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.7;
+        margin: 0 0 12px 0;
+    }
 
-      .author-bio-content .author-phone {
-          font-size: 13px;
-          color: #333;
-          margin: 0;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-      }
+    .author-bio-content .author-phone {
+        font-size: 13px;
+        color: #333;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
 
-      .author-bio-content .author-phone i {
-          color: #ff1f1f;
-          font-size: 12px;
-      }
+    .author-bio-content .author-phone i {
+        color: #ff1f1f;
+        font-size: 12px;
+    }
 
-      .author-bio-content .author-phone span {
-          font-weight: 500;
-      }
+    .author-bio-content .author-phone span {
+        font-weight: 500;
+    }
 
-      @media (max-width: 768px) {
-          .author-bio-wrapper {
-              flex-direction: column;
-              align-items: center;
-              text-align: center;
-              padding: 25px 20px;
-              gap: 20px;
-          }
+    @media (max-width: 768px) {
+        .author-bio-wrapper {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 25px 20px;
+            gap: 20px;
+        }
 
-          .author-bio-image img {
-              width: 90px;
-              height: 90px;
-          }
+        .author-bio-image img {
+            width: 90px;
+            height: 90px;
+        }
 
-          .author-bio-content .author-phone {
-              justify-content: center;
-          }
-      }
+        .author-bio-content .author-phone {
+            justify-content: center;
+        }
+    }
 
-      @media (max-width: 576px) {
-          .author-bio-wrapper {
-              padding: 20px 15px;
-          }
+    @media (max-width: 576px) {
+        .author-bio-wrapper {
+            padding: 20px 15px;
+        }
 
-          .author-bio-content .author-name {
-              font-size: 17px;
-          }
+        .author-bio-content .author-name {
+            font-size: 17px;
+        }
 
-          .author-bio-content .author-description {
-              font-size: 13px;
-          }
-      }
+        .author-bio-content .author-description {
+            font-size: 13px;
+        }
+    }
 
-      /* FAQ Section Styles */
-      .faq-area .section-title h6 {
-          color: #ff1f1f;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-      }
+    /* FAQ Section Styles */
+    .faq-area .section-title h6 {
+        color: #ff1f1f;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
 
-      .faq-area .round-line {
-          position: relative;
-          display: inline-block;
-      }
+    .faq-area .round-line {
+        position: relative;
+        display: inline-block;
+    }
 
-      .faq-area .card {
-          border: 1px solid #e8e8e8;
-          margin-bottom: 15px;
-          border-radius: 5px;
-          background: #fff;
-      }
+    .faq-area .card {
+        border: 1px solid #e8e8e8;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        background: #fff;
+    }
 
-      .faq-area .card-header {
-          background-color: #fff;
-          border-bottom: 0;
-          padding: 0;
-      }
+    .faq-area .card-header {
+        background-color: #fff;
+        border-bottom: 0;
+        padding: 0;
+    }
 
-      .faq-area .card-header h5 {
-          margin: 0;
-      }
+    .faq-area .card-header h5 {
+        margin: 0;
+    }
 
-      .faq-area .btn-link {
-          color: #1a1a1a;
-          text-decoration: none;
-          display: block;
-          padding: 20px 25px;
-          width: 100%;
-          text-align: left;
-          font-weight: 600;
-          font-size: 16px;
-          position: relative;
-          transition: all 0.3s ease;
-      }
+    .faq-area .btn-link {
+        color: #1a1a1a;
+        text-decoration: none;
+        display: block;
+        padding: 20px 25px;
+        width: 100%;
+        text-align: left;
+        font-weight: 600;
+        font-size: 16px;
+        position: relative;
+        transition: all 0.3s ease;
+    }
 
-      .faq-area .btn-link:hover,
-      .faq-area .btn-link:focus {
-          color: #ff1f1f;
-          text-decoration: none;
-      }
+    .faq-area .btn-link:hover,
+    .faq-area .btn-link:focus {
+        color: #ff1f1f;
+        text-decoration: none;
+    }
 
-      .faq-area .btn-link::after {
-          content: "\f107";
-          font-family: "Font Awesome 5 Free";
-          font-weight: 900;
-          position: absolute;
-          right: 25px;
-          top: 50%;
-          transform: translateY(-50%);
-          transition: all 0.3s ease;
-          color: #ff1f1f;
-      }
+    .faq-area .btn-link::after {
+        content: "\f107";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease;
+        color: #ff1f1f;
+    }
 
-      .faq-area .btn-link[aria-expanded="true"]::after {
-          transform: translateY(-50%) rotate(180deg);
-      }
+    .faq-area .btn-link[aria-expanded="true"]::after {
+        transform: translateY(-50%) rotate(180deg);
+    }
 
-      .faq-area .card-body {
-          padding: 0 25px 20px 25px;
-          color: #666;
-          line-height: 1.8;
-          font-size: 15px;
-      }
+    .faq-area .card-body {
+        padding: 0 25px 20px 25px;
+        color: #666;
+        line-height: 1.8;
+        font-size: 15px;
+    }
 
-      .faq-area .get-answer h3 {
-          color: #1a1a1a;
-          font-size: 26px;
-          font-weight: 700;
-          margin-bottom: 25px;
-      }
+    .faq-area .get-answer h3 {
+        color: #1a1a1a;
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 25px;
+    }
 
-      .faq-area .theme_btn.faq-btn {
-          background-color: #ff1f1f;
-          color: #fff;
-          padding: 15px 40px;
-          border-radius: 5px;
-          display: inline-block;
-          text-decoration: none;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          transition: all 0.3s ease;
-      }
+    .faq-area .theme_btn.faq-btn {
+        background-color: #ff1f1f;
+        color: #fff;
+        padding: 15px 40px;
+        border-radius: 5px;
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+    }
 
-      .faq-area .theme_btn.faq-btn:hover {
-          background-color: #d91919;
-          transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(255, 31, 31, 0.3);
-      }
+    .faq-area .theme_btn.faq-btn:hover {
+        background-color: #d91919;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 31, 31, 0.3);
+    }
 
-      @media (max-width: 768px) {
-          .faq-area .btn-link {
-              font-size: 15px;
-              padding: 18px 20px;
-          }
+    @media (max-width: 768px) {
+        .faq-area .btn-link {
+            font-size: 15px;
+            padding: 18px 20px;
+        }
 
-          .faq-area .card-body {
-              padding: 0 20px 18px 20px;
-              font-size: 14px;
-          }
-      }
-  </style>
-  @endpush
+        .faq-area .card-body {
+            padding: 0 20px 18px 20px;
+            font-size: 14px;
+        }
+    }
+</style>
+@endpush

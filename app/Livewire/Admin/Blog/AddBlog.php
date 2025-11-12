@@ -20,6 +20,9 @@ class AddBlog extends Component
     public $key_takeaways;
     public $faqs = [];
     public $tags = '';
+    public $meta_title = '';
+    public $meta_description = '';
+    public $meta_keywords = '';
     
     public $blog;
     
@@ -58,6 +61,9 @@ class AddBlog extends Component
             $this->main_content = $this->convertMainContentToString($translation->main_content);
             $this->faqs = is_array($translation->faqs) ? $translation->faqs : [];
             $this->tags = $translation->tags ?? '';
+            $this->meta_title = $translation->meta_title ?? '';
+            $this->meta_description = $translation->meta_description ?? '';
+            $this->meta_keywords = $translation->meta_keywords ?? '';
         } else {
             $this->title = '';
             $this->slug = '';
@@ -66,6 +72,9 @@ class AddBlog extends Component
             $this->main_content = '';
             $this->faqs = [];
             $this->tags = '';
+            $this->meta_title = '';
+            $this->meta_description = '';
+            $this->meta_keywords = '';
         }
     }
     
@@ -150,6 +159,9 @@ class AddBlog extends Component
             'faqs.*.question' => 'nullable|string|max:500',
             'faqs.*.answer' => 'nullable|string|max:2000',
             'tags' => 'nullable|string|max:1000',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string|max:1000',
+            'meta_keywords' => 'nullable|string|max:1000',
         ];
     }
 
@@ -180,6 +192,9 @@ class AddBlog extends Component
                 'key_takeaways' => !empty($this->key_takeaways) ? trim($this->key_takeaways) : null,
                 'faqs' => !empty($cleanFaqs) ? $cleanFaqs : null,
                 'tags' => !empty($this->tags) ? trim($this->tags) : null,
+                    'meta_title' => !empty($this->meta_title) ? trim($this->meta_title) : null,
+                    'meta_description' => !empty($this->meta_description) ? trim($this->meta_description) : null,
+                    'meta_keywords' => !empty($this->meta_keywords) ? trim($this->meta_keywords) : null,
             ];
             
             // Update or create translation

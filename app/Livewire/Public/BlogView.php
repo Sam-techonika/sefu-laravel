@@ -66,6 +66,10 @@ class BlogView extends Component
     public $search = '';
     public $searchResults = [];
     public $showDropdown = false;
+    // Meta tags for layout
+    public $meta_title;
+    public $meta_description;
+    public $meta_keywords;
 
     public function mount($slug = null)
     {
@@ -105,6 +109,11 @@ class BlogView extends Component
 
             $this->atGlanceContent = $translation->at_glance ?? $this->atGlanceContent;
             $this->keyTakeawaysContent = $translation->key_takeaways ?? $this->keyTakeawaysContent;
+
+            // Load meta tags from translation
+            $this->meta_title = $translation->meta_title ?? null;
+            $this->meta_description = $translation->meta_description ?? null;
+            $this->meta_keywords = $translation->meta_keywords ?? null;
 
             // Handle both old array format and new string format for main content
             $rawMain = $translation->main_content ?? $this->mainContent;
@@ -426,6 +435,12 @@ class BlogView extends Component
 
     public function render()
     {
-        return view('livewire.public.blog-view');
+        return view('livewire.public.blog-view')
+            ->layout('components.layouts.app', [
+                'metaTitle' => $this->meta_title ?? $this->blogTitle,
+                'metaDescription' => $this->meta_description ?? null,
+                'metaKeywords' => $this->meta_keywords ?? null,
+                'title' => $this->blogTitle ?? null,
+            ]);
     }
 }

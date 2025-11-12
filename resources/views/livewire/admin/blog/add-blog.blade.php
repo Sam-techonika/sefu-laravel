@@ -83,6 +83,25 @@
                     @error('slug') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
 
+                {{-- Meta Fields --}}
+                <div class="mb-3">
+                    <label class="form-label">Meta Title</label>
+                    <input type="text" class="form-control" wire:model.lazy="meta_title" placeholder="Meta title for SEO">
+                    @error('meta_title') <span class="text-danger">{{ $message }}</span> @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Meta Description</label>
+                    <textarea class="form-control" wire:model.lazy="meta_description" rows="3" placeholder="Meta description for SEO"></textarea>
+                    @error('meta_description') <span class="text-danger">{{ $message }}</span> @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Meta Keywords</label>
+                    <input type="text" class="form-control" wire:model.lazy="meta_keywords" placeholder="Comma separated keywords">
+                    @error('meta_keywords') <span class="text-danger">{{ $message }}</span> @enderror
+                </div>
+
                 {{-- Tags Input --}}
                 <div class="mb-3">
                     <label class="form-label">Tags</label>
