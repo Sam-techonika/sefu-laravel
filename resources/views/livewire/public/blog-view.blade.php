@@ -29,7 +29,6 @@ $sectionMetaKeywords = implode(', ', $names);
 <meta property="og:image:height" content="630">
 @endif
 
-{{-- Twitter --}}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $sectionMetaTitle }}">
 <meta name="twitter:description" content="{{ $sectionMetaDescription }}">
