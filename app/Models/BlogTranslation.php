@@ -17,6 +17,9 @@ class BlogTranslation extends Model
         'main_content',
         'key_takeaways',
         'faqs',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
         'tags',
     ];
 
