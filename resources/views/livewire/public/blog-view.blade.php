@@ -96,7 +96,7 @@ $sectionMetaKeywords = implode(', ', $names);
                     @endif
 
                     {{-- Main Content --}}
-                    <div class=\"blog-main-content mb-50 ck-content\">
+                    <div>
                         {!! $mainContent ?? '' !!}
                     </div>
                 </div>
@@ -189,7 +189,7 @@ $sectionMetaKeywords = implode(', ', $names);
                                 alt="{{ $authorName ?? 'Author' }}">
                         </div>
                         <div class="author-bio-content">
-                            <h3 class="author-name">{{ $authorName ?? 'John Smith' }}</h3>
+                            <h3 class="author-name" style="font-size: 20px;">{{ $authorName ?? 'John Smith' }}</h3>
                             <p class="author-position">{{ $authorTitle ?? 'Partner at Example Legal' }}</p>
                             <p class="author-description">
                                 {{ $authorBio ?? 'John has over 13 years of experience in intellectual property law, helping startups and established businesses' }}
@@ -528,20 +528,7 @@ $sectionMetaKeywords = implode(', ', $names);
             margin-right: 15px !important;
         }
 
-        .at-glance-icon i,
-        .key-takeaways-icon i {
-            font-size: 20px !important;
-        }
-
-        .at-glance-content h3,
-        .key-takeaways-content h3 {
-            font-size: 20px !important;
-        }
-
-        .at-glance-text,
-        .key-takeaways-text {
-            font-size: 14px !important;
-        }
+        /* Removed font-size overrides to keep TinyMCE styling */
     }
 
     @media (max-width: 576px) {
@@ -551,12 +538,9 @@ $sectionMetaKeywords = implode(', ', $names);
             padding: 15px !important;
         }
 
-        .at-glance-content h3,
-        .key-takeaways-content h3 {
-            font-size: 18px !important;
-            margin-bottom: 15px !important;
-        }
+        /* Removed h3 font-size overrides */
     }
+
 
     /* Author Bio Responsive Styles */
     .author-bio-section {

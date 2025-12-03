@@ -28,5 +28,5 @@ return [
 	'contact_email' => 'sefuinc@gmail.com',
 	'contact_phone' => '+757 699-4478',
 
-	'copyright' => '© Copyright :year YourCompany',
+	'copyright' => '© Copyright :year Pratham Legal.All Rights Reserved.',
 ];

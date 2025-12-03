@@ -11,7 +11,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="page-title-wrapper pl-80 pl-lg-0 pl-md-0 pl-xs-0">
-                            <h4 class="sub-title mb-35">Excepteur sint occaecat cupidatat proident, sunt in culpa qui officia deserunt mollit sine anim id est laborum.</h4>
+                            <h4 class="sub-title mb-35">Discover concise insights on business law, tech law, compliance, and intellectual property. Our legal blog delivers clear guidance and timely updates on key legal topics.</h4>
                         </div>
                     </div>
                 </div>
@@ -38,18 +38,18 @@
                     $title = $trans->title ?? $blog->name;
                     $slug = $trans->slug ?? null;
                     $categoryName = $trans && $trans->category
-                        ? optional($trans->category->translations->firstWhere('locale', app()->getLocale()))->name
-                        : 'General';
+                    ? optional($trans->category->translations->firstWhere('locale', app()->getLocale()))->name
+                    : 'General';
                     // Use route() if slug exists, otherwise use #
                     $link = $slug
-                        ? route('blog.view', ['locale' => app()->getLocale(), 'slug' => $slug])
-                        : '#';
+                    ? route('blog.view', ['locale' => app()->getLocale(), 'slug' => $slug])
+                    : '#';
                     @endphp
 
                     <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
                         <div class="card shadow-lg border-0 rounded-3" style="border-top: 4px solid #ff1f1f;">
                             <div class="card-body p-4">
-                            
+
 
                                 <div class="blogs mb-0">
                                     <div class="blogs-mask-img">
@@ -105,9 +105,10 @@
                         <div class="col-xl-10">
                             <div class="subscribe-wrapper">
                                 <div class="section-title text-center">
-                                    <h3 class="mb-25">Ready to take plan? It’s just a matter of one <span class="round-line">clike</span></h3>
-                                    <h4 class="sub-title mb-50">Try it risk free — we don’t charge cancellation fees.</h4>
-                                    <a href="contact.html" class="theme_btn sub-btn">Get your free quote</a>
+                                    <h3 class="mb-25">Stay informed on legal matters just one <span class="round-line">click</span> away</h3>
+                                    <h4 class="sub-title mb-50">Get expert insights with no risk</h4>
+                                    <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn sub-btn">Get your free quote</a>
+
                                 </div>
                             </div>
                         </div>

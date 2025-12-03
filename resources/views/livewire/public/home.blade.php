@@ -20,10 +20,10 @@
                                 <h4 class="sub-title wow fadeInUp2 animated mb-50" data-wow-delay=".3s">Helping you build and grow your business with clarity, compliance, and confidence.</h4>
                                 <ul class="btn-list d-sm-flex align-items-center wow fadeInUp2 animated mb-35" data-wow-delay=".5s">
                                     <li>
-                                        <a class="theme_btn border-btn active mr-20" href="contact.html">{{ __('button.get_started') }}</a>
+                                        <a class="theme_btn border-btn active mr-20" href="{{ route('contact',['locale' => app()->getLocale()]) }}">{{ __('button.get_started') }}</a>
                                     </li>
                                     <li>
-                                        <a class="theme_btn border-btn" href="contact.html">{{ __('button.consult_expert') }}</a>
+                                        <a class="theme_btn border-btn" href="{{ route('contact',['locale' => app()->getLocale()]) }}">{{ __('button.consult_expert') }}</a>
                                     </li>
                                 </ul>
                                 <div class="client-review text-center d-sm-flex align-items-center justify-content-md-start wow fadeInUp2 animated" data-wow-delay=".7s">
@@ -103,7 +103,6 @@
                 <div class="row">
                     <div class="col-xl-12 wow fadeInUp2 animated" data-wow-delay='.2s'>
                         <div class="s-services-wrapper pos-rel pr-70 pl-110 pt-55 pb-40 mb-50">
-                            <img class="shape1" src="{{ asset('assets/img/shape/ball.svg') }}" alt="">
                             <div class="ilustration-img mr-120">
                                 <img class="ilustar" src="{{ asset('assets/img/ai/ai1.svg') }}" alt="">
                             </div>
@@ -111,7 +110,7 @@
                                 <h5>BUSINESS SETUP</h5>
                                 <h3>Start your company the right way.</h3>
                                 <h4 class="sub-title mb-40">From incorporation to India entry — legally, quickly, and confidently.</h4>
-                                <a class="s-more-btn" href="car-insurance.html">
+                                <a class="s-more-btn" href="{{ route('service.view', ['locale' => app()->getLocale(), 'slug' =>'business-setup-india-entry']) }}">
                                     <img class="back-one" src="{{ asset('assets/img/icon/icon13.svg') }}" alt="">
                                     <img class="back-two" src="{{ asset('assets/img/icon/long-arrow-right.svg') }}" alt="">
                                 </a>
@@ -127,7 +126,7 @@
                                 <h5>FEMA & REGULATORY</h5>
                                 <h3>Simplify foreign investment compliance.</h3>
                                 <h4 class="sub-title mb-40 mr-md-20">FDI, ODI, and RBI filings made clear and compliant.</h4>
-                                <a class="s-more-btn" href="car-insurance.html">
+                                <a class="s-more-btn" href="{{ route('service.view', ['locale' => app()->getLocale(), 'slug' =>'regulatory-fema-advisory']) }}">
                                     <img class="back-one" src="{{ asset('assets/img/icon/icon13.svg') }}" alt="">
                                     <img class="back-two" src="{{ asset('assets/img/icon/long-arrow-right.svg') }}" alt="">
                                 </a>
@@ -136,8 +135,7 @@
                     </div>
                     <div class="col-xl-12 wow fadeInUp2 animated" data-wow-delay='.6s'>
                         <div class="s-services-wrapper pos-rel pr-70 pl-100 pt-55 pb-40 mb-50">
-                            <img class="shape2" src="{{ asset('assets/img/shape/ball2.svg') }}" alt="">
-                            <img class="shape3" src="{{ asset('assets/img/shape/ball3.svg') }}" alt="">
+                        
                             <div class="ilustration-img mr-100 mr-md-20">
                                 <img class="ilustar" src="{{ asset('assets/img/ai/ai3.svg') }}" alt="">
                             </div>
@@ -145,7 +143,7 @@
                                 <h5>INTELLECTUAL PROPERTY</h5>
                                 <h3>Protect your brand and innovation.</h3>
                                 <h4 class="sub-title mb-40">Trademark, copyright, and design registrations done right.</h4>
-                                <a class="s-more-btn" href="car-insurance.html">
+                                <a class="s-more-btn" href="{{ route('service.view', ['locale' => app()->getLocale(), 'slug' =>'intellectual-property-rights']) }}">
                                     <img class="back-one" src="{{ asset('assets/img/icon/icon13.svg') }}" alt="">
                                     <img class="back-two" src="{{ asset('assets/img/icon/long-arrow-right.svg') }}" alt="">
                                 </a>
@@ -157,7 +155,7 @@
                     <div class="col-lg-9">
                         <div class="row-title text-center wow fadeInUp2 animated mb-30" data-wow-delay='.1s'>
                             <h3 class="mb-20">Complete legal and regulatory support for foreign investors.</h3>
-                            <a href="contact.html" class="theme_btn theme_btn3">{{ __('button.book_consultation') }}</a>
+                            <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">{{ __('button.book_consultation') }}</a>
                         </div>
                     </div>
                 </div>
@@ -254,10 +252,9 @@
                                 <h3 class="mb-20">Clear. <span class="round-line"> Clarity.</span> Confidence. </h3>
                                 <h4 class="sub-title-2 mb-40">Things change fast in business — laws, rules, and markets. At Pratham Legal, you’ll always find real professionals, not bots, guiding you through every compliance, investment, or regulatory challenge.</h4>
                                 <h4 class="sub-title-2 mb-55">We aim to respond to every query in under 15 minutes — because expert advice should never keep you waiting.</h4>
-                                <a href="contact.html" class="theme_btn theme_btn3">{{ __('button.book_consultation') }}</a>
+                                <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">{{ __('button.book_consultation') }}</a>
                             </div>
-                            <img class="shape shapes_1" src="{{ asset('assets/img/shape/ball2.svg') }}" alt="">
-                            <img class="shape shapes_2" src="{{ asset('assets/img/shape/ball3.svg') }}" alt="">
+                     
                         </div>
                     </div>
                 </div><!-- /.row -->
@@ -282,55 +279,14 @@
                         @forelse($testimonials as $testimonial)
                         <div class="feedback-item">
                             <div class="feedback-box fb-box2 text-center">
-                                <div class="test-img-round">
-                                    <img src="{{ $testimonial['photo'] ? asset('storage/' . $testimonial['photo']) : asset('assets/img/testimonial/07.png') }}" alt="{{ $testimonial['name'] }}">
-                                </div>
+                            
                                 <h4 class="sub-title-3">{{ $testimonial['name'] }}</h4>
                                 <h6>{{ $testimonial['position'] }}@if($testimonial['position'] && $testimonial['company']) – @endif{{ $testimonial['company'] }}</h6>
                                 <h4 class="sub-title-3">"{{ $testimonial['content'] }}"</h4>
                             </div>
                         </div>
                         @empty
-                        <div class="feedback-item">
-                            <div class="feedback-box fb-box2 text-center">
-                                <div class="test-img-round">
-                                    <img src="{{ asset('assets/img/testimonial/07.png') }}" alt="">
-                                </div>
-                                <h4 class="sub-title-3">Rohit Sharma</h4>
-                                <h6>Founder – Finovate Tech Solutions, Bengaluru</h6>
-                                <h4 class="sub-title-3">"Pratham Legal made our incorporation and compliance journey completely seamless. Their team explained every step clearly and handled all filings under the new MCA V3 system with total professionalism."</h4>
-                            </div>
-                        </div>
-                        <div class="feedback-item">
-                            <div class="feedback-box fb-box2 text-center">
-                                <div class="test-img-round">
-                                    <img src="{{ asset('assets/img/testimonial/09.png') }}" alt="">
-                                </div>
-                                <h4 class="sub-title-3">Laura Kim</h4>
-                                <h6>Managing Director – Altura Global Holdings, Singapore</h6>
-                                <h4 class="sub-title-3">“As a foreign company setting up operations in India, we needed guidance we could trust. Pratham Legal handled our subsidiary incorporation and FEMA compliances end-to-end with absolute clarity and speed.”</h4>
-                            </div>
-                        </div>
-                        <div class="feedback-item">
-                            <div class="feedback-box fb-box2 text-center">
-                                <div class="test-img-round">
-                                    <img src="{{ asset('assets/img/testimonial/09.png') }}" alt="">
-                                </div>
-                                <h4 class="sub-title-3">Amit Desai</h4>
-                                <h6>Director – Desai InfraTech Pvt. Ltd., Mumbai</h6>
-                                <h4 class="sub-title-3">“They’re not just compliance experts — they’re business partners. From board meeting documentation to annual filings, everything is done on time, accurately, and with full transparency.”</h4>
-                            </div>
-                        </div>
-                        <div class="feedback-item">
-                            <div class="feedback-box fb-box2 text-center">
-                                <div class="test-img-round">
-                                    <img src="{{ asset('assets/img/testimonial/09.png') }}" alt="">
-                                </div>
-                                <h4 class="sub-title-3">Rina Mehta</h4>
-                                <h6>VentureSeed Capital, New Delhi</h6>
-                                <h4 class="sub-title-3">"Pratham Legal supported us during an acquisition and their due diligence was exceptionally thorough. They understand both the law and the commercial realities — a rare combination."</h4>
-                            </div>
-                        </div>
+               
                         @endforelse
                     </div>
                 </div>
@@ -345,8 +301,8 @@
                         <div class="faq-title-wrapper mb-30 pr-40 pr-xs-0">
                             <div class="section-title section-title-4 text-center text-md-left">
                                 <h3 class="mb-25">Find your all<span class="round-line"> All Legal </span> & Questions</h3>
-                                <h5>For more information, please visit our <a href="contact.html">Help Center.</a> or browse common queries in our FAQs section.</h5>
-                                <a href="faq.html" class="theme_btn theme_btn3">Go to Faq’s</a>
+                                <h5>For more information, please visit our <a href="{{ route('contact',['locale' => app()->getLocale()]) }}">Help Center.</a> or browse common queries in our FAQs section.</h5>
+                                <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Go to Faq’s</a>
                             </div>
                         </div>
                     </div>
@@ -445,8 +401,6 @@
         <section class="get-quote-area pos-rel pt-185 pt-md-85 pt-xs-85">
             <div class="container">
                 <div class="quote-wrapper-bg pr-40 pl-80 pt-80 pb-35">
-                    <img class="q-shapes shape_1" src="{{ asset('assets/img/shape/ball2.svg') }}" alt="">
-                    <img class="q-shapes shape_2" src="{{ asset('assets/img/shape/ball3.svg') }}" alt="">
                     <div class="row align-items-center">
                         <div class="col-xl-6 col-lg-6 col-md-12">
                             <div class="quote-form-left mb-30 pr-80 mr-65 pr-lg-20 mr-lg-0 pr-md-0 pl-md-0">

@@ -172,7 +172,7 @@
                             <div class="section-title text-center">
                                 <h3 class="mb-25">Ready to get started? It’s just one click <span class="round-line"> away</span></h3>
                                 <h4 class="sub-title mb-50">Book a consultation with our legal experts quick, clear, and completely transparent.</h4>
-                                <a href="contact.html" class="theme_btn sub-btn">Book Consultation →</a>
+                                <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn sub-btn">Book Consultation →</a>
                             </div>
                         </div>
                     </div>
