@@ -99,7 +99,6 @@
                             <li>Transparent pricing with no hidden costs</li>
                             <li>Seamless online process & quick turnaround</li>
                             <li>Tailored legal support for every business need</li>
-                            <li><a href="#">and more..</a></li>
                         </ul>
                     </div>
                 </div><!-- /.row -->

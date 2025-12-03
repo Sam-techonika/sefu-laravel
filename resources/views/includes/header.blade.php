@@ -31,9 +31,14 @@
                                     </form>
                                 </li>
                                 <li class="d-none d-lg-inline-block">
+                                 <div class="d-flex justify-items-center align-items-center gap-2">
+                                       <i class="fa fa-envelope" style="margin-top: 6px; margin-right:4px;"></i>
+
                                     <a href="mailto:{{ setting('email', 'info@example.com') }}">
                                         {{ setting('email', 'info@example.com') }}
                                     </a>
+                                 </div>
+
                                 </li>
                                 <li class="d-none d-lg-inline-block">
                                     <a class="pl-4" href="tel:{{ setting('phone_number', '(000) 000-0000') }}">
