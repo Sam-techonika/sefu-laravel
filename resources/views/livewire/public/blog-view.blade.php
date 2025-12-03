@@ -96,7 +96,7 @@ $sectionMetaKeywords = implode(', ', $names);
                     @endif
 
                     {{-- Main Content --}}
-                    <div>
+                    <div class="blog-main-content mb-50 ck-content">
                         {!! $mainContent ?? '' !!}
                     </div>
                 </div>
