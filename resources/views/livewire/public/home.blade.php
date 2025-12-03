@@ -302,7 +302,7 @@
                             <div class="section-title section-title-4 text-center text-md-left">
                                 <h3 class="mb-25">Find your all<span class="round-line"> All Legal </span> & Questions</h3>
                                 <h5>For more information, please visit our <a href="{{ route('contact',['locale' => app()->getLocale()]) }}">Help Center.</a> or browse common queries in our FAQs section.</h5>
-                                <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Go to Faq’s</a>
+                                <a href="{{ route('faq',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Go to Faq’s</a>
                             </div>
                         </div>
                     </div>
