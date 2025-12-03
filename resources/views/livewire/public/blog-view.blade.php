@@ -413,105 +413,123 @@ $sectionMetaKeywords = implode(', ', $names);
 @push('styles')
 <style>
     /* CKEditor Content Styles */
-    .ck-content {
-        font-size: 16px;
-        line-height: 1.8;
-        color: #555;
-    }
+   /* Base Styles */
+.ck-content {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+}
 
-    .ck-content h2 {
-        font-size: 28px;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin-top: 30px;
-        margin-bottom: 20px;
-    }
+/* Headings */
+.ck-content h2,
+.ck-content h3,
+.ck-content h4 {
+    color: #1a1a1a;
+    font-weight: 700;
+}
 
-    .ck-content h3 {
-        font-size: 24px;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin-top: 25px;
-        margin-bottom: 15px;
-    }
+.ck-content h2 {
+    font-size: 28px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
 
-    .ck-content h4 {
-        font-size: 20px;
-        font-weight: 600;
-        color: #1a1a1a;
-        margin-top: 20px;
-        margin-bottom: 12px;
-    }
+.ck-content h3 {
+    font-size: 24px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
 
-    .ck-content p {
-        margin-bottom: 20px;
-        color: #555;
-        line-height: 1.9;
-    }
+.ck-content h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
 
-    .ck-content ul,
-    .ck-content ol {
-        margin-bottom: 20px;
-        padding-left: 30px;
-    }
+/* Paragraphs (Balanced Justification) */
+.ck-content p {
+    margin-bottom: 20px;
+    line-height: 1.9;
+    color: #555;
+    
+    /* BALANCED TEXT */
+    text-align: justify;
+    text-wrap: balance;    /* Chrome, Safari, modern browsers */
+    hyphens: auto;
+}
 
-    .ck-content li {
-        margin-bottom: 10px;
-        color: #555;
-        line-height: 1.8;
-    }
+/* Lists */
+.ck-content ul,
+.ck-content ol {
+    margin-bottom: 20px;
+    padding-left: 30px;
+}
 
-    .ck-content strong,
-    .ck-content b {
-        font-weight: 700;
-        color: #1a1a1a;
-    }
+.ck-content li {
+    margin-bottom: 10px;
+    color: #555;
+    line-height: 1.8;
+}
 
-    .ck-content a {
-        color: #ff1f1f;
-        text-decoration: underline;
-        transition: color 0.3s;
-    }
+/* Bold / Strong */
+.ck-content strong,
+.ck-content b {
+    font-weight: 700;
+    color: #1a1a1a;
+}
 
-    .ck-content a:hover {
-        color: #cc0000;
-    }
+/* Links */
+.ck-content a {
+    color: #ff1f1f;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
 
-    .ck-content blockquote {
-        border-left: 4px solid #ff1f1f;
-        padding-left: 20px;
-        margin: 25px 0;
-        font-style: italic;
-        color: #666;
-        background: #f8f9fa;
-        padding: 20px;
-        border-radius: 5px;
-    }
+.ck-content a:hover {
+    color: #cc0000;
+}
 
-    .ck-content img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        margin: 20px 0;
-    }
+/* Blockquote */
+.ck-content blockquote {
+    border-left: 4px solid #ff1f1f;
+    padding: 20px;
+    margin: 25px 0;
+    background: #f8f9fa;
+    border-radius: 5px;
+    font-style: italic;
+    color: #666;
+    text-align: justify;
+    text-wrap: balance;
+}
 
-    .ck-content table {
-        width: 100%;
-        margin: 20px 0;
-        border-collapse: collapse;
-    }
+/* Images */
+.ck-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+}
 
-    .ck-content table td,
-    .ck-content table th {
-        border: 1px solid #e0e0e0;
-        padding: 12px;
-    }
+/* Tables */
+.ck-content table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
 
-    .ck-content table th {
-        background: #f8f9fa;
-        font-weight: 600;
-        color: #1a1a1a;
-    }
+.ck-content table th,
+.ck-content table td {
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+}
+
+.ck-content table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
 
     /* At a Glance & Key Takeaways Responsive */
     @media (max-width: 768px) {
