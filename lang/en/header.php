@@ -7,7 +7,7 @@ return [
         ['name' => 'Our Services', 'route' => 'service'],
         ['name' => 'Package', 'submenu' => [
             ['name' => 'Company Registration For Locals', 'route' => 'registration.local'],
-            ['name' => 'Compare Plan Foreign National', 'route' => 'registration.foreign'],
+            ['name' => 'Company Registration For Foreign National', 'route' => 'registration.foreign'],
             ['name' => 'Trademark Registration', 'route' => 'registration.trade-registration'],
         ]],
         ['name' => 'Blogs', 'route' => 'blogs'],

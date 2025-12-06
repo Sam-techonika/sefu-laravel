@@ -5,13 +5,13 @@ namespace App\Enums;
 enum LocaleType: string
 {
     case EN = 'en';
-    // case HI = 'hi';
+    case HI = 'hi';
 
     public static function options(): array
     {
         return [
             self::EN->value => 'English',
-            // self::HI->value => 'Hindi',
+            self::HI->value => 'Hindi',
         ];
     }
 
@@ -24,7 +24,7 @@ enum LocaleType: string
     {
         return match($value) {
             'en' => self::EN,
-            // 'hi' => self::HI,
+            'hi' => self::HI,
             default => null
         };
     }
@@ -38,7 +38,7 @@ enum LocaleType: string
     {
         return match($this) {
             self::EN => 'us',
-            // self::HI => 'in',
+            self::HI => 'in',
         };
     }
 }

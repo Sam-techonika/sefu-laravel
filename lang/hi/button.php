@@ -20,8 +20,8 @@ return [
 
     // CTAs / anchors
     'get_started' => 'शुरू करें',
-    'consult_expert' => 'विशेषज्ञ से परामर्श करें',
-    'book_consultation' => 'परामर्श बुक करें →',
+    'consult_expert' => 'विशेषज्ञ से सलाह लें',
+    'book_consultation' => 'कंसल्टेशन बुक करें →',
     'start_your_consultation' => 'अपना परामर्श शुरू करें →',
 
     // Other

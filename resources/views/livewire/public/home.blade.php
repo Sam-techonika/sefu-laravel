@@ -16,8 +16,8 @@
                     <div class="row align-items-center">
                         <div class="col-xl-6 col-lg-8">
                             <div class="slider__content slider__content-3 text-center text-md-left pt-325">
-                                <h1 class="main-title wow fadeInUp2 animated mb-40 " data-wow-delay=".1s">Start Smart &<span></span> <span class="round-line"> Succeed</span> Legally.</h1>
-                                <h4 class="sub-title wow fadeInUp2 animated mb-50" data-wow-delay=".3s">Helping you build and grow your business with clarity, compliance, and confidence.</h4>
+                                <h1 class="main-title wow fadeInUp2 animated mb-40 " data-wow-delay=".1s">{{ __('home.hero_main_title') }}</h1>
+                                <h4 class="sub-title wow fadeInUp2 animated mb-50" data-wow-delay=".3s">{{ __('home.hero_subtitle') }}</h4>
                                 <ul class="btn-list d-sm-flex align-items-center wow fadeInUp2 animated mb-35" data-wow-delay=".5s">
                                     <li>
                                         <a class="theme_btn border-btn active mr-20" href="{{ route('contact',['locale' => app()->getLocale()]) }}">{{ __('button.get_started') }}</a>
@@ -29,7 +29,7 @@
                                 <div class="client-review text-center d-sm-flex align-items-center justify-content-md-start wow fadeInUp2 animated" data-wow-delay=".7s">
                                     <h3>4.7</h3>
                                     <div class="review-box ml-20">
-                                        <span>as rated by clients who trust us for incorporation, compliance, and legal support</span>
+                                        <span>{{ __('home.hero_rating_text') }}</span>
                                         <div class="review-icon">
                                             <a href="#"><i class="fas fa-star"></i></a>
                                             <a href="#"><i class="fas fa-star"></i></a>
@@ -57,8 +57,8 @@
                                     <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
                                 </div>
                                 <div class="status-content">
-                                    <span>Expert-Led Services</span>
-                                    <h4 class="sub-title">By experts, not agents</h4>
+                                    <span>{{ __('home.status_expert_led') }}</span>
+                                    <h4 class="sub-title">{{ __('home.status_expert_subtitle') }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -68,8 +68,8 @@
                                     <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
                                 </div>
                                 <div class="status-content">
-                                    <span>Quick & Hassle-Free</span>
-                                    <h4 class="sub-title">Fast, compliant, and fully online.</h4>
+                                    <span>{{ __('home.status_quick_hassle') }}</span>
+                                    <h4 class="sub-title">{{ __('home.status_quick_subtitle') }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -79,8 +79,8 @@
                                     <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
                                 </div>
                                 <div class="status-content">
-                                    <span>Transparent Pricing</span>
-                                    <h4 class="sub-title">Fixed fees. No hidden costs.</h4>
+                                    <span>{{ __('home.status_transparent') }}</span>
+                                    <h4 class="sub-title">{{ __('home.status_transparent_subtitle') }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -95,8 +95,8 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="section-title section-title-4 text-center wow fadeInUp2 animated mb-125" data-wow-delay='.1s'>
-                            <h3 class="pr-30 pl-30 mb-0 pl-lg-0 pr-lg-0 pl-xs-0 pr-xs-0">Client Success <span class="round-line"> Is Our</span> Goal.</h3>
-                            <h4 class="sub-title">To provide expert legal and compliance solutions for growing businesses.</h4>
+                            <h3 class="pr-30 pl-30 mb-0 pl-lg-0 pr-lg-0 pl-xs-0 pr-xs-0">{{ __('home.services_title') }}</h3>
+                            <h4 class="sub-title">{{ __('home.services_subtitle') }}</h4>
                         </div>
                     </div>
                 </div>
@@ -107,9 +107,9 @@
                                 <img class="ilustar" src="{{ asset('assets/img/ai/ai1.svg') }}" alt="">
                             </div>
                             <div class="s-services-text">
-                                <h5>BUSINESS SETUP</h5>
-                                <h3>Start your company the right way.</h3>
-                                <h4 class="sub-title mb-40">From incorporation to India entry — legally, quickly, and confidently.</h4>
+                                <h5>{{ __('home.business_setup_label') }}</h5>
+                                <h3>{{ __('home.business_setup_title') }}</h3>
+                                <h4 class="sub-title mb-40">{{ __('home.business_setup_subtitle') }}</h4>
                                 <a class="s-more-btn" href="{{ route('service.view', ['locale' => app()->getLocale(), 'slug' =>'business-setup-india-entry']) }}">
                                     <img class="back-one" src="{{ asset('assets/img/icon/icon13.svg') }}" alt="">
                                     <img class="back-two" src="{{ asset('assets/img/icon/long-arrow-right.svg') }}" alt="">
@@ -123,9 +123,9 @@
                                 <img class="ilustar" src="{{ asset('assets/img/ai/ai2.svg') }}" alt="">
                             </div>
                             <div class="s-services-text">
-                                <h5>FEMA & REGULATORY</h5>
-                                <h3>Simplify foreign investment compliance.</h3>
-                                <h4 class="sub-title mb-40 mr-md-20">FDI, ODI, and RBI filings made clear and compliant.</h4>
+                                <h5>{{ __('home.fema_regulatory_label') }}</h5>
+                                <h3>{{ __('home.fema_regulatory_title') }}</h3>
+                                <h4 class="sub-title mb-40 mr-md-20">{{ __('home.fema_regulatory_subtitle') }}</h4>
                                 <a class="s-more-btn" href="{{ route('service.view', ['locale' => app()->getLocale(), 'slug' =>'regulatory-fema-advisory']) }}">
                                     <img class="back-one" src="{{ asset('assets/img/icon/icon13.svg') }}" alt="">
                                     <img class="back-two" src="{{ asset('assets/img/icon/long-arrow-right.svg') }}" alt="">
@@ -140,9 +140,9 @@
                                 <img class="ilustar" src="{{ asset('assets/img/ai/ai3.svg') }}" alt="">
                             </div>
                             <div class="s-services-text">
-                                <h5>INTELLECTUAL PROPERTY</h5>
-                                <h3>Protect your brand and innovation.</h3>
-                                <h4 class="sub-title mb-40">Trademark, copyright, and design registrations done right.</h4>
+                                <h5>{{ __('home.intellectual_property_label') }}</h5>
+                                <h3>{{ __('home.intellectual_property_title') }}</h3>
+                                <h4 class="sub-title mb-40">{{ __('home.intellectual_property_subtitle') }}</h4>
                                 <a class="s-more-btn" href="{{ route('service.view', ['locale' => app()->getLocale(), 'slug' =>'intellectual-property-rights']) }}">
                                     <img class="back-one" src="{{ asset('assets/img/icon/icon13.svg') }}" alt="">
                                     <img class="back-two" src="{{ asset('assets/img/icon/long-arrow-right.svg') }}" alt="">
@@ -154,7 +154,7 @@
                 <div class="row justify-content-center mt-85">
                     <div class="col-lg-9">
                         <div class="row-title text-center wow fadeInUp2 animated mb-30" data-wow-delay='.1s'>
-                            <h3 class="mb-20">Complete legal and regulatory support for foreign investors.</h3>
+                            <h3 class="mb-20">{{ __('home.services_cta_text') }}</h3>
                             <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">{{ __('button.book_consultation') }}</a>
                         </div>
                     </div>
@@ -169,13 +169,13 @@
                     <div class="col-lg-7">
                         <div class="do-wrapper text-center text-md-left mb-30">
                             <div class="section-title section-title-4 pr-70 pr-lg-0 pr-md-0 pr-xs-0">
-                                <h3> <span class="round-line">Trusted </span> <span>by founders</span> across India.</h3>
+                                <h3>{{ __('home.trusted_founders_title') }}</h3>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="what-text-2 text-center text-md-left mb-30">
-                            <h3>We manage everything,company registration, compliance, documentation & regulatory filings.</h3>
+                            <h3>{{ __('home.trusted_founders_subtitle') }}</h3>
                         </div>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -183,8 +183,8 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.1s">
                         <div class="do-box-wrapper mb-30">
                             <div class="do-inner pl-40 pr-40 pt-35">
-                                <h3 class="mb-35">Where Law Powers Growth.</h3>
-                                <h5 class="sub-title-2">We combine corporate law, governance, and business insight to help you make smarter decisions.</h5>
+                                <h3 class="mb-35">{{ __('home.law_powers_growth_title') }}</h3>
+                                <h5 class="sub-title-2">{{ __('home.law_powers_growth_subtitle') }}</h5>
                             </div>
                             <img class="ilustar-do" src="{{ asset('assets/img/ai/ai4.svg') }}" alt="">
                         </div>
@@ -192,8 +192,8 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.3s">
                         <div class="do-box-wrapper active mb-30">
                             <div class="do-inner pl-40 pr-40 pt-35">
-                                <h3 class="mb-35">Led by Qualified Experts.</h3>
-                                <h5 class="sub-title-2">Every mandate is handled by experienced Company Secretaries and legal professionals who </h5>
+                                <h3 class="mb-35">{{ __('home.qualified_experts_title') }}</h3>
+                                <h5 class="sub-title-2">{{ __('home.qualified_experts_subtitle') }}</h5>
                             </div>
                             <img class="ilustar-do" src="{{ asset('assets/img/ai/ai5.svg') }}" alt="">
                         </div>
@@ -201,8 +201,8 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.5s">
                         <div class="do-box-wrapper mb-30">
                             <div class="do-inner pl-40 pr-40 pt-35">
-                                <h3 class="mb-35">From Vision to Execution.</h3>
-                                <h5 class="sub-title-2">Whether it’s structuring, FEMA, IPR, or M&A — we stay with your business every step of the way.</h5>
+                                <h3 class="mb-35">{{ __('home.vision_execution_title') }}</h3>
+                                <h5 class="sub-title-2">{{ __('home.vision_execution_subtitle') }}</h5>
                             </div>
                             <img class="ilustar-do" src="{{ asset('assets/img/ai/ai6.svg') }}" alt="">
                         </div>
@@ -228,19 +228,19 @@
                                 <li>
                                     <div class="fact-one text-center mb-55 pr-120">
                                         <h3><span class="counter mb-15">500</span>+</h3>
-                                        <h4 class="sub-title-2">Businesses Incorporated</h4>
+                                        <h4 class="sub-title-2">{{ __('home.businesses_incorporated') }}</h4>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="fact-one text-center mb-55">
                                         <h3><span class="mb-15">1,000+</span></h3>
-                                        <h4 class="sub-title-2">Clients Across India & Abroad</h4>
+                                        <h4 class="sub-title-2">{{ __('home.clients_across_india') }}</h4>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="fact-one text-center mb-55 pr-120">
                                         <h3><span class="mb-15">100%</span></h3>
-                                        <h4 class="sub-title-2">Compliance Accuracy</h4>
+                                        <h4 class="sub-title-2">{{ __('home.compliance_accuracy') }}</h4>
                                     </div>
                                 </li>
                             </ul>
@@ -249,9 +249,9 @@
                     <div class="col-lg-6 col-md-12">
                         <div class="fact-wrapper mb-30">
                             <div class="section-title section-title-4 text-center text-md-left">
-                                <h3 class="mb-20">Clear. <span class="round-line"> Clarity.</span> Confidence. </h3>
-                                <h4 class="sub-title-2 mb-40">Things change fast in business — laws, rules, and markets. At Pratham Legal, you’ll always find real professionals, not bots, guiding you through every compliance, investment, or regulatory challenge.</h4>
-                                <h4 class="sub-title-2 mb-55">We aim to respond to every query in under 15 minutes — because expert advice should never keep you waiting.</h4>
+                                <h3 class="mb-20">{{ __('home.clarity_title') }}</h3>
+                                <h4 class="sub-title-2 mb-40">{{ __('home.clarity_description_1') }}</h4>
+                                <h4 class="sub-title-2 mb-55">{{ __('home.clarity_description_2') }}</h4>
                                 <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">{{ __('button.book_consultation') }}</a>
                             </div>
                      
@@ -268,8 +268,8 @@
                     <div class="col-lg-8">
                         <div class="testimonial-text-wrapper mb-30">
                             <div class="section-title section-title-4 text-center pr-90 pl-90">
-                                <h3 class="mb-30"><span class="round-line">Our clients don’t </span> just work with us — they partner with us.</h3>
-                                <h4 class="sub-title-3 mb-95">just work with us — they partner with us.</h4>
+                                <h3 class="mb-30">{{ __('home.testimonials_title') }}</h3>
+                                <h4 class="sub-title-3 mb-95">{{ __('home.testimonials_subtitle') }}</h4>
                             </div>
                         </div>
                     </div>
@@ -300,9 +300,9 @@
                     <div class="col-lg-6">
                         <div class="faq-title-wrapper mb-30 pr-40 pr-xs-0">
                             <div class="section-title section-title-4 text-center text-md-left">
-                                <h3 class="mb-25">Find your all<span class="round-line"> All Legal </span> & Questions</h3>
-                                <h5>For more information, please visit our <a href="{{ route('contact',['locale' => app()->getLocale()]) }}">Help Center.</a> or browse common queries in our FAQs section.</h5>
-                                <a href="{{ route('faq',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Go to Faq’s</a>
+                                <h3 class="mb-25">{{ __('home.faq_title') }}</h3>
+                                <h5>{{ __('home.faq_subtitle') }}</h5>
+                                <a href="{{ route('faq',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">{{ __('home.faq_button_text') }}</a>
                             </div>
                         </div>
                     </div>
@@ -313,27 +313,27 @@
                                     <div class="card-header" id="headingOne">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                What is the first step to start a company in India?
+                                                {{ __('home.faq_q1') }}
                                             </button>
                                         </h5>
                                     </div>
 
                                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                         <div class="card-body">
-                                            Choose the right structure (Private Limited, LLP, or OPC) and apply for incorporation under the MCA portal. We help you through the entire process. </div>
+                                            {{ __('home.faq_a1') }} </div>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <div class="card-header" id="headingTwo">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                Can foreign nationals or companies set up business in India?
+                                                {{ __('home.faq_q2') }}
                                             </button>
                                         </h5>
                                     </div>
                                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                         <div class="card-body">
-                                            Yes. Foreign entities can establish Wholly Owned Subsidiaries, Joint Ventures, or Liaison Offices — all under FEMA and RBI guidelines.
+                                            {{ __('home.faq_a2') }}
                                         </div>
                                     </div>
                                 </div>
@@ -341,26 +341,26 @@
                                     <div class="card-header" id="headingThree">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                What are annual compliance requirements for a company?
+                                                {{ __('home.faq_q3') }}
                                             </button>
                                         </h5>
                                     </div>
                                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                         <div class="card-body">
-                                            Every company must file financial statements (AOC-4), annual return (MGT-7/7A), and maintain statutory registers and AGM records. </div>
+                                            {{ __('home.faq_a3') }} </div>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <div class="card-header" id="headingFour">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                How long does it take to register a company?
+                                                {{ __('home.faq_q4') }}
                                             </button>
                                         </h5>
                                     </div>
                                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                                         <div class="card-body">
-                                            Typically 5–7 working days, depending on approvals from the Ministry of Corporate Affairs and document readiness.
+                                            {{ __('home.faq_a4') }}
                                         </div>
                                     </div>
 
@@ -369,25 +369,26 @@
                                     <div class="card-header" id="headingFive">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                                Why should I register my trademark?
+                                                {{ __('home.faq_q5') }}
                                             </button>
                                         </h5>
                                     </div>
                                     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
                                         <div class="card-body">
-                                            A registered trademark protects your brand identity and gives you exclusive rights to use your name or logo across India. </div>
+                                            {{ __('home.faq_a5') }} </div>
                                     </div>
                                 </div>
                                 <div class="card">
                                     <div class="card-header" id="headingSix">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                                Does Pratham Legal provide FEMA or RBI compliance support? </button>
+                                                {{ __('home.faq_q6') }}
+                                            </button>
                                         </h5>
                                     </div>
                                     <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
                                         <div class="card-body">
-                                            Yes. We assist with FDI structuring, ODI, ECB, and RBI filings through the FIRMS portal — ensuring complete FEMA compliance. </div>
+                                            {{ __('home.faq_a6') }} </div>
                                     </div>
                                 </div>
 
@@ -404,8 +405,8 @@
                     <div class="row align-items-center">
                         <div class="col-xl-6 col-lg-6 col-md-12">
                             <div class="quote-form-left mb-30 pr-80 mr-65 pr-lg-20 mr-lg-0 pr-md-0 pl-md-0">
-                                <h3 class="mb-20">Get Started with Pratham Legal</h3>
-                                <h5 class="mb-30">Select a service to begin your legal journey — our experts will guide you every step of the way.</h5>
+                                <h3 class="mb-20">{{ __('home.get_quote_title') }}</h3>
+                                <h5 class="mb-30">{{ __('home.get_quote_subtitle') }}</h5>
                                 
                                 @if (session('service_request_success'))
                                     <div class="alert alert-success mb-15">
@@ -417,39 +418,39 @@
                                     <div class="choice-list">
                                         <span class="input-title">Service</span>
                                         <select class="select-product" wire:model="service" name="select-value" id="select-area">
-                                            <option value="">Select a service</option>
-                                            <option value="Business Setup & India Entry">Business Setup & India Entry</option>
-                                            <option value="Regulatory & FEMA Advisory">Regulatory & FEMA Advisory</option>
-                                            <option value="Intellectual Property Rights (IPR)">Intellectual Property Rights (IPR)</option>
-                                            <option value="Corporate Secretarial & Compliance Management">Corporate Secretarial & Compliance Management</option>
-                                            <option value="Corporate Transactions & Legal Documentation">Corporate Transactions & Legal Documentation</option>
+                                            <option value="">{{ __('home.service_select_placeholder') }}</option>
+                                            <option value="Business Setup & India Entry">{{ __('home.service_business_setup') }}</option>
+                                            <option value="Regulatory & FEMA Advisory">{{ __('home.service_regulatory_fema') }}</option>
+                                            <option value="Intellectual Property Rights (IPR)">{{ __('home.service_intellectual_property') }}</option>
+                                            <option value="Corporate Secretarial & Compliance Management">{{ __('home.service_corporate_secretarial') }}</option>
+                                            <option value="Corporate Transactions & Legal Documentation">{{ __('home.service_corporate_transactions') }}</option>
                                         </select>
                                         @error('service') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                     <div class="email-input">
-                                        <label class="input-title">Email</label>
-                                        <input type="email" wire:model="email" placeholder="youremail@example.com">
+                                        <label class="input-title">{{ __('home.email_label') }}</label>
+                                        <input type="email" wire:model="email" placeholder="{{ __('home.email_placeholder') }}">
                                         @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                     <div class="email-input">
-                                        <label class="input-title">Phone (Optional)</label>
-                                        <input type="text" wire:model="phone" placeholder="+91-XXXXXXXXXX">
+                                        <label class="input-title">{{ __('home.phone_label') }}</label>
+                                        <input type="text" wire:model="phone" placeholder="{{ __('home.phone_placeholder') }}">
                                         @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                     <button type="submit" class="theme_btn3 q-btn-lg mb-10">{{ __('button.send_message') }}</button>
                                 </form>
-                                <p class="review-text">Been here before?</p>
-                                <p class="review-text">Questions? <a href="tel:{{ setting('phone_number', '+91-9821008011') }}">Call our team at {{ setting('phone_number', '+91-9821008011') }}</a></p>
+                                <p class="review-text">{{ __('home.been_here_before') }}</p>
+                                <p class="review-text">{{ __('home.questions_call_team') }} <a href="tel:{{ setting('phone_number', '+91-9821008011') }}">{{ setting('phone_number', '+91-9821008011') }}</a></p>
 
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-12">
                             <div class="quote-wrapper mb-30">
                                 <div class="section-title section-title-4 text-center text-md-left">
-                                    <h3 class="mb-20">Let's build your <span class="round-line">business</span> the right way.</h3>
-                                    <h5 class="mb-45">We understand how complex laws can be — that's why real professionals, not bots, handle every query personally.</h5>
-                                    <p>Need quick help? </p>
-                                    <span class="number"><b>call:</b> <a href="tel:{{ setting('phone_number', '+91-9821008011') }}">{{ setting('phone_number', '+91-9821008011') }}</a></span>
+                                    <h3 class="mb-20">{{ __('home.build_business_title') }}</h3>
+                                    <h5 class="mb-45">{{ __('home.build_business_subtitle') }}</h5>
+                                    <p>{{ __('home.need_quick_help') }}</p>
+                                    <span class="number"><b>{{ __('home.call_label') }}</b> <a href="tel:{{ setting('phone_number', '+91-9821008011') }}">{{ setting('phone_number', '+91-9821008011') }}</a></span>
                                 </div>
                             </div>
                         </div>
@@ -465,8 +466,8 @@
                     <div class="col-lg-8">
                         <div class="blog-title-wrapper">
                             <div class="section-title section-title-4 text-center mb-85">
-                                <h6 class="mb-30">News & Updates</h6>
-                                <h3><span class="round-line">Latest</span> news & article</h3>
+                                <h6 class="mb-30">{{ __('home.blog_news_updates') }}</h6>
+                                <h3>{{ __('home.blog_latest_title') }}</h3>
                             </div>
                         </div>
                     </div>
@@ -481,13 +482,13 @@
                                 <div class="blogs__content">
                                     <span class="date-tag mb-15">{{ $blog['created_at']->format('d M, Y') }}</span>
                                     <h3 class="blog-title mb-20"><a href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">{{ Str::limit($blog['title'], 50) }}</a></h3>
-                                    <a class="blog-btn" href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">Read More <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
+                                    <a class="blog-btn" href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">{{ __('home.blog_read_more') }} <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
                                 </div>
                             </div>
                         </div>
                     @empty
                         <div class="col-12">
-                            <p class="text-center">No blogs available at the moment.</p>
+                            <p class="text-center">{{ __('home.blog_no_blogs') }}</p>
                         </div>
                     @endforelse
                 </div>
@@ -502,7 +503,7 @@
                         <div class="col-lg-8">
                             <div class="subscribe-wrapper">
                                 <div class="section-title section-title-4 text-center text-md-left mb-30">
-                                    <h3 class="mb-10">Book a <span class="round-line"> Consultation </span>Now</h3>
+                                    <h3 class="mb-10">{{ __('home.subscribe_title') }}</h3>
                                 </div>
                             </div>
                         </div>
