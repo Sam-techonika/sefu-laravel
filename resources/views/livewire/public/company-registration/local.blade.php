@@ -32,12 +32,11 @@
                                             <li>
                                                 <form class="hero-form">
                                                     <label>Email address</label>
-                                                    <input type="email" name="email" placeholder="prashant@prathamlegal.com
-">
+                                                    <input type="email" name="email" placeholder="prashant@prathamlegal.com">
                                                 </form>
                                             </li>
                                             <li>
-                                                <a href="{{whatsapp_url()}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Get a Consultation →</a>
+                                                <a href="{{whatsapp_url()}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Contact Us</a>
                                             </li>
                                         </ul>
                                     </div>

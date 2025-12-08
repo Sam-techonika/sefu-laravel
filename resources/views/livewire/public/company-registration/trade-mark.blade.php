@@ -35,7 +35,7 @@
                                             </form>
                                         </li>
                                         <li>
-                                            <a href="{{setting('whatsapp_url', '')}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Get a Consultation →</a>
+                                            <a href="{{setting('whatsapp_url', '')}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Contact Us</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1243,7 +1243,7 @@
                         <div class="section-title section-title-3 text-center text-md-left mb-30 pr-80 pr-xs-0">
                             <h3 class="mb-50">You Have a Brand. We <span class="highlight-text" style="color:#ff1f1f">Protect.</span> It.</h3>
                             <h4 class="sub-title mb-65">From filing to enforcement, your trademark journey  handled by real professionals. </h4>
-                            <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">Contact Us</a>
+                            <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">Get a Consultation →</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
