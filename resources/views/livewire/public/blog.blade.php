@@ -6,12 +6,12 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="page-title-wrapper page-title-blog">
-                            <h1 class="page-title mb-35">Find inside <span class="round-line">story.</span></h1>
+                            {!! __('blogMain.page_title') !!}
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="page-title-wrapper pl-80 pl-lg-0 pl-md-0 pl-xs-0">
-                            <h4 class="sub-title mb-35">Discover concise insights on business law, tech law, compliance, and intellectual property. Our legal blog delivers clear guidance and timely updates on key legal topics.</h4>
+                            <h4 class="sub-title mb-35">{{ __('blogMain.sub_title') }}</h4>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
 
                     @empty
                     <div class="col-12 text-center py-5">
-                        <p class="text-muted">No blog posts found.</p>
+                        <p class="text-muted">{{ __('blogMain.no_posts') }}</p>
                     </div>
                     @endforelse
                 </div>
@@ -105,9 +105,9 @@
                         <div class="col-xl-10">
                             <div class="subscribe-wrapper">
                                 <div class="section-title text-center">
-                                    <h3 class="mb-25">Stay informed on legal matters just one <span class="round-line">click</span> away</h3>
-                                    <h4 class="sub-title mb-50">Get expert insights with no risk</h4>
-                                    <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn sub-btn">Get your free quote</a>
+                                    <h3 class="mb-25">{!! __('blogMain.subscribe_title') !!}</h3>
+                                    <h4 class="sub-title mb-50">{{ __('blogMain.subscribe_subtitle') }}</h4>
+                                    <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn sub-btn">{{ __('blogMain.subscribe_button') }}</a>
 
                                 </div>
                             </div>
