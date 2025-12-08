@@ -40,8 +40,13 @@
                             @endphp
                             @foreach($links as $name)
                             @if(\Illuminate\Support\Facades\Route::has($name))
+                            @php
+                                $key = explode('.', $name)[0];
+                                $translation = __('footer.links.'.$key);
+                                $label = $translation != 'footer.links.'.$key ? $translation : ucfirst(str_replace(['.', '-'], ' ', $name));
+                            @endphp
                             <li>
-                                <a href="{{ route($name, ['locale' => app()->getLocale()]) }}">{{ __('footer.links.'.$name) != 'footer.links.'.$name ? __('footer.links.'.$name) : ucfirst(str_replace(['.', '-'], ' ', $name)) }}</a>
+                                <a href="{{ route($name, ['locale' => app()->getLocale()]) }}">{{ $label }}</a>
                             </li>
                             @endif
                             @endforeach

@@ -7,7 +7,7 @@ return [
 		'service' => 'Services',
 		'about' => 'About Us',
 		'testimonials' => 'Testimonials',
-		'case.study' => 'Case Studies',
+		'case' => 'Case Studies',
 	],
 
 	'help_title' => 'Explore',
