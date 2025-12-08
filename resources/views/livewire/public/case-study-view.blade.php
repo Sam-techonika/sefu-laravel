@@ -26,21 +26,21 @@
                     <div class="col-lg-8">
                         @if($goals)
                         <div class="case-single mb-50">
-                            <h3 class="case-title mb-20">Goals</h3>
+                            <h3 class="case-title mb-20">{{ __('caseStudy.goals') }}</h3>
                             <div class="sub-title">{!! $goals !!}</div>
                         </div>
                         @endif
 
                         @if($challenges)
                         <div class="case-single mb-50">
-                            <h3 class="case-title mb-20">Challenges</h3>
+                            <h3 class="case-title mb-20">{{ __('caseStudy.challenges') }}</h3>
                             <div class="sub-title">{!! $challenges !!}</div>
                         </div>
                         @endif
 
                         @if(!empty($results) && is_array($results))
                         <div class="case-single mb-65">
-                            <h3 class="case-title mb-20">Our Results</h3>
+                            <h3 class="case-title mb-20">{{ __('caseStudy.our_results') }}</h3>
                             @foreach($results as $result)
                                 @if(isset($result['section']) && !empty($result['section']))
                                     <h5 class="sub-title mb-20">{{ $result['section'] }}</h5>
@@ -67,30 +67,30 @@
                         <ul class="case-info pl-45 pl-xs-0">
                             @if($publishDate)
                             <li>
-                                <span>Date</span>
+                                <span>{{ __('caseStudy.date') }}</span>
                                 <h5>{{ $publishDate }}</h5>
                             </li>
                             @endif
                             @if($clientName)
                             <li>
-                                <span>Client Name</span>
+                                <span>{{ __('caseStudy.client_name') }}</span>
                                 <h5>{{ $clientName }}</h5>
                             </li>
                             @endif
                             @if($projectName)
                             <li>
-                                <span>Project Type</span>
+                                <span>{{ __('caseStudy.project_type') }}</span>
                                 <h5>{{ $projectName }}</h5>
                             </li>
                             @endif
                             @if($categoryName)
                             <li>
-                                <span>Category</span>
+                                <span>{{ __('caseStudy.category') }}</span>
                                 <h5>{{ $categoryName }}</h5>
                             </li>
                             @endif
                             <li>
-                                <span>Share</span>
+                                <span>{{ __('caseStudy.share') }}</span>
                                 <div class="footer-social">
                                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->url()) }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                     <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->url()) }}&text={{ urlencode($title) }}" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -112,9 +112,9 @@
                         <div class="col-xl-10">
                             <div class="subscribe-wrapper">
                                 <div class="section-title text-center">
-                                    <h3 class="mb-25">Ready to take plan? It's just a matter of one <span class="round-line">click</span></h3>
-                                    <h4 class="sub-title mb-50">Try it risk free — we don't charge cancellation fees.</h4>
-                                    <a href="{{ route('contact', ['locale' => app()->getLocale()]) }}" class="theme_btn sub-btn">Get your free quote</a>
+                                    <h3 class="mb-25">{{ __('caseStudy.cta_title') }}</h3>
+                                    <h4 class="sub-title mb-50">{{ __('caseStudy.cta_subtitle') }}</h4>
+                                    <a href="{{ route('contact', ['locale' => app()->getLocale()]) }}" class="theme_btn sub-btn">{{ __('caseStudy.cta_button') }}</a>
                                 </div>
                             </div>
                         </div>

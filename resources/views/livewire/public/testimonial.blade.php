@@ -3,18 +3,18 @@
         <!--page-title-area start-->
         <section class="page-title-area page-area-two page-t-height pb-155" style="background-image: url({{asset('assets/img/page-title/tm1.jpg')}})">
             <div class="page-title-img" style="background-image: url({{asset('assets/img/page-title/tm1.jpg')}});">
-                <h1 class="title-text d-none d-lg-inline-block">Testimonial</h1>
+                <h1 class="title-text d-none d-lg-inline-block">{{ __('testimonial.page_title') }}</h1>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 col-lg-12">
                         <div class="page-title-wrapper page-wrapper-team page-wrapper-white pt-240 pt-md-200 pt-xs-150">
                             <h1 class="page-title mb-60">
-                                Over <span class="round-line">500+</span> Clients Trust Our Legal Excellence
+                                {{ __('testimonial.hero_title') }}
                             </h1>
 
                             <h4 class="sub-title mb-35 pr-80 pr-xs-0">
-                           Trusted for our legal expertise, ethics, and success in guiding clients through complex cases.
+                           {{ __('testimonial.hero_subtitle') }}
 
                             </h4>
 
@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <h1 class="page-style-text d-none">Testimonial</h1>
+            <h1 class="page-style-text d-none">{{ __('testimonial.page_title') }}</h1>
         </section>
         <!--page-title-area end-->
         <!--client-feedback-area start-->
@@ -33,7 +33,7 @@
                     <div class="col-lg-6">
                         <div class="testimonial-text-wrapper">
                             <div class="section-title text-center mb-10">
-                                <h3 class="mb-25">What Our <span class="round-line">Client</span> Say About Us</h3>
+                                <h3 class="mb-25">{{ __('testimonial.what_client_say') }}</h3>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                                     <div class="quote-icon">
                                         <img src="{{ asset('assets/img/icon/quote-gray.svg') }}" alt="">
                                     </div>
-                                    <h4 class="sub-title mb-25">No testimonials available at the moment.</h4>
+                                    <h4 class="sub-title mb-25">{{ __('testimonial.no_testimonials') }}</h4>
                                     <h5 class="mb-10">-</h5>
                                     <h6>-</h6>
                                 </div>
@@ -84,15 +84,15 @@
         <!--client-feedback-area start-->
         <section class="client-feedback-area testimonial-style-one pos-rel pt-100 pb-150 pt-md-85 pb-mb-60 pt-xs-85 pb-xs-60">
             <div class="feedback-img-wrapper" style="background-image: url({{asset('assets/img/testimonial/01.jpg')}});">
-                <h1 class="title-text">Testimonial's <br> Client</h1>
+                <h1 class="title-text">{{ __('testimonial.testimonial_client') }}</h1>
             </div>
             <div class="container">
                 <div class="row justify-content-center justify-content-xl-end">
                     <div class="col-xl-5 col-lg-8">
                         <div class="testimonial-text-wrapper mb-30 mb-md-0 mb-xs-0">
                             <div class="section-title text-center text-xl-left">
-                                <h3 class="mb-25"><span class="round-line">500+</span> satisfied customer.</h3>
-                                <h4 class="sub-title mb-15 mb-md-0 mb-xs-0">Things goes wrong have questions dsu.</h4>
+                                <h3 class="mb-25">{{ __('testimonial.satisfied_customer') }}</h3>
+                                <h4 class="sub-title mb-15 mb-md-0 mb-xs-0">{{ __('testimonial.satisfied_subtitle') }}</h4>
                             </div>
                         </div>
                     </div>
@@ -126,7 +126,7 @@
                                     @endif
                                 </div>
                                 <h5>{{ Str::limit($testimonial->name, 25) }}</h5>
-                                <p>{{ Str::limit($translation->address ?? 'Customer', 30) }}</p>
+                                <p>{{ Str::limit($translation->address ?? __('testimonial.customer'), 30) }}</p>
                             </div>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                             <div class="quote-icon mb-25">
                                 <img src="{{asset('assets/img/icon/icon10.svg')}}" alt="">
                             </div>
-                            <h4 class="inner-text mb-35">No testimonials available at the moment.</h4>
+                            <h4 class="inner-text mb-35">{{ __('testimonial.no_testimonials') }}</h4>
                             <div class="client-box">
                                 <div class="client-img">
                                     <img src="{{ asset('assets/img/testimonial/default-avatar.png') }}" alt="Default">
@@ -160,9 +160,9 @@
                         <div class="col-xl-10">
                             <div class="subscribe-wrapper">
                                 <div class="section-title text-center">
-                                    <h3 class="mb-25">Ready to take plan? It's just a matter of one <span class="round-line">clike</span></h3>
-                                    <h4 class="sub-title mb-50">Try it risk free — we don't charge cancellation fees.</h4>
-                                    <a href="contact.html" class="theme_btn sub-btn">Get your free quote</a>
+                                    <h3 class="mb-25">{{ __('testimonial.cta_title') }}</h3>
+                                    <h4 class="sub-title mb-50">{{ __('testimonial.cta_subtitle') }}</h4>
+                                    <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn sub-btn">{{ __('testimonial.cta_button') }}</a>
                                 </div>
                             </div>
                         </div>

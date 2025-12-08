@@ -113,10 +113,10 @@
       <div class="col-lg-8">
         <div class="page-title-wrapper d-flex flex-column align-items-center justify-content-center services-title-wrapper text-center">
           <h1 class="page-title mb-20">
-            Success <span class="round-line">Story</span>
+            {{ __('caseStudyMain.page_title') }}
           </h1>
           <h4 class="sub-title mb-0 info-text">
-            End-to-end legal, regulatory and compliance support for India entry and growth.
+            {{ __('caseStudyMain.page_subtitle') }}
           </h4>
         </div>
       </div>
@@ -157,15 +157,15 @@
                             @if($caseStudy['description'])
                                 <p>{{ \Illuminate\Support\Str::limit(strip_tags($caseStudy['description']), 120) }}</p>
                             @endif
-                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale(), 'slug' => $caseStudy['slug']]) }}" class="theme_btn theme_btn3">Read More <i class="far fa-chevron-right"></i></a>
+                            <a href="{{ route('case.study.view', ['locale' => app()->getLocale(), 'slug' => $caseStudy['slug']]) }}" class="theme_btn theme_btn3">{{ __('caseStudyMain.read_more') }} <i class="far fa-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
                 @empty
                 <div class="col-12">
                     <div class="text-center py-5">
-                        <h3 class="mb-3">No Case Studies Available</h3>
-                        <p class="text-muted">Check back soon for inspiring success stories!</p>
+                        <h3 class="mb-3">{{ __('caseStudyMain.no_case_studies_title') }}</h3>
+                        <p class="text-muted">{{ __('caseStudyMain.no_case_studies_text') }}</p>
                     </div>
                 </div>
                 @endforelse
@@ -182,9 +182,9 @@
                     <div class="col-xl-10">
                         <div class="subscribe-wrapper">
                             <div class="section-title text-center">
-                                <h3 class="mb-25">Ready to start your own <span class="round-line">Success Story?</span></h3>
-                                <h4 class="sub-title mb-50">Book a free call and let our experts guide you — no cancellation fees, no risk.</h4>
-                                <a href="{{ route('contact', ['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">Get your free quote <i class="far fa-chevron-right"></i></a>
+                                <h3 class="mb-25">{{ __('caseStudyMain.cta_title') }}</h3>
+                                <h4 class="sub-title mb-50">{{ __('caseStudyMain.cta_subtitle') }}</h4>
+                                <a href="{{ route('contact', ['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">{{ __('caseStudyMain.cta_button') }} <i class="far fa-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>

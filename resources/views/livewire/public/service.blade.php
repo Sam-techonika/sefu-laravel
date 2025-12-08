@@ -5,8 +5,8 @@
       <div class="row align-items-center">
         <div class="col-lg-7">
           <div class="page-title-wrapper services-title-wrapper">
-            <h1 class="page-title mb-20">Our <span class="round-line">Services</span></h1>
-            <h4 class="sub-title mb-0 info-text">End-to-end legal, regulatory and compliance support for India entry and growth.</h4>
+            <h1 class="page-title mb-20">{{ __('serviceMain.page_title') }}</h1>
+            <h4 class="sub-title mb-0 info-text">{{ __('serviceMain.page_subtitle') }}</h4>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
               
               <div class="service-cta">
                 <a wire:navigate href="{{ route('service.view', ['locale' => app()->getLocale(), 'slug' => $translation->slug]) }}" class="theme_btn theme_btn3">
-                  Learn More <i class="far fa-chevron-right"></i>
+                  {{ __('serviceMain.learn_more') }} <i class="far fa-chevron-right"></i>
                 </a>
               </div>
             </div>
@@ -58,8 +58,8 @@
         @empty
           <div class="col-12">
             <div class="text-center py-5">
-              <h4>No services available at the moment.</h4>
-              <p class="text-muted">Please check back later.</p>
+              <h4>{{ __('serviceMain.no_services_title') }}</h4>
+              <p class="text-muted">{{ __('serviceMain.no_services_text') }}</p>
             </div>
           </div>
         @endforelse
@@ -69,10 +69,10 @@
       <div class="row justify-content-center mt-30">
         <div class="col-lg-10">
           <div class="subs-letter-bg grey-bg-soft pt-45 pb-45 text-center">
-            <h3 class="mb-15">Not sure where to start?</h3>
-            <h4 class="sub-title mb-30">Book a quick call and we'll guide you to the right solution.</h4>
+            <h3 class="mb-15">{{ __('serviceMain.cta_title') }}</h3>
+            <h4 class="sub-title mb-30">{{ __('serviceMain.cta_subtitle') }}</h4>
             <a href="https://wa.me/919821008011" target="_blank" class="theme_btn theme_btn3">
-              <i class="fab fa-whatsapp" style="margin-right: 6px;"></i> Chat With Us
+              <i class="fab fa-whatsapp" style="margin-right: 6px;"></i> {{ __('serviceMain.cta_button') }}
             </a>
           </div>
         </div>

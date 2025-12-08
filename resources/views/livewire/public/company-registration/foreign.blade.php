@@ -31,11 +31,11 @@
                                         <li>
                                             <form class="hero-form">
                                                 <label>Email address</label>
-                                                <input type="email" name="email" placeholder="{{setting('contact_email','ihidago@ujufidnan.gov')}}">
+                                                <input type="email" name="email" placeholder="{{setting('contact_email','prashant@prathamlegal.com')}}">
                                             </form>
                                         </li>
                                         <li>
-                                            <a href="{{setting('whatsapp_url', '')}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Contact Us</a>
+                                            <a href="{{setting('whatsapp_url', '')}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Get a Consultation →</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -71,7 +71,7 @@
                                         <li>
                                             <form class="hero-form">
                                                 <label>Email address</label>
-                                                <input type="email" name="email" placeholder="{{setting('contact_email','ihidago@ujufidnan.gov')}}">
+                                                <input type="email" name="email" placeholder="{{setting('contact_email','prashant@prathamlegal.com')}}">
                                             </form>
                                         </li>
                                         <li>

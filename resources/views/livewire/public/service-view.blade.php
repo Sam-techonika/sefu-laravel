@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-lg-10">
                     <div class="section-title mb-15">
-                        <h3>Overview</h3>
+                        <h3>{{ __('service.overview') }}</h3>
                     </div>
                     <div class="ck-content">{!! nl2br(e($overview)) !!}</div>
                 </div>
@@ -51,31 +51,31 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-20 mb-lg-0">
                     <div class="section-title mb-15">
-                        <h3>Why Choose Us</h3>
+                        <h3>{{ __('service.why_choose_us') }}</h3>
                     </div>
                     <ul class="benefit-list">
                         <li>
                             <span class="b-icon"><img src="{{ asset('assets/img/icon/tick.svg') }}" alt=""></span>
-                            <span class="b-text">Expert team with years of industry experience</span>
+                            <span class="b-text">{{ __('service.benefit_1') }}</span>
                         </li>
                         <li>
                             <span class="b-icon"><img src="{{ asset('assets/img/icon/tick.svg') }}" alt=""></span>
-                            <span class="b-text">Compliance-first approach for peace of mind</span>
+                            <span class="b-text">{{ __('service.benefit_2') }}</span>
                         </li>
                         <li>
                             <span class="b-icon"><img src="{{ asset('assets/img/icon/tick.svg') }}" alt=""></span>
-                            <span class="b-text">End-to-end support throughout the process</span>
+                            <span class="b-text">{{ __('service.benefit_3') }}</span>
                         </li>
                         <li>
                             <span class="b-icon"><img src="{{ asset('assets/img/icon/tick.svg') }}" alt=""></span>
-                            <span class="b-text">Fast turnaround with transparent timelines</span>
+                            <span class="b-text">{{ __('service.benefit_4') }}</span>
                         </li>
                     </ul>
                 </div>
                 <div class="col-lg-6">
                     <div class="subs-letter-bg white-bg pt-35 pb-35 pl-30 pr-30 radius-10">
-                        <h4 class="mb-10">What you get</h4>
-                        <p class="mb-0">Comprehensive service delivery with expert guidance and ongoing support tailored to your business needs.</p>
+                        <h4 class="mb-10">{{ __('service.what_you_get') }}</h4>
+                        <p class="mb-0">{{ __('service.what_you_get_description') }}</p>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
             <div class="row">
                 <div class="col-lg-10">
                     <div class="section-title mb-30">
-                        <h3>How it works</h3>
+                        <h3>{{ __('service.how_it_works') }}</h3>
                     </div>
                     <div class="steps">
                         @foreach($howItWorks as $index => $step)
@@ -115,7 +115,7 @@
             <div class="row">
                 <div class="col-lg-10">
                     <div class="section-title mb-15">
-                        <h3>Deliverables</h3>
+                        <h3>{{ __('service.deliverables') }}</h3>
                     </div>
                     <ul class="deliverables">
                         @foreach($deliverables as $deliverable)
@@ -135,8 +135,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="section-title text-center mb-40">
-                        <h3 class="mb-10">Frequently Asked Questions</h3>
-                        <p>Get quick answers to common queries about this service.</p>
+                        <h3 class="mb-10">{{ __('service.faq_title') }}</h3>
+                        <p>{{ __('service.faq_subtitle') }}</p>
                     </div>
                     <div class="faq-que faq-que-2 mb-10">
                         <div id="accordionService">
@@ -157,7 +157,7 @@
                         </div>
                     </div>
                     <div class="get-answer text-center mt-20">
-                        <h4 class="mb-15">Still have questions?</h4>
+                        <h4 class="mb-15">{{ __('service.still_have_questions') }}</h4>
                         <a wire:navigate href="{{ route('contact',app()->getLocale()) }}" class="theme_btn faq-btn">{{ __('button.contact_us') }}</a>
                     </div>
                 </div>
@@ -174,8 +174,8 @@
                     <div class="col-xl-10">
                         <div class="subscribe-wrapper text-center">
                             <div class="section-title">
-                                <h3 class="mb-15">Ready to start your India journey?</h3>
-                                <h4 class="sub-title mb-30">Book a 20‑minute consultation. Well map the fastest compliant route.</h4>
+                                <h3 class="mb-15">{{ __('service.cta_title') }}</h3>
+                                <h4 class="sub-title mb-30">{{ __('service.cta_subtitle') }}</h4>
                                 <a wire:navigate href="{{ route('contact',app()->getLocale()) }}" class="theme_btn theme_btn3">{{ __('button.book_consultation') }} <i class="far fa-chevron-right"></i></a>
                             </div>
                         </div>

@@ -32,11 +32,12 @@
                                             <li>
                                                 <form class="hero-form">
                                                     <label>Email address</label>
-                                                    <input type="email" name="email" placeholder="ihidago@ujufidnan.gov">
+                                                    <input type="email" name="email" placeholder="prashant@prathamlegal.com
+">
                                                 </form>
                                             </li>
                                             <li>
-                                                <a href="{{whatsapp_url()}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Contact Us</a>
+                                                <a href="{{whatsapp_url()}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Get a Consultation →</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1355,7 +1356,7 @@
                         <div class="section-title section-title-3 text-center text-md-left mb-30 pr-80 pr-xs-0">
                             <h3 class="mb-50">You Have Goals.We Bring <span class="highlight-text" style="color:#ff1f1f">clarity.</span></h3>
                             <h4 class="sub-title mb-65">Building a business shouldn’t be complicated. We simplify every step from incorporation to compliance with clear, professional guidance.</h4>
-                            <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">Contact Us</a>
+                            <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">Get a Consultation →</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
