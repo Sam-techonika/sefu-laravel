@@ -5,19 +5,19 @@
             <div class="slider-active">
                 <div class="single-slider slider-height-2 pos-rel pt-275 pb-190 pt-md-200 pt-xs-50 pb-md-50 pb-xs-50">
                     <div class="slider__img-two d-none d-lg-block" style="background: url({{ asset('assets/img/registrations/slider4.png') }});">
-                        <div class="slider-card">
+                            <div class="slider-card">
                             <div class="icon">
                                 <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
                             </div>
-                            <p>Quick, easy and hassle free</p>
+                            <p>{{ __('trade.slider.card_quick') }}</p>
                         </div>
-                        <div class="slider-card card-2">
+                            <div class="slider-card card-2">
                             <div class="icon">
                                 <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
                             </div>
                             <div class="slider-text">
-                                <h5>Save up to 50% in our all policy.</h5>
-                                <span>Learn MORE</span>
+                                <h5>{{ __('trade.slider.card_save') }}</h5>
+                                <span>{{ __('trade.slider.card_learn') }}</span>
                             </div>
                         </div>
                     </div>
@@ -25,17 +25,17 @@
                         <div class="row align-items-center">
                             <div class="col-xl-6 col-lg-8">
                                 <div class="slider__content slider__content-2 text-left">
-                                    <h1 class="main-title mb-35" data-animation="fadeInUp2" data-delay=".2s">Protect Your Brand.<span style="color:#ff1f1f">build </span> Your Legacy</h1>
-                                    <h3>Led by qualified legal and IP professionals we help you secure your name, logo, and creative assets with precision and speed.</h3>
+                                    <h1 class="main-title mb-35" data-animation="fadeInUp2" data-delay=".2s">{!! __('trade.slider.title_html') !!}</h1>
+                                    <h3>{{ __('trade.slider.subtitle') }}</h3>
                                     <ul class="input-box mt-70">
                                         <li>
                                             <form class="hero-form">
-                                                <label>Email address</label>
-                                                <input type="email" name="email" placeholder="prashant@prathamlegal.com">
+                                                <label>{{ __('trade.slider.email_label') }}</label>
+                                                <input type="email" name="email" placeholder="{{ __('trade.slider.email_placeholder') }}">
                                             </form>
                                         </li>
                                         <li>
-                                            <a href="{{setting('whatsapp_url', '')}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Contact Us</a>
+                                            <a href="{{setting('whatsapp_url', '')}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> {{ __('trade.slider.contact_btn') }}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -71,11 +71,11 @@
                                         <li>
                                             <form class="hero-form">
                                                 <label>Email address</label>
-                                                <input type="email" name="email" placeholder="prashant@prathamlegal.com">
+                                                <input type="email" name="email" placeholder="{{ __('trade.slider.email_placeholder') }}">
                                             </form>
                                         </li>
                                         <li>
-                                            <a href="{{setting('whatsapp_url', '')}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Contact Us</a>
+                                            <a href="{{setting('whatsapp_url', '')}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> {{ __('trade.slider.contact_btn') }}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -92,14 +92,13 @@
                     <div class="col-lg-6">
                         <div class="do-wrapper mb-30">
                             <div class="section-title section-title-3 text-center text-md-left">
-                                <h3>500+ trusted user & they <span class="highlight-text">love us.</span></h3>
+                                <h3>{!! __('trade.what_we_do.trusted') !!}</h3>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 text-center text-md-left">
                         <div class="what-text pt-10 pl-155 pl-lg-0 pl-md-0 pl-xs-0">
-                            <h3>Helping you pre times of
-                                uncertainty is at the what we do. lorem finding.</h3>
+                            <h3>{{ __('trade.what_we_do.help_text') }}</h3>
                         </div>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -109,9 +108,9 @@
                             <div class="icon mb-25">
                                 <img src="{{asset('assets/img/icon/icon17.svg')}}" alt="">
                             </div>
-                            <h5>Expert Led Process</h5>
-                            <h3>Handled by qualified IP professionals and Company Secretaries.</h3>
-                            <a class="more-btn" href="{{route('contact',['locale' => app()->getLocale()])}}">Check more details</a>
+                            <h5>{{ __('trade.what_we_do.features.0.title') }}</h5>
+                            <h3>{{ __('trade.what_we_do.features.0.desc') }}</h3>
+                            <a class="more-btn" href="{{route('contact',['locale' => app()->getLocale()])}}">{{ __('trade.what_we_do.features.0.more') }}</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.3s">
@@ -119,9 +118,9 @@
                             <div class="icon mb-25">
                                 <img src="{{asset('assets/img/icon/icon18.svg')}}" alt="">
                             </div>
-                            <h5>Transparent Pricing</h5>
-                            <h3>Flat fees with clear govt. & professional cost breakup</h3>
-                            <a class="more-btn" href="{{route('contact',['locale' => app()->getLocale()])}}">Check more details</a>
+                            <h5>{{ __('trade.what_we_do.features.1.title') }}</h5>
+                            <h3>{{ __('trade.what_we_do.features.1.desc') }}</h3>
+                            <a class="more-btn" href="{{route('contact',['locale' => app()->getLocale()])}}">{{ __('trade.what_we_do.features.1.more') }}</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.5s">
@@ -129,9 +128,9 @@
                             <div class="icon mb-25">
                                 <img src="{{asset('assets/img/icon/icon19.svg')}}" alt="">
                             </div>
-                            <h5>Full Legal Coverage</h5>
-                            <h3>From search to registration & enforcement all under one roof</h3>
-                            <a class="more-btn" href="{{route('contact',['locale' => app()->getLocale()])}}">Check more details</a>
+                            <h5>{{ __('trade.what_we_do.features.2.title') }}</h5>
+                            <h3>{{ __('trade.what_we_do.features.2.desc') }}</h3>
+                            <a class="more-btn" href="{{route('contact',['locale' => app()->getLocale()])}}">{{ __('trade.what_we_do.features.2.more') }}</a>
                         </div>
                     </div>
                 </div><!-- /.row -->
@@ -145,8 +144,8 @@
                 {{-- Section Header --}}
                 <div class="row justify-content-center mb-5">
                     <div class="col-lg-10 text-center">
-                        <h2 class="section-title mb-3">Trademark Registration Plans</h2>
-                        <p class="section-subtitle">Protect your brand identity with professional trademark services</p>
+                        <h2 class="section-title mb-3">{{ __('trade.pricing.header') }}</h2>
+                        <p class="section-subtitle">{{ __('trade.pricing.subtitle') }}</p>
                     </div>
                 </div>
 
@@ -156,45 +155,45 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="pricing-card">
                             <div class="card-header">
-                                <h3 class="plan-name">Basic Plan</h3>
-                                <p class="plan-tagline">Essential trademark registration for one class with government filing.</p>
+                                <h3 class="plan-name">{{ __('trade.pricing.plans.basic.name') }}</h3>
+                                <p class="plan-tagline">{{ __('trade.pricing.plans.basic.tagline') }}</p>
                             </div>
 
                             <div class="card-pricing">
-                                <div class="price-amount">₹6,000</div>
-                                <div class="price-note">Includes ₹4,500 Govt. Fee + ₹1,500 Professional Fee</div>
+                                <div class="price-amount">{{ __('trade.pricing.plans.basic.price') }}</div>
+                                <div class="price-note">{{ __('trade.pricing.plans.basic.price_note') }}</div>
                             </div>
 
-                            <button class="btn-cta btn-outline" wire:click="selectPlan('Basic Plan')">
-                                Start Registration →
+                            <button class="btn-cta btn-outline" wire:click="selectPlan('{{ __('trade.pricing.plans.basic.name') }}')">
+                                {{ __('trade.pricing.plans.basic.cta') }}
                             </button>
 
                             <div class="card-features">
-                                <p class="features-title">Perfect for startups:</p>
+                                <p class="features-title">{{ __('trade.pricing.plans.basic.features_title') }}</p>
                                 <ul class="features-list">
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        Trademark Filing (1 Class – Name or Logo)
+                                        {{ __('trade.pricing.plans.basic.features.0') }}
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        Preliminary Search Report
+                                        {{ __('trade.pricing.plans.basic.features.1') }}
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        Government Fee Filing
+                                        {{ __('trade.pricing.plans.basic.features.2') }}
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        Email Support
+                                        {{ __('trade.pricing.plans.basic.features.3') }}
                                     </li>
                                 </ul>
                             </div>
@@ -204,60 +203,60 @@
                     {{-- Standard Plan (Featured) --}}
                     <div class="col-lg-4 col-md-6">
                         <div class="pricing-card featured">
-                            <div class="popular-badge">Most Popular</div>
-                            
+                                <div class="popular-badge">{{ __('trade.pricing.plans.standard.badge') }}</div>
+
                             <div class="card-header">
-                                <h3 class="plan-name">Standard Plan</h3>
-                                <p class="plan-tagline">Complete trademark registration with comprehensive search and expert consultation.</p>
+                                <h3 class="plan-name">{{ __('trade.pricing.plans.standard.name') }}</h3>
+                                <p class="plan-tagline">{{ __('trade.pricing.plans.standard.tagline') }}</p>
                             </div>
 
                             <div class="card-pricing">
-                                <div class="price-amount">₹9,999</div>
-                                <div class="price-note">Includes ₹4,500 Govt. Fee + ₹5,499 Professional Fee</div>
+                                <div class="price-amount">{{ __('trade.pricing.plans.standard.price') }}</div>
+                                <div class="price-note">{{ __('trade.pricing.plans.standard.price_note') }}</div>
                             </div>
 
-                            <button class="btn-cta btn-primary" wire:click="selectPlan('Standard Plan')">
-                                Get Standard Setup →
+                            <button class="btn-cta btn-primary" wire:click="selectPlan('{{ __('trade.pricing.plans.standard.name') }}')">
+                                {{ __('trade.pricing.plans.standard.cta') }}
                             </button>
 
                             <div class="card-features">
-                                <p class="features-title">Everything in Basic, plus:</p>
+                                <p class="features-title">{{ __('trade.pricing.plans.standard.features_title') }}</p>
                                 <ul class="features-list">
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        Comprehensive Trademark Search & Analysis
+                                        {{ __('trade.pricing.plans.standard.features.0') }}
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        Professional Filing & Documentation
+                                        {{ __('trade.pricing.plans.standard.features.1') }}
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        Response to Examination Report (if required)
+                                        {{ __('trade.pricing.plans.standard.features.2') }}
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        30-Minute IP Consultation
+                                        {{ __('trade.pricing.plans.standard.features.3') }}
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        Application Status Updates
+                                        {{ __('trade.pricing.plans.standard.features.4') }}
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        Priority Email & Phone Support
+                                        {{ __('trade.pricing.plans.standard.features.5') }}
                                     </li>
                                 </ul>
                             </div>
@@ -268,57 +267,57 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="pricing-card">
                             <div class="card-header">
-                                <h3 class="plan-name">Premium Plan</h3>
-                                <p class="plan-tagline">Full trademark protection with opposition handling and renewal reminders.</p>
+                                <h3 class="plan-name">{{ __('trade.pricing.plans.premium.name') }}</h3>
+                                <p class="plan-tagline">{{ __('trade.pricing.plans.premium.tagline') }}</p>
                             </div>
 
                             <div class="card-pricing">
-                                <div class="price-amount">₹17,999</div>
-                                <div class="price-note">Includes ₹4,500 Govt. Fee + ₹13,499 Professional Fee</div>
+                                <div class="price-amount">{{ __('trade.pricing.plans.premium.price') }}</div>
+                                <div class="price-note">{{ __('trade.pricing.plans.premium.price_note') }}</div>
                             </div>
 
-                            <button class="btn-cta btn-outline" wire:click="selectPlan('Premium Plan')">
-                                Get Premium Setup →
+                            <button class="btn-cta btn-outline" wire:click="selectPlan('{{ __('trade.pricing.plans.premium.name') }}')">
+                                {{ __('trade.pricing.plans.premium.cta') }}
                             </button>
 
                             <div class="card-features">
-                                <p class="features-title">Everything in Standard, plus:</p>
+                                <p class="features-title">{{ __('trade.pricing.plans.premium.features_title') }}</p>
                                 <ul class="features-list">
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        Opposition Handling (Up to 1st hearing)
+                                        {{ __('trade.pricing.plans.premium.features.0') }}
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        Watch Service for Similar Trademark Applications
+                                        {{ __('trade.pricing.plans.premium.features.1') }}
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        Renewal Reminders for 10 Years
+                                        {{ __('trade.pricing.plans.premium.features.2') }}
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        1-Hour IP Strategy Consultation
+                                        {{ __('trade.pricing.plans.premium.features.3') }}
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        Brand Protection Advisory
+                                        {{ __('trade.pricing.plans.premium.features.4') }}
                                     </li>
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
-                                        Dedicated IP Support Manager
+                                        {{ __('trade.pricing.plans.premium.features.5') }}
                                     </li>
                                 </ul>
                             </div>
@@ -330,8 +329,8 @@
                 <div class="row mb-4">
                     <div class="col-12 text-center">
                         <a @click.prevent="showComparison = !showComparison" class="compare-link" style="cursor: pointer;">
-                            <span x-show="!showComparison">Compare plan features</span>
-                            <span x-show="showComparison">Hide comparison</span>
+                            <span x-show="!showComparison">{{ __('trade.pricing.compare_show') }}</span>
+                            <span x-show="showComparison">{{ __('trade.pricing.compare_hide') }}</span>
                             <svg x-show="!showComparison" width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; margin-left: 4px;">
                                 <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
@@ -350,25 +349,25 @@
                             <div class="comparison-header">
                                 <div class="header-row">
                                     <div class="feature-column header-title">
-                                        <a @click.prevent="showComparison = false" class="compare-features-link" style="cursor: pointer;">Hide comparison</a>
+                                        <a @click.prevent="showComparison = false" class="compare-features-link" style="cursor: pointer;">{{ __('trade.pricing.compare_hide') }}</a>
                                     </div>
                                     {{-- Basic Plan Header --}}
                                     <div class="plan-column plan-header-box">
                                         <div class="plan-header-content">
-                                            <h4 class="plan-name-header">Basic Plan</h4>
-                                            <div class="plan-price-header">₹6,000</div>
-                                            <button class="btn-header-cta btn-default" wire:click="selectPlan('Basic Plan')">
-                                                Buy Now
+                                            <h4 class="plan-name-header">{{ __('trade.pricing.plans.basic.name') }}</h4>
+                                            <div class="plan-price-header">{{ __('trade.pricing.plans.basic.price') }}</div>
+                                            <button class="btn-header-cta btn-default" wire:click="selectPlan('{{ __('trade.pricing.plans.basic.name') }}')">
+                                                {{ __('trade.comparison.header_buy') }}
                                             </button>
                                         </div>
                                     </div>
                                     {{-- Standard Plan Header (Featured) --}}
                                     <div class="plan-column plan-header-box featured-header">
                                         <div class="plan-header-content">
-                                            <h4 class="plan-name-header">Standard Plan</h4>
-                                            <div class="plan-price-header">₹9,999</div>
-                                            <button class="btn-header-cta btn-featured" wire:click="selectPlan('Standard Plan')">
-                                                Buy Now
+                                            <h4 class="plan-name-header">{{ __('trade.pricing.plans.standard.name') }}</h4>
+                                            <div class="plan-price-header">{{ __('trade.pricing.plans.standard.price') }}</div>
+                                            <button class="btn-header-cta btn-featured" wire:click="selectPlan('{{ __('trade.pricing.plans.standard.name') }}')">
+                                                {{ __('trade.comparison.header_buy') }}
                                             </button>
                                             <div class="checkmark-below">
                                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -380,10 +379,10 @@
                                     {{-- Premium Plan Header --}}
                                     <div class="plan-column plan-header-box">
                                         <div class="plan-header-content">
-                                            <h4 class="plan-name-header">Premium Plan</h4>
-                                            <div class="plan-price-header">₹17,999</div>
-                                            <button class="btn-header-cta btn-default" wire:click="selectPlan('Premium Plan')">
-                                                Buy Now
+                                            <h4 class="plan-name-header">{{ __('trade.pricing.plans.premium.name') }}</h4>
+                                            <div class="plan-price-header">{{ __('trade.pricing.plans.premium.price') }}</div>
+                                            <button class="btn-header-cta btn-default" wire:click="selectPlan('{{ __('trade.pricing.plans.premium.name') }}')">
+                                                {{ __('trade.comparison.header_buy') }}
                                             </button>
                                         </div>
                                     </div>
@@ -395,12 +394,12 @@
                                 {{-- Core Services Section --}}
                                 <div class="category-section">
                                     <div class="category-header">
-                                        <h5>Core Trademark Services</h5>
+                                        <h5>{{ __('trade.comparison.categories.core') }}</h5>
                                     </div>
                                     
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Trademark Filing (1 Class)</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.0') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -421,7 +420,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Preliminary Search Report</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.1') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -442,7 +441,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Government Fee Filing</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.2') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -463,7 +462,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Comprehensive Trademark Search & Analysis</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.3') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -482,7 +481,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Professional Filing & Documentation</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.4') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -501,7 +500,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Response to Examination Report</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.5') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -522,12 +521,12 @@
                                 {{-- Advanced Protection Section --}}
                                 <div class="category-section">
                                     <div class="category-header">
-                                        <h5>Advanced Protection & Monitoring</h5>
+                                        <h5>{{ __('trade.comparison.categories.advanced') }}</h5>
                                     </div>
                                     
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Opposition Handling (Up to 1st hearing)</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.6') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -544,7 +543,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Watch Service for Similar Applications</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.7') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -561,7 +560,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Renewal Reminders for 10 Years</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.8') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -578,7 +577,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Brand Protection Advisory</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.9') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -597,12 +596,12 @@
                                 {{-- Support & Consultation Section --}}
                                 <div class="category-section">
                                     <div class="category-header">
-                                        <h5>Support & Consultation</h5>
+                                        <h5>{{ __('trade.comparison.categories.support') }}</h5>
                                     </div>
                                     
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Application Status Updates</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.10') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -621,7 +620,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">30-Minute IP Consultation</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.11') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -638,7 +637,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">1-Hour IP Strategy Consultation</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.12') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -655,7 +654,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Dedicated IP Support Manager</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.13') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -672,7 +671,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Email Support</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.14') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -693,7 +692,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Priority Email & Phone Support</span>
+                                            <span class="feature-name">{{ __('trade.comparison.features.15') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -716,9 +715,9 @@
                             <div class="comparison-footer">
                                 <div class="footer-row">
                                     <div class="feature-column">
-                                        <div class="help-section">
-                                            <strong>Need help choosing the right plan?</strong>
-                                            <p>Our IP experts will guide you through trademark selection and brand protection strategy.</p>
+                                            <div class="help-section">
+                                            <strong>{{ __('trade.comparison.help_title') }}</strong>
+                                            <p>{{ __('trade.comparison.help_text') }}</p>
                                         </div>
                                     </div>
                                     <div class="plan-column"></div>
@@ -736,8 +735,8 @@
             <div class="container">
                 <div class="row justify-content-center mb-4">
                     <div class="col-lg-8 text-center">
-                        <h2 class="summary-main-title">Quick Plan Comparison</h2>
-                        <p class="summary-subtitle">Choose the perfect plan for your business needs</p>
+                        <h2 class="summary-main-title">{{ __('trade.summary.title') }}</h2>
+                        <p class="summary-subtitle">{{ __('trade.summary.subtitle') }}</p>
                     </div>
                 </div>
                 <div class="row g-4">
@@ -749,21 +748,21 @@
                                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                                 </svg>
                             </div>
-                            <h3 class="summary-plan-name">Basic Plan</h3>
-                            <div class="summary-plan-price">₹6,000</div>
-                            <p class="summary-plan-desc">Startups looking for basic trademark filing with minimal support</p>
+                            <h3 class="summary-plan-name">{{ __('trade.summary.basic.name') }}</h3>
+                            <div class="summary-plan-price">{{ __('trade.summary.basic.price') }}</div>
+                            <p class="summary-plan-desc">{{ __('trade.summary.basic.desc') }}</p>
                             <div class="summary-plan-highlights">
                                 <div class="highlight-item">
                                     <span class="highlight-icon">✓</span>
-                                    <span>Trademark Filing (1 Class)</span>
+                                    <span>{{ __('trade.summary.basic.highlights.0') }}</span>
                                 </div>
                                 <div class="highlight-item">
                                     <span class="highlight-icon">✓</span>
-                                    <span>Preliminary Search Report</span>
+                                    <span>{{ __('trade.summary.basic.highlights.1') }}</span>
                                 </div>
                                 <div class="highlight-item">
                                     <span class="highlight-icon">✓</span>
-                                    <span>Government Fee Filing</span>
+                                    <span>{{ __('trade.summary.basic.highlights.2') }}</span>
                                 </div>
                             </div>
                         </div>
@@ -772,27 +771,27 @@
                     {{-- Standard Plan Summary --}}
                     <div class="col-lg-4 col-md-6">
                         <div class="summary-plan-card featured-summary">
-                            <div class="popular-badge-summary">Most Popular</div>
+                            <div class="popular-badge-summary">{{ __('trade.summary.standard.badge') }}</div>
                             <div class="plan-icon-wrapper compliance-icon">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                                 </svg>
                             </div>
-                            <h3 class="summary-plan-name">Standard Plan</h3>
-                            <div class="summary-plan-price">₹9,999</div>
-                            <p class="summary-plan-desc">Growing businesses needing comprehensive search and consultation</p>
+                            <h3 class="summary-plan-name">{{ __('trade.summary.standard.name') }}</h3>
+                            <div class="summary-plan-price">{{ __('trade.summary.standard.price') }}</div>
+                            <p class="summary-plan-desc">{{ __('trade.summary.standard.desc') }}</p>
                             <div class="summary-plan-highlights">
                                 <div class="highlight-item">
                                     <span class="highlight-icon">✓</span>
-                                    <span>Everything in Basic</span>
+                                    <span>{{ __('trade.summary.standard.highlights.0') }}</span>
                                 </div>
                                 <div class="highlight-item">
                                     <span class="highlight-icon">✓</span>
-                                    <span>Comprehensive Search & Analysis</span>
+                                    <span>{{ __('trade.summary.standard.highlights.1') }}</span>
                                 </div>
                                 <div class="highlight-item">
                                     <span class="highlight-icon">✓</span>
-                                    <span>30-Min IP Consultation</span>
+                                    <span>{{ __('trade.summary.standard.highlights.2') }}</span>
                                 </div>
                             </div>
                         </div>
@@ -807,21 +806,21 @@
                                     <polyline points="22 4 12 14.01 9 11.01"/>
                                 </svg>
                             </div>
-                            <h3 class="summary-plan-name">Premium Plan</h3>
-                            <div class="summary-plan-price">₹17,999</div>
-                            <p class="summary-plan-desc">Established brands requiring complete protection and ongoing support</p>
+                            <h3 class="summary-plan-name">{{ __('trade.summary.premium.name') }}</h3>
+                            <div class="summary-plan-price">{{ __('trade.summary.premium.price') }}</div>
+                            <p class="summary-plan-desc">{{ __('trade.summary.premium.desc') }}</p>
                             <div class="summary-plan-highlights">
                                 <div class="highlight-item">
                                     <span class="highlight-icon">✓</span>
-                                    <span>Everything in Standard</span>
+                                    <span>{{ __('trade.summary.premium.highlights.0') }}</span>
                                 </div>
                                 <div class="highlight-item">
                                     <span class="highlight-icon">✓</span>
-                                    <span>Opposition Handling</span>
+                                    <span>{{ __('trade.summary.premium.highlights.1') }}</span>
                                 </div>
                                 <div class="highlight-item">
                                     <span class="highlight-icon">✓</span>
-                                    <span>Watch Service & Renewals</span>
+                                    <span>{{ __('trade.summary.premium.highlights.2') }}</span>
                                 </div>
                             </div>
                         </div>
@@ -857,7 +856,7 @@
                                         </ul>
                                     </div>
                                     <div class="plan__footer text-center">
-                                        <a href="#" class="theme_btn border-btn mb-10">Start Registration →</a>
+                                        <a href="#" class="theme_btn border-btn mb-10">{{ __('trade.pricing.plans.basic.cta') }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -923,10 +922,10 @@
                         <div class="col-xl-10">
                             <div class="subscribe-wrapper">
                                 <div class="section-title text-center">
-                                    <h3 class="mb-25">Need help choosing the right plan?</span></h3>
-                                    <h4 class="sub-title mb-50">Our team will guide you based on your business goals and compliance needs.</h4>
+                                    <h3 class="mb-25">{{ __('trade.comparison.help_title') }}</h3>
+                                    <h4 class="sub-title mb-50">{{ __('trade.comparison.help_text') }}</h4>
                                     <a href="https://wa.me/919821008011" target="_blank" class="theme_btn sub-btn">
-                                        Talk to an Expert →
+                                        {{ __('trade.subscribe.cta') }} →
                                     </a>
                                 </div>
                             </div>
@@ -962,7 +961,7 @@
                                             <div class="price-tag">₹6,000</div>
                                             <p class="price-subtitle">(All Inclusive)</p>
                                             <!-- <small>₹6,500 Govt + ₹2,499 Professional</small> -->
-                                            <button wire:click="selectPlan('Starter Plan')" class="get-started-btn">Get Started</button>
+                                            <button wire:click="selectPlan('{{ __('trade.pricing.plans.basic.name') }}')" class="get-started-btn">{{ __('trade.pricing.plans.basic.cta') }}</button>
                                         </div>
                                     </div>
                                     <div class="plan-col featured-plan">
@@ -971,7 +970,7 @@
                                             <div class="price-tag">₹9,999</div>
                                             <p class="price-subtitle">(All Inclusive)</p>
                                             <!-- <small>₹6,500 Govt + ₹6,499 Professional</small> -->
-                                            <button type="button" wire:click="selectPlan('Compliance Plan')" class="get-started-btn">Get Started</button>
+                                            <button type="button" wire:click="selectPlan('{{ __('trade.pricing.plans.standard.name') }}')" class="get-started-btn">{{ __('trade.pricing.plans.standard.cta') }}</button>
                                         </div>
                                     </div>
                                     <div class="plan-col">
@@ -980,7 +979,7 @@
                                             <div class="price-tag">₹17,999</div>
                                             <p class="price-subtitle">(All Inclusive)</p>
                                             <!-- <small>₹11,000 Govt + ₹13,999 Professional</small> -->
-                                            <button type="button" wire:click="selectPlan('Complete Setup Plan')" class="get-started-btn">Get Started</button>
+                                            <button type="button" wire:click="selectPlan('{{ __('trade.pricing.plans.premium.name') }}')" class="get-started-btn">{{ __('trade.pricing.plans.premium.cta') }}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1210,21 +1209,21 @@
                                 <!-- <img src="{{ asset('assets/img/line-shape/line_2.svg') }}" alt=""> -->
                             </div>
                             <img class="img-2" src="{{ asset('assets/img/registrations/trust2.png') }}" height="673" width="684" alt="">
-                            <div class="authors-quote at-quote-2">
+                                <div class="authors-quote at-quote-2">
                                 <div class="a-icon">
                                     <img src="{{ asset('assets/img/icon/icon20.svg') }}" alt="">
                                 </div>
-                                <h5 class="mb-25">-Prashant Kumar, Partner,<span>Pratham Legal</span></h5>
-                                <h5 class="a-text">A strong brand begins with strong legal protection  and trademark registration is the foundation.</h5>
+                                <h5 class="mb-25">{!! __('trade.about.author') !!}</h5>
+                                <h5 class="a-text">{{ __('trade.about.quote') }}</h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="about-wrapper pl-70">
-                            <div class="section-title section-title-3 text-center text-md-left mb-30">
-                                <h3 class="mb-35">Protect What Defines Your <span class="highlight-text" style="color:#ff1f1f">business</span></h3>
-                                <h4 class="sub-title mb-40">We help you safeguard your brand identity, creative assets, and intellectual property  strategically and lawfully.</h4>
-                                <a href="{{ route('about',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">More about us</a>
+                                <div class="section-title section-title-3 text-center text-md-left mb-30">
+                                <h3 class="mb-35">{!! __('trade.about.title_html') !!}</h3>
+                                <h4 class="sub-title mb-40">{{ __('trade.about.subtitle') }}</h4>
+                                <a href="{{ route('about',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">{{ __('trade.about.more') }}</a>
                             </div>
                         </div>
                     </div>
@@ -1241,9 +1240,9 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="section-title section-title-3 text-center text-md-left mb-30 pr-80 pr-xs-0">
-                            <h3 class="mb-50">You Have a Brand. We <span class="highlight-text" style="color:#ff1f1f">Protect.</span> It.</h3>
-                            <h4 class="sub-title mb-65">From filing to enforcement, your trademark journey  handled by real professionals. </h4>
-                            <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">Get a Consultation →</a>
+                            <h3 class="mb-50">{!! __('trade.why_choose.title_html') !!}</h3>
+                            <h4 class="sub-title mb-65">{{ __('trade.why_choose.subtitle') }}</h4>
+                            <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">{{ __('trade.why_choose.cta') }}</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -1254,8 +1253,8 @@
                                         <img src="{{ asset('assets/img/icon/icon21.svg') }}" alt="">
                                     </div>
                                     <div class="chose-box-text">
-                                        <h5>RESPONSIVE & RELIABLE</h5>
-                                        <h3>Quick answers. Clear guidance. Always</h3>
+                                        <h5>{{ __('trade.why_choose.items.0.title') }}</h5>
+                                        <h3>{{ __('trade.why_choose.items.0.desc') }}</h3>
                                     </div>
                                 </div>
                             </li>
@@ -1265,8 +1264,8 @@
                                         <img src="{{ asset('assets/img/icon/icon22.svg') }}" alt="">
                                     </div>
                                     <div class="chose-box-text">
-                                        <h5>COMPREHENSIVE COVERAGE</h5>
-                                        <h3>Search, filing & protection under one roof.</h3>
+                                        <h5>{{ __('trade.why_choose.items.1.title') }}</h5>
+                                        <h3>{{ __('trade.why_choose.items.1.desc') }}</h3>
                                     </div>
                                 </div>
                             </li>
@@ -1276,8 +1275,8 @@
                                         <img src="{{ asset('assets/img/icon/icon23.svg') }}" alt="">
                                     </div>
                                     <div class="chose-box-text">
-                                        <h5>LONG-TERM SECURITY</h5>
-                                        <h3>Protect, monitor & renew with ease.</h3>
+                                        <h5>{{ __('trade.why_choose.items.2.title') }}</h5>
+                                        <h3>{{ __('trade.why_choose.items.2.desc') }}</h3>
                                     </div>
                                 </div>
                             </li>
@@ -1296,16 +1295,16 @@
                     <div class="col-xl-6 col-lg-6 col-md-12">
                         <div class="quote-wrapper mb-30">
                             <div class="section-title section-title-3 text-center text-md-left pr-70 pr-lg-0 pr-md-0 pr-xs-0">
-                                <h3 class="mb-45">Start Now & Register Your <span class="highlight-text" style="color:#ff1f1f">brand</span></h3>
-                                <h4 class="sub-title mb-60">Need help with class selection or filing? Speak directly to our IP experts.</h4>
-                                <h5 class="mb-25">Facing any issue while getting a quote?</h5>
-                                <a href="tel:+919821008011" class="number">+91 9821008011</a>
+                                <h3 class="mb-45">{!! __('trade.get_quote.title_html') !!}</h3>
+                                <h4 class="sub-title mb-60">{{ __('trade.get_quote.subtitle') }}</h4>
+                                <h5 class="mb-25">{{ __('trade.get_quote.help') }}</h5>
+                                <a href="tel:+919821008011" class="number">{{ __('trade.get_quote.phone') }}</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-12">
                         <div class="form-box form-box-2 white-bg" wire:key="service-quote-form">
-                            <h4 class="sub-title mb-45">Get Service Quote</h4>
+                            <h4 class="sub-title mb-45">{{ __('trade.get_quote.form.title') }}</h4>
                             @if($showServiceThanks)
                                 <div class="alert alert-success" role="alert" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 5000); $wire.set('showServiceThanks', false, false)">
                                     <strong>Thank you!</strong> We'll get back to you shortly.
@@ -1313,32 +1312,30 @@
                             @endif
                             <form class="quote-form mb-20" wire:submit.prevent="submitServiceRequest">                  
                                 <div class="email-input">
-                                    <label class="input-title">Phone Number</label>
-                                    <input type="text" wire:model.live="servicePhone" placeholder="enter your phone number" required>
+                                    <label class="input-title">{{ __('trade.get_quote.form.phone_label') }}</label>
+                                    <input type="text" wire:model.live="servicePhone" placeholder="{{ __('trade.get_quote.form.phone_label') }}" required>
                                     @error('servicePhone') <span class="text-danger small">{{ $message }}</span> @enderror
                                 </div>
                                 <div class="email-input">
-                                    <label class="input-title">Email</label>
-                                    <input type="email" wire:model.live="serviceEmail" placeholder="enter your email">
+                                    <label class="input-title">{{ __('trade.get_quote.form.email_label') }}</label>
+                                    <input type="email" wire:model.live="serviceEmail" placeholder="{{ __('trade.get_quote.form.email_label') }}">
                                     @error('serviceEmail') <span class="text-danger small">{{ $message }}</span> @enderror
                                 </div>
                                   <div class="choice-list mb-20">
                                     <div class="row">
                                         <div class="col-12 row">
-                                            <span class="input-title pl-20">Service</span>
+                                            <span class="input-title pl-20">{{ __('trade.get_quote.form.service_label') }}</span>
                                             <select class="select-product" wire:model="serviceType" required>
-                                                <option value="">Select a service</option>
-                                                <option value="Business Setup & India Entry">Business Setup & India Entry</option>
-                                                <option value="Regulatory & FEMA Advisory">Regulatory & FEMA Advisory</option>
-                                                <option value="Intellectual Property Rights (IPR)">Intellectual Property Rights (IPR)</option>
-                                                <option value="Corporate Secretarial & Compliance Management">Corporate Secretarial & Compliance Management</option>
-                                                <option value="Corporate Transactions & Legal Documentation">Corporate Transactions & Legal Documentation</option>
+                                                <option value="">{{ __('trade.get_quote.form.service_placeholder') }}</option>
+                                                @foreach(__('trade.get_quote.form.options') as $opt)
+                                                    <option value="{{ $opt }}">{{ $opt }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     @error('serviceType') <span class="text-danger small">{{ $message }}</span> @enderror
                                 </div>
-                                <button type="submit" class="q-btn-lg">Get a Quote </button>
+                                <button type="submit" class="q-btn-lg">{{ __('trade.get_quote.form.submit') }}</button>
                             </form>
                         </div>
                     </div>
@@ -1361,7 +1358,7 @@
                                 <div class="col-xl-6">
                                     <div class="testimonial-text-wrapper mb-30">
                                         <div class="section-title section-title-3 text-center">
-                                            <h3 class="mb-25">Check what's client say <span class="highlight-text" style="color:#ff1f1f">about us</span></h3>
+                                            <h3 class="mb-25">{!! __('trade.testimonials.title_html') !!}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -1394,7 +1391,7 @@
                                             <div class="quote-icon">
                                                 <img src="{{ asset('assets/img/icon/quote-gray.svg') }}" alt="">
                                             </div>
-                                            <h4 class="sub-title mb-25">No testimonials available at the moment.</h4>
+                                            <h4 class="sub-title mb-25">{{ __('trade.testimonials.no_testimonials') }}</h4>
                                         </div>
                                     </div>
                                 @endforelse
@@ -1402,8 +1399,8 @@
                         </div>
 
                         <div class="col-lg-9">
-                            <div class="d-flex justify-content-center pt-5 text-center mt-4">
-                                <a href="contact.html" class="theme_btn sub-btn">Go to Blog →</a>
+                                <div class="d-flex justify-content-center pt-5 text-center mt-4">
+                                <a href="contact.html" class="theme_btn sub-btn">{{ __('trade.testimonials.go_blog') }}</a>
                             </div>
                         </div>
 
@@ -1417,12 +1414,12 @@
                 <div class="row align-items-center mb-70">
                     <div class="col-lg-6 col-md-8">
                         <div class="section-title section-title-3 text-center text-md-left mb-30">
-                            <h3>Get latest Blog from Pratham <span class="highlight-text" style="color:#ff1f1f"> legals.</span></h3>
+                            <h3>{!! __('trade.blog.title_html') !!}</h3>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-4">
                         <div class="view-more text-center text-md-right mb-30">
-                            <a href="{{ route('blogs',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">Go to Blog</a>
+                            <a href="{{ route('blogs',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">{{ __('trade.blog.go_blog') }}</a>
                         </div>
                     </div>
                 </div>
@@ -1436,13 +1433,13 @@
                                 <div class="blogs__content">
                                     <span class="date-tag mb-25">{{ $blog['created_at']->format('d M, Y') }}</span>
                                     <h3 class="blog-title mb-15"><a href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">{{ Str::limit($blog['title'], 60) }}</a></h3>
-                                    <a class="blog-btn" href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">Continue Reading <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
+                                    <a class="blog-btn" href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">{{ __('trade.blog.continue') }} <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
                                 </div>
                             </div>
                         </div>
                     @empty
                         <div class="col-12">
-                            <p class="text-center">No blogs available at the moment.</p>
+                            <p class="text-center">{{ __('trade.blog.no_blogs') }}</p>
                         </div>
                     @endforelse
                 </div>
@@ -1459,9 +1456,9 @@
                         <div class="col-xl-10">
                             <div class="subscribe-wrapper">
                                 <div class="section-title section-title-3 text-center">
-                                    <h3 class="mb-25 wow fadeInUp2 animated" data-wow-delay="0.1s">Ready to Get Started? It’s Just .<span class="highlight-text" style="color:#ff1f1f">one click</span></h3>
-                                    <h4 class="sub-title mb-40 wow fadeInUp2 animated" data-wow-delay="0.3s">File your trademark with expert support secure, transparent, and legally sound.</h4>
-                                    <a href="{{route('contact',['locale'=>app()->getLocale()])}}" class="theme_btn theme_btn2 sub-btn wow fadeInUp2 animated" data-wow-delay="0.5s">Start Registration</a>
+                                    <h3 class="mb-25 wow fadeInUp2 animated" data-wow-delay="0.1s">{!! __('trade.subscribe.title_html') !!}</h3>
+                                    <h4 class="sub-title mb-40 wow fadeInUp2 animated" data-wow-delay="0.3s">{{ __('trade.subscribe.subtitle') }}</h4>
+                                    <a href="{{route('contact',['locale'=>app()->getLocale()])}}" class="theme_btn theme_btn2 sub-btn wow fadeInUp2 animated" data-wow-delay="0.5s">{{ __('trade.subscribe.cta') }}</a>
                                 </div>
                             </div>  
                         </div>
@@ -1476,11 +1473,11 @@
         <div class="custom-modal-backdrop" wire:click="$set('showModal', false)"></div>
         <div class="custom-modal-card">
             <div class="custom-modal-header">
-                <div class="modal-title">
+                    <div class="modal-title">
                     <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="icon" style="height:28px;margin-right:10px;" />
                     <div>
-                        <h4>Get Started</h4>
-                        <small class="muted">{{ $planName ?? 'Plan' }}</small>
+                        <h4>{{ __('trade.modal.get_started') }}</h4>
+                        <small class="muted">{{ $planName ?? __('trade.modal.plan_placeholder') }}</small>
                     </div>
                 </div>
                 <button type="button" class="modal-close" wire:click="$set('showModal', false)">×</button>
@@ -1490,29 +1487,29 @@
                 <div class="alert alert-success">{{ session('success') }}</div>
                 @endif
                 <div class="form-row">
-                    <label class="input-label">Name</label>
-                    <input type="text" wire:model.defer="name" class="custom-form-control" placeholder="Enter Your full name" />
+                    <label class="input-label">{{ __('trade.modal.labels.name') }}</label>
+                    <input type="text" wire:model.defer="name" class="custom-form-control" placeholder="{{ __('trade.modal.placeholders.name') }}" />
                     @error('name') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
                 <div class="form-row">
-                    <label class="input-label">Email</label>
-                    <input type="email" wire:model.defer="email" class="custom-form-control" placeholder="Enter your Email" />
+                    <label class="input-label">{{ __('trade.modal.labels.email') }}</label>
+                    <input type="email" wire:model.defer="email" class="custom-form-control" placeholder="{{ __('trade.modal.placeholders.email') }}" />
                     @error('email') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
                 <div class="form-row">
-                    <label class="input-label">Selected Plan</label>
-                    <input type="text" wire:model.defer="planName" class="custom-form-control" style="font-weight:bold" placeholder="Selected Plan" readonly />
+                    <label class="input-label">{{ __('trade.modal.labels.selected_plan') }}</label>
+                    <input type="text" wire:model.defer="planName" class="custom-form-control" style="font-weight:bold" placeholder="{{ __('trade.modal.placeholders.plan') }}" readonly />
                     @error('planName') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
                 <div class="form-row">
-                    <label class="input-label">Phone</label>
-                    <input type="text" wire:model.defer="phone" class="custom-form-control" placeholder="Enter Your Phone Number" />
+                    <label class="input-label">{{ __('trade.modal.labels.phone') }}</label>
+                    <input type="text" wire:model.defer="phone" class="custom-form-control" placeholder="{{ __('trade.modal.placeholders.phone') }}" />
                     @error('phone') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
             </div>
             <div class="custom-modal-footer">
-                <button type="button" wire:click="saveRegistration" class="theme_btn">Get Started</button>
-                <button type="button" wire:click="$set('showModal', false)" class="theme_btn border-btn">Cancel</button>
+                <button type="button" wire:click="saveRegistration" class="theme_btn">{{ __('trade.modal.buttons.submit') }}</button>
+                <button type="button" wire:click="$set('showModal', false)" class="theme_btn border-btn">{{ __('trade.modal.buttons.cancel') }}</button>
             </div>
         </div>
     </div>
@@ -1523,10 +1520,10 @@
         <div class="custom-modal-backdrop" wire:click="$set('showThanksModal', false)"></div>
         <div class="custom-modal-card small">
             <div class="thanks-icon">✓</div>
-            <h4 class="thanks-title">Thanks we will contact you shortly.</h4>
-            <p class="muted">Our team will reach out to the email or phone you provided.</p>
+            <h4 class="thanks-title">{{ __('trade.modal.thanks_title') }}</h4>
+            <p class="muted">{{ __('trade.modal.thanks_text') }}</p>
             <div style="margin-top:14px;">
-                <button type="button" wire:click="$set('showThanksModal', false)" class="theme_btn">Close</button>
+                <button type="button" wire:click="$set('showThanksModal', false)" class="theme_btn">{{ __('trade.modal.buttons.close') }}</button>
             </div>
         </div>
     </div>
@@ -1537,10 +1534,10 @@
         <div class="custom-modal-backdrop" wire:click="$set('showPendingModal', false)"></div>
         <div class="custom-modal-card small">
             <div class="thanks-icon" style="background:#fff4e8;color:#ff8a1f">…</div>
-            <h4 class="thanks-title">We are working on your request</h4>
-            <p class="muted">It looks like you already submitted a request for <strong>Your Selected Plan </strong> and it's being processed. Please be patient; we'll notify you once it's complete.</p>
+            <h4 class="thanks-title">{{ __('trade.modal.pending_title') }}</h4>
+            <p class="muted">{!! __('trade.modal.pending_text') !!}</p>
             <div style="margin-top:14px;">
-                <button type="button" wire:click="$set('showPendingModal', false)" class="theme_btn">Okay</button>
+                <button type="button" wire:click="$set('showPendingModal', false)" class="theme_btn">{{ __('trade.modal.buttons.okay') }}</button>
             </div>
         </div>
     </div>
