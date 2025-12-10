@@ -1250,12 +1250,7 @@
             </div>
 
             <section class="client-feedback-area cf-area-three pos-rel pt-40 pb-100 pt-md-85 pb-mb-60 pt-xs-85 pb-xs-100">
-                <img class="test test_01 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/10.png') }}" alt="">
-                <img class="test test_02 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/11.png') }}" alt="">
-                <img class="test test_03 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/12.png') }}" alt="">
-                <img class="test test_04 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/10.png') }}" alt="">
-                <img class="test test_05 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/14.png') }}" alt="">
-                <img class="test test_06 d-none d-lg-inline-block" src="{{ asset('assets/img/testimonial/15.png') }}" alt="">
+                
                 <div class="container">
                     <div class="client-feedback-wrapper-content pos-rel">
                         <div class="container custom-container-feedback">
@@ -1274,39 +1269,38 @@
                     <div class="row no-gutters justify-content-center">
                         <div class="col-lg-9">
                             <div class="feedback-active4 owl-carousel">
+                                @forelse($testimonials as $testimonial)
+                                @php $translation = $testimonial->translation; @endphp
+                                @if($translation)
                                 <div class="feedback-item-wrapper">
                                     <div class="feedback-box fb-box-3 text-center">
                                         <div class="quote-icon">
                                             <img src="{{ asset('assets/img/icon/quote-gray.svg') }}" alt="">
                                         </div>
-                                        <h4 class="sub-title mb-25">We’v agents around occae cat the country, Find agents your neighborhood.Lorem ipsum dolor sit amet consectetur, omnis. voluptate velit esse cillum dolore eu fugiat nulla</h4>
-                                        <h5 class="mb-10">Rashed Ka</h5>
-                                        <h6>Senior Designer, Squre.</h6>
+                                        <h4 class="sub-title mb-25">{{ Str::limit($translation->content, 150) }}</h4>
+                                        <h5 class="mb-10">{{ Str::limit($testimonial->name, 30) }}</h5>
+                                        @if($translation->position && $translation->company)
+                                        <h6>{{ Str::limit($translation->position, 25) }}, {{ Str::limit($translation->company, 25) }}.</h6>
+                                        @elseif($translation->position)
+                                        <h6>{{ Str::limit($translation->position, 50) }}.</h6>
+                                        @elseif($translation->company)
+                                        <h6>{{ Str::limit($translation->company, 50) }}.</h6>
+                                        @endif
                                     </div>
                                 </div>
+                                @endif
+                                @empty
                                 <div class="feedback-item-wrapper">
                                     <div class="feedback-box fb-box-3 text-center">
                                         <div class="quote-icon">
                                             <img src="{{ asset('assets/img/icon/quote-gray.svg') }}" alt="">
                                         </div>
-                                        <h4 class="sub-title mb-25">ommodo consequat. Duis aute irure dolor in reprehendert
-                                            voluptate velit esse cillum dolore eu fugiat nulla
-                                            Excepteu sint occaecat cupidat non proident, sunt in culpa qui officia deserunt
-                                            mollit anim id est lrum.</h4>
-                                        <h5 class="mb-10">Hasan Mahmud</h5>
-                                        <h6>Senior Developer, Squre.</h6>
+                                        <h4 class="sub-title mb-25">{{ __('testimonial.no_testimonials') }}</h4>
+                                        <h5 class="mb-10">-</h5>
+                                        <h6>-</h6>
                                     </div>
                                 </div>
-                                <div class="feedback-item-wrapper">
-                                    <div class="feedback-box fb-box-3 text-center">
-                                        <div class="quote-icon">
-                                            <img src="{{ asset('assets/img/icon/quote-gray.svg') }}" alt="">
-                                        </div>
-                                        <h4 class="sub-title mb-25">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, cumque id! Nulla vero nam ipsa quae ut, ullam, ad repudiandae, tenetur facilis impedit velit maiores ipsum. Quos, sequi. Quod amet voluptatibus repellat veritatis.</h4>
-                                        <h5 class="mb-10">Rashed Ka</h5>
-                                        <h6>Senior Designer, Squre.</h6>
-                                    </div>
-                                </div>
+                                @endforelse
                             </div>
                         </div>
 

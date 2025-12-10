@@ -8,6 +8,7 @@ use App\Models\RegistrationPlan;
 use App\Models\UserRegistration;
 use App\Models\ServiceRequest;
 use App\Models\Blog;
+use App\Models\Testimonial;
 use Livewire\Component;
 
 class TradeMark extends Component
@@ -22,6 +23,7 @@ class TradeMark extends Component
     public $showThanksModal = false;
     public $showPendingModal = false;
     public $blogs = [];
+    public $testimonials = [];
     
     // Service request properties
     public $serviceType = '';
@@ -58,6 +60,15 @@ class TradeMark extends Component
                     'created_at' => $blog->created_at,
                 ];
             });
+
+        // Load homepage testimonials for current locale
+        $this->testimonials = Testimonial::where('is_homepage', true)
+            ->where('is_active', true)
+            ->with(['translations' => function ($query) use ($locale) {
+                $query->where('locale', $locale);
+            }])
+            ->inRandomOrder()
+            ->get();
     }
     public function selectPlan($plan)
     {
