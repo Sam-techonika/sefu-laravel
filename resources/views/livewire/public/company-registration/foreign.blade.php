@@ -30,12 +30,12 @@
                                     <ul class="input-box mt-70">
                                         <li>
                                             <form class="hero-form">
-                                                <label>Email address</label>
+                                                <label>{{ __('foriegn.slider.email_label') }}</label>
                                                 <input type="email" name="email" placeholder="{{setting('contact_email','prashant@prathamlegal.com')}}">
                                             </form>
                                         </li>
                                         <li>
-                                            <a href="{{setting('whatsapp_url', '')}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Contact Us</a>
+                                            <a href="{{setting('whatsapp_url', '')}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> {{ __('foriegn.slider.contact_us') }}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -49,15 +49,15 @@
                             <div class="icon">
                                 <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
                             </div>
-                            <p>Quick, easy and hassle free</p>
+                            <p>{{ __('foriegn.slider.quick_easy') }}</p>
                         </div>
                         <div class="slider-card card-2">
                             <div class="icon">
                                 <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
                             </div>
                             <div class="slider-text">
-                                <h5>Save up to 50% in our all policy.</h5>
-                                <span>Learn MORE</span>
+                                <h5>{{ __('foriegn.slider.save_policy') }}</h5>
+                                <span>{{ __('foriegn.slider.learn_more') }}</span>
                             </div>
                         </div>
                     </div>
@@ -65,17 +65,17 @@
                         <div class="row align-items-center">
                             <div class="col-xl-6 col-lg-8">
                                 <div class="slider__content slider__content-2 text-left">
-                                    <h1 class="main-title mb-35" data-animation="fadeInUp2" data-delay=".2s">Expand Into <span style="color:#ff1f1f">india </span> With Confidence</h1>
-                                    <h3>Led by experienced Company Secretaries and FEMA experts who make foreign company setup, RBI filings, and compliance completely seamless.</h3>
+                                    <h1 class="main-title mb-35" data-animation="fadeInUp2" data-delay=".2s">{!! __('foriegn.slider.main_title_html') !!}</h1>
+                                    <h3>{{ __('foriegn.slider.subtitle') }}</h3>
                                     <ul class="input-box mt-70">
                                         <li>
                                             <form class="hero-form">
-                                                <label>Email address</label>
+                                                <label>{{ __('foriegn.slider.email_label') }}</label>
                                                 <input type="email" name="email" placeholder="{{setting('contact_email','prashant@prathamlegal.com')}}">
                                             </form>
                                         </li>
                                         <li>
-                                            <a href="{{setting('whatsapp_url', 'no number found')}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> Contact Us</a>
+                                            <a href="{{setting('whatsapp_url', 'no number found')}}" class="theme_btn quote-btn theme_btn2 "><i class="fab fa-whatsapp" style="font-size:18px;"></i> {{ __('foriegn.slider.contact_us') }}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -93,14 +93,13 @@
                     <div class="col-lg-6">
                         <div class="do-wrapper mb-30">
                             <div class="section-title section-title-3 text-center text-md-left">
-                                <h3>500+ trusted user & they <span class="highlight-text">love us.</span></h3>
+                                <h3>{{ __('foriegn.what_we_do.trusted_users') }} <span class="highlight-text">{{ __('foriegn.what_we_do.love_us') }}</span></h3>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 text-center text-md-left">
                         <div class="what-text pt-10 pl-155 pl-lg-0 pl-md-0 pl-xs-0">
-                            <h3>Helping you pre times of
-                                uncertainty is at the what we do. lorem finding.</h3>
+                            <h3>{{ __('foriegn.what_we_do.helping_text') }}</h3>
                         </div>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -110,9 +109,9 @@
                             <div class="icon mb-25">
                                 <img src="{{asset('assets/img/icon/icon17.svg')}}" alt="">
                             </div>
-                            <h5>Expert Led Process</h5>
-                            <h3>Handled by Company Secretaries & FEMA experts.</h3>
-                            <a class="more-btn" href="{{route('contact',['locale' => app()->getLocale()])}}">Check more details</a>
+                            <h5>{{ __('foriegn.what_we_do.expert_led.title') }}</h5>
+                            <h3>{{ __('foriegn.what_we_do.expert_led.description') }}</h3>
+                            <a class="more-btn" href="{{route('contact',['locale' => app()->getLocale()])}}">{{ __('foriegn.what_we_do.expert_led.link') }}</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.3s">
@@ -120,9 +119,9 @@
                             <div class="icon mb-25">
                                 <img src="{{asset('assets/img/icon/icon18.svg')}}" alt="">
                             </div>
-                            <h5>Transparent Pricing</h5>
-                            <h3>Government + professional fees clearly shown</h3>
-                            <a class="more-btn" href="{{route('contact',['locale' => app()->getLocale()])}}">Check more details</a>
+                            <h5>{{ __('foriegn.what_we_do.transparent_pricing.title') }}</h5>
+                            <h3>{{ __('foriegn.what_we_do.transparent_pricing.description') }}</h3>
+                            <a class="more-btn" href="{{route('contact',['locale' => app()->getLocale()])}}">{{ __('foriegn.what_we_do.transparent_pricing.link') }}</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp2 animated" data-wow-delay="0.5s">
@@ -130,9 +129,9 @@
                             <div class="icon mb-25">
                                 <img src="{{asset('assets/img/icon/icon19.svg')}}" alt="">
                             </div>
-                            <h5>Complete Regulatory Support</h5>
-                            <h3>From incorporation to RBI filings & compliance.</h3>
-                            <a class="more-btn" href="{{route('contact',['locale' => app()->getLocale()])}}">Check more details</a>
+                            <h5>{{ __('foriegn.what_we_do.regulatory_support.title') }}</h5>
+                            <h3>{{ __('foriegn.what_we_do.regulatory_support.description') }}</h3>
+                            <a class="more-btn" href="{{route('contact',['locale' => app()->getLocale()])}}">{{ __('foriegn.what_we_do.regulatory_support.link') }}</a>
                         </div>
                     </div>
                 </div><!-- /.row -->
@@ -145,8 +144,8 @@
                 {{-- Section Header --}}
                 <div class="row justify-content-center mb-5">
                     <div class="col-lg-10 text-center">
-                        <h2 class="section-title mb-3">Foreign Company Registration Plans</h2>
-                        <p class="section-subtitle">Establish your Indian subsidiary with complete compliance support</p>
+                        <h2 class="section-title mb-3">{{ __('foriegn.pricing.section_title') }}</h2>
+                        <p class="section-subtitle">{{ __('foriegn.pricing.section_subtitle') }}</p>
                     </div>
                 </div>
 
@@ -156,46 +155,30 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="pricing-card">
                             <div class="card-header">
-                                <h3 class="plan-name">Starter Plan</h3>
-                                <p class="plan-tagline">Incorporate your Indian Subsidiary or Company with all mandatory compliances.</p>
+                                <h3 class="plan-name">{{ __('foriegn.pricing.starter.name') }}</h3>
+                                <p class="plan-tagline">{{ __('foriegn.pricing.starter.tagline') }}</p>
                             </div>
 
                             <div class="card-pricing">
-                                <div class="price-amount">₹24,999</div>
-                                <div class="price-note">Basic incorporation with essential registrations</div>
+                                <div class="price-amount">{{ __('foriegn.pricing.starter.price') }}</div>
+                                <div class="price-note">{{ __('foriegn.pricing.starter.price_note') }}</div>
                             </div>
 
                             <button class="btn-cta btn-outline" wire:click="selectPlan('Starter Plan')">
-                                Start Registration →
+                                {{ __('foriegn.pricing.starter.btn_text') }}
                             </button>
 
                             <div class="card-features">
-                                <p class="features-title">Perfect for new foreign entities:</p>
+                                <p class="features-title">{{ __('foriegn.pricing.starter.features_title') }}</p>
                                 <ul class="features-list">
+                                    @foreach(__('foriegn.pricing.starter.features') as $feature)
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        Company Incorporation under MCA V3 (Private Limited / Branch / LO)
+                                        {{ $feature }}
                                     </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        DIN & DSC for Two Directors
-                                    </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        RBI / FEMA Approval Filing Support
-                                    </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        Foreign Investment Compliance Documentation
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -204,61 +187,33 @@
                     {{-- Compliance Plan (Featured) --}}
                     <div class="col-lg-4 col-md-6">
                         <div class="pricing-card featured">
-                            <div class="popular-badge">Most Popular</div>
+                            <div class="popular-badge">{{ __('foriegn.pricing.compliance.badge') }}</div>
 
                             <div class="card-header">
-                                <h3 class="plan-name">Compliance Plan</h3>
-                                <p class="plan-tagline">Complete setup with registered office and resident director support included.</p>
+                                <h3 class="plan-name">{{ __('foriegn.pricing.compliance.name') }}</h3>
+                                <p class="plan-tagline">{{ __('foriegn.pricing.compliance.tagline') }}</p>
                             </div>
 
                             <div class="card-pricing">
-                                <div class="price-amount">₹59,999</div>
-                                <div class="price-note">Includes 6 months office & director support</div>
+                                <div class="price-amount">{{ __('foriegn.pricing.compliance.price') }}</div>
+                                <div class="price-note">{{ __('foriegn.pricing.compliance.price_note') }}</div>
                             </div>
 
                             <button class="btn-cta btn-primary" wire:click="selectPlan('Compliance Plan')">
-                                Get Compliance Setup →
+                                {{ __('foriegn.pricing.compliance.btn_text') }}
                             </button>
 
                             <div class="card-features">
-                                <p class="features-title">Everything in Starter, plus:</p>
+                                <p class="features-title">{{ __('foriegn.pricing.compliance.features_title') }}</p>
                                 <ul class="features-list">
+                                    @foreach(__('foriegn.pricing.compliance.features') as $feature)
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        Registered Office Address (6 Months included — ₹5,000/month)
+                                        {{ $feature }}
                                     </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        Resident Director Facilitation (6 Months included — ₹15,000/month)
-                                    </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        GST Registration & Setup
-                                    </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        Bank Account Opening Assistance
-                                    </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        Compliance Calendar & Advisory
-                                    </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        30-Minute CS Consultation
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -268,58 +223,30 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="pricing-card">
                             <div class="card-header">
-                                <h3 class="plan-name">Complete Setup Plan</h3>
-                                <p class="plan-tagline">Full-year support with office, resident director, and complete compliance management.</p>
+                                <h3 class="plan-name">{{ __('foriegn.pricing.complete.name') }}</h3>
+                                <p class="plan-tagline">{{ __('foriegn.pricing.complete.tagline') }}</p>
                             </div>
 
                             <div class="card-pricing">
-                                <div class="price-amount">₹149,999</div>
-                                <div class="price-note">Includes 1 year complete support package</div>
+                                <div class="price-amount">{{ __('foriegn.pricing.complete.price') }}</div>
+                                <div class="price-note">{{ __('foriegn.pricing.complete.price_note') }}</div>
                             </div>
 
                             <button class="btn-cta btn-outline" wire:click="selectPlan('Complete Setup Plan')">
-                                Get Complete Setup →
+                                {{ __('foriegn.pricing.complete.btn_text') }}
                             </button>
 
                             <div class="card-features">
-                                <p class="features-title">Everything in Compliance, plus:</p>
+                                <p class="features-title">{{ __('foriegn.pricing.complete.features_title') }}</p>
                                 <ul class="features-list">
+                                    @foreach(__('foriegn.pricing.complete.features') as $feature)
                                     <li>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                             <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        Registered Office Address (1 Year included — ₹60,000 value)
+                                        {{ $feature }}
                                     </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        Resident Director Services (1 Year — ₹180,000 value)
-                                    </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        1-Year CS Compliance Package (Full secretarial management – ₹35,000 value)
-                                    </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        Annual ROC Filings (FC-4, AOC-4, MGT-7A, etc.)
-                                    </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        RBI Annual Return Filing
-                                    </li>
-                                    <li>
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        Priority FEMA & FDI Advisory
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -330,8 +257,8 @@
                 <div class="row mb-4">
                     <div class="col-12 text-center">
                         <a @click.prevent="showComparison = !showComparison" class="compare-link" style="cursor: pointer;">
-                            <span x-show="!showComparison">Compare plan features</span>
-                            <span x-show="showComparison">Hide comparison</span>
+                            <span x-show="!showComparison">{{ __('foriegn.pricing.compare_show') }}</span>
+                            <span x-show="showComparison">{{ __('foriegn.pricing.compare_hide') }}</span>
                             <svg x-show="!showComparison" width="16" height="16" viewBox="0 0 16 16" fill="none" style="display: inline-block; margin-left: 4px;">
                                 <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
@@ -350,25 +277,25 @@
                             <div class="comparison-header">
                                 <div class="header-row">
                                     <div class="feature-column header-title">
-                                        <a @click.prevent="showComparison = false" class="compare-features-link" style="cursor: pointer;">Hide comparison</a>
+                                        <a @click.prevent="showComparison = false" class="compare-features-link" style="cursor: pointer;">{{ __('foriegn.comparison_table.hide_comparison') }}</a>
                                     </div>
                                     {{-- Starter Plan Header --}}
                                     <div class="plan-column plan-header-box">
                                         <div class="plan-header-content">
-                                            <h4 class="plan-name-header">Starter Plan</h4>
-                                            <div class="plan-price-header">₹24,999</div>
+                                            <h4 class="plan-name-header">{{ __('foriegn.pricing.starter.name') }}</h4>
+                                            <div class="plan-price-header">{{ __('foriegn.pricing.starter.price') }}</div>
                                             <button class="btn-header-cta btn-default" wire:click="selectPlan('Starter Plan')">
-                                                Buy Now
+                                                {{ __('foriegn.comparison_table.buy_now') }}
                                             </button>
                                         </div>
                                     </div>
                                     {{-- Compliance Plan Header (Featured) --}}
                                     <div class="plan-column plan-header-box featured-header">
                                         <div class="plan-header-content">
-                                            <h4 class="plan-name-header">Compliance Plan</h4>
-                                            <div class="plan-price-header">₹59,999</div>
+                                            <h4 class="plan-name-header">{{ __('foriegn.pricing.compliance.name') }}</h4>
+                                            <div class="plan-price-header">{{ __('foriegn.pricing.compliance.price') }}</div>
                                             <button class="btn-header-cta btn-featured" wire:click="selectPlan('Compliance Plan')">
-                                                Buy Now
+                                                {{ __('foriegn.comparison_table.buy_now') }}
                                             </button>
                                             <div class="checkmark-below">
                                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -380,10 +307,10 @@
                                     {{-- Complete Setup Header --}}
                                     <div class="plan-column plan-header-box">
                                         <div class="plan-header-content">
-                                            <h4 class="plan-name-header">Complete Setup Plan</h4>
-                                            <div class="plan-price-header">₹149,999</div>
+                                            <h4 class="plan-name-header">{{ __('foriegn.pricing.complete.name') }}</h4>
+                                            <div class="plan-price-header">{{ __('foriegn.pricing.complete.price') }}</div>
                                             <button class="btn-header-cta btn-default" wire:click="selectPlan('Complete Setup Plan')">
-                                                Buy Now
+                                                {{ __('foriegn.comparison_table.buy_now') }}
                                             </button>
                                         </div>
                                     </div>
@@ -395,12 +322,12 @@
                                 {{-- Incorporation Section --}}
                                 <div class="category-section">
                                     <div class="category-header">
-                                        <h5>Incorporation & Setup</h5>
+                                        <h5>{{ __('foriegn.comparison_table.incorporation_title') }}</h5>
                                     </div>
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Company Incorporation (Private Limited / Branch / LO)</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.company_incorporation') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -421,7 +348,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">DIN & DSC for Two Directors</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.din_dsc') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -442,7 +369,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">RBI / FEMA Approval Filing Support</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.rbi_fema') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -463,7 +390,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Foreign Investment Compliance Documentation</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.foreign_investment') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -484,7 +411,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">PAN & TAN Allotment</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.pan_tan') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -505,7 +432,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Post-Incorporation Docs (Share Certificates, Registers)</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.post_incorporation') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -528,12 +455,12 @@
                                 {{-- Office & Director Support Section --}}
                                 <div class="category-section">
                                     <div class="category-header">
-                                        <h5>Office & Director Support</h5>
+                                        <h5>{{ __('foriegn.comparison_table.office_director_title') }}</h5>
                                     </div>
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Registered Office Address (6 Months)</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.office_6months') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -550,7 +477,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Resident Director Facilitation (6 Months)</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.director_6months') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -567,7 +494,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Registered Office Address (1 Year)</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.office_1year') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -584,7 +511,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Resident Director Services (1 Year)</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.director_1year') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -603,12 +530,12 @@
                                 {{-- Compliance & Registrations Section --}}
                                 <div class="category-section">
                                     <div class="category-header">
-                                        <h5>Compliance & Registrations</h5>
+                                        <h5>{{ __('foriegn.comparison_table.compliance_title') }}</h5>
                                     </div>
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">GST Registration & Setup</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.gst_registration') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -627,7 +554,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Bank Account Opening Assistance</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.bank_account') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -646,7 +573,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">1-Year CS Compliance Package</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.cs_compliance') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -663,7 +590,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Annual ROC Filings (FC-4, AOC-4, MGT-7A)</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.annual_roc') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -680,7 +607,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">RBI Annual Return Filing</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.rbi_annual') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -697,26 +624,7 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Compliance Calendar & Advisory</span>
-                                        </div>
-                                        <div class="plan-column">
-                                            <span class="no-feature">—</span>
-                                        </div>
-                                        <div class="plan-column featured">
-                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </div>
-                                        <div class="plan-column">
-                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                    <div class="feature-row">
-                                        <div class="feature-column">
-                                            <span class="feature-name">30-Minute CS Consultation</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.compliance_calendar') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -735,7 +643,26 @@
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Priority FEMA & FDI Advisory</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.30min_consultation') }}</span>
+                                        </div>
+                                        <div class="plan-column">
+                                            <span class="no-feature">—</span>
+                                        </div>
+                                        <div class="plan-column featured">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <div class="plan-column">
+                                            <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="#ff1f1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="feature-row">
+                                        <div class="feature-column">
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.fema_advisory') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <span class="no-feature">—</span>
@@ -754,12 +681,12 @@
                                 {{-- Support Section --}}
                                 <div class="category-section">
                                     <div class="category-header">
-                                        <h5>Support & Advisory</h5>
+                                        <h5>{{ __('foriegn.comparison_table.support_title') }}</h5>
                                     </div>
 
                                     <div class="feature-row">
                                         <div class="feature-column">
-                                            <span class="feature-name">Email & Phone Support</span>
+                                            <span class="feature-name">{{ __('foriegn.comparison_table.features.email_phone_support') }}</span>
                                         </div>
                                         <div class="plan-column">
                                             <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -785,8 +712,8 @@
                                 <div class="footer-row">
                                     <div class="feature-column">
                                         <div class="help-section">
-                                            <strong>Need help choosing the right plan?</strong>
-                                            <p>Our team will guide you through foreign entity setup and compliance requirements.</p>
+                                            <strong>{{ __('foriegn.comparison_table.footer_help') }}</strong>
+                                            <p>{{ __('foriegn.comparison_table.footer_subtitle') }}</p>
                                         </div>
                                     </div>
                                     <div class="plan-column"></div>
@@ -804,8 +731,8 @@
             <div class="container">
                 <div class="row justify-content-center mb-4">
                     <div class="col-lg-8 text-center">
-                        <h2 class="summary-main-title">Quick Plan Comparison</h2>
-                        <p class="summary-subtitle">Choose the perfect plan for your business needs</p>
+                        <h2 class="summary-main-title">{{ __('foriegn.quick_summary.title') }}</h2>
+                        <p class="summary-subtitle">{{ __('foriegn.quick_summary.subtitle') }}</p>
                     </div>
                 </div>
                 <div class="row g-4">
@@ -817,22 +744,16 @@
                                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                                 </svg>
                             </div>
-                            <h3 class="summary-plan-name">Starter Plan</h3>
-                            <div class="summary-plan-price">₹24,999</div>
-                            <p class="summary-plan-desc">Foreign entities looking for basic Indian subsidiary incorporation</p>
+                            <h3 class="summary-plan-name">{{ __('foriegn.pricing.starter.name') }}</h3>
+                            <div class="summary-plan-price">{{ __('foriegn.pricing.starter.price') }}</div>
+                            <p class="summary-plan-desc">{{ __('foriegn.quick_summary.starter_desc') }}</p>
                             <div class="summary-plan-highlights">
+                                @foreach(__('foriegn.quick_summary_highlights.starter') as $highlight)
                                 <div class="highlight-item">
                                     <span class="highlight-icon">✓</span>
-                                    <span>Foreign Subsidiary Registration</span>
+                                    <span>{{ $highlight }}</span>
                                 </div>
-                                <div class="highlight-item">
-                                    <span class="highlight-icon">✓</span>
-                                    <span>RBI & FEMA Compliance</span>
-                                </div>
-                                <div class="highlight-item">
-                                    <span class="highlight-icon">✓</span>
-                                    <span>Complete Documentation</span>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -840,28 +761,22 @@
                     {{-- Compliance Plan Summary --}}
                     <div class="col-lg-4 col-md-6">
                         <div class="summary-plan-card featured-summary">
-                            <div class="popular-badge-summary">Most Popular</div>
+                            <div class="popular-badge-summary">{{ __('foriegn.pricing.most_popular') }}</div>
                             <div class="plan-icon-wrapper compliance-icon">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                 </svg>
                             </div>
-                            <h3 class="summary-plan-name">Compliance Plan</h3>
-                            <div class="summary-plan-price">₹59,999</div>
-                            <p class="summary-plan-desc">Companies needing registered office and resident director for 6 months</p>
+                            <h3 class="summary-plan-name">{{ __('foriegn.pricing.compliance.name') }}</h3>
+                            <div class="summary-plan-price">{{ __('foriegn.pricing.compliance.price') }}</div>
+                            <p class="summary-plan-desc">{{ __('foriegn.quick_summary.compliance_desc') }}</p>
                             <div class="summary-plan-highlights">
+                                @foreach(__('foriegn.quick_summary_highlights.compliance') as $highlight)
                                 <div class="highlight-item">
                                     <span class="highlight-icon">✓</span>
-                                    <span>Everything in Starter</span>
+                                    <span>{{ $highlight }}</span>
                                 </div>
-                                <div class="highlight-item">
-                                    <span class="highlight-icon">✓</span>
-                                    <span>Registered Office (6 Months)</span>
-                                </div>
-                                <div class="highlight-item">
-                                    <span class="highlight-icon">✓</span>
-                                    <span>Resident Director Support</span>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -875,22 +790,16 @@
                                     <polyline points="22 4 12 14.01 9 11.01" />
                                 </svg>
                             </div>
-                            <h3 class="summary-plan-name">Complete Setup Plan</h3>
-                            <div class="summary-plan-price">₹149,999</div>
-                            <p class="summary-plan-desc">Full-year setup with complete compliance and secretarial support</p>
+                            <h3 class="summary-plan-name">{{ __('foriegn.pricing.complete.name') }}</h3>
+                            <div class="summary-plan-price">{{ __('foriegn.pricing.complete.price') }}</div>
+                            <p class="summary-plan-desc">{{ __('foriegn.quick_summary.complete_desc') }}</p>
                             <div class="summary-plan-highlights">
+                                @foreach(__('foriegn.quick_summary_highlights.complete') as $highlight)
                                 <div class="highlight-item">
                                     <span class="highlight-icon">✓</span>
-                                    <span>Everything in Compliance</span>
+                                    <span>{{ $highlight }}</span>
                                 </div>
-                                <div class="highlight-item">
-                                    <span class="highlight-icon">✓</span>
-                                    <span>1 Year Office & Director</span>
-                                </div>
-                                <div class="highlight-item">
-                                    <span class="highlight-icon">✓</span>
-                                    <span>Full-Year ROC Support</span>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -998,9 +907,9 @@
                         <div class="col-xl-10">
                             <div class="subscribe-wrapper">
                                 <div class="section-title text-center">
-                                    <h3 class="mb-25">Need help choosing the right plan?</span></h3>
-                                    <h4 class="sub-title mb-50">Our team will guide you based on your business goals and compliance needs.</h4>
-                                    <a href="contact.html" class="theme_btn sub-btn">Talk to an Expert →</a>
+                                    <h3 class="mb-25">{{ __('foriegn.help_section.title') }}</span></h3>
+                                    <h4 class="sub-title mb-50">{{ __('foriegn.help_section.subtitle') }}</h4>
+                                    <a href="{{route('contact',['locale' => app()->getLocale()])}}" class="theme_btn sub-btn">{{ __('foriegn.help_section.btn_text') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -1300,18 +1209,18 @@
                                 <div class="a-icon">
                                     <img src="{{ asset('assets/img/icon/icon20.svg') }}" alt="">
                                 </div>
-                                <h5 class="mb-25">-Prashant Kumar, Partner,<span>Pratham Legal</span></h5>
-                                <h5 class="a-text">Legal compliance isn’t just about ticking boxes it’s about building confidence in every business decision.</h5>
+                                <h5 class="mb-25">{{ __('foriegn.about.quote_author') }}<span>{{ __('foriegn.about.quote_company') }}</span></h5>
+                                <h5 class="a-text">{{ __('foriegn.about.quote_text') }}</h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="about-wrapper pl-70">
                             <div class="section-title section-title-3 text-center text-md-left mb-30">
-                                <h3 class="mb-35">Where Law Meets Business Clarity <span class="highlight-text" style="color:#ff1f1f">provider</span></h3>
-                                <h4 class="sub-title mb-40">We help founders and companies navigate India’s legal and regulatory landscape with simplicity, precision, and personal attention.</h4>
+                                <h3 class="mb-35">{!! __('foriegn.about.title_html') !!}</h3>
+                                <h4 class="sub-title mb-40">{{ __('foriegn.about.subtitle') }}</h4>
                                 <h4 class="sub-title mb-65"> Every mandate is led by qualified professionals not agents ensuring accountability at every step.</h4>
-                                <a href="{{ route('about',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">More about us</a>
+                                <a href="{{ route('about',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">{{ __('foriegn.about.btn_text') }}</a>
                             </div>
                         </div>
                     </div>
@@ -1328,9 +1237,9 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="section-title section-title-3 text-center text-md-left mb-30 pr-80 pr-xs-0">
-                            <h3 class="mb-50">You Have Goals.We Bring <span class="highlight-text" style="color:#ff1f1f">clarity.</span></h3>
-                            <h4 class="sub-title mb-65">Building a business shouldn’t be complicated. We simplify every step from incorporation to compliance with clear, professional guidance.</h4>
-                            <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">Get a Consultation →</a>
+                            <h3 class="mb-50">{!! __('foriegn.why_choose.title_html') !!}</h3>
+                            <h4 class="sub-title mb-65">{{ __('foriegn.why_choose.subtitle') }}</h4>
+                            <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">{{ __('foriegn.why_choose.btn_text') }}</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -1341,8 +1250,8 @@
                                         <img src="{{ asset('assets/img/icon/icon21.svg') }}" alt="">
                                     </div>
                                     <div class="chose-box-text">
-                                        <h5>RESPONSIVE & RELIABLE</h5>
-                                        <h3>Quick answers. Clear guidance. Always.</h3>
+                                        <h5>{{ __('foriegn.why_choose.responsive.title') }}</h5>
+                                        <h3>{{ __('foriegn.why_choose.responsive.description') }}</h3>
                                     </div>
                                 </div>
                             </li>
@@ -1352,8 +1261,8 @@
                                         <img src="{{ asset('assets/img/icon/icon22.svg') }}" alt="">
                                     </div>
                                     <div class="chose-box-text">
-                                        <h5>BUSINESS-READY DOCUMENTS</h5>
-                                        <h3>Legally precise. Professionally drafted.</h3>
+                                        <h5>{{ __('foriegn.why_choose.documents.title') }}</h5>
+                                        <h3>{{ __('foriegn.why_choose.documents.description') }}</h3>
                                     </div>
                                 </div>
                             </li>
@@ -1363,8 +1272,8 @@
                                         <img src="{{ asset('assets/img/icon/icon23.svg') }}" alt="">
                                     </div>
                                     <div class="chose-box-text">
-                                        <h5>LONG-TERM SUPPORT</h5>
-                                        <h3>From setup to success.</h3>
+                                        <h5>{{ __('foriegn.why_choose.support.title') }}</h5>
+                                        <h3>{{ __('foriegn.why_choose.support.description') }}</h3>
                                     </div>
                                 </div>
                             </li>
@@ -1383,38 +1292,38 @@
                     <div class="col-xl-6 col-lg-6 col-md-12">
                         <div class="quote-wrapper mb-30">
                             <div class="section-title section-title-3 text-center text-md-left pr-70 pr-lg-0 pr-md-0 pr-xs-0">
-                                <h3 class="mb-45">Start Now & Choose Your <span class="highlight-text" style="color:#ff1f1f">plan</span></h3>
-                                <h4 class="sub-title mb-60">Have questions about registration or compliance? We’re here to help — talk directly to a professional.</h4>
-                                <h5 class="mb-25">Facing any issue while getting a quote?</h5>
+                                <h3 class="mb-45">{!! __('foriegn.get_quote.title_html') !!}</h3>
+                                <h4 class="sub-title mb-60">{{ __('foriegn.get_quote.subtitle') }}</h4>
+                                <h5 class="mb-25">{{ __('foriegn.get_quote.issue_text') }}</h5>
                                 <a href="tel:+919821008011" class="number">+91 9821008011</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-12">
                         <div class="form-box form-box-2 white-bg" wire:key="service-quote-form">
-                            <h4 class="sub-title mb-45">Get Service Quote</h4>
+                            <h4 class="sub-title mb-45">{{ __('foriegn.get_quote.form_title') }}</h4>
                             @if($showServiceThanks)
                             <div class="alert alert-success" role="alert" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 5000); $wire.set('showServiceThanks', false, false)">
-                                <strong>Thank you!</strong> We'll get back to you shortly.
+                                <strong>{{ __('foriegn.get_quote.thank_you') }}</strong> {{ __('foriegn.get_quote.thank_you_msg') }}
                             </div>
                             @endif
                             <form class="quote-form mb-20" wire:submit.prevent="submitServiceRequest">
                                 <div class="email-input">
-                                    <label class="input-title">Phone Number</label>
-                                    <input type="text" wire:model.live="servicePhone" placeholder="enter your phone number" required>
+                                    <label class="input-title">{{ __('foriegn.get_quote.phone_label') }}</label>
+                                    <input type="text" wire:model.live="servicePhone" placeholder="{{ __('foriegn.get_quote.phone_placeholder') }}" required>
                                     @error('servicePhone') <span class="text-danger small">{{ $message }}</span> @enderror
                                 </div>
                                 <div class="email-input">
-                                    <label class="input-title">Email</label>
-                                    <input type="email" wire:model.live="serviceEmail" placeholder="enter your email">
+                                    <label class="input-title">{{ __('foriegn.get_quote.email_label') }}</label>
+                                    <input type="email" wire:model.live="serviceEmail" placeholder="{{ __('foriegn.get_quote.email_placeholder') }}">
                                     @error('serviceEmail') <span class="text-danger small">{{ $message }}</span> @enderror
                                 </div>
                                 <div class="choice-list mb-20">
                                     <div class="row">
                                         <div class="col-12">
-                                            <span class="input-title pl-20">Service</span>
+                                            <span class="input-title pl-20">{{ __('foriegn.get_quote.service_label') }}</span>
                                             <select class="select-product" wire:model.live="serviceType" required>
-                                                <option value="">Select a service</option>
+                                                <option value="">{{ __('foriegn.get_quote.service_placeholder') }}</option>
                                                 <option value="Business Setup & India Entry">Business Setup & India Entry</option>
                                                 <option value="Regulatory & FEMA Advisory">Regulatory & FEMA Advisory</option>
                                                 <option value="Intellectual Property Rights (IPR)">Intellectual Property Rights (IPR)</option>
@@ -1425,7 +1334,7 @@
                                     </div>
                                     @error('serviceType') <span class="text-danger small">{{ $message }}</span> @enderror
                                 </div>
-                                <button type="submit" class="q-btn-lg">Send Query</button>
+                                <button type="submit" class="q-btn-lg">{{ __('foriegn.get_quote.submit_btn') }}</button>
                             </form>
                         </div>
                     </div>
@@ -1448,7 +1357,7 @@
                                 <div class="col-xl-6">
                                     <div class="testimonial-text-wrapper mb-30">
                                         <div class="section-title section-title-3 text-center">
-                                            <h3 class="mb-25">Check what's client say <span class="highlight-text" style="color:#ff1f1f">about us</span></h3>
+                                            <h3 class="mb-25">{!! __('foriegn.testimonials.title_html') !!}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -1485,7 +1394,7 @@
                                         <div class="quote-icon">
                                             <img src="{{ asset('assets/img/icon/quote-gray.svg') }}" alt="">
                                         </div>
-                                        <h4 class="sub-title mb-25">No testimonials available.</h4>
+                                        <h4 class="sub-title mb-25">{{ __('foriegn.testimonials.no_testimonials') }}</h4>
                                         <h5 class="mb-10">-</h5>
                                         <h6>-</h6>
                                     </div>
@@ -1496,7 +1405,7 @@
 
                         <div class="col-lg-9">
                             <div class="d-flex justify-content-center pt-5 text-center mt-4">
-                                <a href="contact.html" class="theme_btn sub-btn">Go to Blog →</a>
+                                <a href="{{route('blogs',['locale' => app()->getLocale()])}}" class="theme_btn sub-btn">{{ __('foriegn.testimonials.go_to_blog') }}</a>
                             </div>
                         </div>
 
@@ -1510,12 +1419,12 @@
                 <div class="row align-items-center mb-70">
                     <div class="col-lg-6 col-md-8">
                         <div class="section-title section-title-3 text-center text-md-left mb-30">
-                            <h3>Get latest Blog from Pratham <span class="highlight-text" style="color:#ff1f1f"> legals.</span></h3>
+                            <h3>{!! __('foriegn.blog.title_html') !!}</h3>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-4">
                         <div class="view-more text-center text-md-right mb-30">
-                            <a href="{{ route('blogs',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">Go to Blog</a>
+                            <a href="{{ route('blogs',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn2">{{ __('foriegn.blog.btn_text') }}</a>
                         </div>
                     </div>
                 </div>
@@ -1529,13 +1438,13 @@
                             <div class="blogs__content">
                                 <span class="date-tag mb-25">{{ $blog['created_at']->format('d M, Y') }}</span>
                                 <h3 class="blog-title mb-15"><a href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">{{ Str::limit($blog['title'], 60) }}</a></h3>
-                                <a class="blog-btn" href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">Continue Reading <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
+                                <a class="blog-btn" href="{{ route('blog.view', ['locale' => app()->getLocale(), 'slug' => $blog['slug']]) }}">{{ __('foriegn.blog.continue_reading') }} <img src="{{ asset('assets/img/icon/chevron.svg') }}" alt=""></a>
                             </div>
                         </div>
                     </div>
                     @empty
                     <div class="col-12">
-                        <p class="text-center">No blogs available at the moment.</p>
+                        <p class="text-center">{{ __('foriegn.blog.no_blogs') }}</p>
                     </div>
                     @endforelse
                 </div>
@@ -1553,10 +1462,10 @@
                         <div class="col-xl-10">
                             <div class="subscribe-wrapper">
                                 <div class="section-title section-title-3 text-center">
-                                    <h3 class="mb-25 wow fadeInUp2 animated" data-wow-delay="0.1s">Ready to Get Started? It’s Just .<span class="highlight-text" style="color:#ff1f1f">one click</span></h3>
-                                    <h4 class="sub-title mb-40 wow fadeInUp2 animated" data-wow-delay="0.3s">Incorporate your company with expert-led guidance transparent, compliant, and hassle-free.</h4>
-                                    <a href="#" class="theme_btn theme_btn2 sub-btn wow fadeInUp2 animated" data-wow-delay="0.5s">Start Registration</a>
-                                </div>
+                                        <h3 class="mb-25 wow fadeInUp2 animated" data-wow-delay="0.1s">{!! __('foriegn.footer_cta.title_html') !!}</h3>
+                                        <h4 class="sub-title mb-40 wow fadeInUp2 animated" data-wow-delay="0.3s">{{ __('foriegn.footer_cta.subtitle') }}</h4>
+                                        <a href="#" class="theme_btn theme_btn2 sub-btn wow fadeInUp2 animated" data-wow-delay="0.5s">{{ __('foriegn.footer_cta.btn_text') }}</a>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -1573,7 +1482,7 @@
                 <div class="modal-title">
                     <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="icon" style="height:28px;margin-right:10px;" />
                     <div>
-                        <h4>Get Started</h4>
+                        <h4>{{ __('foriegn.modal.get_started') }}</h4>
                         <small class="muted">{{ $planName ?? 'Plan' }}</small>
                     </div>
                 </div>
@@ -1584,29 +1493,29 @@
                 <div class="alert alert-success">{{ session('success') }}</div>
                 @endif
                 <div class="form-row">
-                    <label class="input-label">Name</label>
-                    <input type="text" wire:model.defer="name" class="custom-form-control" placeholder="Enter Your full name" />
+                    <label class="input-label">{{ __('foriegn.modal.name_label') }}</label>
+                    <input type="text" wire:model.defer="name" class="custom-form-control" placeholder="{{ __('foriegn.modal.name_placeholder') }}" />
                     @error('name') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
                 <div class="form-row">
-                    <label class="input-label">Email</label>
-                    <input type="email" wire:model.defer="email" class="custom-form-control" placeholder="Enter your Email" />
+                    <label class="input-label">{{ __('foriegn.modal.email_label') }}</label>
+                    <input type="email" wire:model.defer="email" class="custom-form-control" placeholder="{{ __('foriegn.modal.email_placeholder') }}" />
                     @error('email') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
                 <div class="form-row">
-                    <label class="input-label">Selected Plan</label>
-                    <input type="text" wire:model.defer="planName" class="custom-form-control" style="font-weight:bold" placeholder="Selected Plan" readonly />
+                    <label class="input-label">{{ __('foriegn.modal.plan_label') }}</label>
+                    <input type="text" wire:model.defer="planName" class="custom-form-control" style="font-weight:bold" placeholder="{{ __('foriegn.modal.plan_placeholder') }}" readonly />
                     @error('planName') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
                 <div class="form-row">
-                    <label class="input-label">Phone</label>
-                    <input type="text" wire:model.defer="phone" class="custom-form-control" placeholder="Enter Your Phone Number" />
+                    <label class="input-label">{{ __('foriegn.modal.phone_label') }}</label>
+                    <input type="text" wire:model.defer="phone" class="custom-form-control" placeholder="{{ __('foriegn.modal.phone_placeholder') }}" />
                     @error('phone') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
             </div>
             <div class="custom-modal-footer">
-                <button type="button" wire:click="saveRegistration" class="theme_btn">Get Started</button>
-                <button type="button" wire:click="$set('showModal', false)" class="theme_btn border-btn">Cancel</button>
+                <button type="button" wire:click="saveRegistration" class="theme_btn">{{ __('foriegn.modal.submit_btn') }}</button>
+                <button type="button" wire:click="$set('showModal', false)" class="theme_btn border-btn">{{ __('foriegn.modal.cancel_btn') }}</button>
             </div>
         </div>
     </div>
@@ -1617,10 +1526,10 @@
         <div class="custom-modal-backdrop" wire:click="$set('showThanksModal', false)"></div>
         <div class="custom-modal-card small">
             <div class="thanks-icon">✓</div>
-            <h4 class="thanks-title">Thanks we will contact you shortly.</h4>
-            <p class="muted">Our team will reach out to the email or phone you provided.</p>
+            <h4 class="thanks-title">{{ __('foriegn.modal.thanks_title') }}</h4>
+            <p class="muted">{{ __('foriegn.modal.thanks_subtitle') }}</p>
             <div style="margin-top:14px;">
-                <button type="button" wire:click="$set('showThanksModal', false)" class="theme_btn">Close</button>
+                <button type="button" wire:click="$set('showThanksModal', false)" class="theme_btn">{{ __('foriegn.modal.close_btn') }}</button>
             </div>
         </div>
     </div>
@@ -1631,10 +1540,10 @@
         <div class="custom-modal-backdrop" wire:click="$set('showPendingModal', false)"></div>
         <div class="custom-modal-card small">
             <div class="thanks-icon" style="background:#fff4e8;color:#ff8a1f">…</div>
-            <h4 class="thanks-title">We are working on your request</h4>
-            <p class="muted">It looks like you already submitted a request for <strong>Your Selected Plan </strong> and it's being processed. Please be patient; we'll notify you once it's complete.</p>
+            <h4 class="thanks-title">{{ __('foriegn.modal.pending_title') }}</h4>
+            <p class="muted">{!! __('foriegn.modal.pending_subtitle') !!}</p>
             <div style="margin-top:14px;">
-                <button type="button" wire:click="$set('showPendingModal', false)" class="theme_btn">Okay</button>
+                <button type="button" wire:click="$set('showPendingModal', false)" class="theme_btn">{{ __('foriegn.modal.okay_btn') }}</button>
             </div>
         </div>
     </div>
