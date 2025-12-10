@@ -54,9 +54,14 @@ return [
             'features_title' => 'Perfect for new business setup:',
             'features' => [
                 'Company Incorporation under MCA V3 (Private Limited / LLP / OPC)',
-                'DIN & DSC for Two Directors',
-                'Name Reservation SPICe+ RUN Form',
-                'Drafting and filing under Companies Act, 2013',
+                'DIN & DSC for Two Directors (Digital Signatures and Director Identification Numbers)',
+                'Name Reservation (SPICe+ RUN Form under MCA V3)',
+                'MOA, AOA & Incorporation Certificate',
+                'PAN & TAN Allotment',
+                'Post-Incorporation Documentation',
+                'Assistance in Bank Account Opening',
+                'Dedicated CS Support'
+              
             ],
         ],
         
