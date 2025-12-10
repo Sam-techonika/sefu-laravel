@@ -16,7 +16,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-6 col-lg-8">
                             <div class="slider__content slider__content-3 text-center text-md-left pt-325">
-                                <h1 class="main-title wow fadeInUp2 animated mb-40 " data-wow-delay=".1s">{{ __('home.hero_main_title') }}</h1>
+                                <h1 class="main-title wow fadeInUp2 animated mb-40 " data-wow-delay=".1s">{!!__('home.hero_main_title') !!}</h1>
                                 <h4 class="sub-title wow fadeInUp2 animated mb-50" data-wow-delay=".3s">{{ __('home.hero_subtitle') }}</h4>
                                 <ul class="btn-list d-sm-flex align-items-center wow fadeInUp2 animated mb-35" data-wow-delay=".5s">
                                     <li>
@@ -95,7 +95,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="section-title section-title-4 text-center wow fadeInUp2 animated mb-125" data-wow-delay='.1s'>
-                            <h3 class="pr-30 pl-30 mb-0 pl-lg-0 pr-lg-0 pl-xs-0 pr-xs-0">{{ __('home.services_title') }}</h3>
+                         {!! __('home.services_title') !!}
                             <h4 class="sub-title">{{ __('home.services_subtitle') }}</h4>
                         </div>
                     </div>

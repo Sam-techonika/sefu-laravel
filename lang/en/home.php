@@ -2,7 +2,7 @@
 
 return [
     // Hero Section
-    'hero_main_title' => 'Start Smart & Succeed Legally.',
+    'hero_main_title' => ' <h1 class="main-title wow fadeInUp2 animated mb-40 " data-wow-delay=".1s">Start Smart & <span class="round-line">Succeed</span>  Legally.</h1>',
     'hero_subtitle' => 'Helping you build and grow your business with clarity, compliance, and confidence.',
     'hero_rating_text' => 'as rated by clients who trust us for incorporation, compliance, and legal support',
 
@@ -15,7 +15,7 @@ return [
     'status_transparent_subtitle' => 'Fixed fees. No hidden costs.',
 
     // Services Section
-    'services_title' => 'Client Success Is Our Goal.',
+    'services_title' => '<h3 class="pr-30 pl-30 mb-0 pl-lg-0 pr-lg-0 pl-xs-0 pr-xs-0">Client Success<span class="round-line"> Is Our</span>Goal.</h3>',
     'services_subtitle' => 'To provide expert legal and compliance solutions for growing businesses.',
     
     // Service Items
