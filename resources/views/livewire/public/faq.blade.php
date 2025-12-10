@@ -6,18 +6,18 @@
                 <div class="row align-items-center">
                     <div class="col-lg-7">
                         <div class="page-title-wrapper page-title-blog">
-                            <h1 class="page-title mb-35"><span class="round-line">Find</span> answers here.</h1>
+                            <h1 class="page-title mb-35">{!! __('faq.title_html') !!}</h1>
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="page-title-wrapper pl-45 pl-lg-0 pl-md-0 pl-xs-0">
-                           <h4 class="sub-title mb-35">Excepteur sint occaecat cupidat non sunt in culpa qui officia desrunt molli test laborum.</h4>
+                           <h4 class="sub-title mb-35">{{ __('faq.subtitle') }}</h4>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="widget-search-content faq-que-search mt-20">
                             <form class="subscribe-form" wire:submit.prevent="search">
-                                <input type="text" placeholder="Search here..." wire:model.debounce.live.500ms="searchQuery">
+                                <input type="text" placeholder="{{ __('faq.search_placeholder') }}" wire:model.debounce.live.500ms="searchQuery">
                                 <button type="submit" class="search-icon"><i class="far fa-search"></i></button>
                             </form>
                         </div>
@@ -88,9 +88,9 @@
                     @else
                         <div class="col-lg-12">
                             <div class="text-center">
-                                <h3>{{ $searchQuery ? 'No FAQs found matching your search.' : 'No FAQs available at the moment.' }}</h3>
+                                <h3>{{ $searchQuery ? __('faq.no_search_results') : __('faq.no_faqs') }}</h3>
                                 @if($searchQuery)
-                                    <button wire:click="$set('searchQuery', '')" class="theme_btn mt-3">Clear Search</button>
+                                    <button wire:click="$set('searchQuery', '')" class="theme_btn mt-3">{{ __('faq.clear_search') }}</button>
                                 @endif
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                     
                     <div class="col-lg-12">
                         <div class="get-answer text-center mt-50">
-                            <h3>Don't find your answer?</h3>
+                            <h3>{{ __('faq.dont_find_answer') }}</h3>
                             <a href="{{ route('contact', ['locale' => app()->getLocale()]) }}" class="theme_btn faq-btn">{{ __('button.contact_us') }}</a>
                         </div>
                     </div>
