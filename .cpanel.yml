@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home3/mobiyuln/prathamlegal.com/
+    - export DEPLOYPATH=/home/technldjy/legal.smartadvagency.com
     - /bin/cp -R * $DEPLOYPATH 
