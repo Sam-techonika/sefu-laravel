@@ -169,7 +169,7 @@
                     <div class="col-lg-7">
                         <div class="do-wrapper text-center text-md-left mb-30">
                             <div class="section-title section-title-4 pr-70 pr-lg-0 pr-md-0 pr-xs-0">
-                                <h3>{{ __('home.trusted_founders_title') }}</h3>
+                                <h3>{!! __('home.trusted_founders_title') !!}</h3>
                             </div>
                         </div>
                     </div>
@@ -249,7 +249,7 @@
                     <div class="col-lg-6 col-md-12">
                         <div class="fact-wrapper mb-30">
                             <div class="section-title section-title-4 text-center text-md-left">
-                                <h3 class="mb-20">{{ __('home.clarity_title') }}</h3>
+                                <h3 class="mb-20">{!! __('home.clarity_title') !!}</h3>
                                 <h4 class="sub-title-2 mb-40">{{ __('home.clarity_description_1') }}</h4>
                                 <h4 class="sub-title-2 mb-55">{{ __('home.clarity_description_2') }}</h4>
                                 <a href="{{ route('contact',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">{{ __('button.book_consultation') }}</a>
@@ -268,7 +268,7 @@
                     <div class="col-lg-8">
                         <div class="testimonial-text-wrapper mb-30">
                             <div class="section-title section-title-4 text-center pr-90 pl-90">
-                                <h3 class="mb-30">{{ __('home.testimonials_title') }}</h3>
+                                <h3 class="mb-30">{!! __('home.testimonials_title') !!}</h3>
                                 <h4 class="sub-title-3 mb-95">{{ __('home.testimonials_subtitle') }}</h4>
                             </div>
                         </div>
@@ -300,7 +300,7 @@
                     <div class="col-lg-6">
                         <div class="faq-title-wrapper mb-30 pr-40 pr-xs-0">
                             <div class="section-title section-title-4 text-center text-md-left">
-                                <h3 class="mb-25">{{ __('home.faq_title') }}</h3>
+                                <h3 class="mb-25">{!! __('home.faq_title') !!}</h3>
                                 <h5>{{ __('home.faq_subtitle') }}</h5>
                                 <a href="{{ route('faq',['locale' => app()->getLocale()]) }}" class="theme_btn theme_btn3">{{ __('home.faq_button_text') }}</a>
                             </div>
@@ -447,7 +447,7 @@
                         <div class="col-xl-6 col-lg-6 col-md-12">
                             <div class="quote-wrapper mb-30">
                                 <div class="section-title section-title-4 text-center text-md-left">
-                                    <h3 class="mb-20">{{ __('home.build_business_title') }}</h3>
+                                    <h3 class="mb-20">{!! __('home.build_business_title') !!}</h3>
                                     <h5 class="mb-45">{{ __('home.build_business_subtitle') }}</h5>
                                     <p>{{ __('home.need_quick_help') }}</p>
                                     <span class="number"><b>{{ __('home.call_label') }}</b> <a href="tel:{{ setting('phone_number', '+91-9821008011') }}">{{ setting('phone_number', '+91-9821008011') }}</a></span>
@@ -503,7 +503,7 @@
                         <div class="col-lg-8">
                             <div class="subscribe-wrapper">
                                 <div class="section-title section-title-4 text-center text-md-left mb-30">
-                                    <h3 class="mb-10">{{ __('home.subscribe_title') }}</h3>
+                                    <h3 class="mb-10">{!! __('home.subscribe_title') !!}</h3>
                                 </div>
                             </div>
                         </div>

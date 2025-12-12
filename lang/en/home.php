@@ -34,7 +34,7 @@ return [
     'services_cta_text' => 'Complete legal and regulatory support for foreign investors.',
 
     // What We Do Section
-    'trusted_founders_title' => 'Trusted by founders across India.',
+    'trusted_founders_title' => '<span class="round-line">Trusted</span> by founders across India.',
     'trusted_founders_subtitle' => 'We manage everything,company registration, compliance, documentation & regulatory filings.',
     
     'law_powers_growth_title' => 'Where Law Powers Growth.',
@@ -51,16 +51,16 @@ return [
     'clients_across_india' => 'Clients Across India & Abroad',
     'compliance_accuracy' => 'Compliance Accuracy',
     
-    'clarity_title' => 'Clear. Clarity. Confidence.',
+    'clarity_title' => 'Clear. <span class="round-line">Clarity</span>. Confidence.',
     'clarity_description_1' => 'Things change fast in business — laws, rules, and markets. At Pratham Legal, you\'ll always find real professionals, not bots, guiding you through every compliance, investment, or regulatory challenge.',
     'clarity_description_2' => 'We aim to respond to every query in under 15 minutes — because expert advice should never keep you waiting.',
 
     // Testimonials Section
-    'testimonials_title' => 'Our clients don\'t just work with us — they partner with us.',
+    'testimonials_title' => '<span class="round-line">Our clients</span> don\'t just work with us — they partner with us.',
     'testimonials_subtitle' => 'just work with us — they partner with us.',
 
     // FAQ Section
-    'faq_title' => 'Find your all All Legal & Questions',
+    'faq_title' => 'Find your all <span class="round-line"> All Legal </span> & Questions',
     'faq_subtitle' => 'For more information, please visit our Help Center. or browse common queries in our FAQs section.',
     'faq_button_text' => 'Go to Faq\'s',
     
@@ -94,7 +94,7 @@ return [
     'been_here_before' => 'Been here before?',
     'questions_call_team' => 'Questions? Call our team at',
     
-    'build_business_title' => 'Let\'s build your business the right way.',
+    'build_business_title' => 'Let\'s build your <span class="round-line">business</span> the right way.',
     'build_business_subtitle' => 'We understand how complex laws can be — that\'s why real professionals, not bots, handle every query personally.',
     'need_quick_help' => 'Need quick help?',
     'call_label' => 'call:',
@@ -106,7 +106,7 @@ return [
     'blog_no_blogs' => 'No blogs available at the moment.',
 
     // Subscribe Section
-    'subscribe_title' => 'Book a Consultation Now',
+    'subscribe_title' => 'Book a <span class="round-line">Consultation</span> Now',
 
     // Service Options
     'service_business_setup' => 'Business Setup & India Entry',
