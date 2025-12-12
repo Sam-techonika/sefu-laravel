@@ -6,7 +6,8 @@ return [
         'card_quick' => 'तेज़, आसान और बिना किसी झंझट के',
         'card_save' => 'हमारी सभी पॉलिसियों में 50% तक बचत करें।',
         'card_learn' => 'और जानें',
-        'title_html' => 'Protect Your Brand.<span style="color:#ff1f1f">build </span> Your Legacy',
+        'title_html' => 'अपने ब्रांड की रक्षा करें।
+<span style="color:#ff1f1f">अपनी पहचान बनाएं</span> और अपनी विरासत गढ़ें।',
         'subtitle' => 'योग्य लीगल और IP प्रोफेशनल्स द्वारा संचालित — हम आपके नाम, लोगो और क्रिएटिव एसेट्स को सटीकता और गति के साथ सुरक्षित करते हैं।',
         'email_label' => 'ईमेल पता',
         'email_placeholder' => 'prashant@prathamlegal.com',
@@ -249,4 +250,3 @@ return [
     ],
 
 ];
-

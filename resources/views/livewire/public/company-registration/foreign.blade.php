@@ -9,15 +9,15 @@
                             <div class="icon">
                                 <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
                             </div>
-                            <p>Quick, easy and hassle free</p>
+                            <p>{{ __('foriegn.slider.quick_easy') }}</p>
                         </div>
                         <div class="slider-card card-2">
                             <div class="icon">
                                 <img src="{{ asset('assets/img/icon/icon16.svg') }}" alt="">
                             </div>
                             <div class="slider-text">
-                                <h5>Save up to 50% in our all policy.</h5>
-                                <span>Learn MORE</span>
+                                 <h5>{{ __('foriegn.slider.save_policy') }}</h5>
+                                <span>{{ __('foriegn.slider.learn_more') }}</span>
                             </div>
                         </div>
                     </div>
@@ -25,8 +25,8 @@
                         <div class="row align-items-center">
                             <div class="col-xl-6 col-lg-8">
                                 <div class="slider__content slider__content-2 text-left">
-                                    <h1 class="main-title mb-35" data-animation="fadeInUp2" data-delay=".2s">Expand Into <span style="color:#ff1f1f">india </span> With Confidence</h1>
-                                    <h3>Led by experienced Company Secretaries and FEMA experts who make foreign company setup, RBI filings, and compliance completely seamless.</h3>
+                                    <h1 class="main-title mb-35" data-animation="fadeInUp2" data-delay=".2s">{!! __('foriegn.slider.main_title_html') !!}</h1>
+                                    <h3>{{ __('foriegn.slider.subtitle') }}</h3>
                                     <ul class="input-box mt-70">
                                         <li>
                                             <form class="hero-form">
